@@ -1,0 +1,90 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<?php use Phalcon\Tag; ?>
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+    <div class="panel panel-primary" style=" border: 1px solid blue; background-color: blue; margin: 2%;">
+            <h4 style="margin: -1%; padding: 1%;margin-bottom: -2%;color: white;">Tìm kiếm</h4>
+        <div class="widget-box">
+            <div class="widget-content nopadding" style="margin-bottom: -2%;">
+                <?php
+                echo $this->tag->form(
+                    [
+                        "backend/department/index",
+                        "autocomplete" => "off",
+                        "class" => "form-horizontal",
+                        "id" => "search_dep"
+                    ]
+                );
+                ?>
+                <div class="control-group">
+                    <label class="control-label">Mã bộ phận :</label>
+                    <div class="controls">
+                        <?php echo $this->tag->textField(["id", "type" => "number", "class" => "form-control", "id" => "fieldId"]) ?>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Tên bộ phận :</label>
+                    <div class="controls">
+                        <?php echo $this->tag->textField(["department_name", "size" => 30, "class" => "form-control", "id" => "fieldDepartmentName"]) ?>
+                    </div>
+                </div>
+                <div class="hidden">
+                    <label class="control-label"></label>
+                    <div class="controls">
+                        <?php echo $this->tag->submitButton(["Save", "class" => "hidden" ,  "id" => "submit-form"]) ?>
+                    </div>
+                </div>
+                <?php echo $this->tag->endForm(); ?>
+                <div class="control-group" style="margin-top: 6% ; margin-right: 2%">
+                    <label class="control-label"></label>
+                    <div class="controls" style="float: right; margin-top: -5%;">
+                        <button form="search_dep" class="btn btn-info icon-search"><span class="glyphicon glyphicon-remove-circle"></span> Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="panel-body">
+
+    <div class="col-lg-12" style="padding-left: 0; padding-right: 0;" >
+        <div class="pull-right"><?php echo $this->tag->linkTo(["backend/department/new", ' <button class="btn btn-success"  style="margin-bottom: 5%;"><span class="glyphicon glyphicon-user"></span> Add New Department</button>']); ?>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered ">
+            <tbody><tr>
+                <th>Mã bộ phận</th>
+                <th>Tên bộ phận</th>
+
+            </tr>
+            <?php foreach ($page->items as $department): ?>
+                <tr>
+                    <td><?php echo $this->tag->linkTo(["backend/department/edit/" . $department->id, $department->id ]); ?></td>
+                    <td><?php echo $department->department_name ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody></table>
+    </div>
+    <div class="col-lg-12 center">
+
+        <div style="overflow: hidden" class="paginationsa">
+            <ul style="float: right">
+                <?php echo \App\Library\Unit::showPagination($page->total_pages ,
+                    $page->current ,
+                    $page->before ,
+                    $page->next ,
+                    $page->last
+                ) ?>
+            </ul>
+        </div>
+    </div>
+</div>
