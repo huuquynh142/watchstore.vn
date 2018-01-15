@@ -6,18 +6,8 @@ use App\Models\DescriptionProduct;
 
 class DescriptionProductController extends ControllerBase
 {
-    /**
-     * Index action
-     */
-    public function indexAction()
-    {
-        $this->persistent->parameters = null;
-    }
 
-    /**
-     * Searches for description_product
-     */
-    public function searchAction()
+    public function indexAction()
     {
         $numberPage = 1;
         if ($this->request->isPost()) {
@@ -54,19 +44,12 @@ class DescriptionProductController extends ControllerBase
         $this->view->page = $paginator->getPaginate();
     }
 
-    /**
-     * Displays the creation form
-     */
     public function newAction()
     {
 
     }
 
-    /**
-     * Edits a description_product
-     *
-     * @param string $id
-     */
+
     public function editAction($id)
     {
         if (!$this->request->isPost()) {
@@ -92,9 +75,7 @@ class DescriptionProductController extends ControllerBase
         }
     }
 
-    /**
-     * Creates a new description_product
-     */
+
     public function createAction()
     {
         if (!$this->request->isPost()) {
@@ -132,10 +113,7 @@ class DescriptionProductController extends ControllerBase
         ]);
     }
 
-    /**
-     * Saves a description_product edited
-     *
-     */
+
     public function saveAction()
     {
 
@@ -189,11 +167,7 @@ class DescriptionProductController extends ControllerBase
         ]);
     }
 
-    /**
-     * Deletes a description_product
-     *
-     * @param string $id
-     */
+
     public function deleteAction($id)
     {
         $description_product = DescriptionProduct::findFirstByid($id);
