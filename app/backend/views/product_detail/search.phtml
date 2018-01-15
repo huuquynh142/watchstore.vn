@@ -1,0 +1,87 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<?php use Phalcon\Tag; ?>
+
+<div class="row">
+    <nav>
+        <ul class="pager">
+            <li class="previous"><?php echo $this->tag->linkTo(["product_detail/index", "Go Back"]); ?></li>
+            <li class="next"><?php echo $this->tag->linkTo(["product_detail/new", "Create "]); ?></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="page-header">
+    <h1>Search result</h1>
+</div>
+
+<?php echo $this->getContent(); ?>
+
+<div class="row">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+            <th>Product Of Name</th>
+            <th>Shell Of Material</th>
+            <th>Wire Of Material</th>
+            <th>Guarantee</th>
+            <th>Glasses</th>
+            <th>Shell Of Diameter</th>
+            <th>Shell Of Thickness</th>
+            <th>Water Of Resistant</th>
+            <th>Type</th>
+            <th>Is Of Electronic</th>
+            <th>Motor</th>
+            <th>Comment</th>
+
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($page->items as $product_detail): ?>
+            <tr>
+                <td><?php echo $product_detail->id ?></td>
+            <td><?php echo $product_detail->product_name ?></td>
+            <td><?php echo $product_detail->shell_material ?></td>
+            <td><?php echo $product_detail->wire_material ?></td>
+            <td><?php echo $product_detail->guarantee ?></td>
+            <td><?php echo $product_detail->glasses ?></td>
+            <td><?php echo $product_detail->shell_diameter ?></td>
+            <td><?php echo $product_detail->shell_thickness ?></td>
+            <td><?php echo $product_detail->water_resistant ?></td>
+            <td><?php echo $product_detail->type ?></td>
+            <td><?php echo $product_detail->is_electronic ?></td>
+            <td><?php echo $product_detail->motor ?></td>
+            <td><?php echo $product_detail->comment ?></td>
+
+                <td><?php echo $this->tag->linkTo(["product_detail/edit/" . $product_detail->id, "Edit"]); ?></td>
+                <td><?php echo $this->tag->linkTo(["product_detail/delete/" . $product_detail->id, "Delete"]); ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <div class="col-sm-1">
+        <p class="pagination" style="line-height: 1.42857;padding: 6px 12px;">
+            <?php echo $page->current, "/", $page->total_pages ?>
+        </p>
+    </div>
+    <div class="col-sm-11">
+        <nav>
+            <ul class="pagination">
+                <li><?php echo $this->tag->linkTo("product_detail/search", "First") ?></li>
+                <li><?php echo $this->tag->linkTo("product_detail/search?page=" . $page->before, "Previous") ?></li>
+                <li><?php echo $this->tag->linkTo("product_detail/search?page=" . $page->next, "Next") ?></li>
+                <li><?php echo $this->tag->linkTo("product_detail/search?page=" . $page->last, "Last") ?></li>
+            </ul>
+        </nav>
+    </div>
+</div>
