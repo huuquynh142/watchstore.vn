@@ -1,0 +1,50 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="row" style="margin-left: 2%;">
+    <nav>
+        <ul class="pager">
+            <li class="previous"><?php echo $this->tag->linkTo(["backend/department/index", "Go Back"]) ?></li>
+        </ul>
+    </nav>
+</div>
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="widget-title">
+            <h3 style="text-align: center;">Thêm mới</h3>
+        </div>
+        <div class="widget-box">
+
+            <div class="widget-content nopadding">
+                <div class="form-horizontal">
+                    <?php
+                    echo $this->tag->form(
+                        [
+                            "backend/department/create",
+                            "autocomplete" => "off",
+                            "class" => "form-horizontal"
+                        ]
+                    );
+                    ?>
+                    <div id="form-wizard-1" class="step">
+                    <div class="control-group">
+                        <label class="control-label">Tên sản phẩm :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["department_name", "size" => 30, "class" => "form-control", "id" => "fieldDepartmentName"]) ?>  </div>
+                    </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="span12">
+                            <?php echo $this->tag->submitButton(["Save", "class" => "btn btn-default" ,  "style" => "float: right ;margin: 1%;"]) ?>
+                        </div>
+                    </div>
+                    <?php echo $this->tag->endForm(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

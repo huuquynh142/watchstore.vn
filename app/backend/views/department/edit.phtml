@@ -1,0 +1,55 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="widget-title">
+            <h3 style="text-align: center;">Thông tin chi tiết</h3>
+        </div>
+        <div class="widget-box">
+
+            <div class="widget-content nopadding">
+                <?php
+                echo $this->tag->form(
+                    [
+                        "backend/department/save",
+                        "autocomplete" => "off",
+                        "class" => "form-horizontal",
+                        "id" => 'department_edit'
+                    ]
+                );
+                ?>
+                <div class="control-group">
+                    <label class="control-label">Mã bộ phận :</label>
+                    <div class="controls">
+                        <?php echo $this->tag->textField(["id" , 'readonly' => 'true' , "size" => 30, "class" => "form-control"]) ?>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Tên bộ phận :</label>
+                    <div class="controls">
+                        <?php echo $this->tag->textField(["department_name", "size" => 30, "class" => "form-control", "id" => "fieldDepartmentName"]) ?>
+                    </div>
+                </div>
+                <div class="hidden">
+                    <label class="control-label"></label>
+                    <div class="controls">
+                        <?php echo $this->tag->submitButton(["Save", "class" => "hidden" ,  "id" => "submit-form"]) ?>
+                       </div>
+                </div>
+                <?php echo $this->tag->endForm(); ?>
+                <div class="control-group" style="margin-top: 6% ; margin-right: 2%">
+                    <label class="control-label"></label>
+                    <div class="controls" style="float: right; margin-top: -5%;">
+                        <button form="department_edit" class="btn btn-success icon-ok"><span class="glyphicon glyphicon-remove-circle"></span> Save and List</button>
+                        <?php echo $this->tag->linkTo(["backend/department/index", '<button class="btn btn-info icon-list "><span class="glyphicon glyphicon-remove-circle"></span> List</button>']); ?>
+                        <?php echo $this->tag->linkTo(["backend/department/delete/" . $id, '<button class="btn btn-danger icon-remove "><span class="glyphicon glyphicon-remove-circle"></span> Delete</button>']); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
