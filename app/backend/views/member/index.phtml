@@ -4,102 +4,122 @@
  */
 ?>
 
-<div class="page-header">
-    <h1>
-        Search member
-    </h1>
-    <p>
-        <?php echo $this->tag->linkTo(["member/new", "Create member"]) ?>
-    </p>
-</div>
+<?php use Phalcon\Tag; ?>
 
-<?php echo $this->getContent() ?>
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="panel panel-primary" style=" border: 1px solid blue; background-color: blue; margin: 2%;">
+            <h4 style="margin: -1%; padding: 1%;margin-bottom: -2%;color: white;">Tìm kiếm</h4>
+            <div class="widget-box">
+                <div class="widget-content nopadding" style="margin-bottom: -2%;">
+                    <?php
+                    echo $this->tag->form(
+                        [
+                            "backend/member/index",
+                            "autocomplete" => "off",
+                            "class" => "form-horizontal",
+                            "id" => "search_member"
+                        ]
+                    );
+                    ?>
+                    <div class="control-group">
+                        <label class="control-label">Id :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["id", "type" => "number", "class" => "form-control", "id" => "fieldId"]) ?>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Name :</label>
+                        <div class="controls">
+                            <select name="fullname" id="fullname">
+                                <option value="">Choose..</option>
+                            <?php foreach ($page->items as $member): ?>
+                                <option value="<?php echo $member->fullname ?>"><?php echo $member->fullname ?></option>
+                            <?php endforeach; ?>
+                            </select>
 
-<?php
-    echo $this->tag->form(
-        [
-            "member/search",
-            "autocomplete" => "off",
-            "class" => "form-horizontal"
-        ]
-    );
-?>
-
-<div class="form-group">
-    <label for="fieldId" class="col-sm-2 control-label">Id</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["id", "type" => "number", "class" => "form-control", "id" => "fieldId"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldFullname" class="col-sm-2 control-label">Fullname</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["fullname", "size" => 30, "class" => "form-control", "id" => "fieldFullname"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldSex" class="col-sm-2 control-label">Sex</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["sex", "type" => "number", "class" => "form-control", "id" => "fieldSex"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldPhoneNumber" class="col-sm-2 control-label">Phone Of Number</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["phone_number", "size" => 30, "class" => "form-control", "id" => "fieldPhoneNumber"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldEmail" class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["email", "size" => 30, "class" => "form-control", "id" => "fieldEmail"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldPassword" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["password", "size" => 30, "class" => "form-control", "id" => "fieldPassword"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldNumberHits" class="col-sm-2 control-label">Number Of Hits</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["number_hits", "type" => "number", "class" => "form-control", "id" => "fieldNumberHits"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldAddress" class="col-sm-2 control-label">Address</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["address", "size" => 30, "class" => "form-control", "id" => "fieldAddress"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldAvatar" class="col-sm-2 control-label">Avatar</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["avatar", "size" => 30, "class" => "form-control", "id" => "fieldAvatar"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldCreatedAt" class="col-sm-2 control-label">Created</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["created_at", "size" => 30, "class" => "form-control", "id" => "fieldCreatedAt"]) ?>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Phone Number :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["phone_number", "size" => 30, "class" => "form-control", "id" => "fieldPhoneNumber"]) ?>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Email :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["email", "size" => 30, "class" => "form-control", "id" => "fieldEmail"]) ?>
+                        </div>
+                    </div>
+                    <div class="hidden">
+                        <label class="control-label"></label>
+                        <div class="controls">
+                            <?php echo $this->tag->submitButton(["Save", "class" => "hidden" ,  "id" => "submit-form"]) ?>
+                        </div>
+                    </div>
+                    <?php echo $this->tag->endForm(); ?>
+                    <div class="control-group" style="margin-top: 6% ; margin-right: 2%">
+                        <label class="control-label"></label>
+                        <div class="controls" style="float: right; margin-top: -5%;">
+                            <?php echo $this->tag->linkTo(["backend/member/index", '<button class="btn btn-info icon-repeat "><span class="glyphicon glyphicon-remove-circle"></span> Reset</button>']); ?>
+                            <button form="search_member" class="btn btn-info icon-search"><span class="glyphicon glyphicon-remove-circle"></span> Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        <?php echo $this->tag->submitButton(["Search", "class" => "btn btn-default"]) ?>
+<div class="panel-body">
+
+    <div class="col-lg-12" style="padding-left: 0; padding-right: 0;" >
+        <div class="pull-right"><?php echo $this->tag->linkTo(["backend/member/new", ' <button class="btn btn-success"  style="margin-bottom: 5%;"><span class="glyphicon glyphicon-user"></span> Add New Member</button>']); ?>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered ">
+            <tbody><tr >
+                <th>Id</th>
+                <th>Fullname</th>
+                <th>Sex</th>
+                <th>Phone Of Number</th>
+                <th>Email</th>
+                <th>Number Hits</th>
+                <th>Address</th>
+                <th>Avatar</th>
+
+            </tr>
+            <?php foreach ($page->items as $member): ?>
+                <tr>
+
+                    <td><?php echo $this->tag->linkTo(["backend/member/edit/" . $member->id, $member->id ]); ?></td>
+                    <td><?php echo $member->fullname ?></td>
+                    <td><?php echo $member->sex ? 'Nam' : 'Nữ' ?></td>
+                    <td><?php echo $member->phone_number ?></td>
+                    <td><?php echo $member->email ?></td>
+                    <td><?php echo $member->number_hits ?></td>
+                    <td><?php echo $member->address ?></td>
+                    <td><?php echo $this->tag->image(['public/img/'.$member->avatar , "alt" => " alt image " , "style" => "width: 100px;height: 100px;" ]) ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody></table>
+    </div>
+    <div class="col-lg-12 center">
+
+        <div style="overflow: hidden" class="paginationsa">
+            <ul style="float: right">
+                <?php echo \App\Library\Unit::showPagination($page->total_pages ,
+                    $page->current ,
+                    $page->before ,
+                    $page->next ,
+                    $page->last
+                ) ?>
+            </ul>
+        </div>
     </div>
 </div>
-
-<?php echo $this->tag->endForm(); ?>
