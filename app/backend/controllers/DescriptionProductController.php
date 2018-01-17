@@ -24,16 +24,6 @@ class DescriptionProductController extends ControllerBase
         $parameters["order"] = "id";
 
         $description_product = DescriptionProduct::find($parameters);
-        if (count($description_product) == 0) {
-            $this->flash->notice("The search did not find any description_product");
-
-            $this->dispatcher->forward([
-                "controller" => "description_product",
-                "action" => "index"
-            ]);
-
-            return;
-        }
 
         $paginator = new Paginator([
             'data' => $description_product,

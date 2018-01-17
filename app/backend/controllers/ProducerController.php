@@ -1,27 +1,19 @@
 <?php
 namespace Multiple\Backend\Controllers;
+use App\Models\Product;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
+use App\Models\Producer;
 
 
 class ProducerController extends ControllerBase
 {
-    /**
-     * Index action
-     */
-    public function indexAction()
-    {
-        $this->persistent->parameters = null;
-    }
 
-    /**
-     * Searches for producer
-     */
-    public function searchAction()
+    public function indexAction()
     {
         $numberPage = 1;
         if ($this->request->isPost()) {
-            $query = Criteria::fromInput($this->di, 'Producer', $_POST);
+            $query = Criteria::fromInput($this->di, Producer::class, $_POST);
             $this->persistent->parameters = $query->getParams();
         } else {
             $numberPage = $this->request->getQuery("page", "int");
@@ -34,16 +26,6 @@ class ProducerController extends ControllerBase
         $parameters["order"] = "id";
 
         $producer = Producer::find($parameters);
-        if (count($producer) == 0) {
-            $this->flash->notice("The search did not find any producer");
-
-            $this->dispatcher->forward([
-                "controller" => "producer",
-                "action" => "index"
-            ]);
-
-            return;
-        }
 
         $paginator = new Paginator([
             'data' => $producer,
@@ -54,19 +36,13 @@ class ProducerController extends ControllerBase
         $this->view->page = $paginator->getPaginate();
     }
 
-    /**
-     * Displays the creation form
-     */
+
     public function newAction()
     {
 
     }
 
-    /**
-     * Edits a producer
-     *
-     * @param string $id
-     */
+
     public function editAction($id)
     {
         if (!$this->request->isPost()) {
@@ -93,14 +69,10 @@ class ProducerController extends ControllerBase
             $this->tag->setDefault("phone_number", $producer->phone_number);
             $this->tag->setDefault("email", $producer->email);
             $this->tag->setDefault("website", $producer->website);
-            $this->tag->setDefault("created_at", $producer->created_at);
             
         }
     }
 
-    /**
-     * Creates a new producer
-     */
     public function createAction()
     {
         if (!$this->request->isPost()) {
@@ -113,14 +85,13 @@ class ProducerController extends ControllerBase
         }
 
         $producer = new Producer();
-        $producer->companyName = $this->request->getPost("company_name");
-        $producer->trademark = $this->request->getPost("trademark");
-        $producer->countryOfOrigin = $this->request->getPost("country_of_origin");
-        $producer->address = $this->request->getPost("address");
-        $producer->phoneNumber = $this->request->getPost("phone_number");
-        $producer->email = $this->request->getPost("email", "email");
-        $producer->website = $this->request->getPost("website");
-        $producer->createdAt = $this->request->getPost("created_at");
+        $producer->setCompanyName($this->request->getPost("company_name"));
+        $producer->setTrademark($this->request->getPost("trademark"));
+        $producer->setCountryOfOrigin($this->request->getPost("country_of_origin"));
+        $producer->setAddress($this->request->getPost("address"));
+        $producer->setPhoneNumber($this->request->getPost("phone_number"));
+        $producer->setEmail($this->request->getPost("email", "email"));
+        $producer->setWebsite($this->request->getPost("website"));
         
 
         if (!$producer->save()) {
@@ -144,10 +115,7 @@ class ProducerController extends ControllerBase
         ]);
     }
 
-    /**
-     * Saves a producer edited
-     *
-     */
+
     public function saveAction()
     {
 
@@ -181,7 +149,6 @@ class ProducerController extends ControllerBase
         $producer->phoneNumber = $this->request->getPost("phone_number");
         $producer->email = $this->request->getPost("email", "email");
         $producer->website = $this->request->getPost("website");
-        $producer->createdAt = $this->request->getPost("created_at");
         
 
         if (!$producer->save()) {
@@ -207,11 +174,7 @@ class ProducerController extends ControllerBase
         ]);
     }
 
-    /**
-     * Deletes a producer
-     *
-     * @param string $id
-     */
+
     public function deleteAction($id)
     {
         $producer = Producer::findFirstByid($id);

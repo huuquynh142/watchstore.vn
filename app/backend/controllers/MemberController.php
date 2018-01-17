@@ -25,16 +25,6 @@ class MemberController extends ControllerBase
         $parameters["order"] = "id";
 
         $member = Member::find($parameters);
-        if (count($member) == 0) {
-            $this->flash->notice("The search did not find any member");
-
-            $this->dispatcher->forward([
-                "controller" => "member",
-                "action" => "index"
-            ]);
-
-            return;
-        }
 
         $this->view->member = $member;
 
