@@ -4,95 +4,93 @@
  */
 ?>
 
-<div class="row">
-    <nav>
-        <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(["producer", "Back"]) ?></li>
-        </ul>
-    </nav>
-</div>
-
-<div class="page-header">
-    <h1>
-        Edit producer
-    </h1>
-</div>
-
 <?php echo $this->getContent(); ?>
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="widget-title">
+            <h3 style="text-align: center;">Thông tin chi tiết</h3>
+        </div>
+        <div class="widget-box">
 
-<?php
-    echo $this->tag->form(
-        [
-            "producer/save",
-            "autocomplete" => "off",
-            "class" => "form-horizontal"
-        ]
-    );
-?>
+            <div class="widget-content nopadding">
+                <?php
+                echo $this->tag->form(
+                    [
+                        "backend/producer/save",
+                        "autocomplete" => "off",
+                        "class" => "form-horizontal",
+                        "id" => 'producer_edit'
+                    ]
+                );
+                ?>
+                <div id="form-wizard-1" class="step">
 
-<div class="form-group">
-    <label for="fieldCompanyName" class="col-sm-2 control-label">Company Of Name</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["company_name", "size" => 30, "class" => "form-control", "id" => "fieldCompanyName"]) ?>
+                    <div class="control-group">
+                        <label class="control-label">Id :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["id" , 'readonly' => 'true' , "size" => 30, "class" => "form-control"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Company Name :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["company_name", "size" => 30, "class" => "form-control", "id" => "fieldCompanyName"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Trademark :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["trademark", "size" => 30, "class" => "form-control", "id" => "fieldTrademark"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Country Of Origin :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["country_of_origin", "size" => 30, "class" => "form-control", "id" => "fieldCountryOfOrigin"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Address :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["address", "size" => 30, "class" => "form-control", "id" => "fieldAddress"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Website :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["website", "size" => 30, "class" => "form-control", "id" => "fieldWebsite"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Phone Number :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["phone_number", "size" => 30, "class" => "form-control", "id" => "fieldPhoneNumber"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Email :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->emailField(["email", "size" => 30, "class" => "form-control", "id" => "fieldEmail"]) ?>
+                        </div>
+                    </div>
+                </div>
+                <?php echo $this->tag->endForm(); ?>
+                <div class="control-group" style="margin-top: 6% ; margin-right: 2%">
+                    <label class="control-label"></label>
+                    <div class="controls" style="float: right; margin-top: -5%;">
+                        <button form="producer_edit" class="btn btn-success icon-ok"><span class="glyphicon glyphicon-remove-circle"></span> Save and List</button>
+                        <?php echo $this->tag->linkTo(["backend/producer/index", '<button class="btn btn-info icon-list "><span class="glyphicon glyphicon-remove-circle"></span> List</button>']); ?>
+                        <?php echo $this->tag->linkTo(["backend/producer/delete/" . $id, '<button class="btn btn-danger icon-remove "><span class="glyphicon glyphicon-remove-circle"></span> Delete</button>']); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
-<div class="form-group">
-    <label for="fieldTrademark" class="col-sm-2 control-label">Trademark</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["trademark", "size" => 30, "class" => "form-control", "id" => "fieldTrademark"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldCountryOfOrigin" class="col-sm-2 control-label">Country Of Of Of Origin</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["country_of_origin", "size" => 30, "class" => "form-control", "id" => "fieldCountryOfOrigin"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldAddress" class="col-sm-2 control-label">Address</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["address", "size" => 30, "class" => "form-control", "id" => "fieldAddress"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldPhoneNumber" class="col-sm-2 control-label">Phone Of Number</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["phone_number", "size" => 30, "class" => "form-control", "id" => "fieldPhoneNumber"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldEmail" class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["email", "size" => 30, "class" => "form-control", "id" => "fieldEmail"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldWebsite" class="col-sm-2 control-label">Website</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["website", "size" => 30, "class" => "form-control", "id" => "fieldWebsite"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldCreatedAt" class="col-sm-2 control-label">Created</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["created_at", "size" => 30, "class" => "form-control", "id" => "fieldCreatedAt"]) ?>
-    </div>
-</div>
-
-
-<?php echo $this->tag->hiddenField("id") ?>
-
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        <?php echo $this->tag->submitButton(["Save", "class" => "btn btn-default"]) ?>
-    </div>
-</div>
-
-<?php echo $this->tag->endForm(); ?>

@@ -26,16 +26,16 @@ class DepartmentController extends ControllerBase
         $parameters["order"] = "id";
 
         $department = Department::find($parameters);
-        if (count($department) == 0) {
-            $this->flash->notice("The search did not find any department");
-
-            $this->dispatcher->forward([
-                "controller" => "department",
-                "action" => "index"
-            ]);
-
-            return;
-        }
+//        if (count($department) == 0) {
+//            $this->flash->notice("The search did not find any department");
+//
+//            $this->dispatcher->forward([
+//                "controller" => "department",
+//                "action" => "index"
+//            ]);
+//
+//            return;
+//        }
 
         $paginator = new Paginator([
             'data' => $department,
