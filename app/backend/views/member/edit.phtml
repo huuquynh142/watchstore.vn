@@ -4,102 +4,104 @@
  */
 ?>
 
-<div class="row">
-    <nav>
-        <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(["member", "Back"]) ?></li>
-        </ul>
-    </nav>
-</div>
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="widget-title">
+            <h3 style="text-align: center;">Thông tin chi tiết</h3>
+        </div>
+        <div class="widget-box">
 
-<div class="page-header">
-    <h1>
-        Edit member
-    </h1>
-</div>
+            <div class="widget-content nopadding">
+                <?php
+                echo $this->tag->form(
+                    [
+                        "backend/member/save",
+                        "autocomplete" => "off",
+                        "class" => "form-horizontal",
+                        "id" => 'member_edit'
+                    ]
+                );
+                ?>
+                <div id="form-wizard-1" class="step">
 
-<?php echo $this->getContent(); ?>
+                    <div class="control-group">
+                        <label class="control-label">Id :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["id" , 'readonly' => 'true' , "size" => 30, "class" => "form-control"]) ?>
+                        </div>
+                    </div>
 
-<?php
-    echo $this->tag->form(
-        [
-            "member/save",
-            "autocomplete" => "off",
-            "class" => "form-horizontal"
-        ]
-    );
-?>
+                    <div class="control-group">
+                        <label class="control-label">Fullname :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["fullname", "size" => 30, "class" => "form-control", "id" => "fieldFullname"]) ?>
+                        </div>
+                    </div>
 
-<div class="form-group">
-    <label for="fieldFullname" class="col-sm-2 control-label">Fullname</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["fullname", "size" => 30, "class" => "form-control", "id" => "fieldFullname"]) ?>
+                    <div class="control-group">
+                        <label class="control-label" style="margin-top: -5px">Sex :</label>
+                        <div class="controls">Nam
+                            <?php if ($sex){ ?>
+                                <?php echo $this->tag->radioField(["sex","checked" => "checked", "class" => "form-control" , "value " => "1" , "id" => "fieldSex" , "style" => "margin-top: 0px;"]) ?>
+                                Nữ
+                                <?php echo $this->tag->radioField(["sex", "class" => "form-control"  , "value " => "0" , "id" => "fieldSex" , "style" => "margin-top: 0px;"]) ?>
+                            <?php }else{ ?>
+                                <?php echo $this->tag->radioField(["sex", "class" => "form-control" , "value " => "1" , "id" => "fieldSex" , "style" => "margin-top: 0px;"]) ?>
+                                Nữ
+                                <?php echo $this->tag->radioField(["sex","checked" => "checked", "class" => "form-control"  , "value " => "0" , "id" => "fieldSex" , "style" => "margin-top: 0px;"]) ?>
+                            <?php } ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Phone Number :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["phone_number", "size" => 30, "class" => "form-control", "id" => "fieldPhoneNumber"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Email :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->EmailField(["email", "size" => 30, "class" => "form-control", "id" => "fieldEmail"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Password :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->PasswordField(["password", "size" => 30, "class" => "form-control", "id" => "fieldPassword"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Address :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["address", "size" => 30, "class" => "form-control", "id" => "fieldAddress"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Avatar :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->image(['public/img/avatar' , "alt" => " alt image " , "style" => "width: 100px;height: 100px;" ]) ?>
+                            <?php echo $this->tag->fileField(["avatar"]); ?>
+                            <?php echo $this->tag->hiddenField("imghine") ?>
+                        </div>
+                    </div>
+                </div>
+                    <?php echo $this->tag->endForm(); ?>
+                <div class="control-group" style="margin-top: 6% ; margin-right: 2%">
+                    <label class="control-label"></label>
+                    <div class="controls" style="float: right; margin-top: -5%;">
+                        <button form="member_edit" class="btn btn-success icon-ok"><span class="glyphicon glyphicon-remove-circle"></span> Save and List</button>
+                        <?php echo $this->tag->linkTo(["backend/member/index", '<button class="btn btn-info icon-list "><span class="glyphicon glyphicon-remove-circle"></span> List</button>']); ?>
+                        <?php echo $this->tag->linkTo(["backend/member/delete/" . $id, '<button class="btn btn-danger icon-remove "><span class="glyphicon glyphicon-remove-circle"></span> Delete</button>']); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="form-group">
-    <label for="fieldSex" class="col-sm-2 control-label">Sex</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["sex", "type" => "number", "class" => "form-control", "id" => "fieldSex"]) ?>
-    </div>
-</div>
 
-<div class="form-group">
-    <label for="fieldPhoneNumber" class="col-sm-2 control-label">Phone Of Number</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["phone_number", "size" => 30, "class" => "form-control", "id" => "fieldPhoneNumber"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldEmail" class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["email", "size" => 30, "class" => "form-control", "id" => "fieldEmail"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldPassword" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["password", "size" => 30, "class" => "form-control", "id" => "fieldPassword"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldNumberHits" class="col-sm-2 control-label">Number Of Hits</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["number_hits", "type" => "number", "class" => "form-control", "id" => "fieldNumberHits"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldAddress" class="col-sm-2 control-label">Address</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["address", "size" => 30, "class" => "form-control", "id" => "fieldAddress"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldAvatar" class="col-sm-2 control-label">Avatar</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["avatar", "size" => 30, "class" => "form-control", "id" => "fieldAvatar"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldCreatedAt" class="col-sm-2 control-label">Created</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["created_at", "size" => 30, "class" => "form-control", "id" => "fieldCreatedAt"]) ?>
-    </div>
-</div>
-
-
-<?php echo $this->tag->hiddenField("id") ?>
-
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        <?php echo $this->tag->submitButton(["Save", "class" => "btn btn-default"]) ?>
-    </div>
-</div>
-
-<?php echo $this->tag->endForm(); ?>

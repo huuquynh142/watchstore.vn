@@ -25,6 +25,7 @@ return new \Phalcon\Config([
         'libraryDir'     => BASE_PATH . '/library/',
         'cacheDir'       => BASE_PATH . '/cache/',
         'vendor'         => BASE_PATH . '/vendor/',
+        'logDir'       	 => BASE_PATH . '/log/',
 
 
         // This allows the baseUri to be understand project paths that are not in the root directory

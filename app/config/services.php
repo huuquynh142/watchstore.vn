@@ -12,7 +12,7 @@ use Phalcon\Flash\Direct as Flash;
  * Shared configuration service
  */
 $di->setShared('config', function () {
-    return include APP_PATH . "/config/config.php";
+    return include BASE_PATH . "/app/config/config.php";
 });
 
 /**
@@ -51,8 +51,8 @@ $di->setShared('view', function () {
             $volt = new VoltEngine($view, $this);
 
             $volt->setOptions([
-                'compiledPath' => $config->application->cacheDir,
-                'compiledSeparator' => '_'
+                'compiledPath' => '../cache/templates/',
+                'compiledSeparator' => '.compiled'
             ]);
 
             return $volt;
