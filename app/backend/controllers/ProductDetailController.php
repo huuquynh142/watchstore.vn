@@ -2,9 +2,10 @@
 namespace Multiple\Backend\Controllers;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
+use App\Models\ProductDetail;
 
 
-class ProductDetailController
+class ProductDetailController extends ControllerBase
 {
     /**
      * Index action
@@ -21,7 +22,7 @@ class ProductDetailController
     {
         $numberPage = 1;
         if ($this->request->isPost()) {
-            $query = Criteria::fromInput($this->di, 'ProductDetail', $_POST);
+            $query = Criteria::fromInput($this->di, ProductDetail::class, $_POST);
             $this->persistent->parameters = $query->getParams();
         } else {
             $numberPage = $this->request->getQuery("page", "int");
@@ -117,18 +118,18 @@ class ProductDetailController
         }
 
         $product_detail = new ProductDetail();
-        $product_detail->productName = $this->request->getPost("product_name");
-        $product_detail->shellMaterial = $this->request->getPost("shell_material");
-        $product_detail->wireMaterial = $this->request->getPost("wire_material");
-        $product_detail->guarantee = $this->request->getPost("guarantee");
-        $product_detail->glasses = $this->request->getPost("glasses");
-        $product_detail->shellDiameter = $this->request->getPost("shell_diameter");
-        $product_detail->shellThickness = $this->request->getPost("shell_thickness");
-        $product_detail->waterResistant = $this->request->getPost("water_resistant");
-        $product_detail->type = $this->request->getPost("type");
-        $product_detail->isElectronic = $this->request->getPost("is_electronic");
-        $product_detail->motor = $this->request->getPost("motor");
-        $product_detail->comment = $this->request->getPost("comment");
+        $product_detail->setProductName($this->request->getPost("product_name"));
+        $product_detail->setShellMaterial($this->request->getPost("shell_material"));
+        $product_detail->setWireMaterial($this->request->getPost("wire_material"));
+        $product_detail->setGuarantee($this->request->getPost("guarantee"));
+        $product_detail->setGlasses($this->request->getPost("glasses"));
+        $product_detail->setShellDiameter($this->request->getPost("shell_diameter"));
+        $product_detail->setShellThickness($this->request->getPost("shell_thickness"));
+        $product_detail->setWaterResistant($this->request->getPost("water_resistant"));
+        $product_detail->setType($this->request->getPost("type"));
+        $product_detail->setIsElectronic($this->request->getPost("is_electronic"));
+        $product_detail->setMotor($this->request->getPost("motor"));
+        $product_detail->setComment($this->request->getPost("comment"));
         
 
         if (!$product_detail->save()) {

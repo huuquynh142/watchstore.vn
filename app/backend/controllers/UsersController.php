@@ -2,26 +2,17 @@
 namespace Multiple\Backend\Controllers;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
+use App\Models\Users;
 
 
 class UsersController extends ControllerBase
 {
-    /**
-     * Index action
-     */
-    public function indexAction()
-    {
-        $this->persistent->parameters = null;
-    }
 
-    /**
-     * Searches for users
-     */
-    public function searchAction()
+    public function indexAction()
     {
         $numberPage = 1;
         if ($this->request->isPost()) {
-            $query = Criteria::fromInput($this->di, 'Users', $_POST);
+            $query = Criteria::fromInput($this->di, Users::class, $_POST);
             $this->persistent->parameters = $query->getParams();
         } else {
             $numberPage = $this->request->getQuery("page", "int");
@@ -34,16 +25,6 @@ class UsersController extends ControllerBase
         $parameters["order"] = "id";
 
         $users = Users::find($parameters);
-        if (count($users) == 0) {
-            $this->flash->notice("The search did not find any users");
-
-            $this->dispatcher->forward([
-                "controller" => "users",
-                "action" => "index"
-            ]);
-
-            return;
-        }
 
         $paginator = new Paginator([
             'data' => $users,
@@ -84,13 +65,12 @@ class UsersController extends ControllerBase
             }
 
             $this->view->id = $user->id;
+            $this->view->active = $user->active;
+            $this->view->is_admin = $user->is_admin;
 
             $this->tag->setDefault("id", $user->id);
             $this->tag->setDefault("username", $user->username);
             $this->tag->setDefault("password", $user->password);
-            $this->tag->setDefault("active", $user->active);
-            $this->tag->setDefault("is_admin", $user->is_admin);
-            $this->tag->setDefault("created_at", $user->created_at);
             
         }
     }
@@ -110,11 +90,10 @@ class UsersController extends ControllerBase
         }
 
         $user = new Users();
-        $user->username = $this->request->getPost("username");
-        $user->password = $this->request->getPost("password");
-        $user->active = $this->request->getPost("active");
-        $user->isAdmin = $this->request->getPost("is_admin");
-        $user->createdAt = $this->request->getPost("created_at");
+        $user->setUsername($this->request->getPost("username"));
+        $user->setPassword(md5($this->request->getPost("password")));
+        $user->setActive(isset($_POST['active']) ? 1 : 0);
+        $user->setIsAdmin(isset($_POST['is_admin']) ? 1 : 0);
         
 
         if (!$user->save()) {
@@ -169,10 +148,9 @@ class UsersController extends ControllerBase
         }
 
         $user->username = $this->request->getPost("username");
-        $user->password = $this->request->getPost("password");
-        $user->active = $this->request->getPost("active");
-        $user->isAdmin = $this->request->getPost("is_admin");
-        $user->createdAt = $this->request->getPost("created_at");
+        $user->password = md5($this->request->getPost("password"));
+        $user->active = isset($_POST['active']) ? 1 : 0;
+        $user->isAdmin = isset($_POST['is_admin']) ? 1 : 0;
         
 
         if (!$user->save()) {
