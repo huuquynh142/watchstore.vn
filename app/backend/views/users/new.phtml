@@ -4,72 +4,73 @@
  */
 ?>
 
-<div class="row">
+
+<div class="row" style="margin-left: 2%;">
     <nav>
         <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(["users", "Go Back"]) ?></li>
+            <li class="previous"><?php echo $this->tag->linkTo(["backend/users/index", "Go Back"]) ?></li>
         </ul>
     </nav>
 </div>
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="widget-title">
+            <h3 style="text-align: center;">Thêm mới</h3>
+        </div>
+        <div class="widget-box">
 
-<div class="page-header">
-    <h1>
-        Create users
-    </h1>
-</div>
+            <div class="widget-content nopadding">
+                <div class="form-horizontal">
+                    <?php
+                    echo $this->tag->form(
+                        [
+                            "backend/users/create",
+                            "autocomplete" => "off",
+                            "class" => "form-horizontal"
+                        ]
+                    );
+                    ?>
+                    <div id="form-wizard-1" class="step">
+                        <div class="control-group">
+                            <label class="control-label">Username :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->textField(["username", "size" => 30, "class" => "form-control", "id" => "fieldUsername"]) ?>
+                        </div>
+                    </div>
 
-<?php echo $this->getContent(); ?>
+                    <div id="form-wizard-1" class="step">
+                        <div class="control-group">
+                            <label class="control-label">Password :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->passwordField(["password", "size" => 30, "class" => "form-control", "id" => "fieldPassword"]) ?>
+                        </div>
+                    </div>
 
-<?php
-    echo $this->tag->form(
-        [
-            "users/create",
-            "autocomplete" => "off",
-            "class" => "form-horizontal"
-        ]
-    );
-?>
+                    <div id="form-wizard-1" class="step">
+                        <div class="control-group">
+                            <label class="control-label">Active :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->checkField ([ "active", "size" => 30, "class" => "form-control", "id" => "fieldActive"]) ?>
+                        </div>
+                    </div>
 
-<div class="form-group">
-    <label for="fieldUsername" class="col-sm-2 control-label">Username</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["username", "size" => 30, "class" => "form-control", "id" => "fieldUsername"]) ?>
+                    <div id="form-wizard-1" class="step">
+                        <div class="control-group">
+                            <label class="control-label">Is Admin :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->checkField (["is_admin", "size" => 30, "class" => "form-control", "id" => "fieldIsAdmin"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="span12">
+                            <?php echo $this->tag->submitButton(["Save", "class" => "btn btn-default" ,  "style" => "float: right ;margin: 1%;"]) ?>
+                        </div>
+                    </div>
+                    <?php echo $this->tag->endForm(); ?>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="form-group">
-    <label for="fieldPassword" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["password", "size" => 30, "class" => "form-control", "id" => "fieldPassword"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldActive" class="col-sm-2 control-label">Active</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["active", "type" => "number", "class" => "form-control", "id" => "fieldActive"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldIsAdmin" class="col-sm-2 control-label">Is Of Admin</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["is_admin", "type" => "number", "class" => "form-control", "id" => "fieldIsAdmin"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldCreatedAt" class="col-sm-2 control-label">Created</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["created_at", "size" => 30, "class" => "form-control", "id" => "fieldCreatedAt"]) ?>
-    </div>
-</div>
-
-
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        <?php echo $this->tag->submitButton(["Save", "class" => "btn btn-default"]) ?>
-    </div>
-</div>
-
-<?php echo $this->tag->endForm(); ?>
