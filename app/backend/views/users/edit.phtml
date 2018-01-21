@@ -52,9 +52,9 @@
                         <label class="control-label">Active :</label>
                         <div class="controls">
                             <?php if ($active){ ?>
-                                <td><?php echo $this->tag->checkField (["active" , "checked" => "checked" , "size" => 30, "class" => "form-control", "id" => "fieldActive"]) ?></td>
+                                <?php echo $this->tag->checkField (["active" , "checked" => "checked" , "size" => 30, "class" => "form-control", "id" => "fieldActive"]) ?>
                             <?php }else{ ?>
-                                <td><?php echo $this->tag->checkField (["active", "size" => 30, "class" => "form-control", "id" => "fieldActive"]) ?></td>
+                                <?php echo $this->tag->checkField (["active", "size" => 30, "class" => "form-control", "id" => "fieldActive"]) ?>
                             <?php } ?>
                         </div>
                     </div>
@@ -63,9 +63,9 @@
                         <label class="control-label">Is Admin :</label>
                         <div class="controls">
                             <?php if ($is_admin){ ?>
-                                <td><?php echo $this->tag->checkField (["is_admin" , "checked" => "checked" , "size" => 30, "class" => "form-control", "id" => "fieldIsAdmin"]) ?></td>
+                                <?php echo $this->tag->checkField (["is_admin" , "checked" => "checked" , "size" => 30, "class" => "form-control", "id" => "fieldIsAdmin"]) ?>
                             <?php }else{ ?>
-                                <td><?php echo $this->tag->checkField (["is_admin"  , "size" => 30, "class" => "form-control", "id" => "fieldIsAdmin"]) ?></td>
+                                <?php echo $this->tag->checkField (["is_admin"  , "size" => 30, "class" => "form-control", "id" => "fieldIsAdmin"]) ?>
                             <?php } ?>
                         </div>
                     </div>
