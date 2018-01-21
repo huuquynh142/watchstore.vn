@@ -7,18 +7,8 @@ use App\Models\ProductDetail;
 
 class ProductDetailController extends ControllerBase
 {
-    /**
-     * Index action
-     */
-    public function indexAction()
-    {
-        $this->persistent->parameters = null;
-    }
 
-    /**
-     * Searches for product_detail
-     */
-    public function searchAction()
+    public function indexAction()
     {
         $numberPage = 1;
         if ($this->request->isPost()) {
@@ -35,16 +25,6 @@ class ProductDetailController extends ControllerBase
         $parameters["order"] = "id";
 
         $product_detail = ProductDetail::find($parameters);
-        if (count($product_detail) == 0) {
-            $this->flash->notice("The search did not find any product_detail");
-
-            $this->dispatcher->forward([
-                "controller" => "product_detail",
-                "action" => "index"
-            ]);
-
-            return;
-        }
 
         $paginator = new Paginator([
             'data' => $product_detail,
@@ -55,19 +35,12 @@ class ProductDetailController extends ControllerBase
         $this->view->page = $paginator->getPaginate();
     }
 
-    /**
-     * Displays the creation form
-     */
+
     public function newAction()
     {
 
     }
 
-    /**
-     * Edits a product_detail
-     *
-     * @param string $id
-     */
     public function editAction($id)
     {
         if (!$this->request->isPost()) {
@@ -85,6 +58,7 @@ class ProductDetailController extends ControllerBase
             }
 
             $this->view->id = $product_detail->id;
+            $this->view->isElectronic = $product_detail->is_electronic;
 
             $this->tag->setDefault("id", $product_detail->id);
             $this->tag->setDefault("product_name", $product_detail->product_name);
@@ -96,16 +70,12 @@ class ProductDetailController extends ControllerBase
             $this->tag->setDefault("shell_thickness", $product_detail->shell_thickness);
             $this->tag->setDefault("water_resistant", $product_detail->water_resistant);
             $this->tag->setDefault("type", $product_detail->type);
-            $this->tag->setDefault("is_electronic", $product_detail->is_electronic);
             $this->tag->setDefault("motor", $product_detail->motor);
             $this->tag->setDefault("comment", $product_detail->comment);
             
         }
     }
 
-    /**
-     * Creates a new product_detail
-     */
     public function createAction()
     {
         if (!$this->request->isPost()) {
@@ -127,7 +97,7 @@ class ProductDetailController extends ControllerBase
         $product_detail->setShellThickness($this->request->getPost("shell_thickness"));
         $product_detail->setWaterResistant($this->request->getPost("water_resistant"));
         $product_detail->setType($this->request->getPost("type"));
-        $product_detail->setIsElectronic($this->request->getPost("is_electronic"));
+        $product_detail->setIsElectronic($this->request->getPost("is_electronic")? 1 : 0);
         $product_detail->setMotor($this->request->getPost("motor"));
         $product_detail->setComment($this->request->getPost("comment"));
         
@@ -153,10 +123,6 @@ class ProductDetailController extends ControllerBase
         ]);
     }
 
-    /**
-     * Saves a product_detail edited
-     *
-     */
     public function saveAction()
     {
 
@@ -192,7 +158,7 @@ class ProductDetailController extends ControllerBase
         $product_detail->shellThickness = $this->request->getPost("shell_thickness");
         $product_detail->waterResistant = $this->request->getPost("water_resistant");
         $product_detail->type = $this->request->getPost("type");
-        $product_detail->isElectronic = $this->request->getPost("is_electronic");
+        $product_detail->isElectronic = $this->request->getPost("is_electronic") ? 1 : 0;
         $product_detail->motor = $this->request->getPost("motor");
         $product_detail->comment = $this->request->getPost("comment");
         
@@ -220,11 +186,7 @@ class ProductDetailController extends ControllerBase
         ]);
     }
 
-    /**
-     * Deletes a product_detail
-     *
-     * @param string $id
-     */
+
     public function deleteAction($id)
     {
         $product_detail = ProductDetail::findFirstByid($id);

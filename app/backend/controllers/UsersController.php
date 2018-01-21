@@ -92,8 +92,8 @@ class UsersController extends ControllerBase
         $user = new Users();
         $user->setUsername($this->request->getPost("username"));
         $user->setPassword(md5($this->request->getPost("password")));
-        $user->setActive(isset($_POST['active']) ? 1 : 0);
-        $user->setIsAdmin(isset($_POST['is_admin']) ? 1 : 0);
+        $user->setActive($this->request->getPost("active") ? 1 : 0);
+        $user->setIsAdmin($this->request->getPost("is_admin") ? 1 : 0);
         
 
         if (!$user->save()) {
@@ -149,8 +149,8 @@ class UsersController extends ControllerBase
 
         $user->username = $this->request->getPost("username");
         $user->password = md5($this->request->getPost("password"));
-        $user->active = isset($_POST['active']) ? 1 : 0;
-        $user->isAdmin = isset($_POST['is_admin']) ? 1 : 0;
+        $user->active = $this->request->getPost("active") ? 1 : 0;
+        $user->isAdmin = $this->request->getPost("is_admin") ? 1 : 0;
         
 
         if (!$user->save()) {
