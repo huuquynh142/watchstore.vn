@@ -7,7 +7,7 @@
 <div class="row">
     <nav>
         <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(["product_image", "Go Back"]) ?></li>
+            <li class="previous"><?php echo $this->tag->linkTo(["backend/product_image", "Go Back"]) ?></li>
         </ul>
     </nav>
 </div>
@@ -23,7 +23,7 @@
 <?php
     echo $this->tag->form(
         [
-            "product_image/create",
+            "backend/product_image/create",
             "autocomplete" => "off",
             "class" => "form-horizontal"
         ]

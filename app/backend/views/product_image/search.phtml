@@ -9,8 +9,8 @@
 <div class="row">
     <nav>
         <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(["product_image/index", "Go Back"]); ?></li>
-            <li class="next"><?php echo $this->tag->linkTo(["product_image/new", "Create "]); ?></li>
+            <li class="previous"><?php echo $this->tag->linkTo(["backend/product_image/index", "Go Back"]); ?></li>
+            <li class="next"><?php echo $this->tag->linkTo(["backend/product_image/new", "Create "]); ?></li>
         </ul>
     </nav>
 </div>
@@ -38,8 +38,8 @@
                 <td><?php echo $product_image->id ?></td>
             <td><?php echo $product_image->image ?></td>
 
-                <td><?php echo $this->tag->linkTo(["product_image/edit/" . $product_image->id, "Edit"]); ?></td>
-                <td><?php echo $this->tag->linkTo(["product_image/delete/" . $product_image->id, "Delete"]); ?></td>
+                <td><?php echo $this->tag->linkTo(["backend/product_image/edit/" . $product_image->id, "Edit"]); ?></td>
+                <td><?php echo $this->tag->linkTo(["backend/product_image/delete/" . $product_image->id, "Delete"]); ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>
@@ -55,10 +55,10 @@
     <div class="col-sm-11">
         <nav>
             <ul class="pagination">
-                <li><?php echo $this->tag->linkTo("product_image/search", "First") ?></li>
-                <li><?php echo $this->tag->linkTo("product_image/search?page=" . $page->before, "Previous") ?></li>
-                <li><?php echo $this->tag->linkTo("product_image/search?page=" . $page->next, "Next") ?></li>
-                <li><?php echo $this->tag->linkTo("product_image/search?page=" . $page->last, "Last") ?></li>
+                <li><?php echo $this->tag->linkTo("backend/product_image/search", "First") ?></li>
+                <li><?php echo $this->tag->linkTo("backend/product_image/search?page=" . $page->before, "Previous") ?></li>
+                <li><?php echo $this->tag->linkTo("backend/product_image/search?page=" . $page->next, "Next") ?></li>
+                <li><?php echo $this->tag->linkTo("backend/product_image/search?page=" . $page->last, "Last") ?></li>
             </ul>
         </nav>
     </div>
