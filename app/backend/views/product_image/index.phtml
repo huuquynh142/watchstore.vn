@@ -9,7 +9,7 @@
         Search product_image
     </h1>
     <p>
-        <?php echo $this->tag->linkTo(["product_image/new", "Create product_image"]) ?>
+        <?php echo $this->tag->linkTo(["backend/product_image/new", "Create product_image"]) ?>
     </p>
 </div>
 
@@ -18,7 +18,7 @@
 <?php
     echo $this->tag->form(
         [
-            "product_image/search",
+            "backend/product_image/search",
             "autocomplete" => "off",
             "class" => "form-horizontal"
         ]
