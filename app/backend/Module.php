@@ -51,6 +51,11 @@ class Module implements ModuleDefinitionInterface
             $view->setViewsDir('../app/backend/views/');
             return $view;
         });
+        $di->set(
+            'modelsManager',
+            function() {
+                return new \Phalcon\Mvc\Model\Manager();
+            });
 
     }
 }

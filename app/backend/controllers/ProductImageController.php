@@ -2,7 +2,7 @@
 namespace Multiple\Backend\Controllers;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
-
+use App\Models\ProductImage;
 
 class ProductImageController extends ControllerBase
 {
@@ -21,7 +21,7 @@ class ProductImageController extends ControllerBase
     {
         $numberPage = 1;
         if ($this->request->isPost()) {
-            $query = Criteria::fromInput($this->di, 'ProductImage', $_POST);
+            $query = Criteria::fromInput($this->di, ProductImage::class, $_POST);
             $this->persistent->parameters = $query->getParams();
         } else {
             $numberPage = $this->request->getQuery("page", "int");
@@ -86,6 +86,7 @@ class ProductImageController extends ControllerBase
             $this->view->id = $product_image->id;
 
             $this->tag->setDefault("id", $product_image->id);
+            $this->tag->setDefault("product_id", $product_image->productId);
             $this->tag->setDefault("image", $product_image->image);
             
         }
