@@ -6,18 +6,8 @@ use App\Models\ProductImage;
 
 class ProductImageController extends ControllerBase
 {
-    /**
-     * Index action
-     */
-    public function indexAction()
-    {
-        $this->persistent->parameters = null;
-    }
 
-    /**
-     * Searches for product_image
-     */
-    public function searchAction()
+    public function indexAction()
     {
         $numberPage = 1;
         if ($this->request->isPost()) {
@@ -34,16 +24,6 @@ class ProductImageController extends ControllerBase
         $parameters["order"] = "id";
 
         $product_image = ProductImage::find($parameters);
-        if (count($product_image) == 0) {
-            $this->flash->notice("The search did not find any product_image");
-
-            $this->dispatcher->forward([
-                "controller" => "product_image",
-                "action" => "index"
-            ]);
-
-            return;
-        }
 
         $paginator = new Paginator([
             'data' => $product_image,
@@ -86,7 +66,7 @@ class ProductImageController extends ControllerBase
             $this->view->id = $product_image->id;
 
             $this->tag->setDefault("id", $product_image->id);
-            $this->tag->setDefault("product_id", $product_image->productId);
+            $this->tag->setDefault("productId", $product_image->productId);
             $this->tag->setDefault("image", $product_image->image);
             
         }
@@ -107,7 +87,8 @@ class ProductImageController extends ControllerBase
         }
 
         $product_image = new ProductImage();
-        $product_image->image = $this->request->getPost("image");
+        $product_image->setProductId($this->request->getPost("productId"));
+        $product_image->setImage($this->request->getPost("image"));
         
 
         if (!$product_image->save()) {
@@ -160,7 +141,7 @@ class ProductImageController extends ControllerBase
 
             return;
         }
-
+        $product_image->productId = $this->request->getPost("productId");
         $product_image->image = $this->request->getPost("image");
         
 

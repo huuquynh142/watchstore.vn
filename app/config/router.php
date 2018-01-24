@@ -19,7 +19,7 @@
 
     $router->add('/backend', [
         'module'     => 'backend',
-        'controller' => 'index',
+        'controller' => 'product',
         'action'     => 'index',
     ]);
 
