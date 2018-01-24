@@ -4,46 +4,63 @@
  */
 ?>
 
-<div class="row">
-    <nav>
-        <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(["product_image", "Back"]) ?></li>
-        </ul>
-    </nav>
-</div>
-
-<div class="page-header">
-    <h1>
-        Edit product_image
-    </h1>
-</div>
-
 <?php echo $this->getContent(); ?>
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="widget-title">
+            <h3 style="text-align: center;">Thông tin chi tiết</h3>
+        </div>
+        <div class="widget-box">
 
-<?php
-    echo $this->tag->form(
-        [
-            "product_image/save",
-            "autocomplete" => "off",
-            "class" => "form-horizontal"
-        ]
-    );
-?>
+            <div class="widget-content nopadding">
+                <?php
+                echo $this->tag->form(
+                    [
+                        "backend/product_image/save",
+                        "autocomplete" => "off",
+                        "class" => "form-horizontal",
+                        "id" => 'product_image_edit'
+                    ]
+                );
+                ?>
+                <div id="form-wizard-1" class="step">
 
-<div class="form-group">
-    <label for="fieldImage" class="col-sm-2 control-label">Image</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["image", "size" => 30, "class" => "form-control", "id" => "fieldImage"]) ?>
+                    <div class="control-group">
+                        <label class="control-label">Id :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["id" , 'readonly' => 'true' , "size" => 30, "class" => "form-control"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Product Id :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["productId", "size" => 30, "class" => "form-control", "id" => "fieldProductId"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Image :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->image(['public/img/avatar' , "alt" => " alt image " , "style" => "width: 100px;height: 100px;" ]) ?>
+                            <?php echo $this->tag->fileField(["image"]); ?>
+                            <?php echo $this->tag->hiddenField("image") ?>
+                        </div>
+                    </div>
+                </div>
+                <?php echo $this->tag->endForm(); ?>
+                <div class="control-group" style="margin-top: 6% ; margin-right: 2%">
+                    <label class="control-label"></label>
+                    <div class="controls" style="float: right; margin-top: -5%;">
+                        <button form="product_image_edit" class="btn btn-success icon-ok"><span class="glyphicon glyphicon-remove-circle"></span> Save and List</button>
+                        <?php echo $this->tag->linkTo(["backend/product_image/index", '<button class="btn btn-info icon-list "><span class="glyphicon glyphicon-remove-circle"></span> List</button>']); ?>
+                        <?php echo $this->tag->linkTo(["backend/product_image/delete/" . $id, '<button class="btn btn-danger icon-remove "><span class="glyphicon glyphicon-remove-circle"></span> Delete</button>']); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 
-<?php echo $this->tag->hiddenField("id") ?>
 
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        <?php echo $this->tag->submitButton(["Save", "class" => "btn btn-default"]) ?>
-    </div>
-</div>
-
-<?php echo $this->tag->endForm(); ?>
