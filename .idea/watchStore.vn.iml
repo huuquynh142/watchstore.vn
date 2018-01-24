@@ -18,9 +18,11 @@
       <library name="PHP" type="php">
         <CLASSES>
           <root url="file://$MODULE_DIR$/../phalcon-tool/ide/phpstorm" />
+          <root url="jar://$APPLICATION_PLUGINS_DIR$/phpstorm-library-plugin.jar!/Phalcon/Phalcon" />
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/../phalcon-tool/ide/phpstorm" />
+          <root url="jar://$APPLICATION_PLUGINS_DIR$/phpstorm-library-plugin.jar!/Phalcon/Phalcon" />
         </SOURCES>
       </library>
     </orderEntry>
