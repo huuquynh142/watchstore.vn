@@ -51,11 +51,11 @@
                         <label class="control-label">Description Id :</label>
                         <div class="controls">
                             <select name="description_id" id="description_id" style="border-radius: 4px">
-                                <?php foreach ($description as $descriptions): ?>
-                                    <?php if ($producers->id == $description_id){ ?>
-                                        <option value="<?php echo $descriptions->id ?>" selected><?php echo $descriptions->first_description.'***'.$descriptions->last_description ?></option>
+                                <?php foreach ($product as $products): ?>
+                                    <?php if ($products->description_id == $description_id){ ?>
+                                        <option value="<?php echo $products->description_id ?>" selected><?php echo $products->description_id ?></option>
                                     <?php }else{ ?>
-                                        <option value="<?php echo $descriptions->id ?>"><?php echo $descriptions->first_description.'***'.$descriptions->last_description ?></option>
+                                        <option value="<?php echo $products->description_id ?>"><?php echo $products->description_id ?></option>
                                     <?php } ?>
 
                                 <?php endforeach; ?>
@@ -68,7 +68,7 @@
                         <div class="controls">
                             <select name="product_detail_id" id="product_detail_id" style="border-radius: 4px">
                                 <?php foreach ($productDetail as $product_detail): ?>
-                                    <?php if ($producers->id == $product_detail_id){ ?>
+                                    <?php if ($product_detail->id == $product_detail_id){ ?>
                                         <option value="<?php echo $product_detail->id ?>"><?php echo $product_detail->product_name?></option>
                                     <?php }else{ ?>
                                         <option value="<?php echo $product_detail->id ?>"><?php echo $product_detail->product_name?></option>

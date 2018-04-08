@@ -10,14 +10,14 @@ $(document).ready(function(){
 		$("#loginform").slideUp();
 		$("#recoverform").fadeIn();
 	});
-	$('#to-login').click(function(){
+	$('#to-security').click(function(){
 		
 		$("#recoverform").hide();
 		$("#loginform").fadeIn();
 	});
 	
 	
-	$('#to-login').click(function(){
+	$('#to-security').click(function(){
 	
 	});
     

@@ -90,7 +90,10 @@
                         <div class="control-group">
                             <label class="control-label">Type :</label>
                             <div class="controls">
-                                <?php echo $this->tag->textField(["type", "size" => 30, "class" => "form-control",'style' => 'border-radius: 4px', "id" => "fieldType"]) ?>
+                                <select name="type" id="fieldType" style="border-radius: 4px">
+                                    <option value="NAM">Nam</option>
+                                    <option value="NU">Nữ</option>
+                                </select>
                             </div>
                         </div>
 
