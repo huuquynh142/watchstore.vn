@@ -6,7 +6,7 @@ use App\Models\Users;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Mvc\View;
 
-class LoginController extends ControllerBase
+class SecurityController extends ControllerBase
 {
     public function indexAction()
     {
@@ -24,12 +24,22 @@ class LoginController extends ControllerBase
           ->andWhere(Users::class.".password = '" .$password."'")
           ->execute();
       if (count($c) > 0)
-          $this->session->set('login',$userName);
+          $this->session->set('security',$userName);
         $this->dispatcher->forward(array(
             'controller' => 'product',
             'action' => 'index'
         ));
 
     }
+    public function logoutAction()
+    {
+        $this->session->set('security','');
+        $this->dispatcher->forward(array(
+            'controller' => 'product',
+            'action' => 'index'
+        ));
+
+    }
+
 
 }

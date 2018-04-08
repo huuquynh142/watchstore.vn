@@ -75,7 +75,8 @@
                 <tr>
                     <td><?php echo $this->tag->linkTo(["backend/product_image/edit/" . $product_image->id, $product_image->id ]); ?></td>
                     <td><?php echo $product_image->product_id ?></td>
-                    <td><?php echo $product_image->image ?></td>
+<!--                    <td>--><?php //echo $product_image->image ?><!--</td>-->
+                    <td><?php echo $this->tag->image(['public/img/product/'.$product_image->image , "alt" => " alt image " , "style" => "width: 100px;height: 100px;" ]) ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody></table>

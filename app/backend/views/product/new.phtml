@@ -45,11 +45,7 @@
                         <div class="control-group">
                             <label class="control-label">Description Id :</label>
                             <div class="controls">
-                                <select name="description_id" id="description_id" style="border-radius: 4px">
-                                    <?php foreach ($description as $descriptions): ?>
-                                        <option value="<?php echo $descriptions->id ?>"><?php echo $descriptions->first_description.'***'.$descriptions->last_description ?></option>
-                                    <?php endforeach; ?>
-                                </select>
+                                <?php echo $this->tag->textField(["description_id" , "type" => "text" , "size" => 30, "class" => "form-control",'style' => 'border-radius: 4px', "id" => "fieldDescriptionId"]) ?>
                             </div>
                         </div>
 
@@ -57,6 +53,7 @@
                             <label class="control-label">Product name :</label>
                             <div class="controls">
                                 <select name="product_detail_id" id="product_detail_id" style="border-radius: 4px">
+                                    <option value="">Choose..</option>
                                     <?php foreach ($productDetail as $product_detail): ?>
                                         <option value="<?php echo $product_detail->id ?>"><?php echo $product_detail->product_name?></option>
                                     <?php endforeach; ?>

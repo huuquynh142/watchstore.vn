@@ -47,8 +47,8 @@
                             <div class="controls">
                                 <select name="description_id" id="description_id" style="border-radius: 4px">
                                     <option value="">Choose..</option>
-                                    <?php foreach ($description as $descriptions): ?>
-                                        <option value="<?php echo $descriptions->id ?>"><?php echo $descriptions->first_description.'***'.$descriptions->last_description ?></option>
+                                    <?php foreach ($product as $products): ?>
+                                        <option value="<?php echo $products->description_id ?>"><?php echo $products->description_id ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -140,7 +140,7 @@
                 <tr>
                     <td><?php echo $this->tag->linkTo(["backend/product/edit/" . $product->id, $product->id]); ?></td>
                     <td><?php echo $product->company_name ?></td>
-                    <td><?php echo $product->first_description.$product->id.$product->last_description ?></td>
+                    <td><?php echo $product->description_id ?></td>
                     <td><?php echo $product->product_name ?></td>
                     <td><?php echo $product->quantity ?></td>
                     <td><?php echo $product->import_price ?></td>
