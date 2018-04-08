@@ -8,6 +8,7 @@ use Phalcon\Mvc\Dispatcher;
 use Phalcon\DiInterface;
 use Phalcon\Mvc\ModuleDefinitionInterface;
 use Phalcon\Db\Adapter\Pdo\Mysql as Database;
+use Phalcon\Db\Profiler as ProfilerDb;
 
 class Module implements ModuleDefinitionInterface
 {
@@ -56,6 +57,13 @@ class Module implements ModuleDefinitionInterface
             function() {
                 return new \Phalcon\Mvc\Model\Manager();
             });
+        $di->set(
+            'profiler',
+            function () {
+                return new ProfilerDb();
+            },
+            true
+        );
 
     }
 }

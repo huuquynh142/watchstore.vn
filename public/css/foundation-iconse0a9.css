@@ -6,11 +6,11 @@
 
 @font-face {
   font-family: "foundation-icons";
-  src: url("foundation-icons.eot");
-  src: url("foundation-iconsd41d.eot?#iefix") format("embedded-opentype"),
-       url("foundation-icons.woff") format("woff"),
-       url("foundation-icons.ttf") format("truetype"),
-       url("foundation-icons.svg#fontcustom") format("svg");
+  src: url("/public/fonts/foundation-icons.eot");
+  src: url("/public/fonts/foundation-iconsd41d.eot?#iefix") format("embedded-opentype"),
+       url("/public/fonts/foundation-icons.woff") format("woff"),
+       url("/public/fonts/foundation-icons.ttf") format("truetype"),
+       url("/public/fonts/foundation-icons.svg#fontcustom") format("svg");
   font-weight: normal;
   font-style: normal;
 }

@@ -27,17 +27,15 @@ class ProductController extends ControllerBase
         }
         $parameters["order"] = "id";
         $this->view->producer = Producer::find();
-        $this->view->description = DescriptionProduct::find();
+        $this->view->product = Product::find();
         $this->view->productDetail = ProductDetail::find();
         $robots = Product::query()
             ->innerJoin(ProductDetail::class,Product::class.".product_detail_id =".ProductDetail::class.".id")
-            ->innerJoin(DescriptionProduct::class,Product::class.".description_id =".DescriptionProduct::class.".id")
             ->innerJoin(Producer::class,Product::class.".producer_id =".Producer::class.".id")
             ->columns([ProductDetail::class.".product_name" ,
                 Product::class.".id" ,
                 Producer::class.".company_name" ,
-                DescriptionProduct::class.".first_description",
-                DescriptionProduct::class.".last_description",
+                Product::class.".description_id",
                 ProductDetail::class.".product_name",
                 Product::class.".quantity" ,
                 Product::class.".import_price" ,
@@ -59,7 +57,7 @@ class ProductController extends ControllerBase
     {
 
         $this->view->producer = Producer::find();
-        $this->view->description = DescriptionProduct::find();
+        $this->view->product = Product::find();
         $this->view->productDetail = ProductDetail::find();
     }
 
@@ -81,7 +79,7 @@ class ProductController extends ControllerBase
 
             $this->view->id = $product->id;
             $this->view->producer = Producer::find();
-            $this->view->description = DescriptionProduct::find();
+            $this->view->product = Product::find();
             $this->view->productDetail = ProductDetail::find();
             $this->tag->setDefault("id", $product->id);
             $this->view->producer_id = $product->producer_id;
