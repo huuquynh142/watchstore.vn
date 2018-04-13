@@ -15,8 +15,20 @@ class ProductController extends ControllerBase
     {
         $numberPage = 1;
         if ($this->request->isPost()) {
+//            $query = Criteria::fromInput($this->di, Product::class , $_POST);
+//            $this->persistent->parameters = $query->getParams();
+
+
             $query = Criteria::fromInput($this->di, Product::class , $_POST);
-            $this->persistent->parameters = $query->getParams();
+            $query->join(ProductDetail::class,Product::class.".product_detail_id =".ProductDetail::class.".id");
+            $params = $query->getParams();
+
+            $queryPart = Criteria::fromInput($this->di, ProductDetail::class, $_POST);
+            $paramsPart = is_null($queryPart->getParams()) ? null : $queryPart->getParams();
+            if(!is_null($paramsPart)){
+                $params['conditions'] .= ' and '.$paramsPart['conditions'];
+            }
+            $this->persistent->parameters = $params;
         } else {
             $numberPage = $this->request->getQuery("page", "int");
         }

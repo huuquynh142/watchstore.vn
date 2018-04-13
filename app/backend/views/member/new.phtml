@@ -26,7 +26,8 @@
                         [
                             "backend/member/create",
                             "autocomplete" => "off",
-                            "class" => "form-horizontal"
+                            "class" => "form-horizontal",
+                            "enctype" => "multipart/form-data"
                         ]
                     );
                     ?>
@@ -78,8 +79,8 @@
                         <div class="control-group">
                             <label class="control-label">Avatar :</label>
                             <div class="controls">
-                                <?php echo $this->tag->image(['public/img/logo.png' , "alt" => " alt image " , "style" => "width: 100px;height: 100px;" ]) ?>
-                                <?php echo $this->tag->fileField("avatar"); ?>
+                                <?php echo $this->tag->image(["avatar", "alt" => " alt member " , "style" => "width: 100px;height: 100px;" , "id" => "fieldAvatar" ]) ?>
+                                <?php echo $this->tag->fileField(["avatar", "size" => 30, "class" => "form-control" , "onChange" => "img_pathUrl(this);"]); ?>
                             </div>
                         </div>
 
@@ -95,5 +96,9 @@
                 </div>
             </div>
         </div>
-
+    <script>
+        function img_pathUrl(input){
+            $('#fieldImage')[0].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
+        }
+    </script>
 

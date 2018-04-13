@@ -71,7 +71,7 @@
 		return this.each(function () {
 			var
 			settings = $.extend({}, defaults, options || {}),
-			//target will display the zoomed image
+			//target will display the zoomed member
 			target = settings.target || this,
 			//source will provide zoom location info (thumbnail)
 			source = this,
@@ -81,7 +81,7 @@
 			clicked = false,
 			$urlElement;
 
-			// If a url wasn't specified, look for an image element.
+			// If a url wasn't specified, look for an member element.
 			if (!settings.url) {
 				$urlElement = $(source).find('img');
 				if ($urlElement[0]) {

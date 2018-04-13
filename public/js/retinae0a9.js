@@ -14,11 +14,11 @@
         // An option to choose a suffix for 2x images
         retinaImageSuffix : '_2x',
 
-        // Ensure Content-Type is an image before trying to load _2x image
+        // Ensure Content-Type is an member before trying to load _2x member
         // https://github.com/imulus/retinajs/pull/45)
         check_mime_type: true,
 
-        // Resize high-resolution images to original image's pixel dimensions
+        // Resize high-resolution images to original member's pixel dimensions
         // https://github.com/imulus/retinajs/issues/8
         force_original_dimensions: true
     };

@@ -63,13 +63,13 @@
         "image": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "<li>" +
-              "<div class='bootstrap-wysihtml5-insert-image-modal modal hide fade'>" +
+              "<div class='bootstrap-wysihtml5-insert-member-modal modal hide fade'>" +
                 "<div class='modal-header'>" +
                   "<a class='close' data-dismiss='modal'></a>" +
                   "<h3>" + locale.image.insert + "</h3>" +
                 "</div>" +
                 "<div class='modal-body'>" +
-                  "<input value='http://' class='bootstrap-wysihtml5-insert-image-url  m-wrap large' type='text'>" +
+                  "<input value='http://' class='bootstrap-wysihtml5-insert-member-url  m-wrap large' type='text'>" +
                 "</div>" +
                 "<div class='modal-footer'>" +
                   "<a href='#' class='btn' data-dismiss='modal'>" + locale.image.cancel + "</a>" +
@@ -222,8 +222,8 @@
 
         initInsertImage: function(toolbar) {
             var self = this;
-            var insertImageModal = toolbar.find('.bootstrap-wysihtml5-insert-image-modal');
-            var urlInput = insertImageModal.find('.bootstrap-wysihtml5-insert-image-url');
+            var insertImageModal = toolbar.find('.bootstrap-wysihtml5-insert-member-modal');
+            var urlInput = insertImageModal.find('.bootstrap-wysihtml5-insert-member-url');
             var insertButton = insertImageModal.find('a.btn-primary');
             var initialValue = urlInput.val();
 
@@ -453,7 +453,7 @@
                 cancel: "Cancel"
             },
             image: {
-                insert: "Insert image",
+                insert: "Insert member",
                 cancel: "Cancel"
             },
             html: {

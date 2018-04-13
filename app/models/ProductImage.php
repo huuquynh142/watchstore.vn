@@ -53,7 +53,7 @@ class ProductImage extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Method to set the value of field image
+     * Method to set the value of field member
      *
      * @param string $image
      * @return $this
@@ -86,7 +86,7 @@ class ProductImage extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field image
+     * Returns the value of field member
      *
      * @return string
      */
@@ -147,7 +147,7 @@ class ProductImage extends \Phalcon\Mvc\Model
         return [
             'id' => 'id',
             'product_id' => 'productId',
-            'image' => 'image'
+            'member' => 'member'
         ];
     }
 
