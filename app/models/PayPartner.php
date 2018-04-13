@@ -54,7 +54,7 @@ class PayPartner extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Method to set the value of field image
+     * Method to set the value of field member
      *
      * @param string $image
      * @return $this
@@ -116,7 +116,7 @@ class PayPartner extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field image
+     * Returns the value of field member
      *
      * @return string
      */
@@ -206,7 +206,7 @@ class PayPartner extends \Phalcon\Mvc\Model
     {
         return [
             'id' => 'id',
-            'image' => 'image',
+            'member' => 'member',
             'link' => 'link',
             'active' => 'active',
             'created_at' => 'created_at'

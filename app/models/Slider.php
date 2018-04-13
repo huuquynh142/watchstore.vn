@@ -1,4 +1,5 @@
 <?php
+namespace App\Models;
 
 class Slider extends \Phalcon\Mvc\Model
 {
@@ -81,7 +82,7 @@ class Slider extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Method to set the value of field image
+     * Method to set the value of field member
      *
      * @param string $image
      * @return $this
@@ -166,7 +167,7 @@ class Slider extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field image
+     * Returns the value of field member
      *
      * @return string
      */
@@ -267,7 +268,7 @@ class Slider extends \Phalcon\Mvc\Model
         return [
             'id' => 'id',
             'title' => 'title',
-            'image' => 'image',
+            'member' => 'member',
             'description' => 'description',
             'priority' => 'priority',
             'hide' => 'hide',

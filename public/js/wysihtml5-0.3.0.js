@@ -2000,7 +2000,7 @@ rangy.createModule("DomUtil", function(api, module) {
                 store the characters moved when moving both the start and end of the range to the start of the document
                 body and subtracting the start offset from the end offset (the "move-negative-gazillion" method).
                 However, this is extremely slow when the document is large and the range is near the end of it. Clearly
-                doing the mirror image (i.e. moving the range boundaries to the end of the document) has the same
+                doing the mirror member (i.e. moving the range boundaries to the end of the document) has the same
                 problem.
 
                 Another approach that works is to use moveStart() to move the start boundary of the range up to the end
@@ -5031,7 +5031,7 @@ wysihtml5.dom.parse = (function() {
   }
   
   /**
-   * Check whether the given node is a proper loaded image
+   * Check whether the given node is a proper loaded member
    * FIXME: Returns undefined when unknown (Chrome, Safari)
    */
   function _isLoadedImage(node) {
@@ -5890,7 +5890,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
     wysihtml5.dom.addClass(element, CLASS_NAME);
     wysihtml5.dom.removeClass(element, CLASS_NAME);
     
-    // Following hack is needed for firefox to make sure that image resize handles are properly removed
+    // Following hack is needed for firefox to make sure that member resize handles are properly removed
     try {
       var doc = element.ownerDocument;
       doc.execCommand("italic", false, null);
@@ -5984,7 +5984,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
      *
      * @param {Element} node The node/element to select
      * @example
-     *    selection.selectNode(document.getElementById("my-image"));
+     *    selection.selectNode(document.getElementById("my-member"));
      */
     selectNode: function(node) {
       var range           = rangy.createRange(this.doc),
@@ -6807,7 +6807,7 @@ wysihtml5.Commands = Base.extend(
    * If the caret is within a bold text, then calling this with command "bold" should return true
    *
    * @param {String} command The command string which to check (eg. "bold", "italic", "insertUnorderedList")
-   * @param {String} [commandValue] The command value parameter (eg. for "insertImage" the image src)
+   * @param {String} [commandValue] The command value parameter (eg. for "insertImage" the member src)
    * @return {Boolean} Whether the command is active
    * @example
    *    var isCurrentSelectionBold = commands.state("bold");
@@ -7371,7 +7371,7 @@ wysihtml5.Commands = Base.extend(
   wysihtml5.commands.insertImage = {
     /**
      * Inserts an <img>
-     * If selection is already an image link, it removes it
+     * If selection is already an member link, it removes it
      * 
      * @example
      *    // either ...
@@ -7401,7 +7401,7 @@ wysihtml5.Commands = Base.extend(
           parent.parentNode.removeChild(parent);
         }
 
-        // firefox and ie sometimes don't remove the image handles, even though the image got removed
+        // firefox and ie sometimes don't remove the member handles, even though the member got removed
         wysihtml5.quirks.redraw(composer.element);
         return;
       }
@@ -8290,7 +8290,7 @@ wysihtml5.views.View = Base.extend(
           "body.placeholder { color: #a9a9a9 !important; }",
         "body[disabled]   { background-color: #eee !important; color: #999 !important; cursor: default !important; }",
         // Ensure that user see's broken images and can delete them
-        "img:-moz-broken  { -moz-force-broken-image-icon: 1; height: 24px; width: 24px; }"
+        "img:-moz-broken  { -moz-force-broken-member-icon: 1; height: 24px; width: 24px; }"
       ];
   
   /**
@@ -8568,7 +8568,7 @@ wysihtml5.views.View = Base.extend(
       }
     });
 
-    // --------- Make sure that when pressing backspace/delete on selected images deletes the image and it's anchor ---------
+    // --------- Make sure that when pressing backspace/delete on selected images deletes the member and it's anchor ---------
     dom.observe(element, "keydown", function(event) {
       var target  = that.selection.getSelectedNode(true),
           keyCode = event.keyCode,
@@ -8778,7 +8778,7 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
  *
  * @example
  *    <!-- Toolbar link -->
- *    <a data-wysihtml5-command="insertImage">insert an image</a>
+ *    <a data-wysihtml5-command="insertImage">insert an member</a>
  *
  *    <!-- Dialog -->
  *    <div data-wysihtml5-dialog="insertImage" style="display: none;">

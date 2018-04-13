@@ -1,0 +1,6 @@
+projectKey=org.sonarqube:watchstore
+serverUrl=http://localhost:9000
+serverVersion=6.5.0.27846
+dashboardUrl=http://localhost:9000/dashboard/index/org.sonarqube:watchstore
+ceTaskId=AWK6i2Hg5O6g8N43XZmE
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWK6i2Hg5O6g8N43XZmE

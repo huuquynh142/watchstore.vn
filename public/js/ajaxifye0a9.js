@@ -608,7 +608,7 @@ var ajaxifyShopify = (function(module, $) {
       $drawerContainer.css('height', '0px');
     } else {
       $drawerHeight = $cartContainer.outerHeight();
-      $('.cart__row img').css('width', 'auto'); // fix Chrome image size bug
+      $('.cart__row img').css('width', 'auto'); // fix Chrome member size bug
       $drawerContainer.css('height',  $drawerHeight + 'px');
     }
   };
@@ -795,17 +795,17 @@ var ajaxifyShopify = (function(module, $) {
           itemMinus = cartItem.quantity - 1,
           itemQty = cartItem.quantity;
 
-      /* Hack to get product image thumbnail
-       *   - If image is not null
+      /* Hack to get product member thumbnail
+       *   - If member is not null
        *     - Remove file extension, add _small, and re-add extension
        *     - Create server relative link
-       *   - A hard-coded url of no-image
+       *   - A hard-coded url of no-member
       */
 
       if (cartItem.image != null){
         var prodImg = cartItem.image.replace(/(\.[^.]*)$/, "_small$1").replace('http:', '');
       } else {
-        var prodImg = "http://cdn.shopify.com/s/assets/admin/no-image-medium-cc9732cb976dd349a0df1d39816fbcc7.gif";
+        var prodImg = "http://cdn.shopify.com/s/assets/admin/no-member-medium-cc9732cb976dd349a0df1d39816fbcc7.gif";
       }
 
       var prodName = cartItem.title.replace(/(\-[^-]*)$/, ""),
