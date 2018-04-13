@@ -1,0 +1,96 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="row" style="margin-left: 2%;">
+    <nav>
+        <ul class="pager">
+            <li class="previous"><?php echo $this->tag->linkTo(["backend/slider/index", "Go Back"]) ?></li>
+        </ul>
+    </nav>
+</div>
+<?php echo $this->getContent(); ?>
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="widget-title">
+            <h3 style="text-align: center;">Thêm mới</h3>
+        </div>
+        <div class="widget-box">
+
+            <div class="widget-content nopadding">
+                <div class="form-horizontal">
+                    <?php
+                    echo $this->tag->form(
+                        [
+                            "backend/slider/create",
+                            "autocomplete" => "off",
+                            "class" => "form-horizontal",
+                            "enctype" => "multipart/form-data"
+                        ]
+                    );
+                    ?>
+                    <div id="form-wizard-1" class="step">
+                        <div class="control-group">
+                            <label class="control-label">Title :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->textField(["title", "size" => 30, "class" => "form-control", "id" => "fieldTitle"]) ?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" style="margin-top: -5px">Image :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->image(["member", "alt" => " alt member " , "style" => "width: 100px;height: 100px;" , "id" => "fieldImage" ]) ?>
+                                <?php echo $this->tag->fileField(["member", "size" => 30, "class" => "form-control" , "onChange" => "img_pathUrl(this);"]); ?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Description :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->textArea(["description", "cols" => 30, "rows" => 4, "class" => "form-control", "id" => "fieldDescription"]) ?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Priority :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->textField(["priority", "type" => "number", "class" => "form-control", "id" => "fieldPriority"]) ?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Hide :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->checkField (["hide", "size" => 30, "class" => "form-control", "id" => "fieldHide"]) ?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="span12">
+                                <?php echo $this->tag->submitButton(["Save", "class" => "btn btn-default" ,  "style" => "float: right ;margin: 1%;"]) ?>
+                            </div>
+                        </div>
+
+                    </div>
+                    <?php echo $this->tag->endForm(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function img_pathUrl(input){
+            $('#fieldImage')[0].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
+        }
+    </script>
+
+

@@ -62,8 +62,8 @@ $(document).ready(function(){
 		});		
 	});
 	
-	$('#gritter-notify .image').click(function(){
-		var imgsrc = $(this).attr('data-image');
+	$('#gritter-notify .member').click(function(){
+		var imgsrc = $(this).attr('data-member');
 		$.gritter.add({
 			title:	'Important Unread messages',
 			text:	'You have 12 unread messages.',

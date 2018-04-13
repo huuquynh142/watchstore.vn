@@ -67,7 +67,7 @@ class ProductImageController extends ControllerBase
 
             $this->tag->setDefault("id", $product_image->id);
             $this->tag->setDefault("productId", $product_image->productId);
-            $this->tag->setDefault("image", $product_image->image);
+            $this->tag->setDefault("member", $product_image->image);
             
         }
     }
@@ -88,7 +88,7 @@ class ProductImageController extends ControllerBase
 
         $product_image = new ProductImage();
         $product_image->setProductId($this->request->getPost("productId"));
-        $product_image->setImage($this->request->getPost("image"));
+        $product_image->setImage($this->request->getPost("member"));
         
 
         if (!$product_image->save()) {
@@ -142,7 +142,7 @@ class ProductImageController extends ControllerBase
             return;
         }
         $product_image->productId = $this->request->getPost("productId");
-        $product_image->image = $this->request->getPost("image");
+        $product_image->image = $this->request->getPost("member");
         
 
         if (!$product_image->save()) {

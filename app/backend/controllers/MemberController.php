@@ -95,8 +95,13 @@ class MemberController extends ControllerBase
         $member->setPassword(md5($this->request->getPost("password"))) ;
         $member->setNumberHits($this->request->getPost("number_hits"));
         $member->setAddress($this->request->getPost("address"));
-        $member->setAvatar($this->request->getPost("avatar"));
-        
+        if ($this->request->hasFiles() == true) {
+            $baseLocation = BASE_PATH . '/public/uploads/member/';
+            $file = $this->request->getUploadedFiles()[0];
+            $fileName = md5(strtok($file->getName(),'.')) . rand() . "." . $file->getExtension();
+            $member->avatar = $fileName;
+            $file->moveTo($baseLocation . $fileName);
+        }
 
         if (!$member->save()) {
             foreach ($member->getMessages() as $message) {
@@ -153,8 +158,17 @@ class MemberController extends ControllerBase
         $member->password = $this->request->getPost("password");
         $member->numberHits = $this->request->getPost("number_hits");
         $member->address = $this->request->getPost("address");
-        $member->avatar = $this->request->getPost("avatar") ? $this->request->getPost("avatar") : $img;
+        if ($this->request->hasFiles() == true) {
+            $baseLocation = BASE_PATH . '/public/uploads/member/';
+            $file = $this->request->getUploadedFiles()[0];
+            if($member->avatar && $file->getName()){
+                unlink($baseLocation. $member->avatar);
+                $fileName = md5(strtok($file->getName(),'.')) . rand() . "." . $file->getExtension();
+                $member->avatar = $fileName;
+                $file->moveTo($baseLocation . $fileName);
+            }
 
+        }
         if (!$member->save()) {
 
             foreach ($member->getMessages() as $message) {
@@ -181,6 +195,9 @@ class MemberController extends ControllerBase
     public function deleteAction($id)
     {
         $member = Member::findFirstByid($id);
+        $baseLocation = BASE_PATH . '/public/uploads/member/';
+        if($member->avatar)
+            unlink($baseLocation. $member->avatar);
         if (!$member) {
             $this->flash->error("member was not found");
 

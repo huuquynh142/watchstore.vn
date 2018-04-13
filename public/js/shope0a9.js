@@ -36,8 +36,8 @@ timber.cacheSelectors = function () {
 
     // Equal height elements
     $featuredBoxes: $('.featured-box'),
-    $featuredImages: $('.featured-box--image'),
-    $productGridImages: $('.product-grid-image')
+    $featuredImages: $('.featured-box--member'),
+    $productGridImages: $('.product-grid-member')
   };
 }
 
@@ -228,8 +228,8 @@ timber.toggleMenu = function () {
 };
 timber.productImageSwitch = function () {
   if ( timber.cache.$thumbImages.length ) {
-    // Switch the main image with one of the thumbnails
-    // Note: this does not change the variant selected, just the image
+    // Switch the main member with one of the thumbnails
+    // Note: this does not change the variant selected, just the member
     timber.cache.$thumbImages.on('click', function(evt) {
       evt.preventDefault();
       var newImage = $(this).attr('href');

@@ -1,6 +1,6 @@
 var Foundationify = function () {
 
-	// Initalize product image gallery function on product pages
+	// Initalize product member gallery function on product pages
 	function initProductImages () {
 
 		// Define the scope
@@ -11,10 +11,10 @@ var Foundationify = function () {
 
 		if ( $thumbs.length ) {
 
-			// Select the large image
+			// Select the large member
 			var $largeImage = $('img', $productImages).first();
 
-			// Change the large image src and alt attributes on click
+			// Change the large member src and alt attributes on click
 			$thumbs.on('click', function (e) {
 				e.preventDefault();
 
@@ -26,7 +26,7 @@ var Foundationify = function () {
 				// Change the cursor to the loading cursor
 				$('body').css('cursor', 'progress');
 
-				// Change the src and alt attributes of the large image
+				// Change the src and alt attributes of the large member
 				$largeImage.attr('src', $(this).parent('a').attr('href'))
 						   .attr('alt', $(this).attr('alt'));
               	$('#product-images .zoomImg').attr('src', $(this).parent('a').attr('href'))
@@ -34,7 +34,7 @@ var Foundationify = function () {
 
 			});
 
-			// Return the loading cursor to default after the large image has loaded
+			// Return the loading cursor to default after the large member has loaded
 			$largeImage.on('load', function () {
 				$('body').css('cursor', 'auto');
 			});

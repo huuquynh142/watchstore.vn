@@ -1,0 +1,96 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+<?php echo $this->getContent(); ?>
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="widget-title">
+            <h3 style="text-align: center;">Thông tin chi tiết</h3>
+        </div>
+        <div class="widget-box">
+
+            <div class="widget-content nopadding">
+                <?php
+                echo $this->tag->form(
+                    [
+                        "backend/slider/save",
+                        "autocomplete" => "off",
+                        "class" => "form-horizontal",
+                        "id" => 'slider_edit',
+                        "enctype" => "multipart/form-data"
+                    ]
+                );
+                ?>
+                <div id="form-wizard-1" class="step">
+
+                    <div class="control-group">
+                        <label class="control-label">Id :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["id" , 'readonly' => 'true' , "size" => 30, "class" => "form-control"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Title :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["title", "size" => 30, "class" => "form-control", "id" => "fieldTitle"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Image :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->image(['public/uploads/slider/' . $image, "alt" => " alt member " , "style" => "width: 100px;height: 100px;" , "id" => "fieldImage" ]) ?>
+                            <?php echo $this->tag->fileField(["member", "size" => 30, "class" => "form-control" , "onChange" => "img_pathUrl(this);"]); ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Description :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textArea(["description", "cols" => 30, "rows" => 4, "class" => "form-control", "id" => "fieldDescription"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Priority :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["priority", "type" => "number", "class" => "form-control", "id" => "fieldPriority"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Hide :</label>
+                        <div class="controls">
+                            <?php if ($hide){ ?>
+                                <td><?php echo $this->tag->checkField (["hide" , "checked" => "checked" , "size" => 30, "class" => "form-control", "id" => "fieldHide"]) ?></td>
+                            <?php }else{ ?>
+                                <td><?php echo $this->tag->checkField (["hide" , "size" => 30, "class" => "form-control", "id" => "fieldHide"]) ?></td>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+                <?php echo $this->tag->endForm(); ?>
+                <div class="control-group" style="margin-top: 6% ; margin-right: 2%">
+                    <label class="control-label"></label>
+                    <div class="controls" style="float: right; margin-top: -5%;">
+                        <button form="slider_edit" class="btn btn-success icon-ok"><span class="glyphicon glyphicon-remove-circle"></span> Save and List</button>
+                        <?php echo $this->tag->linkTo(["backend/slider/index", '<button class="btn btn-info icon-list "><span class="glyphicon glyphicon-remove-circle"></span> List</button>']); ?>
+                        <?php echo $this->tag->linkTo(["backend/slider/delete/" . $id, '<button class="btn btn-danger icon-remove "><span class="glyphicon glyphicon-remove-circle"></span> Delete</button>']); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function img_pathUrl(input){
+        $('#fieldImage')[0].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
+    }
+</script>
+
+
+

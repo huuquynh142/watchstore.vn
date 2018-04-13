@@ -6,4 +6,5 @@ $(document).ready(function () {
         if (!userName || !password)
            alert('vui lòng nhập đầy đủ thông tin !');
     });
+
 });

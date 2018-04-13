@@ -94,7 +94,7 @@ class Banner extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Method to set the value of field image
+     * Method to set the value of field member
      *
      * @param string $image
      * @return $this
@@ -176,7 +176,7 @@ class Banner extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field image
+     * Returns the value of field member
      *
      * @return string
      */
@@ -268,7 +268,7 @@ class Banner extends \Phalcon\Mvc\Model
             'id' => 'id',
             'title' => 'title',
             'description' => 'description',
-            'image' => 'image',
+            'member' => 'member',
             'type' => 'type',
             'hide' => 'hide',
             'created_at' => 'created_at'

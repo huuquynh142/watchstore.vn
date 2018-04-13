@@ -17,10 +17,10 @@ return new \Phalcon\Config([
     ],
     'application' => [
         'appDir'         => APP_PATH . '/',
-        'controllersDir' => APP_PATH . '/controllers/',
+        'controllersDir' => APP_PATH . '/backend/controllers/',
         'modelsDir'      => APP_PATH . '/models/',
         'migrationsDir'  => APP_PATH . '/migrations/',
-        'viewsDir'       => APP_PATH . '/views/',
+        'viewsDir'       => APP_PATH . '/backend/views/',
         'pluginsDir'     => APP_PATH . '/plugins/',
         'libraryDir'     => BASE_PATH . '/library/',
         'cacheDir'       => BASE_PATH . '/cache/',
