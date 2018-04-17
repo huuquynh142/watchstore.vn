@@ -1,5 +1,6 @@
 <?php
 namespace Multiple\Backend\Controllers;
+use App\Models\Product;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 use App\Models\ProductDetail;
@@ -38,7 +39,7 @@ class ProductDetailController extends ControllerBase
 
     public function newAction()
     {
-
+        $this->view->productType = ProductType::find();
     }
 
     public function editAction($id)
@@ -69,7 +70,6 @@ class ProductDetailController extends ControllerBase
             $this->tag->setDefault("shell_diameter", $product_detail->shell_diameter);
             $this->tag->setDefault("shell_thickness", $product_detail->shell_thickness);
             $this->tag->setDefault("water_resistant", $product_detail->water_resistant);
-            $this->tag->setDefault("type", $product_detail->type);
             $this->tag->setDefault("motor", $product_detail->motor);
             $this->tag->setDefault("comment", $product_detail->comment);
             
@@ -87,6 +87,7 @@ class ProductDetailController extends ControllerBase
             return;
         }
 
+
         $product_detail = new ProductDetail();
         $product_detail->setProductName($this->request->getPost("product_name"));
         $product_detail->setShellMaterial($this->request->getPost("shell_material"));
@@ -96,11 +97,9 @@ class ProductDetailController extends ControllerBase
         $product_detail->setShellDiameter($this->request->getPost("shell_diameter"));
         $product_detail->setShellThickness($this->request->getPost("shell_thickness"));
         $product_detail->setWaterResistant($this->request->getPost("water_resistant"));
-        $product_detail->setType($this->request->getPost("type"));
         $product_detail->setIsElectronic($this->request->getPost("is_electronic")? 1 : 0);
         $product_detail->setMotor($this->request->getPost("motor"));
         $product_detail->setComment($this->request->getPost("comment"));
-        
 
         if (!$product_detail->save()) {
             foreach ($product_detail->getMessages() as $message) {
@@ -157,7 +156,6 @@ class ProductDetailController extends ControllerBase
         $product_detail->shellDiameter = $this->request->getPost("shell_diameter");
         $product_detail->shellThickness = $this->request->getPost("shell_thickness");
         $product_detail->waterResistant = $this->request->getPost("water_resistant");
-        $product_detail->type = $this->request->getPost("type");
         $product_detail->isElectronic = $this->request->getPost("is_electronic") ? 1 : 0;
         $product_detail->motor = $this->request->getPost("motor");
         $product_detail->comment = $this->request->getPost("comment");

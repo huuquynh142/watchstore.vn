@@ -1619,3 +1619,12 @@ div.dataTables_wrapper .ui-widget-header {
 	padding: 8px 13px;
 	display: block;
 }
+.container_checkbox{
+	display: block;
+}
+.container_checkbox li{
+	display: flex;
+}
+.container_checkbox li label{
+	padding-left: 10px;
+}

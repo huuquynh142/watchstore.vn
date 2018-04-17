@@ -151,7 +151,6 @@
                 <th style="background-color: #0288d1;color: #ffffff;">Shell Diameter</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Shell Thickness</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Water Resistant</th>
-                <th style="background-color: #0288d1;color: #ffffff;">Type</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Is Electronic</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Motor</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Comment</th>
@@ -168,7 +167,6 @@
                     <td><?php echo $product_detail->shell_diameter ?></td>
                     <td><?php echo $product_detail->shell_thickness ?></td>
                     <td><?php echo $product_detail->water_resistant ?></td>
-                    <td><?php echo $product_detail->type ?></td>
                     <?php if ($product_detail->is_electronic){ ?>
                         <td><?php echo $this->tag->checkField ([ "onclick" => "return false;" , "checked" => "checked" , "size" => 30, "class" => "form-control", "id" => "fieldIsElectronic"]) ?></td>
                     <?php }else{ ?>

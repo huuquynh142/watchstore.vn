@@ -268,6 +268,7 @@ class Slider extends \Phalcon\Mvc\Model
         return [
             'id' => 'id',
             'title' => 'title',
+            'image' => 'image',
             'member' => 'member',
             'description' => 'description',
             'priority' => 'priority',
