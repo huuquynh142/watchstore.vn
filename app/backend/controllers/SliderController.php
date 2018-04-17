@@ -96,7 +96,6 @@ class SliderController extends ControllerBase
         $slider->description = $this->request->getPost("description");
         $slider->priority = $this->request->getPost("priority");
         $slider->hide = ( $this->request->getPost("hide") ? 1 : 0 );
-
         if ($this->request->hasFiles() == true) {
             $baseLocation = BASE_PATH . '/public/uploads/slider/';
             $file = $this->request->getUploadedFiles()[0];

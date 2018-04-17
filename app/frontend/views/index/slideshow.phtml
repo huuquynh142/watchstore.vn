@@ -1,0 +1,21 @@
+<section id="slider" class="">
+    <div class="slideshow box">
+        <!-- Desktop Slider -->
+        <div class="slideshow-wrapper wow">
+            <div class="preloader"></div>
+            <ul data-orbit data-options="bullets:false;pause_on_hover:true;resume_on_mouseout:true;" class="text-center">
+                <?php foreach ($slider as $sliders): ?>
+                    <li>
+                        <img src="/public/uploads/slider/<?= $sliders->image ?>" alt="Best Watches Store" />
+                        <div class="orbit-caption">
+                            <h2><?= $sliders->title ?></h2>
+                            <p><?= $sliders->description ?></p>
+                            <a class="button" href="products/samsung-galaxy-s5-black-16gb-sprint.html">Tìm hiểu thêm</a>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+    <!-- End Desktop Slider -->
+</section>
