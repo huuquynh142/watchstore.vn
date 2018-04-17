@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Models\Producer;
 use App\Models\DescriptionProduct;
 use App\Models\ProductDetail;
+use App\Models\ProductType;
+use App\Models\ProductCredential;
 
 
 class ProductController extends ControllerBase
@@ -71,6 +73,7 @@ class ProductController extends ControllerBase
         $this->view->producer = Producer::find();
         $this->view->product = Product::find();
         $this->view->productDetail = ProductDetail::find();
+        $this->view->productType = ProductType::find();
     }
 
     public function editAction($id)
@@ -89,6 +92,10 @@ class ProductController extends ControllerBase
                 return;
             }
 
+            $this->view->productType = ProductType::find();
+            $this->view->productCredential = ProductCredential::query()
+                ->where(ProductCredential::class.".product_id =".$product->id)
+                ->execute();
             $this->view->id = $product->id;
             $this->view->producer = Producer::find();
             $this->view->product = Product::find();
@@ -138,6 +145,8 @@ class ProductController extends ControllerBase
 
             return;
         }
+        $this->insertProductCredential($product);
+
 
         $this->flash->success("product was created successfully");
 
@@ -197,6 +206,9 @@ class ProductController extends ControllerBase
 
             return;
         }
+        $productCredential = ProductCredential::find(ProductCredential::class.".product_id = " .$product->id);
+        $productCredential->delete();
+        $this->insertProductCredential($product);
 
         $this->flash->success("product was updated successfully");
 
@@ -240,6 +252,16 @@ class ProductController extends ControllerBase
             'controller' => "product",
             'action' => "index"
         ]);
+    }
+
+    protected function insertProductCredential($product)
+    {
+        foreach ($this->request->getPost("product_credentials") as $item) {
+            $product_redential = new ProductCredential();
+            $product_redential->setProductId($product->getId());
+            $product_redential->setProductTypeId($item);
+            $product_redential->save();
+        }
     }
 
 }

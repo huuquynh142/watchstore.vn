@@ -87,6 +87,20 @@
                                 <?php echo $this->tag->textField(["discount", "size" => 30, "class" => "form-control",'style' => 'border-radius: 4px', "id" => "fieldDiscount"]) ?>
                             </div>
                         </div>
+                        <div class="control-group">
+                            <label class="control-label">Type :</label>
+                            <div class="controls">
+                                <ul class="container_checkbox">
+                                    <?php foreach ($productType as $product_type): ?>
+                                        <li>
+                                            <input type="checkbox" name="product_credentials[]" id="product_credentials_<? echo $product_type->id ?>" value="<? echo $product_type->id ?>">
+                                            <label for="product_credentials_<? echo $product_type->id ?>"><? echo $product_type->name ?></label>
+                                        </li>
+
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        </div>
 
                         <div class="control-group">
                             <div class="span12">
