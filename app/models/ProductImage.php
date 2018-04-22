@@ -17,7 +17,7 @@ class ProductImage extends \Phalcon\Mvc\Model
      * @var integer
      * @Column(type="integer", length=11, nullable=false)
      */
-    protected $productId;
+    protected $product_id;
 
     /**
      *
@@ -40,20 +40,20 @@ class ProductImage extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Method to set the value of field productId
+     * Method to set the value of field product_id
      *
-     * @param integer $productId
+     * @param integer $product_id
      * @return $this
      */
-    public function setProductId($productId)
+    public function setProductId($product_id)
     {
-        $this->productId = $productId;
+        $this->product_id = $product_id;
 
         return $this;
     }
 
     /**
-     * Method to set the value of field member
+     * Method to set the value of field image
      *
      * @param string $image
      * @return $this
@@ -76,17 +76,17 @@ class ProductImage extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field productId
+     * Returns the value of field product_id
      *
      * @return integer
      */
     public function getProductId()
     {
-        return $this->productId;
+        return $this->product_id;
     }
 
     /**
-     * Returns the value of field member
+     * Returns the value of field image
      *
      * @return string
      */
@@ -146,8 +146,8 @@ class ProductImage extends \Phalcon\Mvc\Model
     {
         return [
             'id' => 'id',
-            'product_id' => 'productId',
-            'member' => 'member'
+            'product_id' => 'product_id',
+            'image' => 'image'
         ];
     }
 
