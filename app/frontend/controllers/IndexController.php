@@ -15,12 +15,9 @@ class IndexController extends ControllerBase
         $this->newProductAction();
     }
 
-    public function testAction()
-    {
-
-    }
     public function bannerShowAction(){
     }
+    
     public function slideShowAction(){
         $robos = Slider::query()
             ->where(Slider::class.'.hide = 0')
