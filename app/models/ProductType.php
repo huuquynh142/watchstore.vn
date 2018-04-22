@@ -1,6 +1,5 @@
 <?php
 namespace App\Models;
-
 class ProductType extends \Phalcon\Mvc\Model
 {
 
@@ -19,6 +18,20 @@ class ProductType extends \Phalcon\Mvc\Model
      * @Column(type="string", length=100, nullable=true)
      */
     protected $name;
+
+    /**
+     *
+     * @var string
+     * @Column(type="string", length=500, nullable=true)
+     */
+    protected $redirect;
+
+    /**
+     *
+     * @var string
+     * @Column(type="string", length=500, nullable=true)
+     */
+    protected $image;
 
     /**
      * Method to set the value of field id
@@ -47,6 +60,32 @@ class ProductType extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Method to set the value of field redirect
+     *
+     * @param string $redirect
+     * @return $this
+     */
+    public function setRedirect($redirect)
+    {
+        $this->redirect = $redirect;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field image
+     *
+     * @param string $image
+     * @return $this
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
      * Returns the value of field id
      *
      * @return integer
@@ -64,6 +103,26 @@ class ProductType extends \Phalcon\Mvc\Model
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Returns the value of field redirect
+     *
+     * @return string
+     */
+    public function getRedirect()
+    {
+        return $this->redirect;
+    }
+
+    /**
+     * Returns the value of field image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 
     /**
@@ -117,7 +176,9 @@ class ProductType extends \Phalcon\Mvc\Model
     {
         return [
             'id' => 'id',
-            'name' => 'name'
+            'name' => 'name',
+            'redirect' => 'redirect',
+            'image' => 'image'
         ];
     }
 

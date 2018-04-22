@@ -1,0 +1,35 @@
+<div class="featured-collection box wow fadeInUp animated" data-wow-delay="0.15s">
+    <div class="row">
+        <div class="row">
+            <div class="small-12 medium-12 large-12 columns">
+                <div class="box-title">
+                    <h3>Bộ sưu tâp</h3>
+                    <span class="abs"><i class="fa fa-th-list"></i></span>
+                </div>
+                <div class="box-content wow fadeInUp animated" data-wow-delay="0.15s">
+                    <div id="categories-scroll" class="row">
+
+
+
+                        <?php foreach ($horizontalAnimate as $key => $item): ?>
+
+                            <div class="item">
+
+                                <div class="featured-box">
+                                    <img src="/public/img/<?= $item['image'] ?>" alt="Best Watches Store" />
+                                    <a href="collections/frontpage.html" title="Browse our for men collection">
+                                        <span class="featured-box-title"> <?= $key ?></span>
+                                        <span class="featured-box-count"><?= $item['count'] ?> mục</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        <?php endforeach; ?>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

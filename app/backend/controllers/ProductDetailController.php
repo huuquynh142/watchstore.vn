@@ -39,7 +39,7 @@ class ProductDetailController extends ControllerBase
 
     public function newAction()
     {
-        $this->view->productType = ProductType::find();
+
     }
 
     public function editAction($id)
