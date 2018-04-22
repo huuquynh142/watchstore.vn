@@ -1,0 +1,184 @@
+<div class="latest-products box">
+
+    <div class="box-title">
+        <h3>Sản phẩm mới</h3>
+        <span class="abs"><i class="fa fa-star"></i></span>
+    </div>
+    <div class="box-content">
+        <div class="products-row row">
+            <div id="latest-products" class="owl-control">
+                <?php foreach ($newProduct as $product): ?>
+                <div class="item">
+                    <div class="product-image">
+                        <div class="action">
+                            <form method="post" action="https://ap-best-store.myshopify.com/cart/add">
+                                <input type="hidden" name="id" value="<?= $product->description_id ?>" />
+                                <input type="submit" value="Thêm vào giỏ hàng" class="btn ct-btn" />
+                            </form>
+                            <div data-options="disable_for_touch:true" >
+                                <a class="quick-view ct-btn" href="#" data-reveal-id="<?= $product->description_id ?>" title="<?= $product->product_name ?>">
+                                    Xem ngay
+                                </a>
+                            </div>
+                            <div id="<?= $product->description_id ?>" class="reveal-modal expand" style="position:fixed;" data-reveal>
+                                <form action="https://ap-best-store.myshopify.com/cart/add" method="post" enctype="multipart/form-data" style="margin:0;">
+                                    <div class="row">
+                                        <div class="large-6 columns">
+                                            <script>
+                                                $(document).ready(function(){
+                                                    $('#zoom-products-beats-studio-over-ear-headphones-black').zoom();
+                                                    $('#grab-products-beats-studio-over-ear-headphones-black').zoom({ on:'grab' });
+                                                    $('#click-products-beats-studio-over-ear-headphones-black').zoom({ on:'click' });
+                                                    $('#toggle-products-beats-studio-over-ear-headphones-black').zoom({ on:'toggle' });
+                                                });
+                                            </script>
+                                            <div id="zoom-products-beats-studio-over-ear-headphones-black">
+                                                <img src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
+                                            </div>
+                                        </div>
+                                        <div class="large-6 columns">
+                                            <h1 itemprop="name"><?= $product->product_name ?></h1>
+                                            <div class="review text-left">
+                                                <span itemprop="name">MSP: <?= $product->description_id?></span>
+                                                <span class="shopify-product-reviews-badge" data-id="<?= $product->id ?>"></span>
+                                            </div>
+                                            <div id="product-description" class="rte" itemprop="description">
+                                                <p>The standard Lorem Ipsum passage, used since the 1500s"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+                                            </div>
+                                            <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                                <meta itemprop="priceCurrency" content="USD" />
+
+                                                <link itemprop="availability" href="http://schema.org/InStock" />
+
+                                                <h5>
+
+                                                    <span class="price" itemprop="price"><span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span></span>
+
+                                                </h5>
+                                            </div>
+
+                                            <!--                                                        <h5 itemprop="brand"><a title="">Apple, Shopify</a></h5>-->
+                                            <!---->
+                                            <!---->
+                                            <!--                                                        <div id="product-variants" class="">-->
+                                            <!--                                                            <select id="product-select" name="id">-->
+                                            <!---->
+                                            <!--                                                                <option value="1114660972">X / Red - <span class='money'>$249.95</span></option>-->
+                                            <!---->
+                                            <!--                                                                <option value="1114660976">X / Blue - <span class='money'>$249.95</span></option>-->
+                                            <!---->
+                                            <!--                                                                <option value="1114660980">X / White - <span class='money'>$249.95</span></option>-->
+                                            <!---->
+                                            <!--                                                                <option value="1114660984">M / Red - <span class='money'>$249.95</span></option>-->
+                                            <!---->
+                                            <!--                                                                <option value="1114660988">M / Blue - <span class='money'>$249.95</span></option>-->
+                                            <!---->
+                                            <!--                                                                <option value="1114660992">M / White - <span class='money'>$249.95</span></option>-->
+                                            <!---->
+                                            <!--                                                                <option value="1114660996">L / Red - <span class='money'>$249.95</span></option>-->
+                                            <!---->
+                                            <!--                                                                <option value="1114661000">L / Blue - <span class='money'>$249.95</span></option>-->
+                                            <!---->
+                                            <!--                                                                <option value="1114661004">L / White - <span class='money'>$249.95</span></option>-->
+                                            <!---->
+                                            <!--                                                            </select>-->
+                                            <!--                                                        </div>-->
+                                            <div id="product-add">
+                                                <div class="qty-adder qty-adder<?= $product->id ?> pull-left">
+                                                    <div class="quantity-number pull-left">
+                                                        <a href="javascript:void(0)" title=""><span class="add-down add-action">-</span></a>
+                                                        <input id="quantity" type="text" name="quantity<?= $product->id ?>" size="2" value="1">
+                                                        <a href="javascript:void(0)" title=""><span class="add-up add-action">+</span></a>
+                                                    </div>
+                                                </div>
+                                                <input class="button" type="submit" name="add" id="add" value="Thêm vào giỏ hàng">
+                                            </div>
+                                            <!-- Sharing is caring -->
+
+                                            <div class="large-12 columns">
+                                                <br />
+                                                <ul class="social-sharing inline-list">
+                                                    <li>Share: </li>
+                                                    <li><a target="_blank" href="https://twitter.com/intent/tweet?text=&amp;url=http%3A%2F%2Fap-best-store.myshopify.com&amp;via=rcinteriors"><i class="fi-social-twitter"></i></a></li>
+                                                    <li><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ap-best-store.myshopify.com"><i class="fi-social-facebook"></i></a></li>
+                                                    <li><a target="_blank" href="https://plus.google.com/share?url=http://ap-best-store.myshopify.com"><i class="fi-social-google-plus"></i></a></li>
+                                                    <li><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://ap-best-store.myshopify.com&amp;title=&amp;summary=&amp;source=http://ap-best-store.myshopify.com"><i class="fi-social-linkedin"></i></a></li>
+                                                    <li><a target="_blank" href="http://pinterest.com/pin/create/button/?url=http://ap-best-store.myshopify.com&amp;description=&amp;media="><i class="fi-social-pinterest"></i></a></li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </form>
+                                <a class="close-reveal-modal">&#215;</a>
+                            </div>
+                            <script>
+                                jQuery(function($) {
+                                    $(".qty-adder<?= $product->id ?> .add-action").click( function(){
+                                        if( $(this).hasClass('add-up') ) {
+                                            var  value = parseInt( $("[name=quantity<?= $product->id ?>]",'.qty-adder<?= $product->id ?>').val() ) + 1;
+                                            $("[name=quantity<?= $product->id ?>]",'.qty-adder<?= $product->id ?>').val(value );
+                                        }else {
+                                            if( parseInt($("[name=quantity<?= $product->id ?>]",'.qty-adder<?= $product->id ?>').val())  > 1 ) {
+                                                $("input",'.qty-adder<?= $product->id ?>').val( parseInt($("[name=quantity<?= $product->id ?>]",'.qty-adder<?= $product->id ?>').val()) - 1 );
+                                            }
+                                        }
+                                    });
+                                });
+                            </script>
+                        </div>
+
+                        <img style="height: 250px" src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name"><a href= "products/beats-studio-over-ear-headphones-black.html"><?= $product->product_name ?></a></h3>
+
+
+                        <div class="review">
+                            <span class="shopify-product-reviews-badge" data-id="<?= $product->id ?>"></span>
+                        </div>
+
+                        <span class="price">
+
+
+
+                                <span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span>
+
+                      </span>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $("#latest-products").owlCarousel({
+            itemsCustom : [
+                [0, 1],
+                [450, 1],
+                [600, 2],
+                [700, 2],
+                [1000, 4],
+                [1200, 5],
+                [1400, 5],
+                [1600, 5]
+            ],
+            autoPlay : false,
+            stopOnHover : false,
+            lazyLoad : false,
+            lazyFollow : true,
+            lazyEffect : "fade",
+            afterInit : function(el){
+                el.trigger('owl.jumpTo',2)
+            },
+            pagination : false,
+            // Navigation
+            navigation : true,
+            navigationText : ["prev","next"],
+            rewindNav : true,
+            scrollPerPage : false,
+        });
+    })
+</script>
