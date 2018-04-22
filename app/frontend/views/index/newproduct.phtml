@@ -12,27 +12,27 @@
                     <div class="product-image">
                         <div class="action">
                             <form method="post" action="https://ap-best-store.myshopify.com/cart/add">
-                                <input type="hidden" name="id" value="<?= $product->description_id ?>" />
+                                <input type="hidden" name="id" value="<?= $product->id ?>" />
                                 <input type="submit" value="Thêm vào giỏ hàng" class="btn ct-btn" />
                             </form>
                             <div data-options="disable_for_touch:true" >
-                                <a class="quick-view ct-btn" href="#" data-reveal-id="<?= $product->description_id ?>" title="<?= $product->product_name ?>">
+                                <a class="quick-view ct-btn" href="#" data-reveal-id="sp<?= $product->id ?>" title="<?= $product->product_name ?>">
                                     Xem ngay
                                 </a>
                             </div>
-                            <div id="<?= $product->description_id ?>" class="reveal-modal expand" style="position:fixed;" data-reveal>
+                            <div id="sp<?= $product->id ?>" class="reveal-modal expand" style="position:fixed;" data-reveal>
                                 <form action="https://ap-best-store.myshopify.com/cart/add" method="post" enctype="multipart/form-data" style="margin:0;">
                                     <div class="row">
                                         <div class="large-6 columns">
                                             <script>
                                                 $(document).ready(function(){
-                                                    $('#zoom-products-beats-studio-over-ear-headphones-black').zoom();
-                                                    $('#grab-products-beats-studio-over-ear-headphones-black').zoom({ on:'grab' });
-                                                    $('#click-products-beats-studio-over-ear-headphones-black').zoom({ on:'click' });
-                                                    $('#toggle-products-beats-studio-over-ear-headphones-black').zoom({ on:'toggle' });
+                                                    $('#zoom-<?= $product->description_id ?>').zoom();
+                                                    $('#grab-<?= $product->description_id ?>').zoom({ on:'grab' });
+                                                    $('#click-<?= $product->description_id ?>').zoom({ on:'click' });
+                                                    $('#toggle-<?= $product->description_id ?>').zoom({ on:'toggle' });
                                                 });
                                             </script>
-                                            <div id="zoom-products-beats-studio-over-ear-headphones-black">
+                                            <div id="zoom-<?= $product->description_id ?>">
                                                 <img src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
                                             </div>
                                         </div>
