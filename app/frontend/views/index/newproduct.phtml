@@ -11,7 +11,7 @@
                 <div class="item">
                     <div class="product-image">
                         <div class="action">
-                            <form method="post" action="https://ap-best-store.myshopify.com/cart/add">
+                            <form method="post" action="frontend/shopcart/add">
                                 <input type="hidden" name="id" value="<?= $product->id ?>" />
                                 <input type="submit" value="Thêm vào giỏ hàng" class="btn ct-btn" />
                             </form>
@@ -84,10 +84,10 @@
                                             <!--                                                            </select>-->
                                             <!--                                                        </div>-->
                                             <div id="product-add">
-                                                <div class="qty-adder qty-adder<?= $product->id ?> pull-left">
+                                                <div class="qty-adder qty-adder pull-left" data-id="<?= $product->id ?>">
                                                     <div class="quantity-number pull-left">
                                                         <a href="javascript:void(0)" title=""><span class="add-down add-action">-</span></a>
-                                                        <input id="quantity" type="text" name="quantity<?= $product->id ?>" size="2" value="1">
+                                                        <input id="quantity" type="text" name="quantity" size="2" value="1">
                                                         <a href="javascript:void(0)" title=""><span class="add-up add-action">+</span></a>
                                                     </div>
                                                 </div>
@@ -112,20 +112,7 @@
                                 </form>
                                 <a class="close-reveal-modal">&#215;</a>
                             </div>
-                            <script>
-                                jQuery(function($) {
-                                    $(".qty-adder<?= $product->id ?> .add-action").click( function(){
-                                        if( $(this).hasClass('add-up') ) {
-                                            var  value = parseInt( $("[name=quantity<?= $product->id ?>]",'.qty-adder<?= $product->id ?>').val() ) + 1;
-                                            $("[name=quantity<?= $product->id ?>]",'.qty-adder<?= $product->id ?>').val(value );
-                                        }else {
-                                            if( parseInt($("[name=quantity<?= $product->id ?>]",'.qty-adder<?= $product->id ?>').val())  > 1 ) {
-                                                $("input",'.qty-adder<?= $product->id ?>').val( parseInt($("[name=quantity<?= $product->id ?>]",'.qty-adder<?= $product->id ?>').val()) - 1 );
-                                            }
-                                        }
-                                    });
-                                });
-                            </script>
+
                         </div>
 
                         <img style="height: 250px" src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
@@ -152,6 +139,29 @@
         </div>
     </div>
 </div>
+<script>
+    jQuery(function($) {
+
+        $(".qty-adder .add-action").click( function(){
+            var id = $(this).closest('.qty-adder').data('id');
+            console.log(id);
+            if( $(this).hasClass('add-up') ) {
+                var countInput  = $(this).parent().prev();
+                var count = countInput.val();
+                console.log(count);
+                var  value = parseInt( count ) + 1;
+                countInput.val(value );
+            }else {
+                var countInput  = $(this).parent().next();
+                var count = countInput.val();
+                console.log(count);
+                if( parseInt(countInput.val())  > 1 ) {
+                    countInput.val( count - 1 );
+                }
+            }
+        });
+    });
+</script>
 <script>
     $(document).ready(function() {
         $("#latest-products").owlCarousel({
