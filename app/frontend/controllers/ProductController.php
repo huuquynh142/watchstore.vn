@@ -7,6 +7,7 @@ class ProductController extends ControllerBase
 {
     public function indexAction()
     {
+        $this->bestSellersAction();
         $robots = Product::query()
             ->innerJoin(ProductDetail::class,Product::class.".product_detail_id =".ProductDetail::class.".id")
             ->innerJoin(ProductImage::class,Product::class.".id =".ProductImage::class.".product_id")
@@ -68,6 +69,25 @@ class ProductController extends ControllerBase
             ])
             ->execute();
         $this->view->products = $robots;
+    }
+
+    public function bestSellersAction(){
+        $robots = Product::query()
+            ->innerJoin(ProductDetail::class,Product::class.".product_detail_id =".ProductDetail::class.".id")
+            ->innerJoin(ProductImage::class,Product::class.".id =".ProductImage::class.".product_id")
+            ->orderBy(Product::class.".view DESC")
+            ->groupBy(Product::class.".id")
+            ->limit(5)
+            ->columns([
+                ProductDetail::class.".product_name" ,
+                Product::class.".id" ,
+                Product::class.".description_id",
+                Product::class.".sale_price" ,
+                Product::class.".discount" ,
+                ProductImage::class.".image"
+            ])
+            ->execute();
+        $this->view->bestSellers = $robots;
     }
 
 
