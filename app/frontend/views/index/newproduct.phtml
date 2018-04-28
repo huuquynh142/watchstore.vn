@@ -11,10 +11,7 @@
                 <div class="item">
                     <div class="product-image">
                         <div class="action">
-                            <form method="post" action="frontend/shopcart/add">
-                                <input type="hidden" name="id" value="<?= $product->id ?>" />
-                                <input type="submit" value="Thêm vào giỏ hàng" class="btn ct-btn" />
-                            </form>
+                                <input id="btnQuickOder" type="button" data-id="<?= $product->id ?>" value="Thêm vào giỏ hàng" class="btn ct-btn" />
                             <div data-options="disable_for_touch:true" >
                                 <a class="quick-view ct-btn" href="#" data-reveal-id="sp<?= $product->id ?>" title="<?= $product->product_name ?>">
                                     Xem ngay
@@ -192,3 +189,5 @@
         });
     })
 </script>
+
+

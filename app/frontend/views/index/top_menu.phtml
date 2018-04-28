@@ -1,94 +1,183 @@
-<!--<aside class="left-off-canvas-menu">-->
-<!--    <!--Top Menu -->-->
+<header id="header">
+    <!-- Top Nav -->
+    <nav id="topbar" class="top-bar fadeInDown animated hide-for-small" role="navigation" data-topbar data-wow-delay="0.5s">
+        <section class="top-bar-section">
+            <div class="row">
+                <ul class="left toplinks">
+                    <li><span><i class="fa fa-phone"></i>0167 272 9181</span></li>
+
+
+                    <li>
+                        <a href="account/login.html" id="customer_login_link">Đăng nhập</a>
+                    </li>
+
+                    <li>
+                        <a href="account/register.html" id="customer_register_link">Đăng ký</a>
+                    </li>
+
+
+
+
+                    <li class="currencies-current">
+                        <a class="">Vn<i class="fa fa-angle-down"></i></a>
+                        <ul id="currencies" class="f-dropdown" data-dropdown-content tabindex="-1" aria-hidden="true">
+
+
+                            <li><a href="#" data-currency="USD" class="selected ">En</a></li>
+
+
+
+                            <li><a href="#" data-currency="EUR" class="">Vn</a></li>
+
+                            <!---->
+                            <!---->
+                            <!--                                    <li><a href="#" data-currency="AUD" class="">AUD</a></li>-->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!--                                    <li><a href="#" data-currency="GBP" class="">GBP</a></li>-->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!--                                    <li><a href="#" data-currency="JPY" class="">JPY</a></li>-->
+
+                        </ul>
+                    </li>
+
+                </ul>
+                <ul class="right">
+                    <!-- Search Form -->
+                    <li class="has-form top-search">
+                        <div id="sb-search" class="sb-search">
+                            <form action="https://ap-best-store.myshopify.com/search" method="get" class="search-form" role="search">
+                                <input id="search" name="q" type="text" id="search-field" placeholder="Tìm kiếm trong cửa hàng" class="hint sb-search-input" >
+                                <input class="sb-search-submit" type="submit" id="search-submit" value="Search" />
+                                <span class="sb-icon-search"></span>
+                            </form>
+                        </div>
+                    </li>
+                    <!-- End Search Form -->
+
+                    <li class="top-cart">
+                        <a href="/cart" id="CartToggle">
+                            <span class="icon-fallback-text">
+                                <span class="icon icon-cart" aria-hidden="true"></span>
+                            </span>
+                            Giỏ hàng (<span id="CartCount">0</span><span> Sản phẩm</span>
+                            <span id="CartCost"><span >0 VND</span></span>)
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+    </nav>
+    <!--</div>-->
+    <!-- End Top Nav Bar -->
+    <script>
+        new UISearch( document.getElementById( 'sb-search' ) );
+    </script>
+    <!-- End Top Nav -->
+    <div class="header-main row">
+        <div class="hm-left">
+
+            <h1 class="header-logo" itemscope itemtype="http://schema.org/Organization">
+
+
+                <a href="index.html" itemprop="url">
+                    <img src="/public/img/logoe0a9.png?4621688722820174607" alt="Best Watches Store" itemprop="logo">
+                </a>
+
+
+            </h1>
+
+        </div>
+        <div class="hm-right hide-for-small-only">
+
+            <!--Top Menu -->
+            <!-- This is where the main menu links render-->
+            <ul class="top-menu">
+
+                <li class="nav-item first active ">
+                    <a href="index.html" title="Home">Trang chủ</a>
+
+                </li>
+
+                <li class="nav-item has-dropdown">
+                    <a href="collections/all.html" title="Catalog">Danh mục</a>
+
+                    <ul class="dropdown">
+
+                        <li class=" first has-dropdown">
+                            <a href="collections/men.html" title="Men">Nam</a>
+
+<!--                            <ul class="dropdown">-->
 <!---->
-<!--    <!-- This is where the main menu links render-->-->
-<!--    <ul class="mobile-menu">-->
+<!--                                <li class=" first ">-->
+<!--                                    <a href="collections/luggage-travel-gear.html" title="Leather">Leather</a>-->
 <!---->
+<!--                                </li>-->
 <!---->
+<!--                                <li class=" last ">-->
+<!--                                    <a href="collections/luggage-travel-gear.html" title="Fabric">Fabric</a>-->
 <!---->
+<!--                                </li>-->
 <!---->
+<!--                            </ul>-->
+
+                        </li>
+
+                        <li class=" ">
+                            <a href="collections/women.html" title="Women">Nữ</a>
+
+                        </li>
+
+<!--                        <li class=" ">-->
+<!--                            <a href="collections/luggage-travel-gear.html" title="Luggage & Travel Gear">Luggage & Travel Gear</a>-->
 <!---->
+<!--                        </li>-->
 <!---->
-<!--        <li class="nav-item first active">-->
-<!--            <a href="index.html" title="">Home</a>-->
+<!--                        <li class=" ">-->
+<!--                            <a href="collections/girls.html" title="Girls">Girls</a>-->
 <!---->
-<!--        </li>-->
+<!--                        </li>-->
 <!---->
+<!--                        <li class=" ">-->
+<!--                            <a href="collections/boys.html" title="Boys">Boys</a>-->
 <!---->
+<!--                        </li>-->
 <!---->
+<!--                        <li class=" ">-->
+<!--                            <a href="collections/baby.html" title="Baby">Baby</a>-->
 <!---->
+<!--                        </li>-->
 <!---->
+<!--                        <li class=" last ">-->
+<!--                            <a href="collections/frontpage.html" title="Novelty, Costumes & More">Novelty, Costumes & More</a>-->
 <!---->
-<!--        <li class="nav-item has-dropdown">-->
-<!--            <a href="collections/all.html" title="">Catalog</a>-->
+<!--                        </li>-->
+
+                    </ul>
+
+                </li>
+
+                <li class="nav-item ">
+                    <a href="blogs/news.html" title="Blog">Blog</a>
+
+                </li>
+
+<!--                <li class="nav-item ">-->
+<!--                    <a href="pages/wish-list.html" title="Wishlist">Wishlist</a>-->
 <!---->
-<!--            <ul class="dropdown">-->
-<!---->
-<!---->
-<!--                <li class=" first">-->
-<!--                    <a class="first" href="collections/men.html">Men</a>-->
 <!--                </li>-->
-<!---->
-<!--                <li class="">-->
-<!--                    <a class="" href="collections/women.html">Women</a>-->
-<!--                </li>-->
-<!---->
-<!--                <li class="">-->
-<!--                    <a class="" href="collections/luggage-travel-gear.html">Luggage & Travel Gear</a>-->
-<!--                </li>-->
-<!---->
-<!--                <li class="">-->
-<!--                    <a class="" href="collections/girls.html">Girls</a>-->
-<!--                </li>-->
-<!---->
-<!--                <li class="">-->
-<!--                    <a class="" href="collections/boys.html">Boys</a>-->
-<!--                </li>-->
-<!---->
-<!--                <li class="">-->
-<!--                    <a class="" href="collections/baby.html">Baby</a>-->
-<!--                </li>-->
-<!---->
-<!--                <li class=" last">-->
-<!--                    <a class="last" href="collections/frontpage.html">Novelty, Costumes & More</a>-->
-<!--                </li>-->
-<!---->
-<!---->
-<!--            </ul>-->
-<!---->
-<!--        </li>-->
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!--        <li class="nav-item">-->
-<!--            <a href="blogs/news.html" title="">Blog</a>-->
-<!---->
-<!--        </li>-->
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!--        <li class="nav-item">-->
-<!--            <a href="pages/wish-list.html" title="">Wishlist</a>-->
-<!---->
-<!--        </li>-->
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!--        <li class="nav-item last">-->
-<!--            <a href="pages/about-us.html" title="">About Us</a>-->
-<!---->
-<!--        </li>-->
-<!---->
-<!--    </ul>-->
-<!---->
-<!--    <!-- End Menu -->-->
-<!--</aside>-->
+
+                <li class="nav-item last ">
+                    <a href="pages/about-us.html" title="About Us">Về chúng tôi</a>
+
+                </li>
+
+            </ul>
+            <!-- End Menu -->
+        </div>
+    </div>
+</header>
