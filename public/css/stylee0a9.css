@@ -8445,6 +8445,9 @@ body.header-three .sb-icon-search{
 .wishlist-page .remove a:hover{
     color: #018cc5;
 }
+.error{
+  font-size: 12px;
+}
 /* ---End Account--- */
 @media (max-width: 980px){
   	.custom-banner .ctb-bot{

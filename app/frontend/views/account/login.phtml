@@ -1,0 +1,86 @@
+<main role="main">
+
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="row">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="/index/index" class="homepage-link" title="Back to the frontpage">Trang chủ</a>
+                </li>
+
+                <li class="current">
+                    <a href="#">Tài khoản</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+
+
+    <div class="row">
+        <div class="row">
+            <div class="small-12 medium-12 large-12 columns customer-login">
+                <div id="customer">
+                    <h2 class="page-title">Khách hàng đăng nhập</h2>
+                    <form id="customer_login" accept-charset="UTF-8">
+
+                        <div class="row">
+                            <div id="login_email" class="large-12 columns">
+                                <label for="customer_email" class="login">Số điện thoại <span class="required">*</span></label>
+                                <input type="text" value="" name="customer_phone" id="customer_phone" />
+                            </div>
+
+
+                            <div id="login_password" class="large-12 columns">
+                                <label for="customer_password" class="login">Mật khẩu <span class="required">*</span></label>
+                                <input type="password" value="" name="customer_password" id="customer_password" />
+                            </div>
+
+                            <div class="account_des_notes large-12 columns">
+                                <a href="#" onclick="showRecoverPasswordForm();return false;">Quên mật khẩu?</a>
+                            </div>
+                        </div>
+                        <input class="button" type="submit" value="Đăng nhập" />
+                    </form>
+                </div>
+
+                <div id="recover-password" style='display:none'>
+                    <h1 class="page-title">Đặt lại mật khẩu của bạn</h1>
+                    <p class="note">Chúng tôi sẽ gửi cho bạn một email để đặt lại mật khẩu của bạn.</p>
+                    <form method="post" action="https://ap-best-store.myshopify.com/account/recover" accept-charset="UTF-8"><input type="hidden" name="form_type" value="recover_customer_password" /><input type="hidden" name="utf8" value="✓" />
+
+                        <label for="email">Email <span class="required">*</span></label>
+                        <div class="row">
+                            <div class="large-6 columns">
+                                <input type="email" value="" name="email" id="recover-email" />
+                            </div>
+                        </div>
+                        <input id="btn_submit" class="button" type="submit" value="Gửi" />
+                    </form>
+                </div>
+
+
+                <div class="account_des_notes">
+
+
+                    Không có tài khoản ? <a href="/account/register" id="customer_register_link">Đăng ký</a> Hoặc
+
+                    <a href="/index/index">Trở lại trang chủ</a>
+                </div>
+                <script type="text/javascript">
+                    function showRecoverPasswordForm() {
+                        document.getElementById('recover-password').style.display = 'inline-block';
+                        document.getElementById('customer').style.display='none';
+                    }
+                    function hideRecoverPasswordForm() {
+                        document.getElementById('recover-password').style.display = 'none';
+                        document.getElementById('customer').style.display = 'inline-block';
+                    }
+                    if (window.location.hash == '#recover') { showRecoverPasswordForm() }
+                </script>
+            </div>
+        </div>
+    </div>
+
+</main>
