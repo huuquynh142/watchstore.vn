@@ -314,27 +314,27 @@ class Member extends \Phalcon\Mvc\Model
         return $this->created_at;
     }
 
-    /**
-     * Validations and business logic
-     *
-     * @return boolean
-     */
-    public function validation()
-    {
-        $validator = new Validation();
-
-        $validator->add(
-            'email',
-            new EmailValidator(
-                [
-                    'model'   => $this,
-                    'message' => 'Please enter a correct email address',
-                ]
-            )
-        );
-
-        return $this->validate($validator);
-    }
+//    /**
+//     * Validations and business logic
+//     *
+//     * @return boolean
+//     */
+//    public function validation()
+//    {
+//        $validator = new Validation();
+//
+//        $validator->add(
+//            'email',
+//            new EmailValidator(
+//                [
+//                    'model'   => $this,
+//                    'message' => 'Please enter a correct email address',
+//                ]
+//            )
+//        );
+//
+//        return $this->validate($validator);
+//    }
 
     /**
      * Initialize method for model.

@@ -8,41 +8,21 @@
 
 
                     <li>
-                        <a href="account/login.html" id="customer_login_link">Đăng nhập</a>
+                        <?php if( $this->session->get('user_name')){?>
+                            <a href="#" id="customer_login_link"><?php echo $this->session->get('user_name')?></a>
+                        <?php }else{ ?>
+                            <a href="/account/login" id="customer_login_link">Đăng nhập</a>
+                        <?php } ?>
                     </li>
 
                     <li>
-                        <a href="account/register.html" id="customer_register_link">Đăng ký</a>
+                        <?php if( $this->session->get('user_name')){?>
+                            <a href="/account/logout" id="customer_login_link">Log Out</a>
+                        <?php }else{ ?>
+                            <a href="/account/register" id="customer_register_link">Đăng ký</a>
+                        <?php } ?>
                     </li>
 
-
-
-
-                    <li class="currencies-current">
-                        <a class="">Vn<i class="fa fa-angle-down"></i></a>
-                        <ul id="currencies" class="f-dropdown" data-dropdown-content tabindex="-1" aria-hidden="true">
-
-
-                            <li><a href="#" data-currency="USD" class="selected ">En</a></li>
-
-
-
-                            <li><a href="#" data-currency="EUR" class="">Vn</a></li>
-
-                            <!---->
-                            <!---->
-                            <!--                                    <li><a href="#" data-currency="AUD" class="">AUD</a></li>-->
-                            <!---->
-                            <!---->
-                            <!---->
-                            <!--                                    <li><a href="#" data-currency="GBP" class="">GBP</a></li>-->
-                            <!---->
-                            <!---->
-                            <!---->
-                            <!--                                    <li><a href="#" data-currency="JPY" class="">JPY</a></li>-->
-
-                        </ul>
-                    </li>
 
                 </ul>
                 <ul class="right">
