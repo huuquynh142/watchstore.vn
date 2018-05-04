@@ -1,16 +1,93 @@
 $(document).ready(function () {
     $(document).on('click','#btnQuickOder',function () {
-        jDialog('<div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>', 'popup_bidding_frame', 'cvnb', function(data) {
 
-            data = $.parseJSON(data);
+        $.ajax({
+            type: 'POST',
+            url: '/ShopCart/add',
+            dataType: 'json',
+            data: {'id':$(this).attr('data-id')},
+            success: function(data) {
+                if (data.code == 'success') {
+                    jDialog(data.data, 'popup', 'Giỏ hàng', function (data) {
 
-            jAlert(data.msg);
+                        data = $.parseJSON(data);
 
-            if (data.code == 0) {
-                location.reload(true);
+                        jAlert(data.msg);
+
+                        if (data.code == 0) {
+                            location.reload(true);
+                        }
+                    });
+                    $('#CartCount').text(data.countCart);
+                    $('#CartCost').text(data.totalCart);
+                    $('.cart-subtotal .money').text(data.totalCart);
+                }
+                else
+                    alert(data.message)
+            }});
+
+
+    });
+
+
+    $(document).on('click','.js-qty .js-qty__adjust',function (){
+        var id = $(this).closest('.js-qty').data('id');
+        if( $(this).hasClass('js-qty__adjust--plus') ) {
+            var countInput  = $(this).parent().find(".js-qty__num");
+            var count = countInput.val();
+            if(count < 10)
+            {
+                var  value = parseInt( count ) + 1;
+                countInput.val(value );
+                updateCart(id , value);
+            }else
+                alert('Mỗi sản phẩm chỉ được mua số lượng tối đa là 10 \n Vui lòng kiểm tra lại !')
+
+        }else {
+            var countInput  = $(this).parent().find(".js-qty__num");
+            var count = countInput.val();
+            if( parseInt(countInput.val())  > 1 ) {
+                countInput.val( count - 1 );
+                updateCart(id , (count - 1));
             }
+        }
+    });
+    $(document).on('click','#btn-remove',function () {
+        var id = $(this).attr('data-id');
+        $.getJSON('/frontend/ShopCart/delete/' + id, function (data) {
+            if (data.code == 'success') {
+                jDialog(data.data, 'popup', 'Giỏ hàng', function (data) {
+
+                    data = $.parseJSON(data);
+
+                    jAlert(data.msg);
+
+                    if (data.code == 0) {
+                        location.reload(true);
+                    }
+                });
+                $('#CartCount').text(data.countCart);
+                $('#CartCost').text(data.totalCart);
+                $('.cart-subtotal .money').text(data.totalCart);
+            }else
+                alert('Xóa không thành công!');
         });
     });
+
+    $(document).on('click','#btn_remove_index',function () {
+        var id = $(this).attr('data-id');
+        $.getJSON('/frontend/ShopCart/delete/' + id, function (data) {
+            if (data.code == 'success') {
+                $('#CartCount').text(data.countCart);
+                $('#CartCost').text(data.totalCart);
+                $('.cart-subtotal .money').text(data.totalCart);
+                window.location.reload();
+            }else
+                alert('Xóa không thành công!');
+        });
+    });
+
+
 
     $("#customer_login").validate({
         ignore: [],
@@ -132,6 +209,16 @@ $(document).ready(function () {
         return this.optional(element) ||
             email.match(/^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/);
     });
+
+    function updateCart(id , quatity) {
+        $.getJSON('/frontend/ShopCart/edit/' + id + '/' + quatity, function (data) {
+            if (data.code == 'success')
+                $("#money_" + id).text(data.total);
+                $('#CartCount').text(data.countCart);
+                $('#CartCost').text(data.totalCart);
+                $('.cart-subtotal .money').text(data.totalCart);
+        });
+    }
 
 
 });

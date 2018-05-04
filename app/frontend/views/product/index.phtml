@@ -204,10 +204,7 @@
                                 <div class="item small-12 medium-6 large-3 columns">
                                     <div class="product-image">
                                         <div class="action">
-                                            <form method="post" action="https://ap-best-store.myshopify.com/cart/add">
-                                                <input type="hidden" name="id" value="<?= $product->id ?>" />
-                                                <input type="submit" value="Thêm vào giỏ hàng" class="btn ct-btn" />
-                                            </form>
+                                                <input id="btnQuickOder" type="button" data-id="<?= $product->id ?>" value="Thêm vào giỏ hàng" class="btn ct-btn" />
                                             <div data-options="disable_for_touch:true" >
                                                 <a class="quick-view ct-btn" href="#" data-reveal-id="sp<?= $product->id ?>" title="<?= $product->product_name ?>">
                                                     Xem ngay
@@ -311,7 +308,7 @@
                                         <img style="height: 250px" src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
                                     </div>
                                     <div class="product-info">
-                                        <h3 class="product-name"><a href= "products/beats-studio-over-ear-headphones-black.html"><?= $product->product_name ?></a></h3>
+                                        <h3 class="product-name"><a href= "/frontend/product/productDetail/<?= $product->id ?>"><?= $product->product_name ?></a></h3>
 
 
                                         <div class="review">
@@ -337,10 +334,7 @@
                                 <div class="item small-12 medium-6 large-3 columns">
                                     <div class="product-image">
                                         <div class="action">
-                                            <form method="post" action="https://ap-best-store.myshopify.com/cart/add">
-                                                <input type="hidden" name="id" value="<?= $product->id ?>" />
-                                                <input type="submit" value="Thêm vào giỏ hàng" class="btn ct-btn" />
-                                            </form>
+                                                <input id="btnQuickOder" type="button" data-id="<?= $product->id ?>" value="Thêm vào giỏ hàng" class="btn ct-btn" />
                                             <div data-options="disable_for_touch:true" >
                                                 <a class="quick-view ct-btn" href="#" data-reveal-id="sp<?= $product->id ?>" title="<?= $product->product_name ?>">
                                                     Xem ngay
@@ -444,7 +438,7 @@
                                         <img style="height: 250px" src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
                                     </div>
                                     <div class="product-info">
-                                        <h3 class="product-name"><a href= "products/beats-studio-over-ear-headphones-black.html"><?= $product->product_name ?></a></h3>
+                                        <h3 class="product-name"><a href= "/frontend/product/productDetail/<?= $product->id ?>"><?= $product->product_name ?></a></h3>
 
 
                                         <div class="review">
