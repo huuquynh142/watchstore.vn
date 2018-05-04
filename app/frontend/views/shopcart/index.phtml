@@ -28,105 +28,57 @@
 
 
 
-                            <div class="cart-item row">
-                                <div class="small-12 large-6 columns">
-                                    <div class="row">
-                                        <div class="small-4 columns">
-                                            <a href="/products/jabra-revo-wireless-bluetooth-stereo-headphones">
-                                                <img src="//cdn.shopify.com/s/files/1/0750/3913/products/4_9fe2a9e8-3c8f-49cf-9896-71d95298f2b3_medium.jpeg?v=1421825322" alt="Jabra REVO Wireless Bluetooth Stereo Headphones - X / Red">
-                                            </a>
-                                        </div>
-                                        <div class="small-8 columns">
-                                            <h3 class="product-name">
+                            <?php foreach ($showCart as $product): ?>
+                                <div class="cart-item row">
+                                    <div class="small-12 large-6 columns">
+                                        <div class="row">
+                                            <div class="small-4 columns">
                                                 <a href="/products/jabra-revo-wireless-bluetooth-stereo-headphones">
-                                                    Jabra REVO Wireless Bluetooth Stereo Headphones
+                                                    <img src="/public/img/product/<?=$product->image?>" alt="Jabra REVO Wireless Bluetooth Stereo Headphones - X / Red">
                                                 </a>
-                                            </h3>
-
-                                            <p class="">X / Red</p>
-
-
-                                            <h5 class="brand">Apple, Shopify</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="small-12 large-6 columns">
-                                    <div class="row">
-                                        <div class="small-6 large-6 columns">
-
-
-                                            <div class="js-qty">
-                                                <button type="button" class="js-qty__adjust js-qty__adjust--minus" data-id="" data-qty="0">−</button>
-                                                <input type="text" class="js-qty__num" value="1" min="1" data-id="" aria-label="quantity" pattern="[0-9]*" name="updates[]" id="updates_1114661080">
-                                                <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="" data-qty="11">+</button>
                                             </div>
-
-
-                                        </div>
-                                        <div class="small-4 large-4 columns text-right">
-                                            <span class="price"><span class="money" data-currency-usd="$149.99">$149.99</span></span>
-                                        </div>
-                                        <div class="small-2 large-2 columns text-right">
-                                            <a class="btn-remove" href="/cart/change?line=1&amp;quantity=0"><i class="fa fa-trash-o"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="cart-item row">
-                                <div class="small-12 large-6 columns">
-                                    <div class="row">
-                                        <div class="small-4 columns">
-                                            <a href="/products/jabra-revo-wireless-bluetooth-stereo-headphones">
-                                                <img src="//cdn.shopify.com/s/files/1/0750/3913/products/4_9fe2a9e8-3c8f-49cf-9896-71d95298f2b3_medium.jpeg?v=1421825322" alt="Jabra REVO Wireless Bluetooth Stereo Headphones - X / Red">
-                                            </a>
-                                        </div>
-                                        <div class="small-8 columns">
-                                            <h3 class="product-name">
-                                                <a href="/products/jabra-revo-wireless-bluetooth-stereo-headphones">
-                                                    Jabra REVO Wireless Bluetooth Stereo Headphones
-                                                </a>
-                                            </h3>
-
-                                            <p class="">X / Red</p>
-
-
-                                            <h5 class="brand">Apple, Shopify</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="small-12 large-6 columns">
-                                    <div class="row">
-                                        <div class="small-6 large-6 columns">
-
-
-                                            <div class="js-qty">
-                                                <button type="button" class="js-qty__adjust js-qty__adjust--minus" data-id="" data-qty="0">−</button>
-                                                <input type="text" class="js-qty__num" value="1" min="1" data-id="" aria-label="quantity" pattern="[0-9]*" name="updates[]" id="updates_1114661080">
-                                                <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="" data-qty="11">+</button>
+                                            <div class="small-8 columns">
+                                                <h3 class="product-name">
+                                                    <a href="/products/jabra-revo-wireless-bluetooth-stereo-headphones">
+                                                        <?=$product->name?>
+                                                    </a>
+                                                </h3>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="small-12 large-6 columns">
+                                        <div class="row product-detail">
+                                            <div class="small-6 large-6 columns">
 
 
-                                        </div>
-                                        <div class="small-4 large-4 columns text-right">
-                                            <span class="price"><span class="money" data-currency-usd="$149.99">$149.99</span></span>
-                                        </div>
-                                        <div class="small-2 large-2 columns text-right">
-                                            <a class="btn-remove" href="/cart/change?line=1&amp;quantity=0"><i class="fa fa-trash-o"></i></a>
+                                                <div class="js-qty" data-id="<?=$product->id?>">
+                                                    <button type="button" class="js-qty__adjust js-qty__adjust--minus"  data-qty="0">−</button>
+                                                    <input type="text" class="js-qty__num" value="<?=$product->quatity?>" min="1" aria-label="quantity" pattern="[0-9]*" name="updates[]">
+                                                    <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-qty="10">+</button>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="small-4 large-4 columns text-right">
+                                                <span class="price"><span class="money" id="money_<?=$product->id?>" data-currency-usd="$149.99"><?=number_format($product->total ,0  , 0 , '.') ?> VND</span></span>
+                                            </div>
+                                            <div class="small-2 large-2 columns text-right">
+                                                <a class="btn-remove" id="btn_remove_index" data-id="<?=$product->id?>" href="#"><i class="fa fa-trash-o"></i></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php endforeach; ?>
 
                             <div class="cart-function text-right">
-                                <div class="cart-subtotal">Subtotal <span class="money" data-currency-usd="$149.99">$149.99</span></div>
+                                <div class="cart-subtotal">Tổng : <span class="money"><?= $this->session->get('totalCart')?></span></div>
 
 
 
                                 <div class="function-buttons">
-                                    <a class="button" href="/collections/boys" title="">Continue shopping</a>
-                                    <input class="button btn-update" type="submit" name="update" value="Update Cart">
-                                    <input class="button btn-checkout" type="submit" name="checkout" value="Check Out">
+                                    <a class="button" href="/frontend/product/index" title="">Tiếp tục mua hàng</a>
+<!--                                    <input class="button btn-update" type="submit" name="update" value="Update Cart">-->
+                                    <input class="button btn-checkout" type="submit" name="checkout" value="Thanh toán">
                                 </div>
                             </div>
                         </div>

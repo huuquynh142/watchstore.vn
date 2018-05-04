@@ -39,12 +39,12 @@
                     <!-- End Search Form -->
 
                     <li class="top-cart">
-                        <a href="/cart" id="CartToggle">
+                        <a href="/frontend/shopcart/index" id="CartToggle">
                             <span class="icon-fallback-text">
                                 <span class="icon icon-cart" aria-hidden="true"></span>
                             </span>
-                            Giỏ hàng (<span id="CartCount">0</span><span> Sản phẩm</span>
-                            <span id="CartCost"><span >0 VND</span></span>)
+                            Giỏ hàng (<span id="CartCount"><?php echo $this->session->get('countCart') ? $this->session->get('countCart') : 0  ?></span><span> Sản phẩm</span>
+                            <span id="CartCost"><span ><?php echo $this->session->get('countCart') ? $this->session->get('totalCart') : '0 VND' ?></span></span>)
                         </a>
                     </li>
 
