@@ -1,0 +1,200 @@
+<div class="main__content">
+    <div class="step" data-step="contact_information">
+        <form class="edit_checkout animate-floating-labels" novalidate="novalidate" data-customer-information-form="true" data-email-or-phone="false" action="/checkouts/payment" accept-charset="UTF-8" method="post">
+            <input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="_method" value="patch">
+            <input type="hidden" name="authenticity_token" value="LsV/y9zDeEg1+Goe7ML41bKGItOBESr5ARK1hxnvE0bIL4jL0ew5sAp/HQYWBKWYBmDPQT88K0lgAOPwlEzwiA==">
+
+            <input type="hidden" name="previous_step" id="previous_step" value="contact_information">
+            <input type="hidden" name="step" value="shipping_method">
+
+            <div class="step__sections">
+
+                <div class="section section--contact-information">
+                    <div class="section__header">
+                        <div class="layout-flex layout-flex--tight-vertical layout-flex--loose-horizontal layout-flex--wrap">
+                            <h2 class="section__title layout-flex__item layout-flex__item--stretch">Thông tin liên hệ</h2>
+
+                            <p class="layout-flex__item">
+                                <span aria-hidden="true">Bạn đã có tài khoản ?</span>
+                                <a href="/account/login?checkout_url=%2F7503913%2Fcheckouts%2F86f0749b4af0a1fea38e7205786bf582%3Fstep%3Dcontact_information">
+                                    <span class="visually-hidden">Bạn đã có tài khoản ?</span>
+                                    Đăng nhập
+                                </a>        </p>
+                        </div>
+                    </div>
+                    <div class="section__content" data-section="customer-information" data-shopify-pay-validate-on-load="false">
+                        <div class="fieldset">
+                            <div class="field field--required field--show-floating-label">
+
+                                <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_phone">Phone number</label>
+                                    <input placeholder="Số điện thoại" autocomplete="shipping tel" data-backup="phone" data-autofocus="true"  data-phone-formatter="true" class="field__input field__input--numeric" size="30" type="tel" value="" name="checkout[phone]" id="checkout_shipping_address_phone">
+                                </div>
+                            </div>
+                            <div class="field field--required field--show-floating-label">
+
+                                <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_email">Email</label>
+                                    <input placeholder="Email" autocapitalize="off" spellcheck="false" autocomplete="shipping email" data-backup="customer_email" aria-describedby="checkout-context-step-one" aria-required="true" class="field__input" size="30" type="email"  name="checkout[email]" id="checkout_email">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fieldset-description" data-buyer-accepts-marketing="">
+                            <div class="section__content">
+                                <div class="checkbox-wrapper">
+                                    <div class="checkbox__input">
+                                        <input name="checkout[buyer_accepts_marketing]" type="hidden" value="0"><input class="input-checkbox" data-backup="buyer_accepts_marketing" type="checkbox" value="1" name="checkout[buyer_accepts_marketing]" id="checkout_buyer_accepts_marketing">
+                                    </div>
+                                    <label class="checkbox__label" for="checkout_buyer_accepts_marketing">
+                                        Luôn cập nhật cho tôi tin tức và ưu đãi độc quyền
+                                    </label></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="section section--shipping-address" data-shipping-address="" data-update-order-summary="">
+
+                    <div class="section__header">
+                        <h2 class="section__title">
+                            Địa chỉ giao hàng
+                        </h2>
+                    </div>
+
+                    <div class="section__content">
+                        <div class="fieldset" data-address-fields="">
+
+                            <input class="visually-hidden" autocomplete="shipping given-name" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="first_name" data-honeypot="true" size="30" type="text" name="checkout[shipping_address][first_name]">
+                            <input class="visually-hidden" autocomplete="shipping family-name" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="last_name" data-honeypot="true" aria-required="true" size="30" type="text" name="checkout[shipping_address][last_name]">
+                            <input class="visually-hidden" autocomplete="shipping organization" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="company" data-honeypot="true" size="30" type="text" name="checkout[shipping_address][company]">
+                            <input class="visually-hidden" autocomplete="shipping address-line1" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="address1" data-honeypot="true" aria-required="true" size="30" type="text" name="checkout[shipping_address][address1]">
+                            <input class="visually-hidden" autocomplete="shipping address-line2" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="address2" data-honeypot="true" size="30" type="text" name="checkout[shipping_address][address2]">
+                            <input class="visually-hidden" autocomplete="shipping address-level2" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="city" data-honeypot="true" aria-required="true" size="30" type="text" name="checkout[shipping_address][city]">
+                            <input class="visually-hidden" autocomplete="shipping country" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="country" data-honeypot="true" aria-required="true" size="30" type="text" name="checkout[shipping_address][country]">
+                            <input class="visually-hidden" autocomplete="shipping address-level1" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="province" data-honeypot="true" aria-required="true" size="30" type="text" name="checkout[shipping_address][province]">
+                            <input class="visually-hidden" autocomplete="shipping postal-code" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="zip" data-honeypot="true" aria-required="true" size="30" type="text" name="checkout[shipping_address][zip]">
+                            <input class="visually-hidden" autocomplete="shipping tel" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="phone" data-honeypot="true" size="30" type="text" name="checkout[shipping_address][phone]">
+
+
+                            <div class="field field--required field--show-floating-label" data-address-field="last_name">
+
+                                <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_last_name">Họ và tên</label>
+                                    <input placeholder="Họ và tên" autocomplete="shipping family-name" data-backup="last_name" class="field__input" aria-required="true" size="30" type="text" name="checkout[shipping_address][last_name]" id="checkout_shipping_address_last_name">
+                                </div>
+                            </div>
+                            <div data-address-field="city" data-google-places="true" class="field field--required field--show-floating-label">
+
+                                <div class="field__input-wrapper field__input-wrapper--select"><label class="field__label field__label--visible" for="checkout_shipping_address_province">Tỉnh / Thành phố</label>
+                                    <select size="1" autocomplete="shipping province" data-backup="province" class="field__input field__input--select" aria-required="true" name="checkout[shipping_address][province]" id="checkout_shipping_address_province">
+                                        <!--                                        <option selected="selected" value="Vietnam">Hà Nội</option>-->
+                                        <option selected="selected" disabled="disabled" value="---">---</option>
+                                        <?php foreach ($provinces as $province){ ?>
+                                            <option value="<?= $province->provinceid ?>"><?= $province->name ?></option>
+                                        <?php  } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div data-address-field="city" data-google-places="true" class="field field--required field--show-floating-label">
+
+                                <div class="field__input-wrapper field__input-wrapper--select"><label class="field__label field__label--visible" for="checkout_shipping_address_city">Quận / Huyện</label>
+                                    <select size="1" autocomplete="shipping city" data-backup="city" class="field__input field__input--select" aria-required="true" name="checkout[shipping_address][city]" id="checkout_shipping_address_city">
+                                        <!--                                        <option selected="selected" value="Vietnam">Hà Nội</option>-->
+                                        <option selected="selected" disabled="disabled" value="---">---</option>
+                                    </select>
+                                </div>
+
+
+                            </div>
+                            <div class="field field--required field--show-floating-label" data-address-field="address1" data-google-places="true">
+
+                                <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_address1">Địa chỉ</label>
+                                    <input placeholder="Địa chỉ" autocomplete="shipping address-line1" autocorrect="off" role="combobox" aria-autocomplete="list" aria-owns="address-autocomplete" aria-expanded="false" aria-required="true" data-backup="address1" data-google-autocomplete="true" data-google-autocomplete-title="Suggestions" data-google-autocomplete-single-item="1 item available" data-google-autocomplete-multi-item="{{number}} items available" data-google-autocomplete-item-selection="{{number}} of {{total}}" class="field__input" size="30" type="text" name="checkout[shipping_address][address1]" id="checkout_shipping_address_address1">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section section--shipping-method">
+                    <div class="section__header">
+                        <h2 class="section__title">Phương thức giao hàng</h2>
+
+                    </div>
+
+                    <div class="section__content">
+
+
+                        <div class="content-box" data-shipping-methods="">
+
+                            <div class="content-box__row">
+                                <div class="radio-wrapper" data-shipping-method="shopify-Standard%20Shipping-10.00">
+                                    <div class="radio__input">
+                                        <input class="input-radio" data-checkout-total-shipping="$10.00" data-checkout-total-shipping-cents="1000" data-checkout-shipping-rate="$10.00" data-checkout-original-shipping-rate="$10.00" data-checkout-total-taxes="$32.99" data-checkout-total-taxes-cents="3299" data-checkout-total-price="$372.93" data-checkout-total-price-cents="37293" data-checkout-payment-due="$372.93" data-checkout-payment-due-cents="37293" data-checkout-payment-subform="required" data-checkout-subtotal-price="$329.94" data-checkout-subtotal-price-cents="32994" data-backup="shopify-Standard%20Shipping-10.00" aria-label="Standard Shipping. $10.00" type="radio" value="shopify-Standard%20Shipping-10.00" name="checkout[shipping_rate][id]" id="checkout_shipping_rate_id_shopify-standard20shipping-1000" checked="checked">
+                                    </div>
+                                    <label class="radio__label" aria-hidden="true" for="checkout_shipping_rate_id_shopify-standard20shipping-1000">
+                                          <span class="radio__label__primary" data-shipping-method-label-title="Standard Shipping">
+                                            Vận chuyển tiêu chuẩn
+                                          </span>
+                                        <span class="radio__label__accessory">
+                                            <span id="price_shipping" class="content-box__emphasis">
+                                              <?= $this->session->get('price_shipper') ? $this->session->get('price_shipper') : '0' ?>
+                                            </span>
+                                            <span class="payment-due__currency">VND</span>
+                                          </span>
+                                    </label>
+                                </div> <!-- /radio-wrapper-->
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+            <div class="step__footer" data-step-footer="">
+
+                <button name="button" type="submit" class="step__footer__continue-btn btn " aria-busy="false">
+                  <span class="btn__content">
+                    Tiếp tục
+                  </span>
+                    <svg class="icon-svg icon-svg--size-18 btn__spinner icon-svg--spinner-button" aria-hidden="true" focusable="false"> <use xlink:href="#spinner-button"></use> </svg>
+                </button>
+                <a class="step__footer__previous-link" href="/shopcart/index"><svg focusable="false" aria-hidden="true" class="icon-svg icon-svg--color-accent icon-svg--size-10 previous-link__icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path d="M8 1L7 0 3 4 2 5l1 1 4 4 1-1-4-4"></path></svg><span class="step__footer__previous-link-content">Quay lại</span></a>
+            </div>
+
+
+            <input type="hidden" name="checkout[client_details][browser_width]" value="1349"><input type="hidden" name="checkout[client_details][browser_height]" value="672"><input type="hidden" name="checkout[client_details][javascript_enabled]" value="1">
+        </form>
+
+    </div>
+
+
+    <span class="visually-hidden" id="forwarding-external-new-window-message">
+  Opens external website in a new window.
+</span>
+
+    <span class="visually-hidden" id="forwarding-new-window-message">
+  Opens in a new window.
+</span>
+
+    <span class="visually-hidden" id="forwarding-external-message">
+  Opens external website.
+</span>
+
+    <span class="visually-hidden" id="checkout-context-step-one">
+  Customer information - Best Watches Store - Checkout
+</span>
+
+
+
+
+</div>
