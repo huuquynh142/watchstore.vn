@@ -11,7 +11,13 @@ use App\Models\Member;
 
 class AccountController extends ControllerBase
 {
+    public function initialize()
+    {
+        $this->tag->setTitle("người dùng");
+    }
+
     public function loginAction(){
+        $this->tag->prependTitle("Đăng nhập ");
         if ($this->request->isPost()) {
           $phone_number =  $this->request->getPost("customer_phone");
           $password = md5($this->request->getPost("customer_password"));
@@ -42,7 +48,7 @@ class AccountController extends ControllerBase
     }
 
     public function registerAction(){
-
+        $this->tag->prependTitle("Đăng ký ");
         if ($this->request->isPost()) {
             $arr = [];
             $robots = Member::query()

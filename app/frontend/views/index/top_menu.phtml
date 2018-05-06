@@ -11,7 +11,7 @@
                         <?php if( $this->session->get('user_name')){?>
                             <a href="#" id="customer_login_link"><?php echo $this->session->get('user_name')?></a>
                         <?php }else{ ?>
-                            <a href="/account/login" id="customer_login_link">Đăng nhập</a>
+                            <a href="/dang-nhap" id="customer_login_link">Đăng nhập</a>
                         <?php } ?>
                     </li>
 
@@ -19,7 +19,7 @@
                         <?php if( $this->session->get('user_name')){?>
                             <a href="/account/logout" id="customer_login_link">Log Out</a>
                         <?php }else{ ?>
-                            <a href="/account/register" id="customer_register_link">Đăng ký</a>
+                            <a href="/dang-ky" id="customer_register_link">Đăng ký</a>
                         <?php } ?>
                     </li>
 
@@ -39,7 +39,7 @@
                     <!-- End Search Form -->
 
                     <li class="top-cart">
-                        <a href="/frontend/shopcart/index" id="CartToggle">
+                        <a href="/gio-hang" id="CartToggle">
                             <span class="icon-fallback-text">
                                 <span class="icon icon-cart" aria-hidden="true"></span>
                             </span>
@@ -64,7 +64,7 @@
             <h1 class="header-logo" itemscope itemtype="http://schema.org/Organization">
 
 
-                <a href="/index/index" itemprop="url">
+                <a href="/trang-chu" itemprop="url">
                     <img src="/public/img/logoe0a9.png?4621688722820174607" alt="Best Watches Store" itemprop="logo">
                 </a>
 
@@ -79,12 +79,12 @@
             <ul class="top-menu">
 
                 <li class="nav-item first active ">
-                    <a href="/index/index" title="Home">Trang chủ</a>
+                    <a href="/trang-chu" title="Home">Trang chủ</a>
 
                 </li>
 
                 <li class="nav-item has-dropdown">
-                    <a href="/product/index" title="Catalog">Danh mục</a>
+                    <a href="/tat-ca-san-pham" title="Catalog">Danh mục</a>
 
                     <ul class="dropdown">
 
