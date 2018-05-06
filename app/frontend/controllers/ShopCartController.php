@@ -83,8 +83,13 @@ class ShopCartController extends ControllerBase
             $count += $product->total;
             $countProduct += $product->quatity;
         }
+        $tax = $count * 0.1;
+        $allTotal = $tax + $count;
+        $this->session->set('taxes' , number_format($tax ,0  , 0 , '.').' VND' );
         $this->session->set('countCart',$countProduct);
         $this->session->set('totalCart',number_format($count ,0  , 0 , '.').' VND');
+        $this->session->set('totalAll' , number_format($allTotal ,0  , 0 , '.'));
+        $this->session->set('totalAllNotFormat' , $allTotal);
         return number_format($count ,0  , 0 , '.').' VND';
     }
 

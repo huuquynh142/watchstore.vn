@@ -22,7 +22,7 @@
             <div class="small-12 medium-12 large-12 columns">
                 <div class="cart">
 
-                    <form id="form-cart" action="/cart" method="post">
+                    <form id="form-cart" action="/checkouts/customerinfo" method="post">
                         <h1 class="h2">Shopping Cart</h1>
                         <div class="cart-content">
 
@@ -34,7 +34,7 @@
                                         <div class="row">
                                             <div class="small-4 columns">
                                                 <a href="/products/jabra-revo-wireless-bluetooth-stereo-headphones">
-                                                    <img src="/public/img/product/<?=$product->image?>" alt="Jabra REVO Wireless Bluetooth Stereo Headphones - X / Red">
+                                                    <img src="/public/img/product/<?=$product->image?>" alt="<?=$product->name?>">
                                                 </a>
                                             </div>
                                             <div class="small-8 columns">

@@ -29,7 +29,7 @@ return new \Phalcon\Config([
 
 
         // This allows the baseUri to be understand project paths that are not in the root directory
-        // of the webpspace.  This will break if the public/index.phtml entry point is moved or
+        // of the webpspace.  This will break if the public/customerinfo.phtml entry point is moved or
         // possibly if the web server rewrite rules are changed. This can also be set to a static path.
         'baseUri'        => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER["PHP_SELF"]),
     ]
