@@ -5,6 +5,10 @@ use App\Models\ProductDetail;
 use App\Models\ProductImage;
 class ProductController extends ControllerBase
 {
+    public function initialize()
+    {
+        $this->tag->setTitle("Sản phẩm");
+    }
     public function indexAction()
     {
         $this->bestSellersAction();

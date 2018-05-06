@@ -8,6 +8,11 @@ use App\Models\Product;
 use App\Models\ProductDetail;
 class IndexController extends ControllerBase
 {
+    public function initialize()
+    {
+        $this->tag->setTitle("Trang chủ");
+    }
+
     public function indexAction()
     {
         $this->slideShowAction();
