@@ -40,13 +40,13 @@ class IndexController extends ControllerBase
                 ->execute();
             $subList = [
                 'count' => count($productCredentail),
-                'image' => $item->getImage()
+                'image' => $item->getImage(),
+                'redirect' => $item->getRedirect()
             ];
             $list [$item->getName()] = $subList;
         }
 
         $this->view->horizontalAnimate = $list;
-
     }
     public function newProductAction(){
         $robots = Product::query()

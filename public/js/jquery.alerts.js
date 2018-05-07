@@ -299,7 +299,7 @@ $.fn.serializeObject = function()
                 case 'dialog':
                     $("#popup_title").append($('#' + value).html()).css('font-size', '20px');
                     $("#popup_message").append($('#' + value).html()).css('max-width', 'none');
-                    $('#popup_title').append('<button class="btnClose" id="popup_cancel" ><img src="../img/icons/close.svg"></button>');
+                    $('#popup_title').append('<button class="btnClose" id="popup_cancel" ><img src="/public/img/icons/close.svg"></button>');
 
                     $("#popup_cancel").click(function () {
                         $.alerts._hide();
