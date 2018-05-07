@@ -1,520 +1,264 @@
-<main role="main">
+<div class="product-grid">
+    <div class="products-row">
 
-    <!-- Start Breadcrumbs -->
-    <div class="breadcrumbs">
         <div class="row">
-            <ul class="breadcrumb">
-                <li>
-                    <a href="../index.html" class="homepage-link" title="Back to the frontpage">Home</a>
-                </li>
-
-                <li class="current">
-                    <a href="#">Products</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!-- End Breadcrumbs -->
-
-
-
-
-    <div class="row">
-        <div class="small-12 medium-4 large-3 columns sidebar wow fadeInUp animated" data-wow-delay="0.15s">
-            <div id="collectionFilters" class="collection-filters" >
-
-
-
-
-
-                <div class="grid-uniform">
-                    <div class="grid-item small--one-half medium--one-third">
-                        <h3><span>Thể loại</span></h3>
-                        <ul class="categories-filters">
-
-                            <li><a href="baby.html" >Nam</a></li>
-
-                            <li><a href="boys.html" >Nữ</a></li>
-
-                            <li><a href="girls.html" >Thể thao</a></li>
-
-                        </ul>
-                    </div>
-                </div>
-
-
-                <div class="grid-uniform">
-
-
-                    <div class="grid-item small--one-half medium--one-third">
-                        <h3>Thương hiệu</h3>
-                        <ul class="advanced-filters">
-
-                            <li class="advanced-filter" data-group="Brand"><a href="all/brand_bulova.html" title="Narrow selection to products matching tag Brand_Bulova">EPOS SWISS</a></li>
-
-
-                            <li class="advanced-filter" data-group="Brand"><a href="all/brand_cuckoo.html" title="Narrow selection to products matching tag Brand_Cuckoo">CASIO</a></li>
-
-
-                            <li class="advanced-filter" data-group="Brand"><a href="all/brand_hermle.html" title="Narrow selection to products matching tag Brand_Hermle">Stuhrling Original Swiss</a></li>
-
-
-                            <li class="advanced-filter" data-group="Brand"><a href="all/brand_howard-miller.html" title="Narrow selection to products matching tag Brand_Howard Miller">ATLANTIC SWISS</a></li>
-
-
-                        </ul>
-                    </div>
-
-
-
-                    <div class="grid-item small--one-half medium--one-third">
-                        <h3>Khoảng giá</h3>
-                        <ul class="advanced-filters">
-
-                            <li class="advanced-filter" data-group="Price"><a href="all/price_-100-to-200.html" title="Narrow selection to products matching tag Price_$100 to $200">Dưới 5.000.000</a></li>
-
-                            <li class="advanced-filter" data-group="Price"><a href="all/price_-200-above.html" title="Narrow selection to products matching tag Price_$200 &amp; Above">Từ 5.000.000 đến 10.000.000</a></li>
-
-                            <li class="advanced-filter" data-group="Price"><a href="all/price_-25-to-50.html" title="Narrow selection to products matching tag Price_$25 to $50">Từ 10.000.000 đến 20.000.000</a></li>
-
-                            <li class="advanced-filter" data-group="Price"><a href="all/price_-50-to-100.html" title="Narrow selection to products matching tag Price_$50 to $100">Trên 20.000.000</a></li>
-
-                        </ul>
-                    </div>
-
-
-                </div>
-                <script>
-                    $(function() {
-                        var currentTags = '',
-                            filters = $('.advanced-filter'),
-                            activeTag,
-                            activeHandle;
-                        filters.each(function() {
-                            var el = $(this),
-                                group = el.data('group'),
-                                isActive = el.hasClass('active-filter');
-                        });
-                        filters.on('click', function(e) {
-                            var el = $(this),
-                                group = el.data('group'),
-                                url = el.find('a').attr('href');
-                            // Continue as normal if we're clicking on the active link
-                            if ( el.hasClass('active-filter') ) {
-                                return;
-                            }
-                            // Get active group link (unidentified if there isn't one)
-                            activeTag = $('.active-filter[data-group="'+ group +'"]');
-                            // If a tag from this group is already selected, remove it from the new tag's URL and continue
-                            if ( activeTag && activeTag.data('group') === group ) {
-                                e.preventDefault();
-                                activeHandle = activeTag.data('handle') + '+';
-                                // Create new URL without the currently active handle
-                                url = url.replace(activeHandle, '');
-                                window.location = url;
-                            }
-                        });
-                    });
-                </script>
-
-            </div>
-
-
-
-
-
-            <div class="latest-products mini-products-list">
-                <div class="box-title">
-                    <h3>Đồng hồ bán chạy nhất</h3>
-                </div>
-                <div class="box-content">
-                    <div  id="sidebar-list">
-
-
-                        <?php $this->partial('product/bestsellers') ?>
-
-
-
-
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-        <div class="small-12 medium-8 large-9 columns col-main">
-            <div class="collection-info">
-                <h1 class="page-title collection-title">Products</h1>
-
-
-                <img src="../../cdn.shopify.com/s/files/1/0750/3913/t/2/assets/collectione0a9.jpg?4621688722820174607" alt="Products" />
-
-            </div>
-            <div class="collection-products">
-                <div class="toolbar">
-                    <div class="sort-by">
-                        <label for="sortBy">Sắp xếp theo</label>
-                        <select name="sortBy" id="sortBy">
-                            <option value="manual">Sản phẩm nổi bật</option>
-                            <option value="best-selling">Sản phầm bán chạy nhất</option>
-                            <option value="title-ascending">Sắp xếp theo  từ A-Z</option>
-                            <option value="title-descending">Sắp xếp theo Z-A</option>
-                            <option value="price-ascending">Giá từ thấp đến cao</option>
-                            <option value="price-descending">Giá từ cao đến thấp</option>
-                            <option value="created-descending">Từ mới đến cũ</option>
-                            <option value="created-ascending">Từ cũ đến mới</option>
-                        </select>
-                    </div>
-                    <script>
-                        Shopify.queryParams = {};
-                        if (location.search.length) {
-                            for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
-                                aKeyValue = aCouples[i].split('=');
-                                if (aKeyValue.length > 1) {
-                                    Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
-                                }
-                            }
-                        }
-                        $(function() {
-                            $('#sortBy')
-                            // select the current sort order
-                                .val('title-ascending')
-                                .bind('change', function() {
-                                    Shopify.queryParams.sort_by = jQuery(this).val();
-                                    location.search = jQuery.param(Shopify.queryParams).replace(/\+/g, '%20');
-                                });
-                        });
-                    </script>
-
-                    <div class="collection-view">
-                        <label>View</label>
-
-                        <strong class="view-grid" title="Grid view" data-view="grid">Hiển thị theo ô</strong>
-
-                    </div>
-
-
-                </div>
-                <div class="product-grid">
-                    <div class="products-row">
-
-                        <div class="row">
-                            <?php foreach ($products as $key => $product): ?>
-                                <?php if (($key + 1) % 4 == 0){ ?>
-                                <div class="item small-12 medium-6 large-3 columns">
-                                    <div class="product-image">
-                                        <div class="action">
-                                                <input id="btnQuickOder" type="button" data-id="<?= $product->id ?>" value="Thêm vào giỏ hàng" class="btn ct-btn" />
-                                            <div data-options="disable_for_touch:true" >
-                                                <a class="quick-view ct-btn" href="#" data-reveal-id="sp<?= $product->id ?>" title="<?= $product->product_name ?>">
-                                                    Xem ngay
-                                                </a>
-                                            </div>
-                                            <div id="sp<?= $product->id ?>" class="reveal-modal expand" style="position:fixed;" data-reveal>
-                                                <form action="https://ap-best-store.myshopify.com/cart/add" method="post" enctype="multipart/form-data" style="margin:0;">
-                                                    <div class="row">
-                                                        <div class="large-6 columns">
-                                                            <script>
-                                                                $(document).ready(function(){
-                                                                    $('#zoom-<?= $product->description_id ?>').zoom();
-                                                                    $('#grab-<?= $product->description_id ?>').zoom({ on:'grab' });
-                                                                    $('#click-<?= $product->description_id ?>').zoom({ on:'click' });
-                                                                    $('#toggle-<?= $product->description_id ?>').zoom({ on:'toggle' });
-                                                                });
-                                                            </script>
-                                                            <div id="zoom-<?= $product->description_id ?>">
-                                                                <img src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="large-6 columns">
-                                                            <h1 itemprop="name"><?= $product->product_name ?></h1>
-                                                            <div class="review text-left">
-                                                                <span itemprop="name">MSP: <?= $product->description_id?></span>
-                                                                <span class="shopify-product-reviews-badge" data-id="<?= $product->id ?>"></span>
-                                                            </div>
-                                                            <div id="product-description" class="rte" itemprop="description">
-                                                                <p>The standard Lorem Ipsum passage, used since the 1500s"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-                                                            </div>
-                                                            <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                                                                <meta itemprop="priceCurrency" content="USD" />
-
-                                                                <link itemprop="availability" href="http://schema.org/InStock" />
-
-                                                                <h5>
-
-                                                                    <span class="price" itemprop="price"><span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span></span>
-
-                                                                </h5>
-                                                            </div>
-
-                                                            <!--                                                        <h5 itemprop="brand"><a title="">Apple, Shopify</a></h5>-->
-                                                            <!---->
-                                                            <!---->
-                                                            <!--                                                        <div id="product-variants" class="">-->
-                                                            <!--                                                            <select id="product-select" name="id">-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114660972">X / Red - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114660976">X / Blue - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114660980">X / White - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114660984">M / Red - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114660988">M / Blue - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114660992">M / White - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114660996">L / Red - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114661000">L / Blue - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114661004">L / White - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                            </select>-->
-                                                            <!--                                                        </div>-->
-                                                            <div id="product-add">
-                                                                <div class="qty-adder qty-adder pull-left" data-id="<?= $product->id ?>">
-                                                                    <div class="quantity-number pull-left">
-                                                                        <a href="javascript:void(0)" title=""><span class="add-down add-action">-</span></a>
-                                                                        <input id="quantity" type="text" name="quantity" size="2" value="1">
-                                                                        <a href="javascript:void(0)" title=""><span class="add-up add-action">+</span></a>
-                                                                    </div>
-                                                                </div>
-                                                                <input class="button" type="submit" name="add" id="add" value="Thêm vào giỏ hàng">
-                                                            </div>
-                                                            <!-- Sharing is caring -->
-
-                                                            <div class="large-12 columns">
-                                                                <br />
-                                                                <ul class="social-sharing inline-list">
-                                                                    <li>Share: </li>
-                                                                    <li><a target="_blank" href="https://twitter.com/intent/tweet?text=&amp;url=http%3A%2F%2Fap-best-store.myshopify.com&amp;via=rcinteriors"><i class="fi-social-twitter"></i></a></li>
-                                                                    <li><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ap-best-store.myshopify.com"><i class="fi-social-facebook"></i></a></li>
-                                                                    <li><a target="_blank" href="https://plus.google.com/share?url=http://ap-best-store.myshopify.com"><i class="fi-social-google-plus"></i></a></li>
-                                                                    <li><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://ap-best-store.myshopify.com&amp;title=&amp;summary=&amp;source=http://ap-best-store.myshopify.com"><i class="fi-social-linkedin"></i></a></li>
-                                                                    <li><a target="_blank" href="http://pinterest.com/pin/create/button/?url=http://ap-best-store.myshopify.com&amp;description=&amp;media="><i class="fi-social-pinterest"></i></a></li>
-                                                                </ul>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <a class="close-reveal-modal">&#215;</a>
-                                            </div>
-
+            <?php foreach ($products as $key => $product): ?>
+            <?php if (($key + 1) % 4 == 0){ ?>
+            <div class="item small-12 medium-6 large-3 columns">
+                <div class="product-image">
+                    <div class="action">
+                        <input id="btnQuickOder" type="button" data-id="<?= $product->id ?>" value="Thêm vào giỏ hàng" class="btn ct-btn" />
+                        <div data-options="disable_for_touch:true" >
+                            <a class="quick-view ct-btn" data-id="<?= $product->id ?>" id="btn_quick_view" href="#" data-reveal-id="sp<?= $product->id ?>" title="<?= $product->product_name ?>">
+                                Xem ngay
+                            </a>
+                        </div>
+                        <div id="sp<?= $product->id ?>" class="reveal-modal expand" style="position:fixed;" data-reveal>
+                            <form action="https://ap-best-store.myshopify.com/cart/add" method="post" enctype="multipart/form-data" style="margin:0;">
+                                <div class="row">
+                                    <div class="large-6 columns">
+                                        <script>
+                                            $(document).ready(function(){
+                                                $('#zoom-<?= $product->description_id ?>').zoom();
+                                                $('#grab-<?= $product->description_id ?>').zoom({ on:'grab' });
+                                                $('#click-<?= $product->description_id ?>').zoom({ on:'click' });
+                                                $('#toggle-<?= $product->description_id ?>').zoom({ on:'toggle' });
+                                            });
+                                        </script>
+                                        <div id="zoom-<?= $product->description_id ?>">
+                                            <img src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
                                         </div>
-
-                                        <img style="height: 250px" src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
                                     </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name"><a href= "/frontend/product/productDetail/<?= $product->id ?>"><?= $product->product_name ?></a></h3>
-
-
-                                        <div class="review">
+                                    <div class="large-6 columns">
+                                        <h1 itemprop="name"><?= $product->product_name ?></h1>
+                                        <div class="review text-left">
+                                            <span itemprop="name">MSP: <?= $product->description_id?></span>
                                             <span class="shopify-product-reviews-badge" data-id="<?= $product->id ?>"></span>
                                         </div>
+                                        <div id="product-description" class="rte" itemprop="description">
+                                            <p>The standard Lorem Ipsum passage, used since the 1500s"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+                                        </div>
+                                        <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                            <meta itemprop="priceCurrency" content="USD" />
 
-                                        <span class="price">
+                                            <link itemprop="availability" href="http://schema.org/InStock" />
+
+                                            <h5>
+
+                                                <span class="price" itemprop="price"><span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span></span>
+
+                                            </h5>
+                                        </div>
+                                        <div id="product-add">
+                                            <div class="qty-adder qty-adder pull-left" data-id="<?= $product->id ?>">
+                                                <div class="quantity-number pull-left">
+                                                    <a href="javascript:void(0)" title=""><span class="add-down add-action">-</span></a>
+                                                    <input id="quantity" type="text" name="quantity" size="2" value="1">
+                                                    <a href="javascript:void(0)" title=""><span class="add-up add-action">+</span></a>
+                                                </div>
+                                            </div>
+                                            <input class="button" type="submit" name="add" id="add" value="Thêm vào giỏ hàng">
+                                        </div>
+                                        <!-- Sharing is caring -->
+
+                                        <div class="large-12 columns">
+                                            <br />
+                                            <ul class="social-sharing inline-list">
+                                                <li>Share: </li>
+                                                <li><a target="_blank" href="https://twitter.com/intent/tweet?text=&amp;url=http%3A%2F%2Fap-best-store.myshopify.com&amp;via=rcinteriors"><i class="fi-social-twitter"></i></a></li>
+                                                <li><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ap-best-store.myshopify.com"><i class="fi-social-facebook"></i></a></li>
+                                                <li><a target="_blank" href="https://plus.google.com/share?url=http://ap-best-store.myshopify.com"><i class="fi-social-google-plus"></i></a></li>
+                                                <li><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://ap-best-store.myshopify.com&amp;title=&amp;summary=&amp;source=http://ap-best-store.myshopify.com"><i class="fi-social-linkedin"></i></a></li>
+                                                <li><a target="_blank" href="http://pinterest.com/pin/create/button/?url=http://ap-best-store.myshopify.com&amp;description=&amp;media="><i class="fi-social-pinterest"></i></a></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                            <a class="close-reveal-modal">&#215;</a>
+                        </div>
+
+                    </div>
+
+                    <img style="height: 250px" src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name"><a href= "/chi-tiet-san-pham/<?= $product->id ?>"><?= $product->product_name ?></a></h3>
+
+
+                    <div class="review">
+                        <span class="shopify-product-reviews-badge" data-id="<?= $product->id ?>"></span>
+                    </div>
+
+                    <span class="price">
 
 
 
                                 <span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span>
 
                       </span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <?php } else { ?>
+                <div class="item small-12 medium-6 large-3 columns">
+                    <div class="product-image">
+                        <div class="action">
+                            <input id="btnQuickOder" type="button" data-id="<?= $product->id ?>" value="Thêm vào giỏ hàng" class="btn ct-btn" />
+                            <div data-options="disable_for_touch:true" >
+                                <a class="quick-view ct-btn" data-id="<?= $product->id ?>" id="btn_quick_view" href="#" data-reveal-id="sp<?= $product->id ?>" title="<?= $product->product_name ?>">
+                                    Xem ngay
+                                </a>
+                            </div>
+                            <div id="sp<?= $product->id ?>" class="reveal-modal expand" style="position:fixed;" data-reveal>
+                                <form action="https://ap-best-store.myshopify.com/cart/add" method="post" enctype="multipart/form-data" style="margin:0;">
+                                    <div class="row">
+                                        <div class="large-6 columns">
+                                            <script>
+                                                $(document).ready(function(){
+                                                    $('#zoom-<?= $product->description_id ?>').zoom();
+                                                    $('#grab-<?= $product->description_id ?>').zoom({ on:'grab' });
+                                                    $('#click-<?= $product->description_id ?>').zoom({ on:'click' });
+                                                    $('#toggle-<?= $product->description_id ?>').zoom({ on:'toggle' });
+                                                });
+                                            </script>
+                                            <div id="zoom-<?= $product->description_id ?>">
+                                                <img src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
+                                            </div>
+                                        </div>
+                                        <div class="large-6 columns">
+                                            <h1 itemprop="name"><?= $product->product_name ?></h1>
+                                            <div class="review text-left">
+                                                <span itemprop="name">MSP: <?= $product->description_id?></span>
+                                                <span class="shopify-product-reviews-badge" data-id="<?= $product->id ?>"></span>
+                                            </div>
+                                            <div id="product-description" class="rte" itemprop="description">
+                                                <p>The standard Lorem Ipsum passage, used since the 1500s"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+                                            </div>
+                                            <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                                <meta itemprop="priceCurrency" content="USD" />
+
+                                                <link itemprop="availability" href="http://schema.org/InStock" />
+
+                                                <h5>
+
+                                                    <span class="price" itemprop="price"><span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span></span>
+
+                                                </h5>
+                                            </div>
+
+                                            <div id="product-add">
+                                                <div class="qty-adder qty-adder pull-left" data-id="<?= $product->id ?>">
+                                                    <div class="quantity-number pull-left">
+                                                        <a href="javascript:void(0)" title=""><span class="add-down add-action">-</span></a>
+                                                        <input id="quantity" type="text" name="quantity" size="2" value="1">
+                                                        <a href="javascript:void(0)" title=""><span class="add-up add-action">+</span></a>
+                                                    </div>
+                                                </div>
+                                                <input class="button" type="submit" name="add" id="add" value="Thêm vào giỏ hàng">
+                                            </div>
+                                            <!-- Sharing is caring -->
+
+                                            <div class="large-12 columns">
+                                                <br />
+                                                <ul class="social-sharing inline-list">
+                                                    <li>Share: </li>
+                                                    <li><a target="_blank" href="https://twitter.com/intent/tweet?text=&amp;url=http%3A%2F%2Fap-best-store.myshopify.com&amp;via=rcinteriors"><i class="fi-social-twitter"></i></a></li>
+                                                    <li><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ap-best-store.myshopify.com"><i class="fi-social-facebook"></i></a></li>
+                                                    <li><a target="_blank" href="https://plus.google.com/share?url=http://ap-best-store.myshopify.com"><i class="fi-social-google-plus"></i></a></li>
+                                                    <li><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://ap-best-store.myshopify.com&amp;title=&amp;summary=&amp;source=http://ap-best-store.myshopify.com"><i class="fi-social-linkedin"></i></a></li>
+                                                    <li><a target="_blank" href="http://pinterest.com/pin/create/button/?url=http://ap-best-store.myshopify.com&amp;description=&amp;media="><i class="fi-social-pinterest"></i></a></li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
+                                <a class="close-reveal-modal">&#215;</a>
                             </div>
 
+                        </div>
+
+                        <img style="height: 250px" src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name"><a href= "/chi-tiet-san-pham/<?= $product->id ?>"><?= $product->product_name ?></a></h3>
 
 
+                        <div class="review">
+                            <span class="shopify-product-reviews-badge" data-id="<?= $product->id ?>"></span>
+                        </div>
 
-                            <div class="row">
-                            <?php } else { ?>
-                                <div class="item small-12 medium-6 large-3 columns">
-                                    <div class="product-image">
-                                        <div class="action">
-                                                <input id="btnQuickOder" type="button" data-id="<?= $product->id ?>" value="Thêm vào giỏ hàng" class="btn ct-btn" />
-                                            <div data-options="disable_for_touch:true" >
-                                                <a class="quick-view ct-btn" href="#" data-reveal-id="sp<?= $product->id ?>" title="<?= $product->product_name ?>">
-                                                    Xem ngay
-                                                </a>
-                                            </div>
-                                            <div id="sp<?= $product->id ?>" class="reveal-modal expand" style="position:fixed;" data-reveal>
-                                                <form action="https://ap-best-store.myshopify.com/cart/add" method="post" enctype="multipart/form-data" style="margin:0;">
-                                                    <div class="row">
-                                                        <div class="large-6 columns">
-                                                            <script>
-                                                                $(document).ready(function(){
-                                                                    $('#zoom-<?= $product->description_id ?>').zoom();
-                                                                    $('#grab-<?= $product->description_id ?>').zoom({ on:'grab' });
-                                                                    $('#click-<?= $product->description_id ?>').zoom({ on:'click' });
-                                                                    $('#toggle-<?= $product->description_id ?>').zoom({ on:'toggle' });
-                                                                });
-                                                            </script>
-                                                            <div id="zoom-<?= $product->description_id ?>">
-                                                                <img src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="large-6 columns">
-                                                            <h1 itemprop="name"><?= $product->product_name ?></h1>
-                                                            <div class="review text-left">
-                                                                <span itemprop="name">MSP: <?= $product->description_id?></span>
-                                                                <span class="shopify-product-reviews-badge" data-id="<?= $product->id ?>"></span>
-                                                            </div>
-                                                            <div id="product-description" class="rte" itemprop="description">
-                                                                <p>The standard Lorem Ipsum passage, used since the 1500s"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-                                                            </div>
-                                                            <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                                                                <meta itemprop="priceCurrency" content="USD" />
-
-                                                                <link itemprop="availability" href="http://schema.org/InStock" />
-
-                                                                <h5>
-
-                                                                    <span class="price" itemprop="price"><span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span></span>
-
-                                                                </h5>
-                                                            </div>
-
-                                                            <!--                                                        <h5 itemprop="brand"><a title="">Apple, Shopify</a></h5>-->
-                                                            <!---->
-                                                            <!---->
-                                                            <!--                                                        <div id="product-variants" class="">-->
-                                                            <!--                                                            <select id="product-select" name="id">-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114660972">X / Red - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114660976">X / Blue - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114660980">X / White - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114660984">M / Red - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114660988">M / Blue - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114660992">M / White - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114660996">L / Red - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114661000">L / Blue - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                                <option value="1114661004">L / White - <span class='money'>$249.95</span></option>-->
-                                                            <!---->
-                                                            <!--                                                            </select>-->
-                                                            <!--                                                        </div>-->
-                                                            <div id="product-add">
-                                                                <div class="qty-adder qty-adder pull-left" data-id="<?= $product->id ?>">
-                                                                    <div class="quantity-number pull-left">
-                                                                        <a href="javascript:void(0)" title=""><span class="add-down add-action">-</span></a>
-                                                                        <input id="quantity" type="text" name="quantity" size="2" value="1">
-                                                                        <a href="javascript:void(0)" title=""><span class="add-up add-action">+</span></a>
-                                                                    </div>
-                                                                </div>
-                                                                <input class="button" type="submit" name="add" id="add" value="Thêm vào giỏ hàng">
-                                                            </div>
-                                                            <!-- Sharing is caring -->
-
-                                                            <div class="large-12 columns">
-                                                                <br />
-                                                                <ul class="social-sharing inline-list">
-                                                                    <li>Share: </li>
-                                                                    <li><a target="_blank" href="https://twitter.com/intent/tweet?text=&amp;url=http%3A%2F%2Fap-best-store.myshopify.com&amp;via=rcinteriors"><i class="fi-social-twitter"></i></a></li>
-                                                                    <li><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ap-best-store.myshopify.com"><i class="fi-social-facebook"></i></a></li>
-                                                                    <li><a target="_blank" href="https://plus.google.com/share?url=http://ap-best-store.myshopify.com"><i class="fi-social-google-plus"></i></a></li>
-                                                                    <li><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://ap-best-store.myshopify.com&amp;title=&amp;summary=&amp;source=http://ap-best-store.myshopify.com"><i class="fi-social-linkedin"></i></a></li>
-                                                                    <li><a target="_blank" href="http://pinterest.com/pin/create/button/?url=http://ap-best-store.myshopify.com&amp;description=&amp;media="><i class="fi-social-pinterest"></i></a></li>
-                                                                </ul>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <a class="close-reveal-modal">&#215;</a>
-                                            </div>
-
-                                        </div>
-
-                                        <img style="height: 250px" src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name"><a href= "/frontend/product/productDetail/<?= $product->id ?>"><?= $product->product_name ?></a></h3>
-
-
-                                        <div class="review">
-                                            <span class="shopify-product-reviews-badge" data-id="<?= $product->id ?>"></span>
-                                        </div>
-
-                                        <span class="price">
+                        <span class="price">
 
 
 
                                 <span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span>
 
                       </span>
-                                    </div>
-                                </div>
-                            <?php } endforeach; ?>
-
-
-
-                        </div>
-
-                        <script>
-                            jQuery(function($) {
-
-                                $(".qty-adder .add-action").click( function(){
-                                    var id = $(this).closest('.qty-adder').data('id');
-                                    console.log(id);
-                                    if( $(this).hasClass('add-up') ) {
-                                        var countInput  = $(this).parent().prev();
-                                        var count = countInput.val();
-                                        console.log(count);
-                                        var  value = parseInt( count ) + 1;
-                                        countInput.val(value );
-                                    }else {
-                                        var countInput  = $(this).parent().next();
-                                        var count = countInput.val();
-                                        console.log(count);
-                                        if( parseInt(countInput.val())  > 1 ) {
-                                            countInput.val( count - 1 );
-                                        }
-                                    }
-                                });
-                            });
-                        </script>
-                </div>
-
-                <div class="toolbar-bottom">
-                    <div class="toolbar">
-                        <div class="pagination-centered">
-                            <ul class="pagination">
-                                <li class="arrow">
-
-                                </li>
-
-
-                                <li class="current"><a href>1</a></li>
-
-
-
-                                <li><a href="all4658.html?page=2" title="">2</a></li>
-
-
-                                <li class="arrow">
-
-                                    <a href="all4658.html?page=2" title="">Next &raquo;</a>
-
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
+            <?php } endforeach; ?>
 
+
+
+        </div>
+
+        <script>
+            jQuery(function($) {
+
+                $(".qty-adder .add-action").click( function(){
+                    var id = $(this).closest('.qty-adder').data('id');
+                    console.log(id);
+                    if( $(this).hasClass('add-up') ) {
+                        var countInput  = $(this).parent().prev();
+                        var count = countInput.val();
+                        console.log(count);
+                        var  value = parseInt( count ) + 1;
+                        countInput.val(value );
+                    }else {
+                        var countInput  = $(this).parent().next();
+                        var count = countInput.val();
+                        console.log(count);
+                        if( parseInt(countInput.val())  > 1 ) {
+                            countInput.val( count - 1 );
+                        }
+                    }
+                });
+            });
+        </script>
+    </div>
+
+    <div class="toolbar-bottom">
+        <div class="toolbar">
+            <div class="pagination-centered">
+                <ul class="pagination">
+                    <li class="arrow">
+
+                    </li>
+
+
+                    <li class="current"><a href>1</a></li>
+
+
+
+                    <li><a href="all4658.html?page=2" title="">2</a></li>
+
+
+                    <li class="arrow">
+
+                        <a href="all4658.html?page=2" title="">Next &raquo;</a>
+
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 
-
-
-</main>
+</div>

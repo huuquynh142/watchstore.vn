@@ -28,7 +28,27 @@ $(document).ready(function () {
 
 
     });
+    $(document).on('click','#btn_quick_view', function () {
+        console.log($(this).attr('data-id'));
+        $.get('/frontend/product/updateview/'+ $(this).attr('data-id'));
+    });
 
+    $(document).on('click' , '#producer' , function () {
+        console.log($(this).attr('data-id'));
+        console.log($(location).attr('href'));
+        console.log($(location).attr('protocol'));
+        console.log($(location).attr('path'));
+        console.log($(location).attr('port'));
+        // window.location.href = "https://www.tutorialrepublic.com/";
+        window.location.reload();
+        $(this).last().toggleClass( "active-filter" );
+
+    });
+    /*console.log();
+    $("a[href*=ABC]").addClass('selected');
+    switch (window.location.pathname){
+
+    };*/
 
     $(document).on('click','.js-qty .js-qty__adjust',function (){
         var id = $(this).closest('.js-qty').data('id');
