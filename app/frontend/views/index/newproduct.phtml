@@ -13,12 +13,12 @@
                         <div class="action">
                                 <input id="btnQuickOder" type="button" data-id="<?= $product->id ?>" value="Thêm vào giỏ hàng" class="btn ct-btn" />
                             <div data-options="disable_for_touch:true" >
-                                <a class="quick-view ct-btn" href="#" data-reveal-id="sp<?= $product->id ?>" title="<?= $product->product_name ?>">
+                                <a class="quick-view ct-btn" data-id="<?= $product->id ?>" id="btn_quick_view" href="#" data-reveal-id="sp<?= $product->id ?>" title="<?= $product->product_name ?>">
                                     Xem ngay
                                 </a>
                             </div>
                             <div id="sp<?= $product->id ?>" class="reveal-modal expand" style="position:fixed;" data-reveal>
-                                <form action="https://ap-best-store.myshopify.com/cart/add" method="post" enctype="multipart/form-data" style="margin:0;">
+                                <form action="/frontend/shopcart/add" method="post" enctype="multipart/form-data" style="margin:0;">
                                     <div class="row">
                                         <div class="large-6 columns">
                                             <script>
@@ -53,33 +53,6 @@
 
                                                 </h5>
                                             </div>
-
-                                            <!--                                                        <h5 itemprop="brand"><a title="">Apple, Shopify</a></h5>-->
-                                            <!---->
-                                            <!---->
-                                            <!--                                                        <div id="product-variants" class="">-->
-                                            <!--                                                            <select id="product-select" name="id">-->
-                                            <!---->
-                                            <!--                                                                <option value="1114660972">X / Red - <span class='money'>$249.95</span></option>-->
-                                            <!---->
-                                            <!--                                                                <option value="1114660976">X / Blue - <span class='money'>$249.95</span></option>-->
-                                            <!---->
-                                            <!--                                                                <option value="1114660980">X / White - <span class='money'>$249.95</span></option>-->
-                                            <!---->
-                                            <!--                                                                <option value="1114660984">M / Red - <span class='money'>$249.95</span></option>-->
-                                            <!---->
-                                            <!--                                                                <option value="1114660988">M / Blue - <span class='money'>$249.95</span></option>-->
-                                            <!---->
-                                            <!--                                                                <option value="1114660992">M / White - <span class='money'>$249.95</span></option>-->
-                                            <!---->
-                                            <!--                                                                <option value="1114660996">L / Red - <span class='money'>$249.95</span></option>-->
-                                            <!---->
-                                            <!--                                                                <option value="1114661000">L / Blue - <span class='money'>$249.95</span></option>-->
-                                            <!---->
-                                            <!--                                                                <option value="1114661004">L / White - <span class='money'>$249.95</span></option>-->
-                                            <!---->
-                                            <!--                                                            </select>-->
-                                            <!--                                                        </div>-->
                                             <div id="product-add">
                                                 <div class="qty-adder qty-adder pull-left" data-id="<?= $product->id ?>">
                                                     <div class="quantity-number pull-left">
@@ -115,7 +88,7 @@
                         <img style="height: 250px" src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name"><a href= "/frontend/product/productDetail/<?= $product->id ?>"><?= $product->product_name ?></a></h3>
+                        <h3 class="product-name"><a href= "/chi-tiet-san-pham/<?= $product->id ?>"><?= $product->product_name ?></a></h3>
 
 
                         <div class="review">

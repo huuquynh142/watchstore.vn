@@ -18,7 +18,7 @@
 
 
                 <li class="current">
-                    <a href="#">Jessica Simpson Women&#39;s Allest Boot</a>
+                    <a href="#"><?= $productDetail[0]->product_name ?></a>
                 </li>
             </ul>
         </div>
@@ -38,9 +38,11 @@
 
                     <ul id="product_thumbs" class="product_thumbs">
 
-                        <?php foreach ($productImage as $product_image): ?>
-                            <li><a class="thumb" href="/public/img/product/<?= $product_image->image ?>" title="Jessica Simpson Women's Allest Boot"><img class="lazyOwl" data-src="/public/img/product/<?= $product_image->image ?>" alt=""></a></li>
-                        <?php endforeach; ?>
+                        <?php
+                        if (sizeof($productImage ) > 1)
+                            foreach ($productImage as $product_image): ?>
+                                <li><a class="thumb" href="/public/img/product/<?= $product_image->image ?>" title="Jessica Simpson Women's                 Allest Boot"><img class="lazyOwl" data-src="/public/img/product/<?= $product_image->image ?>" alt=""></a></li>
+                            <?php endforeach; ?>
 
                     </ul>
 
@@ -55,8 +57,8 @@
                 </script>
                 <div id="product-shop" class="large-7 columns">
                     <div class="product-title">
-                        <h1 itemprop="name">Jessica Simpson Women's Allest Boot</h1>
-
+                        <h1 itemprop="name"><?= $productDetail[0]->product_name ?></h1>
+                        <span>MSP : <?= $productDetail[0]->description_id ?></span>
 
                     </div>
 
@@ -65,7 +67,7 @@
                     </div>
 
                     <div class="product-description" class="rte des" itemprop="description">
-                        The standard Lorem Ipsum passage, used since the 1500s<br>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est l...
+                        The standard Lorem Ipsum passage...
                     </div>
                     <div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                         <meta itemprop="priceCurrency" content="USD" />
@@ -98,13 +100,13 @@
                             </div>
                             <button type="submit" name="add" id="addToCart" class="btn">
                                 <span class="fa fa-shopping-cart"></span>
-                                <span id="addToCartText">Add to Cart</span>
+                                <span id="addToCartText">Thêm vào giỏ hàng</span>
                             </button>
                         </div>
                         <span id="variantQuantity" class="variant-quantity"></span>
                     </form>
 
-                    <div class="wishlist_des">To add this product to your wish list you must <a href="https://ap-best-store.myshopify.com/account/login">sign in</a> or <a href="https://ap-best-store.myshopify.com/account/register">create an account</a>.</div>
+                    <div class="wishlist_des">Để thêm vào danh sách mong muốn bạn cần phải <a href="/dang-nhap">đăng nhập</a> hoặc <a href="/dang-ky">đăng ký</a>.</div>
 
 
                     <!-- Sharing is caring -->
@@ -112,7 +114,7 @@
                     <div class="large-12 columns">
                         <br />
                         <ul class="social-sharing inline-list">
-                            <li>Share: </li>
+                            <li>Chia sẻ: </li>
                             <li><a target="_blank" href="https://twitter.com/intent/tweet?text=Jessica%20Simpson%20Women's%20All...&amp;url=http%3A%2F%2Fap-best-store.myshopify.com%2Fproducts%2Fjessica-simpson-womens-allest-boot&amp;via=rcinteriors"><i class="fi-social-twitter"></i></a></li>
                             <li><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ap-best-store.myshopify.com/products/jessica-simpson-womens-allest-boot"><i class="fi-social-facebook"></i></a></li>
                             <li><a target="_blank" href="https://plus.google.com/share?url=http://ap-best-store.myshopify.com/products/jessica-simpson-womens-allest-boot"><i class="fi-social-google-plus"></i></a></li>
@@ -126,17 +128,60 @@
             <div class="row">
                 <div class="product-tabs">
                     <dl class="tabs" data-tab>
-                        <dd class="active"><a href="#panel1">Description</a></dd>
-                        <dd><a href="#panel2">Review</a></dd>
+                        <dd class="active"><a href="#panel1">Thông tin chi tiết</a></dd>
                     </dl>
                     <div class="tabs-content">
                         <div class="content active des" id="panel1">
-                            The standard Lorem Ipsum passage, used since the 1500s<br>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."<br>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC<br><br>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"<br>1914 translation by H. Rackham<br><br>"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
-                        </div>
-                        <div class="content des review" id="panel2">
-
-                            <div id="shopify-product-reviews" data-id="408538376"></div>
-
+                            <table>
+                                <tr>
+                                    <td>Tên sản phẩm</td>
+                                    <td><?= $productDetail[0]->product_name ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Mã sản phẩm</td>
+                                    <td><?= $productDetail[0]->description_id ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Thương hiệu</td>
+                                    <td><?= $productDetail[0]->company_name ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Chất liệu vỏ</td>
+                                    <td><?= $productDetail[0]->shell_material ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Chất liệu dây</td>
+                                    <td><?= $productDetail[0]->wire_material ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Mắt kính</td>
+                                    <td><?= $productDetail[0]->glasses ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Đường kính vỏ</td>
+                                    <td><?= $productDetail[0]->shell_diameter ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Độ dày vỏ</td>
+                                    <td><?= $productDetail[0]->shell_thickness ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Chống nước</td>
+                                    <td><?= $productDetail[0]->water_resistant ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Loại đồng hồ</td>
+                                    <td><?= $productDetail[0]->is_electronic ? 'Điện tử' : 'Cơ' ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Động cơ</td>
+                                    <td><?= $productDetail[0]->motor ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Bảo hành</td>
+                                    <td><?= $productDetail[0]->guarantee ?></td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -164,7 +209,7 @@
 
                     <div id="related-products" class="row products-row owl-control">
 
-                        <?php $this->partial("product/relatedproducts") ?>
+                        <?php $this->partial("productdetail/relatedproducts") ?>
 
                     </div>
                 </div>
@@ -244,22 +289,6 @@
             $('.single-option-selector:eq(0)').val("X").trigger('change');
 
             $('.single-option-selector:eq(1)').val("Red").trigger('change');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
