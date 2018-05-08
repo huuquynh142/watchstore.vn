@@ -44,7 +44,7 @@ body {
   color: #222222;
   padding: 0;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1.5;
@@ -125,7 +125,7 @@ select {
       color: #222222;
       padding: 1rem;
       display: block;
-      font-family: Arial, sans-serif;
+      font-family: Roboto, Arial, sans-serif;
       font-size: 1rem; }
       .accordion .accordion-navigation > a:hover, .accordion dd > a:hover {
         background: #e3e3e3; }
@@ -585,7 +585,7 @@ button, .button {
   border-style: solid;
   border-width: 0px;
   cursor: pointer;
-  font-family: Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -3445,7 +3445,7 @@ kbd {
   border-style: solid;
   border-width: 1px;
   margin: 0;
-  font-family: "Consolas", "Menlo", "Courier", monospace;
+  font-family: "Roboto", "Arial", "Courier", monospace;
   font-size: inherit;
   padding: 0.125rem 0.25rem 0;
   border-radius: 3px; }
@@ -3458,7 +3458,7 @@ kbd {
 
 .label {
   font-weight: normal;
-  font-family: Arial, sans-serif;
+  font-family: Roboto,Arial, sans-serif;
   text-align: center;
   text-decoration: none;
   line-height: 1;
@@ -3700,7 +3700,7 @@ p {
 
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
-  font-family: Arial, sans-serif;
+  font-family: Roboto , Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   color: #222222;
@@ -4757,7 +4757,7 @@ ul.pagination {
     color: #eeeeee;
     font-weight: normal;
     font-size: 1rem;
-    font-family: Arial, sans-serif; }
+    font-family: Roboto , Arial, sans-serif; }
   .pricing-table .price {
     background-color: #f6f6f6;
     padding: 0.9375rem 1.25rem;
@@ -4765,7 +4765,7 @@ ul.pagination {
     color: #333333;
     font-weight: normal;
     font-size: 2rem;
-    font-family: Arial, sans-serif; }
+    font-family: Roboto, Arial, sans-serif; }
   .pricing-table .description {
     background-color: white;
     padding: 0.9375rem;
@@ -5064,7 +5064,7 @@ dialog {
   padding: 0.875rem 0;
   list-style-type: none;
   list-style-position: outside;
-  font-family: Arial, sans-serif; }
+  font-family: Roboto , Arial, sans-serif; }
   .side-nav li {
     margin: 0 0 0.4375rem 0;
     font-size: 0.875rem;
@@ -5080,7 +5080,7 @@ dialog {
     .side-nav li.active > a:first-child:not(.button) {
       color: #26bffe;
       font-weight: normal;
-      font-family: Arial, sans-serif; }
+      font-family: Roboto , Arial, sans-serif; }
     .side-nav li.divider {
       border-top: 1px solid;
       height: 0;
@@ -5216,7 +5216,7 @@ dialog {
     display: inline;
     margin-left: 1rem;
     margin-bottom: 0.625rem;
-    font-family: Arial, sans-serif;
+    font-family: Roboto , Arial, sans-serif;
     font-weight: normal;
     font-size: 0.875rem;
     color: #999999; }
@@ -5440,7 +5440,7 @@ table {
       background-color: #efefef;
       color: #222222;
       padding: 1rem 2rem;
-      font-family: Arial, sans-serif;
+      font-family: Roboto , Arial, sans-serif;
       font-size: 1rem; }
       .tabs dd > a:hover, .tabs .tab-title > a:hover {
         background-color: #e1e1e1; }
@@ -5797,7 +5797,7 @@ meta.foundation-mq-topbar {
     display: block;
     color: #8d8d8d;
     padding: 0 20px;
-    font-family: "museo_sans100", Arial, sans-serif;
+    font-family: Roboto, Arial, sans-serif;
     font-size: 12px;
     text-transform: none; }
     .top-bar-section ul li > a.button, .top-bar-section ul li > span.button {
@@ -6898,13 +6898,13 @@ strong, b {
     text-transform: uppercase;
     font-size: 24px;
     line-height: 36px;
-    font-family: "museo_sans100";
+    font-family: "Roboto";
     color: #fff; }
   .custom-banner .ctb p {
     color: rgba(255, 255, 255, 0.6);
     font-size: 15px;
     line-height: 24px;
-    font-family: "museo_sans100";
+    font-family: "Roboto";
     margin: 15px 0 40px; }
   .custom-banner .ctb .ctb-img {
     margin: 0 auto; }
@@ -6927,7 +6927,7 @@ strong, b {
   .footer-wrapper p {
     font-size: 14px;
     line-height: 28px;
-    font-family: "museo_sans100"; }
+    font-family: "Roboto"; }
   .footer-wrapper .footer {
     margin: 0 0 75px; }
     .footer-wrapper .footer h4 {
@@ -6945,7 +6945,7 @@ strong, b {
         line-height: 30px;
         text-transform: uppercase;
         font-size: 12px;
-        font-family: "museo_sans100"; }
+        font-family: "Roboto"; }
     .footer-wrapper .footer .payment img {
       margin: 12px 0 0px; }
     .footer-wrapper .footer #mc-embedded-subscribe-form #mail {
@@ -6957,7 +6957,7 @@ strong, b {
       border: none;
       display: inline-block;
       font-size: 14px;
-      font-family: "museo_sans100";
+      font-family: "Roboto";
       border-radius: 3px; }
     .footer-wrapper .footer #mc-embedded-subscribe-form #subscribe {
       height: 36px;
@@ -7000,7 +7000,7 @@ strong, b {
   margin-bottom: 80px; }
 
 .des, .des p {
-  font-family: "museo_sans100";
+  font-family: "Roboto";
   font-size: 14px;
   line-height: 24px; }
 
@@ -7017,7 +7017,7 @@ strong, b {
 #product-details #product-shop .product-description {
   font-size: 14px;
   line-height: 24px;
-  font-family: "museo_sans100";
+  font-family: "Roboto";
   margin: 5px 0 15px; }
 #product-details #product-shop h5.brand a {
   color: #666;
@@ -7314,7 +7314,7 @@ strong, b {
 
   .spr-header-title {
     @extend h1;
-    font-family: museo_sans300;
+    font-family: Roboto;
     
     font-size: 20px;
     font-weight: normal;
@@ -7497,7 +7497,7 @@ strong, b {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #fff;
-    font-family: "museo_sans100"; }
+    font-family: "Roboto"; }
 .slideshow .slideshow-wrapper .orbit-timer,
 .slideshow .slideshow-wrapper .orbit-slide-number {
   display: none; }
@@ -7798,7 +7798,7 @@ strong, b {
 body,
 .footer-wrapper .footer ul li a{ color: #666666; }
 
-body { background-color: #ffffff; font-family: museo_sans300;}
+body { background-color: #ffffff; font-family: Roboto;}
 
 .box .box-title .abs,
 .featured-collection .box-content .featured-box a,
@@ -7843,7 +7843,7 @@ a,a:hover, a:focus,
 #product-details #product-shop .product-title h1,
 #product-details #product-shop .product-price .price,
 #product-details #product-shop h5.brand a{	
-    font-family: museo_sans300;
+    font-family: Roboto;
     
 }
 
@@ -7859,7 +7859,7 @@ button, .button,
 .mobile-menu > li > a,
 .ct-btn,
 .product-list .item .product-name a{
-	font-family: museo_sans900;
+	font-family: Roboto;
   	
 }
 .btn, .ct-btn, button,.button{
@@ -8166,7 +8166,7 @@ button, .button,
     line-height: 35px;
     font-size: 14px;
     color: white;
-    font-family:Trebuchet, Arial, sans-serif;
+    font-family: Roboto, Arial, sans-serif;
     font-weight: bold;
     -moz-box-sizing: border-box; 
     -webkit-box-sizing: border-box; 
@@ -8413,7 +8413,7 @@ body.header-three .sb-icon-search{
     text-transform: none;
     font-size: 14px;
     font-weight: normal;
-    font-family: museo_sans300;
+    font-family: Roboto;
     position: relative;
 }
 .add_to_wishlist:hover,.add_to_wishlist:focus{

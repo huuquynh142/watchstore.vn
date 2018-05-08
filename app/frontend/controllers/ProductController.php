@@ -14,16 +14,20 @@ class ProductController extends ControllerBase
         $this->tag->setTitle("Sản phẩm");
     }
 
-    public function indexAction($type_id = '')
+    public function indexAction($type_id = '' , $brand = '' , $price = '' , $sortBy = '')
     {
+        $productType = ProductType::findFirst("id = '".$type_id."'");
+        if (!$productType)
+            $productType = ProductType::findFirst("redirect = '".$type_id."'");
         $this->bestSellersAction();
-        $this->setSessionProductType($type_id);
+        $this->setSessionProductType($productType);
         $robots = null;
-        if ($type_id)
-            $robots = $this->getDataProductType($type_id);
+        if ($productType)
+            $robots = $this->getDataProductType($productType->getId());
         else
             $robots = $this->getDataDefault();
         $this->view->products = $robots;
+        $this->view->currentType = $productType ? $productType->getRedirect() : 'tat-ca-san-pham';
         $this->view->producttype = ProductType::find();
         $this->view->producer = Producer::find();
     }
@@ -92,15 +96,13 @@ class ProductController extends ControllerBase
         $this->view->bestSellers = $robots;
     }
 
-    protected function setSessionProductType($type_id)
+    protected function setSessionProductType($type_name)
     {
-        if ($type_id) {
-            $robots = ProductType::findFirst($type_id);
-            $this->session->set('product', 'Sản phẩm ' . strtolower($robots->getName()));
+        if ($type_name) {
+            $this->session->set('product', 'Sản phẩm ' . strtolower($type_name->getName()));
         } else {
             $this->session->set('product', 'Tất cả sản phẩm ');
         }
-        return $robots;
     }
 
 

@@ -47,7 +47,7 @@
                         <h3>Thương hiệu</h3>
                         <ul class="advanced-filters">
                             <?php foreach ($producer as $item): ?>
-                                <li id="producer" data-id="<?= $item->id ?>" class="advanced-filter" data-group="Brand"><a href="#" title=""><?= $item->company_name ?></a></li>
+                                <li id="producer" data-currenttype="<?= $currentType ?>" data-id="<?= preg_replace('/[_\\W]+/' ,"_" ,$item->trademark)?>" class="advanced-filter" data-group="Brand"><a href="#" title=""><?= $item->company_name ?></a></li>
                             <?php endforeach; ?>
 
 <!--                            <li class="advanced-filter active-filter" data-group="Brand"><a href="all/brand_cuckoo.html" title="Narrow selection to products matching tag Brand_Cuckoo">CASIO</a></li>-->
@@ -63,20 +63,20 @@
                         <h3>Khoảng giá</h3>
                         <ul class="advanced-filters">
 
-                            <li class="advanced-filter" data-group="Price"><a href="all/price_-100-to-200.html" title="Narrow selection to products matching tag Price_$100 to $200">Dưới 5.000.000</a></li>
+                            <li class="advanced-filter" data-currenttype="<?= $currentType ?>" data-id="0_to_5000000" data-group="Price"><a href="#" title="">Dưới 5.000.000</a></li>
 
-                            <li class="advanced-filter" data-group="Price"><a href="all/price_-200-above.html" title="Narrow selection to products matching tag Price_$200 &amp; Above">Từ 5.000.000 đến 10.000.000</a></li>
+                            <li class="advanced-filter" data-currenttype="<?= $currentType ?>" data-id="5000000_to_10000000" data-group="Price"><a href="#" title="">Từ 5.000.000 đến 10.000.000</a></li>
 
-                            <li class="advanced-filter" data-group="Price"><a href="all/price_-25-to-50.html" title="Narrow selection to products matching tag Price_$25 to $50">Từ 10.000.000 đến 20.000.000</a></li>
+                            <li class="advanced-filter" data-currenttype="<?= $currentType ?>" data-id="10000000_to_20000000" data-group="Price"><a href="#" title="">Từ 10.000.000 đến 20.000.000</a></li>
 
-                            <li class="advanced-filter" data-group="Price"><a href="all/price_-50-to-100.html" title="Narrow selection to products matching tag Price_$50 to $100">Trên 20.000.000</a></li>
+                            <li class="advanced-filter" data-currenttype="<?= $currentType ?>" data-id="20000000_etc" data-group="Price"><a href="#" title="">Trên 20.000.000</a></li>
 
                         </ul>
                     </div>
 
 
                 </div>
-                <script>
+                <!--<script>
                     $(function() {
                         var currentTags = '',
                             filters = $('.advanced-filter'),
@@ -107,7 +107,7 @@
                             }
                         });
                     });
-                </script>
+                </script>-->
 
             </div>
 
@@ -129,14 +129,14 @@
         </div>
         <div class="small-12 medium-8 large-9 columns col-main">
             <div class="collection-info">
-                <h1 class="page-title collection-title">Products</h1>
+<!--                <h1 class="page-title collection-title">Tất cả sản phẩm</h1>-->
                 <img src="/public/img/collectione0a9.jpg" alt="Products" />
             </div>
             <div class="collection-products">
                 <div class="toolbar">
                     <div class="sort-by">
                         <label for="sortBy">Sắp xếp theo</label>
-                        <select name="sortBy" id="sortBy">
+                        <select data-currenttype="<?= $currentType ?>" name="sortBy" id="sortBy">
                             <option value="manual">Sản phẩm nổi bật</option>
                             <option value="best-selling">Sản phầm bán chạy nhất</option>
                             <option value="title-ascending">Sắp xếp theo  từ A-Z</option>
@@ -147,26 +147,26 @@
                             <option value="created-ascending">Từ cũ đến mới</option>
                         </select>
                     </div>
-                    <script>
-                        Shopify.queryParams = {};
-                        if (location.search.length) {
-                            for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
-                                aKeyValue = aCouples[i].split('=');
-                                if (aKeyValue.length > 1) {
-                                    Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
-                                }
-                            }
-                        }
-                        $(function() {
-                            $('#sortBy')
-                            // select the current sort order
-                                .val('title-ascending')
-                                .bind('change', function() {
-                                    Shopify.queryParams.sort_by = jQuery(this).val();
-                                    location.search = jQuery.param(Shopify.queryParams).replace(/\+/g, '%20');
-                                });
-                        });
-                    </script>
+<!--                    <script>-->
+<!--                        Shopify.queryParams = {};-->
+<!--                        if (location.search.length) {-->
+<!--                            for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {-->
+<!--                                aKeyValue = aCouples[i].split('=');-->
+<!--                                if (aKeyValue.length > 1) {-->
+<!--                                    Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);-->
+<!--                                }-->
+<!--                            }-->
+<!--                        }-->
+<!--                        $(function() {-->
+<!--                            $('#sortBy')-->
+<!--                            // select the current sort order-->
+<!--                                .val('title-ascending')-->
+<!--                                .bind('change', function() {-->
+<!--                                    Shopify.queryParams.sort_by = jQuery(this).val();-->
+<!--                                    location.search = jQuery.param(Shopify.queryParams).replace(/\+/g, '%20');-->
+<!--                                });-->
+<!--                        });-->
+<!--                    </script>-->
 
                     <div class="collection-view">
                         <label>View</label>
