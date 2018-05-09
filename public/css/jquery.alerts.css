@@ -120,7 +120,7 @@
 #popup_container .loading{display: none; padding: 0 1.5em;margin: 0.5em; float: right;}
 
 #popup_container select, #popup_container  input[type="text"], #popup_container  input[type="password"],  #popup_container  textarea{
-    width: 72%;
+    width: 105%;
     border: 1px solid #BDC7D8;
     font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
     font-size: 11px;

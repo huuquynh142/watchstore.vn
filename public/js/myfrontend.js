@@ -28,42 +28,121 @@ $(document).ready(function () {
 
 
     });
+    $(document).on('click','#addShopcart',function () {
+        var id = $(this).attr('data-id');
+        var quatity = $(".quantity_" + id).val();
+
+        $.ajax({
+            type: 'POST',
+            url: '/ShopCart/add',
+            dataType: 'json',
+            data: {'id':id , 'quatity': quatity},
+            success: function(data) {
+                if (data.code == 'success') {
+                    $('.reveal-modal-bg').css({"visibility": "hidden", "display": "none"});
+                    $('.reveal-modal').css({"visibility": "hidden", "display": "none"});
+
+                    jDialog(data.data, 'popup', 'Giỏ hàng', function (data) {
+
+                        data = $.parseJSON(data);
+
+                        jAlert(data.msg);
+
+                        if (data.code == 0) {
+                            location.reload(true);
+                        }
+                    });
+                    $('#CartCount').text(data.countCart);
+                    $('#CartCost').text(data.totalCart);
+                    $('.cart-subtotal .money').text(data.totalCart);
+                }
+                else
+                    alert(data.message)
+            }});
+    });
+
+    $(document).on('click','#addToCart',function () {
+        var id = $(this).attr('data-id');
+        var quatity = $(".quantity_" + id).val();
+
+        $.ajax({
+            type: 'POST',
+            url: '/ShopCart/add',
+            dataType: 'json',
+            data: {'id':id , 'quatity': quatity},
+            success: function(data) {
+                if (data.code == 'success') {
+                    // $('.reveal-modal-bg').css({"visibility": "hidden", "display": "none"});
+                    // $('.reveal-modal').css({"visibility": "hidden", "display": "none"});
+
+                    jDialog(data.data, 'popup', 'Giỏ hàng', function (data) {
+
+                        data = $.parseJSON(data);
+
+                        jAlert(data.msg);
+
+                        if (data.code == 0) {
+                            location.reload(true);
+                        }
+                    });
+                    $('#CartCount').text(data.countCart);
+                    $('#CartCost').text(data.totalCart);
+                    $('.cart-subtotal .money').text(data.totalCart);
+                }
+                else
+                    alert(data.message)
+            }});
+    });
+
     $(document).on('click','#btn_quick_view', function () {
         console.log($(this).attr('data-id'));
         $.get('/frontend/product/updateview/'+ $(this).attr('data-id'));
     });
 
     var type = 'tat-ca-san-pham';
-    var brand = '';
-    var price = '';
-    var sortby = '';
+    var brand = '0';
+    var price = '0';
+    var sortby = '0';
     $(document).on('click' , '.advanced-filters .advanced-filter' , function () {
         var buttonGroup = $(this).parents('.advanced-filters');
         buttonGroup.find('.active-filter').removeClass("active-filter");
 
         var id = $(this).attr('data-id').toString().toLowerCase();
         $(this).last().toggleClass( "active-filter" );
-        var params = '';
         $indextype = null;
         if ($(this).data('group') == 'Brand')
             brand = id;
         if ($(this).data('group') == 'Price')
             price = id;
-        var arr = arrParamFilter();
         type = $(this).data('currenttype');
-        $.each(arr, function (index, value) {
-            if (value){
-                params += ( value + '/');
-                // console.log(value);
-            }
-            console.log(value);
-
-        });
-        window.history.pushState(null,null,'/san-pham/' + params);
+        searchProduct();
+        return false;
     });
 
     function arrParamFilter(){
         return [type,brand,price,sortby];
+    }
+
+    $("#sortBy").change(function() {
+        console.log($(this).val());
+        sortby = $(this).val();
+        type = $(this).data('currenttype');
+        searchProduct();
+    });
+
+    function searchProduct(){
+        var params = '';
+        var arr = arrParamFilter();
+        $.each(arr, function (index, value) {
+            params += ( value + '/');
+            console.log(value);
+
+        });
+        window.history.pushState(null,null,'/san-pham/' + params);
+        $.get('/product-search/' + params, function (data) {
+            $("#container_product").html(data);
+
+        })
     }
 
     $(document).on('click','.js-qty .js-qty__adjust',function (){
@@ -154,7 +233,10 @@ $(document).ready(function () {
                 data: $("#customer_login").serialize(),
                 success: function(data) {
                     if (data.code == 'success')
-                        window.location.href = 'http://dev.huuquynh.com:1030/index/index';
+                    {
+                        var uri = window.location.host + '/trang-chu';
+                        window.location.href =  uri;
+                    }
                     else
                         jAlert('Đăng nhập không thành công . Vui lòng kiểm tra lại!');
                 }});
@@ -219,7 +301,11 @@ $(document).ready(function () {
                 data: $("#create_customer").serialize(),
                 success: function(data) {
                     if (data.code == 'success')
-                        window.location.href = 'http://dev.huuquynh.com:1030/index/index';
+                    {
+                        var uri = window.location.host + '/trang-chu';
+                        window.location.href =  uri;
+                    }
+
                     else
                         jAlert(data.message);
                 },
