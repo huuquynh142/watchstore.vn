@@ -13,12 +13,18 @@ class ShopCartController extends ControllerBase
 
     public function addAction(){
         $id = $this->request->getPost("id");
+        $quatity = $this->request->getPost("quatity");
         if ($this->session->has('cart')) {
             $cart = $this->session->get('cart');
             if (isset($cart[$id])) {
                 if ($cart[$id]->quatity > 9)
                     return json_encode(array('code' => "fail" , 'message' => "Số lượng mua tối đa trên một sản phẩm là 10 \n Vui lòng kiểm tra lại")) ;
-                $cart[$id]->quatity++;
+
+                if ($quatity)
+                    $quatity = (int)$quatity + (int)$cart[$id]->quatity;
+                else
+                    $quatity = (int)$cart[$id]->quatity + 1;
+                $cart[$id]->quatity = $quatity;
                 if ($cart[$id]->discount)
                     $cart[$id]->total = ($cart[$id]->price * $cart[$id]->quatity) - ($cart[$id]->price * $cart[$id]->quatity * $cart[$id]->discount);
                 else
@@ -26,11 +32,17 @@ class ShopCartController extends ControllerBase
 
             }
             else {
-                $cart[$id] = new ShopCart($id);
+                if ($quatity)
+                    $cart[$id] = new ShopCart($id , $quatity);
+                else
+                    $cart[$id] = new ShopCart($id);
             }
         }
         else {
-            $cart[$id] = new ShopCart($id);
+            if ($quatity)
+                $cart[$id] = new ShopCart($id , $quatity);
+            else
+                $cart[$id] = new ShopCart($id);
         }
         $this->session->set('cart',$cart);
         $this->totalCart();
@@ -104,8 +116,7 @@ class ShopCartController extends ControllerBase
                 <div class="row">
                     <div class="small-12 medium-12 large-12 columns">
                         <div class="cart">
-                            <form id="form-cart">
-                                <div class="cart-content">'
+                            <div class="cart-content">'
 
 
             .$this->listData().
@@ -117,13 +128,11 @@ class ShopCartController extends ControllerBase
 
 
                                         <div class="function-buttons">
-                                            <a class="button" href="/frontend/product/index" title="">Tiếp tục mua hàng</a>
-                                            <!--<input class="button btn-update" type="submit" name="update" value="Update Cart">-->
-                                            <input class="button btn-checkout" type="submit" name="checkout" value="Thanh toán">
+                                            <a id="nextOrder" class="button" href="/san-pham/tat-ca-san-pham" title="">Tiếp tục mua hàng</a>
+                                            <a class="button btn-checkout" href="/gio-hang" title="">Thanh toán</a>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
 
                         </div>
                     </div>

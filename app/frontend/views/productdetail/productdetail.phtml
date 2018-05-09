@@ -89,22 +89,20 @@
                         </h5>
                     </div>
                     <h5 class="brand" itemprop="brand"><a href="https://ap-best-store.myshopify.com/collections/vendors?q=Apple%2C%20Shopify" title="">Apple, Shopify</a></h5>
-                    <form action="https://ap-best-store.myshopify.com/cart/add" method="post" enctype="multipart/form-data">
                         <div id="product-add">
                             <div class="qty-adder qty-adder408538376 pull-left">
                                 <div class="quantity-number pull-left">
                                     <a href="javascript:void(0)" title=""><span class="add-down add-action">-</span></a>
-                                    <input id="quantity" type="text" name="quantity" size="2" value="1">
+                                    <input class="quantity_<?= $productDetail[0]->id ?>" id="quantity" type="text" name="quantity" size="2" value="1">
                                     <a href="javascript:void(0)" title=""><span class="add-up add-action">+</span></a>
                                 </div>
                             </div>
-                            <button type="submit" name="add" id="addToCart" class="btn">
+                            <button type="submit" data-id="<?= $productDetail[0]->id ?>" name="add" id="addToCart" class="btn">
                                 <span class="fa fa-shopping-cart"></span>
                                 <span id="addToCartText">Thêm vào giỏ hàng</span>
                             </button>
                         </div>
                         <span id="variantQuantity" class="variant-quantity"></span>
-                    </form>
 
                     <div class="wishlist_des">Để thêm vào danh sách mong muốn bạn cần phải <a href="/dang-nhap">đăng nhập</a> hoặc <a href="/dang-ky">đăng ký</a>.</div>
 
@@ -237,36 +235,6 @@
 
     </div>
     <script>
-        function selectCallback(variant, selector) {
-            var $addToCart = $('#addToCart'),
-                $productPrice = $('#productPrice');
-            if (variant) {
-                console.log('ABCD-DEMO + ' + variant.available );
-                if (variant.available) {
-                    // Selected a valid variant that is available.
-                    $('#addToCart').removeClass('disabled').removeAttr('disabled').val('Add to Cart').fadeTo(200,1);
-                    // If item is backordered yet can still be ordered, we'll show special message.
-                    if (variant.inventory_management && variant.inventory_quantity <= 0) {
-                        $('#selected-variant').html("Jessica Simpson Women's Allest Boot" + ' - ' + variant.title);
-                        $('#backorder').removeClass("hidden");
-                    } else {
-                        $('#backorder').addClass("hidden");
-                    }
-
-                } else {
-                    $('#backorder').addClass('hidden');
-                    $('#addToCart').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
-                    $('#addToCartText').text('Sold Out');
-                }
-                var customPriceFormat = timber.formatMoney( Shopify.formatMoney(variant.price, "<span class='money'>${{amount}}</span>") );
-                $productPrice.html(customPriceFormat);
-
-            } else {
-                $('#backorder').addClass('hidden');
-                $('#addToCart').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
-                $('#addToCartText').text('Unavailable');
-            }
-        };
         $(document).ready(function() {
             $("#product_thumbs").owlCarousel({
                 items : 4, //10 items above 1000px browser width

@@ -46,8 +46,9 @@
                     <div class="grid-item small--one-half medium--one-third">
                         <h3>Thương hiệu</h3>
                         <ul class="advanced-filters">
+                            <li id="producer" data-currenttype="<?= $currentType ?>" data-id="0" class="advanced-filter" data-group="Brand"><a href="#" title="">Tất cả</a></li>
                             <?php foreach ($producer as $item): ?>
-                                <li id="producer" data-currenttype="<?= $currentType ?>" data-id="<?= preg_replace('/[_\\W]+/' ,"_" ,$item->trademark)?>" class="advanced-filter" data-group="Brand"><a href="#" title=""><?= $item->company_name ?></a></li>
+                                <li id="producer" data-currenttype="<?= $currentType ?>" data-id="<?= preg_replace('/[_\\W]+/' ,"_" ,$item->trademark)?>" class="advanced-filter" data-group="Brand"><a href="#" title=""><?= $item->trademark ?></a></li>
                             <?php endforeach; ?>
 
 <!--                            <li class="advanced-filter active-filter" data-group="Brand"><a href="all/brand_cuckoo.html" title="Narrow selection to products matching tag Brand_Cuckoo">CASIO</a></li>-->
@@ -63,51 +64,19 @@
                         <h3>Khoảng giá</h3>
                         <ul class="advanced-filters">
 
-                            <li class="advanced-filter" data-currenttype="<?= $currentType ?>" data-id="0_to_5000000" data-group="Price"><a href="#" title="">Dưới 5.000.000</a></li>
+                            <li class="advanced-filter" data-currenttype="<?= $currentType ?>" data-id="0_to_5000000" data-group="Price"><a href="#">Dưới 5.000.000</a></li>
 
-                            <li class="advanced-filter" data-currenttype="<?= $currentType ?>" data-id="5000000_to_10000000" data-group="Price"><a href="#" title="">Từ 5.000.000 đến 10.000.000</a></li>
+                            <li class="advanced-filter" data-currenttype="<?= $currentType ?>" data-id="5000000_to_10000000" data-group="Price"><a href="#" >Từ 5.000.000 đến 10.000.000</a></li>
 
-                            <li class="advanced-filter" data-currenttype="<?= $currentType ?>" data-id="10000000_to_20000000" data-group="Price"><a href="#" title="">Từ 10.000.000 đến 20.000.000</a></li>
+                            <li class="advanced-filter" data-currenttype="<?= $currentType ?>" data-id="10000000_to_20000000" data-group="Price"><a href="#">Từ 10.000.000 đến 20.000.000</a></li>
 
-                            <li class="advanced-filter" data-currenttype="<?= $currentType ?>" data-id="20000000_etc" data-group="Price"><a href="#" title="">Trên 20.000.000</a></li>
+                            <li class="advanced-filter" data-currenttype="<?= $currentType ?>" data-id="20000000_etc" data-group="Price"><a href="#">Trên 20.000.000</a></li>
 
                         </ul>
                     </div>
 
 
                 </div>
-                <!--<script>
-                    $(function() {
-                        var currentTags = '',
-                            filters = $('.advanced-filter'),
-                            activeTag,
-                            activeHandle;
-                        filters.each(function() {
-                            var el = $(this),
-                                group = el.data('group'),
-                                isActive = el.hasClass('active-filter');
-                        });
-                        filters.on('click', function(e) {
-                            var el = $(this),
-                                group = el.data('group'),
-                                url = el.find('a').attr('href');
-                            // Continue as normal if we're clicking on the active link
-                            if ( el.hasClass('active-filter') ) {
-                                return;
-                            }
-                            // Get active group link (unidentified if there isn't one)
-                            activeTag = $('.active-filter[data-group="'+ group +'"]');
-                            // If a tag from this group is already selected, remove it from the new tag's URL and continue
-                            if ( activeTag && activeTag.data('group') === group ) {
-                                e.preventDefault();
-                                activeHandle = activeTag.data('handle') + '+';
-                                // Create new URL without the currently active handle
-                                url = url.replace(activeHandle, '');
-                                window.location = url;
-                            }
-                        });
-                    });
-                </script>-->
 
             </div>
 
@@ -147,26 +116,6 @@
                             <option value="created-ascending">Từ cũ đến mới</option>
                         </select>
                     </div>
-<!--                    <script>-->
-<!--                        Shopify.queryParams = {};-->
-<!--                        if (location.search.length) {-->
-<!--                            for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {-->
-<!--                                aKeyValue = aCouples[i].split('=');-->
-<!--                                if (aKeyValue.length > 1) {-->
-<!--                                    Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);-->
-<!--                                }-->
-<!--                            }-->
-<!--                        }-->
-<!--                        $(function() {-->
-<!--                            $('#sortBy')-->
-<!--                            // select the current sort order-->
-<!--                                .val('title-ascending')-->
-<!--                                .bind('change', function() {-->
-<!--                                    Shopify.queryParams.sort_by = jQuery(this).val();-->
-<!--                                    location.search = jQuery.param(Shopify.queryParams).replace(/\+/g, '%20');-->
-<!--                                });-->
-<!--                        });-->
-<!--                    </script>-->
 
                     <div class="collection-view">
                         <label>View</label>
@@ -177,7 +126,10 @@
 
 
                 </div>
+                <div id="container_product">
                     <?php echo $this->getContent(); ?>
+                </div>
+
 
             </div>
         </div>

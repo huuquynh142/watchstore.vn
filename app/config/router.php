@@ -23,6 +23,18 @@
         'action'     => 'index',
         "params"     => 1,
     ])->setName("tat-ca-san-pham");
+    $router->add('/product-search/:params', [
+        'module'     => 'frontend',
+        'controller' => 'product',
+        'action'     => 'searchProduct',
+        "params"     => 1,
+    ])->setName("tim-kiem-san-pham");
+    $router->add('/san-pham/san-pham-nam', [
+        'module'     => 'frontend',
+        'controller' => 'product',
+        'action'     => 'index',
+        "type_id"     => 1,
+    ])->setName("san-pham-nam");
 
     $router->add('/san-pham/chi-tiet-san-pham/:params', [
         'module'     => 'frontend',
