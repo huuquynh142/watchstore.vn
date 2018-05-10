@@ -1,0 +1,7 @@
+label.error {
+    color: #f04124;
+    font-size: 12px;
+}
+.address span{
+    font-weight: 600 !important;
+}
