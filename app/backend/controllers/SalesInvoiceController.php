@@ -1,5 +1,5 @@
 <?php
-namespace Multiple\Backend\Controllers;
+ 
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 
@@ -86,8 +86,16 @@ class SalesInvoiceController extends ControllerBase
             $this->view->id = $sales_invoice->id;
 
             $this->tag->setDefault("id", $sales_invoice->id);
-            $this->tag->setDefault("user_id", $sales_invoice->user_id);
             $this->tag->setDefault("member_id", $sales_invoice->member_id);
+            $this->tag->setDefault("province_id", $sales_invoice->province_id);
+            $this->tag->setDefault("district_id", $sales_invoice->district_id);
+            $this->tag->setDefault("pay_method_id", $sales_invoice->pay_method_id);
+            $this->tag->setDefault("phone", $sales_invoice->phone);
+            $this->tag->setDefault("email", $sales_invoice->email);
+            $this->tag->setDefault("fullname", $sales_invoice->fullname);
+            $this->tag->setDefault("address", $sales_invoice->address);
+            $this->tag->setDefault("shipping", $sales_invoice->shipping);
+            $this->tag->setDefault("total", $sales_invoice->total);
             $this->tag->setDefault("created_at", $sales_invoice->created_at);
             
         }
@@ -108,8 +116,16 @@ class SalesInvoiceController extends ControllerBase
         }
 
         $sales_invoice = new SalesInvoice();
-        $sales_invoice->userId = $this->request->getPost("user_id");
         $sales_invoice->memberId = $this->request->getPost("member_id");
+        $sales_invoice->provinceId = $this->request->getPost("province_id");
+        $sales_invoice->districtId = $this->request->getPost("district_id");
+        $sales_invoice->payMethodId = $this->request->getPost("pay_method_id");
+        $sales_invoice->phone = $this->request->getPost("phone");
+        $sales_invoice->email = $this->request->getPost("email", "email");
+        $sales_invoice->fullname = $this->request->getPost("fullname");
+        $sales_invoice->address = $this->request->getPost("address");
+        $sales_invoice->shipping = $this->request->getPost("shipping");
+        $sales_invoice->total = $this->request->getPost("total");
         $sales_invoice->createdAt = $this->request->getPost("created_at");
         
 
@@ -164,8 +180,16 @@ class SalesInvoiceController extends ControllerBase
             return;
         }
 
-        $sales_invoice->userId = $this->request->getPost("user_id");
         $sales_invoice->memberId = $this->request->getPost("member_id");
+        $sales_invoice->provinceId = $this->request->getPost("province_id");
+        $sales_invoice->districtId = $this->request->getPost("district_id");
+        $sales_invoice->payMethodId = $this->request->getPost("pay_method_id");
+        $sales_invoice->phone = $this->request->getPost("phone");
+        $sales_invoice->email = $this->request->getPost("email", "email");
+        $sales_invoice->fullname = $this->request->getPost("fullname");
+        $sales_invoice->address = $this->request->getPost("address");
+        $sales_invoice->shipping = $this->request->getPost("shipping");
+        $sales_invoice->total = $this->request->getPost("total");
         $sales_invoice->createdAt = $this->request->getPost("created_at");
         
 

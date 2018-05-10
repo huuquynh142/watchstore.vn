@@ -11,10 +11,13 @@ class CheckOutsController extends ControllerBase
 {
     public function customerInfoAction()
     {
+        $member = '';
         if ($this->session->get('user_phone')){
             $phone = $this->session->get('user_phone');
-            $this->view->member =  Member::findFirst("phone_number = '".$phone."'");
+            $member =  Member::findFirst("phone_number = '".$phone."'");
         }
+        $this->session->set('checkProcess','customer');
+        $this->view->member = $member;
         $this->view->setRenderLevel(View::LEVEL_LAYOUT);
         $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
         $this->view->provinces = Province::find(array('order'=>'name ASC'));
@@ -60,6 +63,7 @@ class CheckOutsController extends ControllerBase
                 $invoiceDetail->setTotal($item->total);
                 $invoiceDetail->save();
             }
+            $this->session->set('checkProcess','customer');
             return json_encode(array('code'=>'success' , 'id' => $invoice->getId()));
         }
 
@@ -72,6 +76,7 @@ class CheckOutsController extends ControllerBase
 
     public function paymentAction($id)
     {
+        $this->session->set('checkProcess','payment');
         $invoice = SalesInvoice::findFirst($id);
         $this->view->setRenderLevel(View::LEVEL_LAYOUT);
         $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
@@ -84,6 +89,7 @@ class CheckOutsController extends ControllerBase
 
     public function confirmAction(){
         if($_POST["checkout"]){
+            $this->session->set('checkProcess','confirm');
             $checkout = $_POST["checkout"];
            $paymethod = $checkout["different_billing_address"];
            $id = $checkout["invoice"];
@@ -111,6 +117,12 @@ class CheckOutsController extends ControllerBase
             $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
             $this->view->showCart =  $this->session->get('cart');
         }
+    }
+
+    public function clearnsessionAction(){
+        $this->session->remove('cart');
+        $this->session->remove('countCart');
+        $this->session->remove('totalCart');
     }
 
     public function districtAction($provinceid){
