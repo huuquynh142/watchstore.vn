@@ -12,9 +12,17 @@ return new \Phalcon\Config([
         'host'        => 'localhost',
         'username'    => 'root',
         'password'    => '123456',
-        'dbname'      => 'watch_fashion',
+        'dbname'      => 'b18_22062172_huuquynh',
         'charset'     => 'utf8',
     ],
+//    'database' => [
+//        'adapter'     => 'Mysql',
+//        'host'        => 'sql102.byethost18.com',
+//        'username'    => 'b18_22062172',
+//        'password'    => '14121996',
+//        'dbname'      => 'b18_22062172_huuquynh',
+//        'charset'     => 'utf8',
+//    ],
     'application' => [
         'appDir'         => APP_PATH . '/',
         'controllersDir' => APP_PATH . '/backend/controllers/',
