@@ -2,6 +2,7 @@
 namespace Multiple\Frontend\Controllers;
 use App\Models\District;
 use App\Models\Member;
+use App\Models\Product;
 use App\Models\Province;
 use App\Models\SalesInvoice;
 use App\Models\SalesInvoiceDetail;
@@ -62,6 +63,16 @@ class CheckOutsController extends ControllerBase
                 $invoiceDetail->setDiscount($item->discount);
                 $invoiceDetail->setTotal($item->total);
                 $invoiceDetail->save();
+
+                $product = Product::findFirst($item->id);
+                if ($product){
+                    $quatity = (int)$product->getQuantity() - (int)$item->quatity;
+                    if ($quatity  >= 0 )
+                    {
+                        $product->setQuantity($quatity);
+                        $product->save();
+                    }
+                }
             }
             $this->session->set('checkProcess','customer');
             return json_encode(array('code'=>'success' , 'id' => $invoice->getId()));
