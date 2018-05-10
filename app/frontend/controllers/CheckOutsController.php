@@ -1,31 +1,116 @@
 <?php
 namespace Multiple\Frontend\Controllers;
 use App\Models\District;
+use App\Models\Member;
 use App\Models\Province;
+use App\Models\SalesInvoice;
+use App\Models\SalesInvoiceDetail;
 use Phalcon\Mvc\View;
 
 class CheckOutsController extends ControllerBase
 {
     public function customerInfoAction()
     {
+        if ($this->session->get('user_phone')){
+            $phone = $this->session->get('user_phone');
+            $this->view->member =  Member::findFirst("phone_number = '".$phone."'");
+        }
         $this->view->setRenderLevel(View::LEVEL_LAYOUT);
         $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
         $this->view->provinces = Province::find(array('order'=>'name ASC'));
         $this->view->showCart =  $this->session->get('cart');
     }
 
-    public function paymentAction()
+    public function customerInfopostAction()
     {
+
+        if ($this->request->isPost()) {
+            $phone = $this->request->getPost("checkout_phone");
+            $member = Member::findFirst("phone_number = '".$phone."'");
+            if (!$member){
+                $member = new Member();
+                $member->setPhoneNumber($phone);
+                $member->setEmail($this->request->getPost("checkout_email"));
+            }
+            $member->setAddress($this->request->getPost("checkout_shipping_address"));
+            $member->setFullname($this->request->getPost("checkout_name"));
+            $member->setDistrictId($this->request->getPost("checkout_city"));
+            $member->setProvinceId($this->request->getPost("checkout_province"));
+            $member->save();
+
+            $invoice = new SalesInvoice();
+            $invoice->setPhone($phone);
+            $invoice->setMemberId($member->getId());
+            $invoice->setEmail($this->request->getPost("checkout_email"));
+            $invoice->setFullname($this->request->getPost("checkout_name"));
+            $invoice->setAddress($this->request->getPost("checkout_shipping_address"));
+            $invoice->setShipping(str_replace("." , "" , $this->request->getPost("checkout_price_shipper")));
+            $invoice->setTotal(str_replace("." , "" ,  $this->request->getPost("checkout_price_total")));
+            $invoice->setDistrictId($this->request->getPost("checkout_city"));
+            $invoice->setProvinceId($this->request->getPost("checkout_province"));
+            $invoice->save();
+
+            foreach ($this->session->get('cart') as $item){
+                $invoiceDetail = new SalesInvoiceDetail();
+                $invoiceDetail->setSalesInvoiceId($invoice->getId());
+                $invoiceDetail->setProductId($item->id);
+                $invoiceDetail->setPrice($item->price);
+                $invoiceDetail->setQuantity($item->quatity);
+                $invoiceDetail->setDiscount($item->discount);
+                $invoiceDetail->setTotal($item->total);
+                $invoiceDetail->save();
+            }
+            return json_encode(array('code'=>'success' , 'id' => $invoice->getId()));
+        }
+
         $this->view->setRenderLevel(View::LEVEL_LAYOUT);
         $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
         $this->view->provinces = Province::find(array('order'=>'name ASC'));
         $this->view->showCart =  $this->session->get('cart');
+    }
+
+
+    public function paymentAction($id)
+    {
+        $invoice = SalesInvoice::findFirst($id);
+        $this->view->setRenderLevel(View::LEVEL_LAYOUT);
+        $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
+        $this->view->provinces = Province::find(array('order'=>'name ASC'));
+        $this->view->showCart =  $this->session->get('cart');
+        $this->view->id = $id;
+        $this->view->phone =  $invoice->getPhone();
+        $this->view->price =  $invoice->getTotal();
     }
 
     public function confirmAction(){
-        $this->view->setRenderLevel(View::LEVEL_LAYOUT);
-        $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
-        $this->view->showCart =  $this->session->get('cart');
+        if($_POST["checkout"]){
+            $checkout = $_POST["checkout"];
+           $paymethod = $checkout["different_billing_address"];
+           $id = $checkout["invoice"];
+           $invoice = SalesInvoice::findFirst($id);
+           $invoice->setPayMethodId($paymethod);
+           $invoice->save();
+
+           $robots = SalesInvoice::query()
+               ->innerJoin(District::class,SalesInvoice::class.".district_id =".District::class.".districtid")
+               ->innerJoin(Province::class,SalesInvoice::class.".province_id =".Province::class.".provinceid")
+               ->where(SalesInvoice::class.".id=" . $invoice->getId())
+               ->columns([
+                   Province::class.".name as province" ,
+                   District::class.".name as district" ,
+                   SalesInvoice::class.".id" ,
+                   SalesInvoice::class.".phone" ,
+                   SalesInvoice::class.".fullname" ,
+                   SalesInvoice::class.".address" ,
+                   SalesInvoice::class.".shipping" ,
+                   SalesInvoice::class.".pay_method_id" ,
+               ])
+               ->execute();
+            $this->view->infconfirm =  $robots;
+            $this->view->setRenderLevel(View::LEVEL_LAYOUT);
+            $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
+            $this->view->showCart =  $this->session->get('cart');
+        }
     }
 
     public function districtAction($provinceid){

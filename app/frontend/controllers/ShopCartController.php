@@ -7,6 +7,7 @@ class ShopCartController extends ControllerBase
 {
 
     public function indexAction(){
+        $this->session->remove('price_shipper');
        $this->view->showCart =  $this->session->get('cart');
     }
 
@@ -102,6 +103,7 @@ class ShopCartController extends ControllerBase
         $this->session->set('totalCart',number_format($count ,0  , 0 , '.').' VND');
         $this->session->set('totalAll' , number_format($allTotal ,0  , 0 , '.'));
         $this->session->set('totalAllNotFormat' , $allTotal);
+        $this->session->remove('price_shipper');
         return number_format($count ,0  , 0 , '.').' VND';
     }
 
