@@ -1,5 +1,5 @@
 <?php
-namespace Multiple\Backend\Controllers;
+ 
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 
@@ -87,9 +87,12 @@ class SalesInvoiceDetailController extends ControllerBase
 
             $this->tag->setDefault("id", $sales_invoice_detail->id);
             $this->tag->setDefault("sales_invoice_id", $sales_invoice_detail->sales_invoice_id);
+            $this->tag->setDefault("product_id", $sales_invoice_detail->product_id);
             $this->tag->setDefault("quantity", $sales_invoice_detail->quantity);
-            $this->tag->setDefault("price", $sales_invoice_detail->price);
             $this->tag->setDefault("discount", $sales_invoice_detail->discount);
+            $this->tag->setDefault("price", $sales_invoice_detail->price);
+            $this->tag->setDefault("total", $sales_invoice_detail->total);
+            $this->tag->setDefault("comment", $sales_invoice_detail->comment);
             
         }
     }
@@ -110,9 +113,12 @@ class SalesInvoiceDetailController extends ControllerBase
 
         $sales_invoice_detail = new SalesInvoiceDetail();
         $sales_invoice_detail->salesInvoiceId = $this->request->getPost("sales_invoice_id");
+        $sales_invoice_detail->productId = $this->request->getPost("product_id");
         $sales_invoice_detail->quantity = $this->request->getPost("quantity");
-        $sales_invoice_detail->price = $this->request->getPost("price");
         $sales_invoice_detail->discount = $this->request->getPost("discount");
+        $sales_invoice_detail->price = $this->request->getPost("price");
+        $sales_invoice_detail->total = $this->request->getPost("total");
+        $sales_invoice_detail->comment = $this->request->getPost("comment");
         
 
         if (!$sales_invoice_detail->save()) {
@@ -167,9 +173,12 @@ class SalesInvoiceDetailController extends ControllerBase
         }
 
         $sales_invoice_detail->salesInvoiceId = $this->request->getPost("sales_invoice_id");
+        $sales_invoice_detail->productId = $this->request->getPost("product_id");
         $sales_invoice_detail->quantity = $this->request->getPost("quantity");
-        $sales_invoice_detail->price = $this->request->getPost("price");
         $sales_invoice_detail->discount = $this->request->getPost("discount");
+        $sales_invoice_detail->price = $this->request->getPost("price");
+        $sales_invoice_detail->total = $this->request->getPost("total");
+        $sales_invoice_detail->comment = $this->request->getPost("comment");
         
 
         if (!$sales_invoice_detail->save()) {

@@ -138,4 +138,7 @@ $(document).ready(function () {
                 jAlert(data);
             }});
     });
+    $(document).on('click','#btnclearnSession', function () {
+        $.get("http://dev.huuquynh.com:1030/frontend/checkouts/clearnsession");
+    })
 });
