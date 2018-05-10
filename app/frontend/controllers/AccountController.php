@@ -65,7 +65,6 @@ class AccountController extends ControllerBase
                 if ($this->request->getPost("customer_email"))
                     $member->setEmail($this->request->getPost("customer_email"));
                 $member->setPassword(md5($this->request->getPost("customer_password"))) ;
-                $member->setAddress($this->request->getPost("customer_address"));
                 $member->save();
                 $user_names = $member->getFullname() ? $member->getFullname() : $member->getPhoneNumber();
                 $this->session->set('user_name',$user_names);

@@ -3,21 +3,19 @@ namespace Multiple\Frontend\Controllers;
 use App\Library\OnePay;
 class PaymentController extends ControllerBase
 {
-    public function onePayRequestAction($r) {
-
+    public function onePayRequestAction($id , $phonenumber , $price) {
         $op = new OnePay();
-        $responseUrl = 'http://' . $_SERVER['HTTP_HOST'] . '/payment/onepayresponse?ticket_id=100';
+        $responseUrl = 'http://' . $_SERVER['HTTP_HOST'] . '/payment/onepayresponse?id='.$id;
         header(
             'location:' .
             $op->buildNoidiaUrl(
-                100, 841675241500, 100000 * 100, $responseUrl));
+                $id, $phonenumber, (int)$price * 100, $responseUrl));
         die();
     }
 
     public function onePayResponseAction() {
         $message = $_GET["vpc_Message"];
         if(isset($_GET["vpc_Message"])) {
-            $this->flashSession->success('<script>alert(cx);</script>');
             return $this->response->redirect(array('for' => "trang-chu"));
         }
         $op = new OnePay();
@@ -25,21 +23,15 @@ class PaymentController extends ControllerBase
         if ($stt != 'OK') {
 
             $stt = $op->getNoidiaResponseString();
-            return $this->flash->error('<script>alert(\'' . $stt . '\');</script>');
+            return $this->flash->error($stt);
         }
 
-        $script = "window.close();";
         if ($stt == 'OK') {
             $this->sendMtSuccess($this->ticket);
-            $stt = LangPeer::getText('Thanh toán thành công');
-            $script = 'window.close();' . $script;
+            return $this->flash->success('thanh toán thành công');
         }
-        session_regenerate_id(true);
-
-        $this->logTransaction($this->tickets, PartnerPayPeer::ONEPAY);
 
         return $this->renderText('<script>alert(\'' . $stt . '\');' . $script . '</script>');
     }
-
 
 }

@@ -66,6 +66,24 @@
         'controller' => 'product',
         'action'     => 'index',
     ])->setName("backend");
+    $router->add('/thanh-toan/:params', [
+        'module'     => 'frontend',
+        'controller' => 'checkouts',
+        'action'     => 'payment',
+        "params"     => 1,
+    ])->setName("thanh-toan");
+    $router->add('/hoan-thanh/:params', [
+        'module'     => 'frontend',
+        'controller' => 'checkouts',
+        'action'     => 'confirm',
+        "params"     => 1,
+    ])->setName("hoan-thanh");
+    $router->add('/thong-tin-khach-hang/:params', [
+        'module'     => 'frontend',
+        'controller' => 'checkouts',
+        'action'     => 'customerInfo',
+        "params"     => 1,
+    ])->setName("thong-tin-khach-hang");
 
     $router->handle();
 

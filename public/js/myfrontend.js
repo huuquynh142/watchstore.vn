@@ -61,6 +61,7 @@ $(document).ready(function () {
             }});
     });
 
+
     $(document).on('click','#addToCart',function () {
         var id = $(this).attr('data-id');
         var quatity = $(".quantity_" + id).val();
@@ -234,8 +235,7 @@ $(document).ready(function () {
                 success: function(data) {
                     if (data.code == 'success')
                     {
-                        var uri = window.location.host + '/trang-chu';
-                        window.location.href =  uri;
+                        window.location.href =  'http://dev.huuquynh.com:1030/trang-chu';
                     }
                     else
                         jAlert('Đăng nhập không thành công . Vui lòng kiểm tra lại!');
@@ -257,9 +257,6 @@ $(document).ready(function () {
             customer_email: {
                 emailz: true
             },
-            customer_address: {
-                required: true
-            },
             customer_password: {
                 required: true,
                 lenghPassword: true
@@ -280,9 +277,6 @@ $(document).ready(function () {
             customer_email: {
                 emailz: "Vui lòng nhập đúng định dạng email"
             },
-            customer_address: {
-                required: "Vui lòng nhập địa chỉ"
-            },
             customer_password: {
                 required: "Vui lòng nhập mật khẩu",
                 lenghPassword: "Mật khẩu tối thiểu 6 ký tự"
@@ -302,8 +296,7 @@ $(document).ready(function () {
                 success: function(data) {
                     if (data.code == 'success')
                     {
-                        var uri = window.location.host + '/trang-chu';
-                        window.location.href =  uri;
+                        window.location.href =  'http://dev.huuquynh.com:1030/trang-chu';
                     }
 
                     else

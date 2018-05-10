@@ -2,138 +2,44 @@
 
     <div class="step" data-step="payment_method">
         <div class="step__sections">
-            <form class="edit_checkout animate-floating-labels" data-payment-form="" action="/7503913/checkouts/69a77183e32f42fd6f0adb0fe4cf06a0" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="LI4MRm4nodx64TH2/j8j74bbF4TlC26s4QhZ2DkDYin4KaxzakrII8Geuys75kzlRPwcqmRnTLuqw3Cg/EvQAg==">
-
-                <input type="hidden" name="previous_step" id="previous_step" value="payment_method">
-                <input type="hidden" name="step">
-                <input type="hidden" name="s" id="s">
-
-                <div class="section section--payment-method" data-payment-method="">
+            <form method="post" action="/hoan-thanh">
+                <input type="hidden" name="checkout[invoice]" value="<?= $id ?>">
+                <div class="section section--billing-address" data-billing-address="">
                     <div class="section__header">
-                        <h2 class="section__title">Phương thức thanh toán</h2>
+                        <h2 class="section__title">Địa chỉ thanh toán</h2>
                         <p class="section__text">
                             Tất cả giao dịch được bảo mật và mã hóa.
                         </p>
                     </div>
 
                     <div class="section__content">
-
-                        <div data-payment-subform="required">
-                            <div class="content-box">
-                                <div class="radio-wrapper content-box__row " data-gateway-group="manual" data-select-gateway="7611312">
-                                    <input value="7611312" size="30" type="hidden" name="checkout[payment_gateway]">
-
-                                    <div class="radio__label content-box__emphasis ">
-                                        <label class="radio__label__primary" for="checkout_payment_gateway_7611312">
-                                            Thanh toán khi giao hàng
-                                        </label>
-                                    </div>
-                                    <div id="payment_gateway_7611312_description" class="visually-hidden" aria-live="polite" data-detected="Detected card brand: {brand}">
-                                    </div>
-                                </div>
-
-
-
-
-                            </div>
-                        </div>
-
-                        <div data-payment-subform="gift_cards" class="hidden">
-                            <input value="free" disabled="disabled" size="30" type="hidden" name="checkout[payment_gateway]">
-                            <div class="content-box blank-slate">
-                                <div class="content-box__row">
-                                    <i class="blank-slate__icon icon icon--free-tag"></i>
-                                    <p>Your order is covered by your gift cards.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-payment-subform="free" class="hidden">
-                            <input value="free" disabled="disabled" size="30" type="hidden" name="checkout[payment_gateway]">
-                            <div class="content-box blank-slate">
-                                <div class="content-box__row">
-                                    <i class="blank-slate__icon icon icon--free-tag"></i>
-                                    <p>Your order is <strong>free</strong>. No payment is required.</p>
-                                </div>
-                            </div>
-                        </div>  </div>
-                </div>
-
-                <div class="section section--billing-address" data-billing-address="">
-                    <div class="section__header">
-                        <h2 class="section__title">Địa chỉ thanh toán</h2>
-                    </div>
-
-                    <div class="section__content">
                         <fieldset class="content-box">
-                            <legend class="visually-hidden">Chọn một địa chỉ thanh toán</legend>
                             <div class="radio-wrapper content-box__row" data-same-billing-address="">
                                 <div class="radio__input">
-                                    <input class="input-radio" data-backup="different_billing_address_false" type="radio" value="false" checked="checked" name="checkout[different_billing_address]" id="checkout_different_billing_address_false">
+                                    <input class="input-radio" type="radio" value="1" checked="checked" name="checkout[different_billing_address]" id="checkout_different_billing_address_false">
                                 </div>
 
                                 <label class="radio__label content-box__emphasis" for="checkout_different_billing_address_false">
-                                    Sử dụng địa chỉ giao hàng
+                                    Thanh toán khi giao hàng
                                 </label>
                             </div>
 
                             <div class="radio-wrapper content-box__row" data-different-billing-address="">
                                 <div class="radio__input">
-                                    <input class="input-radio" data-backup="different_billing_address_true" aria-expanded="false" aria-controls="section--billing-address__different" type="radio" value="true" name="checkout[different_billing_address]" id="checkout_different_billing_address_true">
+                                    <input class="input-radio"  aria-expanded="false" type="radio" value="2" name="checkout[different_billing_address]" id="checkout_different_billing_address_true">
                                 </div>
                                 <label class="radio__label content-box__emphasis" for="checkout_different_billing_address_true">
-                                    Sử dụng một địa chỉ khác
+                                    Thanh toán online nội địa
                                 </label>
                             </div>
 
                             <div class="radio-group__row content-box__row content-box__row--secondary hidden" id="section--billing-address__different">
                                 <div class="fieldset" data-address-fields="">
+                                    <div>
 
-                                    <input class="visually-hidden" autocomplete="shipping given-name" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="first_name" data-honeypot="true" size="30" type="text" name="checkout[shipping_address][first_name]">
-                                    <input class="visually-hidden" autocomplete="shipping family-name" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="last_name" data-honeypot="true" aria-required="true" size="30" type="text" name="checkout[shipping_address][last_name]">
-                                    <input class="visually-hidden" autocomplete="shipping organization" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="company" data-honeypot="true" size="30" type="text" name="checkout[shipping_address][company]">
-                                    <input class="visually-hidden" autocomplete="shipping address-line1" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="address1" data-honeypot="true" aria-required="true" size="30" type="text" name="checkout[shipping_address][address1]">
-                                    <input class="visually-hidden" autocomplete="shipping address-line2" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="address2" data-honeypot="true" size="30" type="text" name="checkout[shipping_address][address2]">
-                                    <input class="visually-hidden" autocomplete="shipping address-level2" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="city" data-honeypot="true" aria-required="true" size="30" type="text" name="checkout[shipping_address][city]">
-                                    <input class="visually-hidden" autocomplete="shipping country" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="country" data-honeypot="true" aria-required="true" size="30" type="text" name="checkout[shipping_address][country]">
-                                    <input class="visually-hidden" autocomplete="shipping address-level1" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="province" data-honeypot="true" aria-required="true" size="30" type="text" name="checkout[shipping_address][province]">
-                                    <input class="visually-hidden" autocomplete="shipping postal-code" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="zip" data-honeypot="true" aria-required="true" size="30" type="text" name="checkout[shipping_address][zip]">
-                                    <input class="visually-hidden" autocomplete="shipping tel" tabindex="-1" aria-hidden="true" aria-label="no-label" data-autocomplete-field="phone" data-honeypot="true" size="30" type="text" name="checkout[shipping_address][phone]">
-
-
-                                    <div class="field field--required field--show-floating-label" data-address-field="last_name">
-
-                                        <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_last_name">Họ và tên</label>
-                                            <input placeholder="Họ và tên" autocomplete="shipping family-name" data-backup="last_name" class="field__input" aria-required="true" size="30" type="text" name="checkout[shipping_address][last_name]" id="checkout_shipping_address_last_name">
-                                        </div>
-                                    </div>
-                                    <div data-address-field="city" data-google-places="true" class="field field--required field--show-floating-label">
-
-                                        <div class="field__input-wrapper field__input-wrapper--select"><label class="field__label field__label--visible" for="checkout_shipping_address_provinces">Tỉnh / Thành phố</label>
-                                            <select size="1" autocomplete="shipping provinces" data-backup="provinces" class="field__input field__input--select" aria-required="true" name="checkout[shipping_address][provinces]" id="checkout_shipping_address_provinces">
-                                                <!--                                        <option selected="selected" value="Vietnam">Hà Nội</option>-->
-                                                <option selected="selected" disabled="disabled" value="---">---</option>
-                                                <?php foreach ($provinces as $province){ ?>
-                                                    <option value="<?= $province->provinceid ?>"><?= $province->name ?></option>
-                                                <?php  } ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div data-address-field="city" data-google-places="true" class="field field--required field--show-floating-label">
-
-                                        <div class="field__input-wrapper field__input-wrapper--select"><label class="field__label field__label--visible" for="checkout_shipping_address_citys">Quận / Huyện</label>
-                                            <select size="1" autocomplete="shipping city" data-backup="city" class="field__input field__input--select" aria-required="true" name="checkout[shipping_address][city]" id="checkout_shipping_address_citys">
-                                                <!--                                        <option selected="selected" value="Vietnam">Hà Nội</option>-->
-                                                <option selected="selected" disabled="disabled" value="---">---</option>
-                                            </select>
-                                        </div>
-
-
-                                    </div>
-                                    <div class="field field--required field--show-floating-label" data-address-field="address1" data-google-places="true">
-
-                                        <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_address1">Địa chỉ</label>
-                                            <input placeholder="Địa chỉ" autocomplete="shipping address-line1" autocorrect="off" role="combobox" aria-autocomplete="list" aria-owns="address-autocomplete" aria-expanded="false" aria-required="true" data-backup="address1" data-google-autocomplete="true" data-google-autocomplete-title="Suggestions" data-google-autocomplete-single-item="1 item available" data-google-autocomplete-multi-item="{{number}} items available" data-google-autocomplete-item-selection="{{number}} of {{total}}" class="field__input" size="30" type="text" name="checkout[shipping_address][address1]" id="checkout_shipping_address_address1">
-                                        </div>
+                                        <button data-price="<?= $price ?>" data-phone="<?= $phone ?>" data-id="<?= $id ?>"  name="button" type="button" id="paymentOnepay">
+                                            <img src="/public/img/icons/onepay.png">
+                                         </button>
                                     </div>
 
                                 </div>
@@ -141,7 +47,6 @@
                         </fieldset>
                     </div>
                 </div>
-
 
 
 
@@ -157,21 +62,13 @@
                               </span>
                             <svg class="icon-svg icon-svg--size-18 btn__spinner icon-svg--spinner-button" aria-hidden="true" focusable="false"> <use xlink:href="#spinner-button"></use> </svg>
                         </button>
-
-                    </div>
-                    <div class="hidden-if-js">
-                        <button name="button" type="submit" class="step__footer__continue-btn btn " aria-busy="false">
-                              <span class="btn__content">
-                                Continue to the payment gateway
-                              </span>
-                            <svg class="icon-svg icon-svg--size-18 btn__spinner icon-svg--spinner-button" aria-hidden="true" focusable="false"> <use xlink:href="#spinner-button"></use> </svg>
-                        </button>
                     </div>
                     <a class="step__footer__previous-link" href="/checkouts/customerinfo"><svg focusable="false" aria-hidden="true" class="icon-svg icon-svg--color-accent icon-svg--size-10 previous-link__icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path d="M8 1L7 0 3 4 2 5l1 1 4 4 1-1-4-4"></path></svg><span class="step__footer__previous-link-content">Trở lại</span></a>
                 </div>
 
 
-                <input type="hidden" name="checkout[client_details][browser_width]" value="1349"><input type="hidden" name="checkout[client_details][browser_height]" value="582"><input type="hidden" name="checkout[client_details][javascript_enabled]" value="1"></form>  </div>
+             </form>
+        </div>
 
     </div>
 

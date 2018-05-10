@@ -6,14 +6,14 @@ namespace App\Library;
 		public $noidia_response_code = "";
 		public $noidia_vpc_AccessCode = "D67342C2";
 		public $noidiaUrl = 'https://mtf.onepay.vn/onecomm-pay/vpc.op';
-		function buildNoidiaUrl($id, $phone, $amount, $backUrl, $username = 'thanhvt', $email = 'support@onepay.vn'){
+		function buildNoidiaUrl($id, $phone, $amount, $backUrl, $username = '', $email = ''){
 			
 			$params = array('Title' => 'VPC 3-Party', 
 											'virtualPaymentClientURL' => $this->noidiaUrl, 
 											'vpc_Merchant' => 'ONEPAY',
 											'vpc_AccessCode' => $this->noidia_vpc_AccessCode, 
-											'vpc_MerchTxnRef' => '2018050611364720393',
-											'vpc_OrderInfo' => 'Mã đặt hàng  '.$id,
+											'vpc_MerchTxnRef' => time(),
+											'vpc_OrderInfo' => 'Mã hóa đơn  '.$id,
 											'vpc_Amount' => $amount,
 											'vpc_ReturnURL' => $backUrl, 
 											'vpc_Version' => '2', 
