@@ -31,13 +31,6 @@
 ?>
 
 <div class="form-group">
-    <label for="fieldUserId" class="col-sm-2 control-label">User</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["user_id", "type" => "number", "class" => "form-control", "id" => "fieldUserId"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
     <label for="fieldMemberId" class="col-sm-2 control-label">Member</label>
     <div class="col-sm-10">
         <?php echo $this->tag->textField(["member_id", "type" => "number", "class" => "form-control", "id" => "fieldMemberId"]) ?>
@@ -45,9 +38,79 @@
 </div>
 
 <div class="form-group">
+    <label for="fieldProvinceId" class="col-sm-2 control-label">Province</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["province_id", "type" => "number", "class" => "form-control", "id" => "fieldProvinceId"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldDistrictId" class="col-sm-2 control-label">District</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["district_id", "type" => "number", "class" => "form-control", "id" => "fieldDistrictId"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldPayMethodId" class="col-sm-2 control-label">Pay Of Method</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["pay_method_id", "type" => "number", "class" => "form-control", "id" => "fieldPayMethodId"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldPhone" class="col-sm-2 control-label">Phone</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["phone", "size" => 30, "class" => "form-control", "id" => "fieldPhone"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldEmail" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["email", "size" => 30, "class" => "form-control", "id" => "fieldEmail"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldFullname" class="col-sm-2 control-label">Fullname</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["fullname", "size" => 30, "class" => "form-control", "id" => "fieldFullname"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldAddress" class="col-sm-2 control-label">Address</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["address", "size" => 30, "class" => "form-control", "id" => "fieldAddress"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldShipping" class="col-sm-2 control-label">Shipping</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->selectStatic(["shipping", [], "class" => "form-control", "id" => "fieldShipping"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldTotal" class="col-sm-2 control-label">Total</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["total", "size" => 30, "class" => "form-control", "id" => "fieldTotal"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldStatus" class="col-sm-2 control-label">Status</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["status", "size" => 30, "class" => "form-control", "id" => "fieldStatus"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
     <label for="fieldCreatedAt" class="col-sm-2 control-label">Created</label>
     <div class="col-sm-10">
-        <?php echo $this->tag->textField(["created_at", "type" => "number", "class" => "form-control", "id" => "fieldCreatedAt"]) ?>
+        <?php echo $this->tag->textField(["created_at", "size" => 30, "class" => "form-control", "id" => "fieldCreatedAt"]) ?>
     </div>
 </div>
 
