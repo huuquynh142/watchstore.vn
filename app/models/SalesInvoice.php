@@ -86,6 +86,13 @@ class SalesInvoice extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
+     * @Column(type="string", length=100, nullable=true)
+     */
+    protected $status;
+
+    /**
+     *
+     * @var string
      * @Column(type="string", nullable=true)
      */
     protected $created_at;
@@ -234,6 +241,19 @@ class SalesInvoice extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Method to set the value of field status
+     *
+     * @param string $status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
      * Method to set the value of field created_at
      *
      * @param string $created_at
@@ -357,6 +377,16 @@ class SalesInvoice extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Returns the value of field status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
      * Returns the value of field created_at
      *
      * @return string
@@ -365,6 +395,7 @@ class SalesInvoice extends \Phalcon\Mvc\Model
     {
         return $this->created_at;
     }
+
 
     /**
      * Initialize method for model.
@@ -427,6 +458,7 @@ class SalesInvoice extends \Phalcon\Mvc\Model
             'address' => 'address',
             'shipping' => 'shipping',
             'total' => 'total',
+            'status' => 'status',
             'created_at' => 'created_at'
         ];
     }

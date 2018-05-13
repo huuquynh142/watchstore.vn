@@ -27,9 +27,12 @@
             <tr>
                 <th>Id</th>
             <th>Sales Of Invoice</th>
+            <th>Product</th>
             <th>Quantity</th>
-            <th>Price</th>
             <th>Discount</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Comment</th>
 
                 <th></th>
                 <th></th>
@@ -40,9 +43,12 @@
             <tr>
                 <td><?php echo $sales_invoice_detail->id ?></td>
             <td><?php echo $sales_invoice_detail->sales_invoice_id ?></td>
+            <td><?php echo $sales_invoice_detail->product_id ?></td>
             <td><?php echo $sales_invoice_detail->quantity ?></td>
-            <td><?php echo $sales_invoice_detail->price ?></td>
             <td><?php echo $sales_invoice_detail->discount ?></td>
+            <td><?php echo $sales_invoice_detail->price ?></td>
+            <td><?php echo $sales_invoice_detail->total ?></td>
+            <td><?php echo $sales_invoice_detail->comment ?></td>
 
                 <td><?php echo $this->tag->linkTo(["sales_invoice_detail/edit/" . $sales_invoice_detail->id, "Edit"]); ?></td>
                 <td><?php echo $this->tag->linkTo(["sales_invoice_detail/delete/" . $sales_invoice_detail->id, "Delete"]); ?></td>

@@ -1,5 +1,5 @@
 <?php
- 
+namespace Multiple\Backend\Controllers;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 
