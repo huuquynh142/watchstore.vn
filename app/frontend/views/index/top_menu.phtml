@@ -73,37 +73,24 @@
 
         </div>
         <div class="hm-right hide-for-small-only">
+            <input id="actionPage" style="visibility: hidden; display: none"  value="<?php echo $this->session->get('action')?>">
 
             <!--Top Menu -->
             <!-- This is where the main menu links render-->
             <ul class="top-menu">
 
-                <li class="nav-item first active ">
+                <li id="home" class="nav-item first ">
                     <a href="/trang-chu" title="Home">Trang chủ</a>
 
                 </li>
 
-                <li class="nav-item has-dropdown">
+                <li id="product" class="nav-item has-dropdown">
                     <a href="/san-pham/tat-ca-san-pham" title="Catalog">Danh mục</a>
 
                     <ul class="dropdown">
 
                         <li class=" first has-dropdown">
                             <a href="/san-pham/san-pham-nam" title="Men">Nam</a>
-
-<!--                            <ul class="dropdown">-->
-<!---->
-<!--                                <li class=" first ">-->
-<!--                                    <a href="collections/luggage-travel-gear.html" title="Leather">Leather</a>-->
-<!---->
-<!--                                </li>-->
-<!---->
-<!--                                <li class=" last ">-->
-<!--                                    <a href="collections/luggage-travel-gear.html" title="Fabric">Fabric</a>-->
-<!---->
-<!--                                </li>-->
-<!---->
-<!--                            </ul>-->
 
                         </li>
 
@@ -112,36 +99,11 @@
 
                         </li>
 
-<!--                        <li class=" ">-->
-<!--                            <a href="collections/luggage-travel-gear.html" title="Luggage & Travel Gear">Luggage & Travel Gear</a>-->
-<!---->
-<!--                        </li>-->
-<!---->
-<!--                        <li class=" ">-->
-<!--                            <a href="collections/girls.html" title="Girls">Girls</a>-->
-<!---->
-<!--                        </li>-->
-<!---->
-<!--                        <li class=" ">-->
-<!--                            <a href="collections/boys.html" title="Boys">Boys</a>-->
-<!---->
-<!--                        </li>-->
-<!---->
-<!--                        <li class=" ">-->
-<!--                            <a href="collections/baby.html" title="Baby">Baby</a>-->
-<!---->
-<!--                        </li>-->
-<!---->
-<!--                        <li class=" last ">-->
-<!--                            <a href="collections/frontpage.html" title="Novelty, Costumes & More">Novelty, Costumes & More</a>-->
-<!---->
-<!--                        </li>-->
-
                     </ul>
 
                 </li>
 
-                <li class="nav-item ">
+                <li id="blog" class="nav-item ">
                     <a href="#" title="Blog">Blog</a>
 
                 </li>
@@ -151,7 +113,7 @@
 <!---->
 <!--                </li>-->
 
-                <li class="nav-item last ">
+                <li id="about" class="nav-item last ">
                     <a href="#" title="About Us">Về chúng tôi</a>
 
                 </li>

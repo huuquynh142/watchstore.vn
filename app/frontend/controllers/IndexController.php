@@ -11,6 +11,7 @@ class IndexController extends ControllerBase
     public function initialize()
     {
         $this->tag->setTitle("Trang chủ");
+        $this->session->set('action','home');
     }
 
     public function indexAction()
