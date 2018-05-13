@@ -1,5 +1,6 @@
 <?php
- 
+namespace Multiple\Backend\Controllers;
+use App\Models\SalesInvoice;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 
@@ -9,19 +10,19 @@ class SalesInvoiceController extends ControllerBase
     /**
      * Index action
      */
+//    public function indexAction()
+//    {
+//        $this->persistent->parameters = null;
+//    }
+//
+//    /**
+//     * Searches for sales_invoice
+//     */
     public function indexAction()
-    {
-        $this->persistent->parameters = null;
-    }
-
-    /**
-     * Searches for sales_invoice
-     */
-    public function searchAction()
     {
         $numberPage = 1;
         if ($this->request->isPost()) {
-            $query = Criteria::fromInput($this->di, 'SalesInvoice', $_POST);
+            $query = Criteria::fromInput($this->di, SalesInvoice::class, $_POST);
             $this->persistent->parameters = $query->getParams();
         } else {
             $numberPage = $this->request->getQuery("page", "int");
@@ -96,6 +97,7 @@ class SalesInvoiceController extends ControllerBase
             $this->tag->setDefault("address", $sales_invoice->address);
             $this->tag->setDefault("shipping", $sales_invoice->shipping);
             $this->tag->setDefault("total", $sales_invoice->total);
+            $this->tag->setDefault("status", $sales_invoice->status);
             $this->tag->setDefault("created_at", $sales_invoice->created_at);
             
         }
@@ -126,6 +128,7 @@ class SalesInvoiceController extends ControllerBase
         $sales_invoice->address = $this->request->getPost("address");
         $sales_invoice->shipping = $this->request->getPost("shipping");
         $sales_invoice->total = $this->request->getPost("total");
+        $sales_invoice->status = $this->request->getPost("status");
         $sales_invoice->createdAt = $this->request->getPost("created_at");
         
 
@@ -190,6 +193,7 @@ class SalesInvoiceController extends ControllerBase
         $sales_invoice->address = $this->request->getPost("address");
         $sales_invoice->shipping = $this->request->getPost("shipping");
         $sales_invoice->total = $this->request->getPost("total");
+        $sales_invoice->status = $this->request->getPost("status");
         $sales_invoice->createdAt = $this->request->getPost("created_at");
         
 
