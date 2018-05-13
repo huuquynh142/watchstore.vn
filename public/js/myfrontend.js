@@ -1,4 +1,18 @@
 $(document).ready(function () {
+    loadAction();
+
+    function loadAction(){
+        $action = $("#actionPage").val();
+        $(".nav-item").removeClass("active");
+        switch ($action){
+            case "home":
+                $("#home").addClass("active");
+                break;
+            case "product":
+                $("#product").addClass("active");
+        }
+    }
+
     $(document).on('click','#btnQuickOder',function () {
 
         $.ajax({

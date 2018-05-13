@@ -14,6 +14,7 @@ class ProductController extends ControllerBase
     public function initialize()
     {
         $this->tag->setTitle("Sản phẩm");
+        $this->session->set('action','product');
     }
 
     public function indexAction($type_id = '' , $brand = '' , $price = '' , $sortBy = '')
