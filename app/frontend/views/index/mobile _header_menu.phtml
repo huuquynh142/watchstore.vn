@@ -10,10 +10,18 @@
             <ul id="use" class="f-dropdown mobile-links" data-dropdown-content aria-hidden="true" tabindex="-1">
 
                 <li>
-                    <a href="account/login.html" id="customer_login_link">Login</a>
+                    <?php if( $this->session->get('user_name')){?>
+                        <a href="#" id="customer_login_link"><?php echo $this->session->get('user_name')?></a>
+                    <?php }else{ ?>
+                        <a href="/dang-nhap" id="customer_login_link">Đăng nhập</a>
+                    <?php } ?>
                 </li>
                 <li>
-                    <a href="account/register.html" id="customer_register_link">Register</a>
+                    <?php if( $this->session->get('user_name')){?>
+                        <a href="/account/logout" id="customer_login_link">Đăng xuất</a>
+                    <?php }else{ ?>
+                        <a href="/dang-ky" id="customer_register_link">Đăng ký</a>
+                    <?php } ?>
                 </li>
 
             </ul>
@@ -35,82 +43,37 @@
 
 
 
-        <li class="nav-item first active">
-            <a href="index.html" title="">Home</a>
+        <li class="nav-item first ">
+            <a href="/trang-chu" title="Home">Trang chủ</a>
 
         </li>
 
-
-
-
-
-
         <li class="nav-item has-dropdown">
-            <a href="collections/all.html" title="">Catalog</a>
+            <a href="/san-pham/tat-ca-san-pham" title="Catalog">Danh mục</a>
 
             <ul class="dropdown">
 
+                <li class=" first has-dropdown">
+                    <a href="/san-pham/san-pham-nam" title="Men">Nam</a>
 
-                <li class=" first">
-                    <a class="first" href="collections/men.html">Men</a>
                 </li>
 
-                <li class="">
-                    <a class="" href="collections/women.html">Women</a>
-                </li>
+                <li class=" ">
+                    <a href="/san-pham/san-pham-nu" title="Women">Nữ</a>
 
-                <li class="">
-                    <a class="" href="collections/luggage-travel-gear.html">Luggage & Travel Gear</a>
                 </li>
-
-                <li class="">
-                    <a class="" href="collections/girls.html">Girls</a>
-                </li>
-
-                <li class="">
-                    <a class="" href="collections/boys.html">Boys</a>
-                </li>
-
-                <li class="">
-                    <a class="" href="collections/baby.html">Baby</a>
-                </li>
-
-                <li class=" last">
-                    <a class="last" href="collections/frontpage.html">Novelty, Costumes & More</a>
-                </li>
-
 
             </ul>
 
         </li>
 
-
-
-
-
-
-        <li class="nav-item">
-            <a href="blogs/news.html" title="">Blog</a>
+        <li class="nav-item ">
+            <a href="#" title="Blog">Blog</a>
 
         </li>
 
-
-
-
-
-
-        <li class="nav-item">
-            <a href="pages/wish-list.html" title="">Wishlist</a>
-
-        </li>
-
-
-
-
-
-
-        <li class="nav-item last">
-            <a href="pages/about-us.html" title="">About Us</a>
+        <li class="nav-item last ">
+            <a href="#" title="About Us">Về chúng tôi</a>
 
         </li>
 

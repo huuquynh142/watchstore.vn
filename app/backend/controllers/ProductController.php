@@ -17,25 +17,34 @@ class ProductController extends ControllerBase
     {
         $numberPage = 1;
         if ($this->request->isPost()) {
-//            $query = Criteria::fromInput($this->di, Product::class , $_POST);
-//            $this->persistent->parameters = $query->getParams();
-
-
             $query = Criteria::fromInput($this->di, Product::class , $_POST);
-            $query->join(ProductDetail::class,Product::class.".product_detail_id =".ProductDetail::class.".id");
-            $params = $query->getParams();
+            $this->persistent->parameters = $query->getParams();
+//            print_r($query->getParams());
+//            die();
+//            $query = Criteria::fromInput($this->di, Product::class , $_POST);
+////            $query->join(ProductDetail::class,Product::class.".product_detail_id =".ProductDetail::class.".id");
+////            $query->join(Producer::class ,Product::class.".producer_id =".Producer::class.".id" );
+//            $params = $query->getParams();
+//
+//            $queryPart = Criteria::fromInput($this->di, Producer::class, $_POST);
+//            $paramsPart = is_null($queryPart->getParams()) ? null : $queryPart->getParams();
+//            if(!is_null($paramsPart)){
+//                $params['conditions'] .= ' and '.$paramsPart['conditions'];
+//            }
+//
+//            $queryPart = Criteria::fromInput($this->di, ProductDetail::class, $_POST);
+//            $paramsPart = is_null($queryPart->getParams()) ? null : $queryPart->getParams();
+//            if(!is_null($paramsPart)){
+//                $params['conditions'] .= ' and '.$paramsPart['conditions'];
+//            }
 
-            $queryPart = Criteria::fromInput($this->di, ProductDetail::class, $_POST);
-            $paramsPart = is_null($queryPart->getParams()) ? null : $queryPart->getParams();
-            if(!is_null($paramsPart)){
-                $params['conditions'] .= ' and '.$paramsPart['conditions'];
-            }
-            $this->persistent->parameters = $params;
+
+//            $this->persistent->parameters = $params;
         } else {
             $numberPage = $this->request->getQuery("page", "int");
         }
 
-        $parameters = $this->persistent->parameters;
+        $parameters = $this->persistent->parameters['bind'];
         if (!is_array($parameters)) {
             $parameters = [];
         }
@@ -46,6 +55,7 @@ class ProductController extends ControllerBase
         $robots = Product::query()
             ->innerJoin(ProductDetail::class,Product::class.".product_detail_id =".ProductDetail::class.".id")
             ->innerJoin(Producer::class,Product::class.".producer_id =".Producer::class.".id")
+            ->bind($parameters)
             ->columns([ProductDetail::class.".product_name" ,
                 Product::class.".id" ,
                 Producer::class.".company_name" ,

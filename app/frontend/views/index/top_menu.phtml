@@ -17,7 +17,7 @@
 
                     <li>
                         <?php if( $this->session->get('user_name')){?>
-                            <a href="/account/logout" id="customer_login_link">Log Out</a>
+                            <a href="/account/logout" id="customer_login_link">Đăng xuất</a>
                         <?php }else{ ?>
                             <a href="/dang-ky" id="customer_register_link">Đăng ký</a>
                         <?php } ?>
@@ -29,8 +29,9 @@
                     <!-- Search Form -->
                     <li class="has-form top-search">
                         <div id="sb-search" class="sb-search">
-                            <form action="https://ap-best-store.myshopify.com/search" method="get" class="search-form" role="search">
-                                <input id="search" name="q" type="text" id="search-field" placeholder="Tìm kiếm trong cửa hàng" class="hint sb-search-input" >
+                            <form id="search-form" class="search-form">
+                                <input id="search" name="keyword" type="text"  placeholder="Tìm kiếm trong cửa hàng" class="hint sb-search-input" >
+                                <div id="suggesstion-box"></div>
                                 <input class="sb-search-submit" type="submit" id="search-submit" value="Search" />
                                 <span class="sb-icon-search"></span>
                             </form>
@@ -80,22 +81,22 @@
             <ul class="top-menu">
 
                 <li id="home" class="nav-item first ">
-                    <a href="/trang-chu" title="Home">Trang chủ</a>
+                    <a href="/trang-chu" title="Trang chủ">Trang chủ</a>
 
                 </li>
 
                 <li id="product" class="nav-item has-dropdown">
-                    <a href="/san-pham/tat-ca-san-pham" title="Catalog">Danh mục</a>
+                    <a href="/san-pham/tat-ca-san-pham" title="Danh mục">Danh mục</a>
 
                     <ul class="dropdown">
 
                         <li class=" first has-dropdown">
-                            <a href="/san-pham/san-pham-nam" title="Men">Nam</a>
+                            <a href="/san-pham/san-pham-nam" title="Nam">Nam</a>
 
                         </li>
 
                         <li class=" ">
-                            <a href="/san-pham/san-pham-nu" title="Women">Nữ</a>
+                            <a href="/san-pham/san-pham-nu" title="Nữ">Nữ</a>
 
                         </li>
 
@@ -108,13 +109,9 @@
 
                 </li>
 
-<!--                <li class="nav-item ">-->
-<!--                    <a href="pages/wish-list.html" title="Wishlist">Wishlist</a>-->
-<!---->
-<!--                </li>-->
 
                 <li id="about" class="nav-item last ">
-                    <a href="#" title="About Us">Về chúng tôi</a>
+                    <a href="#" title="Về chúng tôi">Về chúng tôi</a>
 
                 </li>
 

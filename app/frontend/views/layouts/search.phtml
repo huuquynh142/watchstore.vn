@@ -1,1 +1,45 @@
-<?php echo $this->getContent(); ?>
+<main role="main">
+
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="row">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="/trang-chu" class="homepage-link" title="Back to the frontpage">Trang chủ</a>
+                </li>
+
+                <li class="current">
+                    <a href="#"><?= $this->session->get('search-product') ?></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+
+    <div class="row">
+        <div class="row">
+            <div class="small-12 medium-12 large-12 columns">
+
+                <div class="search-results">
+
+                    <div class="row products-row">
+
+                        <?php echo $this->getContent(); ?>
+
+                    </div>
+
+
+                </div>
+
+                <!-- pagination -->
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</main>
