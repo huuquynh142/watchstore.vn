@@ -1,5 +1,7 @@
 <?php
 namespace App\Models;
+use Phalcon\Validation;
+use Phalcon\Validation\Validator\Email as EmailValidator;
 
 class Member extends \Phalcon\Mvc\Model
 {
@@ -19,13 +21,6 @@ class Member extends \Phalcon\Mvc\Model
      * @Column(type="string", length=200, nullable=true)
      */
     protected $fullname;
-
-    /**
-     *
-     * @var integer
-     * @Column(type="integer", length=1, nullable=true)
-     */
-    protected $sex;
 
     /**
      *
@@ -105,19 +100,6 @@ class Member extends \Phalcon\Mvc\Model
     public function setFullname($fullname)
     {
         $this->fullname = $fullname;
-
-        return $this;
-    }
-
-    /**
-     * Method to set the value of field sex
-     *
-     * @param integer $sex
-     * @return $this
-     */
-    public function setSex($sex)
-    {
-        $this->sex = $sex;
 
         return $this;
     }
@@ -247,16 +229,6 @@ class Member extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field sex
-     *
-     * @return integer
-     */
-    public function getSex()
-    {
-        return $this->sex;
-    }
-
-    /**
      * Returns the value of field phone_number
      *
      * @return string
@@ -337,11 +309,33 @@ class Member extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Validations and business logic
+     *
+     * @return boolean
+     */
+    public function validation()
+    {
+        $validator = new Validation();
+
+        $validator->add(
+            'email',
+            new EmailValidator(
+                [
+                    'model'   => $this,
+                    'message' => 'Please enter a correct email address',
+                ]
+            )
+        );
+
+        return $this->validate($validator);
+    }
+
+    /**
      * Initialize method for model.
      */
     public function initialize()
     {
-        $this->setSchema("b18_22062172_huuquynh");
+        $this->setSchema("b4_22077174_huuquynh");
         $this->setSource("member");
     }
 
@@ -388,7 +382,6 @@ class Member extends \Phalcon\Mvc\Model
         return [
             'id' => 'id',
             'fullname' => 'fullname',
-            'sex' => 'sex',
             'phone_number' => 'phone_number',
             'email' => 'email',
             'password' => 'password',

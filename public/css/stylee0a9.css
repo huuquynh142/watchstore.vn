@@ -8451,6 +8451,9 @@ body.header-three .sb-icon-search{
 .error{
   font-size: 12px;
 }
+.pro-zoom img{
+  max-height: 500px;
+}
 /* ---End Account--- */
 @media (max-width: 980px){
   	.custom-banner .ctb-bot{

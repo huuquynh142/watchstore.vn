@@ -7,6 +7,8 @@ class ShopCartController extends ControllerBase
 {
 
     public function indexAction(){
+        if (!$this->session->has('cart'))
+            return $this->response->redirect(array('for' => "trang-chu"));
         $this->session->remove('price_shipper');
        $this->view->showCart =  $this->session->get('cart');
     }

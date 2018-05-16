@@ -1,5 +1,8 @@
 <?php
 namespace Multiple\Backend\Controllers;
+use App\Models\District;
+use App\Models\Member;
+use App\Models\Province;
 use App\Models\SalesInvoice;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
@@ -7,17 +10,6 @@ use Phalcon\Paginator\Adapter\Model as Paginator;
 
 class SalesInvoiceController extends ControllerBase
 {
-    /**
-     * Index action
-     */
-//    public function indexAction()
-//    {
-//        $this->persistent->parameters = null;
-//    }
-//
-//    /**
-//     * Searches for sales_invoice
-//     */
     public function indexAction()
     {
         $numberPage = 1;
@@ -35,29 +27,44 @@ class SalesInvoiceController extends ControllerBase
         $parameters["order"] = "id";
 
         $sales_invoice = SalesInvoice::find($parameters);
-        if (count($sales_invoice) == 0) {
-            $this->flash->notice("The search did not find any sales_invoice");
-
-            $this->dispatcher->forward([
-                "controller" => "sales_invoice",
-                "action" => "index"
-            ]);
-
-            return;
-        }
-
+//        if (count($sales_invoice) == 0) {
+//            $this->flash->notice("The search did not find any sales_invoice");
+//
+//            $this->dispatcher->forward([
+//                "controller" => "sales_invoice",
+//                "action" => "index"
+//            ]);
+//
+//            return;
+//        }
+        $sales_invoice = SalesInvoice::query()
+            ->join(Province::class , Province::class.".provinceid = ".SalesInvoice::class.".province_id")
+            ->join(District::class , District::class.".districtid = ".SalesInvoice::class.".district_id")
+            ->columns([
+                SalesInvoice::class.".status" ,
+                SalesInvoice::class.".id" ,
+                SalesInvoice::class.".phone" ,
+                SalesInvoice::class.".email",
+                SalesInvoice::class.".pay_method_id",
+                SalesInvoice::class.".fullname",
+                SalesInvoice::class.".address" ,
+                SalesInvoice::class.".total" ,
+                SalesInvoice::class.".shipping" ,
+                District::class.".name as district" ,
+                Province::class.".name as province"
+            ])
+            ->execute();
         $paginator = new Paginator([
             'data' => $sales_invoice,
             'limit'=> 10,
             'page' => $numberPage
         ]);
 
+        $this->view->provinces = Province::find();
+        $this->view->districts = District::find();
         $this->view->page = $paginator->getPaginate();
     }
 
-    /**
-     * Displays the creation form
-     */
     public function newAction()
     {
 
@@ -68,6 +75,7 @@ class SalesInvoiceController extends ControllerBase
      *
      * @param string $id
      */
+
     public function editAction($id)
     {
         if (!$this->request->isPost()) {

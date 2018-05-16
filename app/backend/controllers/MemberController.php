@@ -89,13 +89,12 @@ class MemberController extends ControllerBase
 
         $member = new Member();
         $member->setFullname($this->request->getPost("fullname"));
-        $member->setSex($this->request->getPost("sex"));
         $member->setPhoneNumber($this->request->getPost("phone_number"));
         $member->setEmail($this->request->getPost("email", "email"));
         $member->setPassword(md5($this->request->getPost("password"))) ;
         $member->setNumberHits($this->request->getPost("number_hits"));
         $member->setAddress($this->request->getPost("address"));
-        if ($this->request->hasFiles() == true) {
+        if ($this->request->hasFiles()) {
             $baseLocation = BASE_PATH . '/public/uploads/member/';
             $file = $this->request->getUploadedFiles()[0];
             $fileName = md5(strtok($file->getName(),'.')) . rand() . "." . $file->getExtension();

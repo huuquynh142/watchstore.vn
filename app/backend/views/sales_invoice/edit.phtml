@@ -3,124 +3,103 @@
  * @var \Phalcon\Mvc\View\Engine\Php $this
  */
 ?>
-
-<div class="row">
-    <nav>
-        <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(["sales_invoice", "Back"]) ?></li>
-        </ul>
-    </nav>
-</div>
-
-<div class="page-header">
-    <h1>
-        Edit sales_invoice
-    </h1>
-</div>
-
 <?php echo $this->getContent(); ?>
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="widget-title">
+            <h3 style="text-align: center;">Thông tin chi tiết</h3>
+        </div>
+        <div class="widget-box">
 
-<?php
-    echo $this->tag->form(
-        [
-            "sales_invoice/save",
-            "autocomplete" => "off",
-            "class" => "form-horizontal"
-        ]
-    );
-?>
+            <div class="widget-content nopadding">
+                <?php
+                echo $this->tag->form(
+                    [
+                        "backend/sales_invoice/save",
+                        "autocomplete" => "off",
+                        "class" => "form-horizontal",
+                        "id" => 'invoice_edit',
+                        "enctype" => "multipart/form-data"
+                    ]
+                );
+                ?>
+                <div id="form-wizard-1" class="step">
 
-<div class="form-group">
-    <label for="fieldMemberId" class="col-sm-2 control-label">Member</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["member_id", "type" => "number", "class" => "form-control", "id" => "fieldMemberId"]) ?>
+                    <div class="control-group">
+                        <label class="control-label">Id :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["id" , 'readonly' => 'true' , "size" => 30, "class" => "form-control"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">member :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["member_id", "type" => "number", "class" => "form-control", "id" => "fieldMemberId"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" style="margin-top: -5px">Province :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["province_id", "type" => "number", "class" => "form-control", "id" => "fieldProvinceId"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">District :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["district_id", "type" => "number", "class" => "form-control", "id" => "fieldDistrictId"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Phone :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["phone", "size" => 30, "class" => "form-control", "id" => "fieldPhone"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Email :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["email", "size" => 30, "class" => "form-control", "id" => "fieldEmail"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Name :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["fullname", "size" => 30, "class" => "form-control", "id" => "fieldFullname"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Address :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["address", "size" => 30, "class" => "form-control", "id" => "fieldAddress"]) ?>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Status :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["status", "size" => 30, "class" => "form-control", "id" => "fieldStatus"]) ?>
+                        </div>
+                    </div>
+
+                </div>
+                <?php echo $this->tag->endForm(); ?>
+                <div class="control-group" style="margin-top: 6% ; margin-right: 2%">
+                    <label class="control-label"></label>
+                    <div class="controls" style="float: right; margin-top: -5%;">
+                        <button form="invoice_edit" class="btn btn-success icon-ok"><span class="glyphicon glyphicon-remove-circle"></span> Save and List</button>
+                        <?php echo $this->tag->linkTo(["backend/sales_invoice/index", '<button class="btn btn-info icon-list "><span class="glyphicon glyphicon-remove-circle"></span> List</button>']); ?>
+                        <?php echo $this->tag->linkTo(["backend/sales_invoice/delete/" . $id, '<button class="btn btn-danger icon-remove "><span class="glyphicon glyphicon-remove-circle"></span> Delete</button>']); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="form-group">
-    <label for="fieldProvinceId" class="col-sm-2 control-label">Province</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["province_id", "type" => "number", "class" => "form-control", "id" => "fieldProvinceId"]) ?>
-    </div>
-</div>
 
-<div class="form-group">
-    <label for="fieldDistrictId" class="col-sm-2 control-label">District</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["district_id", "type" => "number", "class" => "form-control", "id" => "fieldDistrictId"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldPayMethodId" class="col-sm-2 control-label">Pay Of Method</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["pay_method_id", "type" => "number", "class" => "form-control", "id" => "fieldPayMethodId"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldPhone" class="col-sm-2 control-label">Phone</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["phone", "size" => 30, "class" => "form-control", "id" => "fieldPhone"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldEmail" class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["email", "size" => 30, "class" => "form-control", "id" => "fieldEmail"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldFullname" class="col-sm-2 control-label">Fullname</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["fullname", "size" => 30, "class" => "form-control", "id" => "fieldFullname"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldAddress" class="col-sm-2 control-label">Address</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["address", "size" => 30, "class" => "form-control", "id" => "fieldAddress"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldShipping" class="col-sm-2 control-label">Shipping</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->selectStatic(["shipping", [], "class" => "form-control", "id" => "fieldShipping"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldTotal" class="col-sm-2 control-label">Total</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["total", "size" => 30, "class" => "form-control", "id" => "fieldTotal"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldStatus" class="col-sm-2 control-label">Status</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["status", "size" => 30, "class" => "form-control", "id" => "fieldStatus"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldCreatedAt" class="col-sm-2 control-label">Created</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["created_at", "size" => 30, "class" => "form-control", "id" => "fieldCreatedAt"]) ?>
-    </div>
-</div>
-
-
-<?php echo $this->tag->hiddenField("id") ?>
-
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        <?php echo $this->tag->submitButton(["Save", "class" => "btn btn-default"]) ?>
-    </div>
-</div>
-
-<?php echo $this->tag->endForm(); ?>

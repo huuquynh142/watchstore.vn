@@ -406,7 +406,7 @@ class ProductDetail extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->setSchema("b18_22062172_huuquynh");
+        $this->setSchema("b4_22077174_huuquynh");
         $this->setSource("product_detail");
     }
 

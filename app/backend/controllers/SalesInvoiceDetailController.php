@@ -1,5 +1,6 @@
 <?php
 namespace Multiple\Backend\Controllers;
+use App\Models\SalesInvoiceDetail;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 
@@ -9,19 +10,12 @@ class SalesInvoiceDetailController extends ControllerBase
     /**
      * Index action
      */
-    public function indexAction()
-    {
-        $this->persistent->parameters = null;
-    }
 
-    /**
-     * Searches for sales_invoice_detail
-     */
-    public function searchAction()
+    public function indexAction()
     {
         $numberPage = 1;
         if ($this->request->isPost()) {
-            $query = Criteria::fromInput($this->di, 'SalesInvoiceDetail', $_POST);
+            $query = Criteria::fromInput($this->di, SalesInvoiceDetail::class, $_POST);
             $this->persistent->parameters = $query->getParams();
         } else {
             $numberPage = $this->request->getQuery("page", "int");
