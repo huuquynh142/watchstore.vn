@@ -4,88 +4,66 @@
  */
 ?>
 
-<div class="row">
-    <nav>
-        <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(["sales_invoice_detail", "Back"]) ?></li>
-        </ul>
-    </nav>
-</div>
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="widget-title">
+            <h3 style="text-align: center;">Thông tin chi tiết</h3>
+        </div>
+        <div class="widget-box">
 
-<div class="page-header">
-    <h1>
-        Edit sales_invoice_detail
-    </h1>
-</div>
+            <div class="widget-content nopadding">
+                <?php
+                echo $this->tag->form(
+                    [
+                        "backend/sales_invoice_detail/save",
+                        "autocomplete" => "off",
+                        "class" => "form-horizontal",
+                        "id" => 'invoice_detail_edit',
+                        "enctype" => "multipart/form-data"
+                    ]
+                );
+                ?>
+                <div id="form-wizard-1" class="step">
 
-<?php echo $this->getContent(); ?>
+                    <div class="control-group">
+                        <label class="control-label">Id :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["id" , 'readonly' => 'true' , "size" => 30, "class" => "form-control"]) ?>
+                        </div>
+                    </div>
 
-<?php
-    echo $this->tag->form(
-        [
-            "sales_invoice_detail/save",
-            "autocomplete" => "off",
-            "class" => "form-horizontal"
-        ]
-    );
-?>
+                    <div class="control-group">
+                        <label class="control-label">Product :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["product_id", "type" => "number", "class" => "form-control", "id" => "fieldProductId"]) ?>
+                        </div>
+                    </div>
 
-<div class="form-group">
-    <label for="fieldSalesInvoiceId" class="col-sm-2 control-label">Sales Of Invoice</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["sales_invoice_id", "type" => "number", "class" => "form-control", "id" => "fieldSalesInvoiceId"]) ?>
+                    <div class="control-group">
+                        <label class="control-label" style="margin-top: -5px">Quatity :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["quantity", "type" => "number", "class" => "form-control", "id" => "fieldQuantity"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Comment :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["comment", "size" => 30, "class" => "form-control", "id" => "fieldComment"]) ?>
+                        </div>
+                    </div>
+
+
+                </div>
+                <?php echo $this->tag->endForm(); ?>
+                <div class="control-group" style="margin-top: 6% ; margin-right: 2%">
+                    <label class="control-label"></label>
+                    <div class="controls" style="float: right; margin-top: -5%;">
+                        <button form="invoice_detail_edit" class="btn btn-success icon-ok"><span class="glyphicon glyphicon-remove-circle"></span> Save and List</button>
+                        <?php echo $this->tag->linkTo(["backend/sales_invoice_detail/index", '<button class="btn btn-info icon-list "><span class="glyphicon glyphicon-remove-circle"></span> List</button>']); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
-<div class="form-group">
-    <label for="fieldProductId" class="col-sm-2 control-label">Product</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["product_id", "type" => "number", "class" => "form-control", "id" => "fieldProductId"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldQuantity" class="col-sm-2 control-label">Quantity</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["quantity", "type" => "number", "class" => "form-control", "id" => "fieldQuantity"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldDiscount" class="col-sm-2 control-label">Discount</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["discount", "size" => 30, "class" => "form-control", "id" => "fieldDiscount"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldPrice" class="col-sm-2 control-label">Price</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["price", "size" => 30, "class" => "form-control", "id" => "fieldPrice"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldTotal" class="col-sm-2 control-label">Total</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["total", "size" => 30, "class" => "form-control", "id" => "fieldTotal"]) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldComment" class="col-sm-2 control-label">Comment</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(["comment", "size" => 30, "class" => "form-control", "id" => "fieldComment"]) ?>
-    </div>
-</div>
-
-
-<?php echo $this->tag->hiddenField("id") ?>
-
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        <?php echo $this->tag->submitButton(["Save", "class" => "btn btn-default"]) ?>
-    </div>
-</div>
-
-<?php echo $this->tag->endForm(); ?>

@@ -65,10 +65,6 @@ class SalesInvoiceController extends ControllerBase
         $this->view->page = $paginator->getPaginate();
     }
 
-    public function newAction()
-    {
-
-    }
 
     /**
      * Edits a sales_invoice
@@ -111,55 +107,6 @@ class SalesInvoiceController extends ControllerBase
         }
     }
 
-    /**
-     * Creates a new sales_invoice
-     */
-    public function createAction()
-    {
-        if (!$this->request->isPost()) {
-            $this->dispatcher->forward([
-                'controller' => "sales_invoice",
-                'action' => 'index'
-            ]);
-
-            return;
-        }
-
-        $sales_invoice = new SalesInvoice();
-        $sales_invoice->memberId = $this->request->getPost("member_id");
-        $sales_invoice->provinceId = $this->request->getPost("province_id");
-        $sales_invoice->districtId = $this->request->getPost("district_id");
-        $sales_invoice->payMethodId = $this->request->getPost("pay_method_id");
-        $sales_invoice->phone = $this->request->getPost("phone");
-        $sales_invoice->email = $this->request->getPost("email", "email");
-        $sales_invoice->fullname = $this->request->getPost("fullname");
-        $sales_invoice->address = $this->request->getPost("address");
-        $sales_invoice->shipping = $this->request->getPost("shipping");
-        $sales_invoice->total = $this->request->getPost("total");
-        $sales_invoice->status = $this->request->getPost("status");
-        $sales_invoice->createdAt = $this->request->getPost("created_at");
-        
-
-        if (!$sales_invoice->save()) {
-            foreach ($sales_invoice->getMessages() as $message) {
-                $this->flash->error($message);
-            }
-
-            $this->dispatcher->forward([
-                'controller' => "sales_invoice",
-                'action' => 'new'
-            ]);
-
-            return;
-        }
-
-        $this->flash->success("sales_invoice was created successfully");
-
-        $this->dispatcher->forward([
-            'controller' => "sales_invoice",
-            'action' => 'index'
-        ]);
-    }
 
     /**
      * Saves a sales_invoice edited
@@ -228,45 +175,5 @@ class SalesInvoiceController extends ControllerBase
         ]);
     }
 
-    /**
-     * Deletes a sales_invoice
-     *
-     * @param string $id
-     */
-    public function deleteAction($id)
-    {
-        $sales_invoice = SalesInvoice::findFirstByid($id);
-        if (!$sales_invoice) {
-            $this->flash->error("sales_invoice was not found");
-
-            $this->dispatcher->forward([
-                'controller' => "sales_invoice",
-                'action' => 'index'
-            ]);
-
-            return;
-        }
-
-        if (!$sales_invoice->delete()) {
-
-            foreach ($sales_invoice->getMessages() as $message) {
-                $this->flash->error($message);
-            }
-
-            $this->dispatcher->forward([
-                'controller' => "sales_invoice",
-                'action' => 'search'
-            ]);
-
-            return;
-        }
-
-        $this->flash->success("sales_invoice was deleted successfully");
-
-        $this->dispatcher->forward([
-            'controller' => "sales_invoice",
-            'action' => "index"
-        ]);
-    }
 
 }

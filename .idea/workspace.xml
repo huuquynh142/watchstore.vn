@@ -3,60 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="76506301-fa0a-444c-bfc1-01059bb188f9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scannerwork/report-task.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.scannerwork/report-task.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backend/controllers/MemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/controllers/MemberController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backend/controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backend/controllers/PurchaseInvoicesController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backend/controllers/PurchaseInvoicesDetailController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/backend/controllers/SalesInvoiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/controllers/SalesInvoiceController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/backend/controllers/SalesInvoiceDetailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/controllers/SalesInvoiceDetailController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backend/views/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/views/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backend/views/member/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/views/member/index.phtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/backend/views/sales_invoice/edit.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/views/sales_invoice/edit.phtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/backend/views/sales_invoice/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/views/sales_invoice/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backend/views/sales_invoice/new.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/views/sales_invoice/new.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backend/views/sales_invoice/search.phtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backend/views/sales_invoice/new.phtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backend/views/sales_invoice_detail/edit.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/views/sales_invoice_detail/edit.phtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/backend/views/sales_invoice_detail/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/views/sales_invoice_detail/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/controllers/SearchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/controllers/ShopCartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/controllers/ShopCartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/index/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/index/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/index/mobile _header_menu.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/index/mobile _header_menu.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/index/top_menu.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/index/top_menu.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/layouts/search.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/layouts/search.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/productdetail/productdetail.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/productdetail/productdetail.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Banner.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Banner.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Department.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Department.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/District.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/District.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Member.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/PayPartner.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/PayPartner.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Producer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Producer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ProductAbstract.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProductAbstract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ProductCredential.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProductCredential.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ProductDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProductDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ProductImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProductImage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ProductType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProductType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Promotion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Promotion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Province.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Province.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/PurchaseInvoices.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/PurchaseInvoices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/PurchaseInvoicesDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/PurchaseInvoicesDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/SalesInvoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/SalesInvoice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/SalesInvoiceDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/SalesInvoiceDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Slider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Slider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/UserInformation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/UserInformation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/query2018-04-12.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/query2018-04-13.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/query2018-04-14.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/query2018-04-15.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/query2018-04-17.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/query2018-04-19.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/query2018-04-22.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/query2018-04-24.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/query2018-05-09.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/query2018-05-10.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/query2018-05-13.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/stylee0a9.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/stylee0a9.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/myfrontend.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/myfrontend.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backend/views/sales_invoice_detail/new.phtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/watchFashion.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/watchFashion.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -70,15 +27,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SalesInvoiceController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/backend/controllers/SalesInvoiceController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="top_menu.phtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/frontend/views/index/top_menu.phtml">
           <provider selected="true" editor-type-id="text-editor">
@@ -88,16 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SecurityController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/backend/controllers/SecurityController.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file leaf-file-name="SalesInvoiceDetailController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/backend/controllers/SalesInvoiceDetailController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="1180">
+              <caret line="73" column="5" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
               <folding>
                 <element signature="e#46#80#0#PHP" expanded="true" />
               </folding>
@@ -105,20 +48,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice_detail/search.phtml">
+      <file leaf-file-name="edit.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice/edit.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="41" column="60" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="60" />
+            <state relative-caret-position="34">
+              <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.phtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="edit.phtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice_detail/edit.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="149" column="20" selection-start-line="149" selection-start-column="20" selection-end-line="149" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.phtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice_detail/index.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="120" column="32" lean-forward="true" selection-start-line="120" selection-start-column="32" selection-end-line="120" selection-end-column="32" />
+            <state relative-caret-position="622">
+              <caret line="47" column="10" lean-forward="true" selection-start-line="47" selection-start-column="10" selection-end-line="47" selection-end-column="10" />
+              <folding>
+                <element signature="e#6#56#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice/index.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1243">
+              <caret line="110" column="32" lean-forward="true" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
+              <folding>
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,7 +94,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>quantity</find>
       <find>data-reveal-id</find>
       <find>close-reveal-modal</find>
       <find>.close-reveal-modal</find>
@@ -157,6 +123,7 @@
       <find>b4_22077174_huuquynh</find>
       <find>redirect</find>
       <find>pro-zoom</find>
+      <find>find</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -175,7 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/frontend/views/product/index.phtml" />
         <option value="$PROJECT_DIR$/app/frontend/views/index/newproduct.phtml" />
         <option value="$PROJECT_DIR$/app/frontend/views/productdetail/relatedproducts.phtml" />
         <option value="$PROJECT_DIR$/app/frontend/views/product/searchproduct.phtml" />
@@ -210,10 +176,8 @@
         <option value="$PROJECT_DIR$/app/config/config.php" />
         <option value="$PROJECT_DIR$/app/backend/controllers/ProductController.php" />
         <option value="$PROJECT_DIR$/app/backend/views/sales_invoice/new.phtml" />
-        <option value="$PROJECT_DIR$/app/backend/views/sales_invoice/edit.phtml" />
         <option value="$PROJECT_DIR$/app/backend/views/index.phtml" />
         <option value="$PROJECT_DIR$/app/frontend/views/index/index.phtml" />
-        <option value="$PROJECT_DIR$/app/backend/controllers/SalesInvoiceController.php" />
         <option value="$PROJECT_DIR$/app/frontend/controllers/ShopCartController.php" />
         <option value="$PROJECT_DIR$/app/frontend/views/index/mobile _header_menu.phtml" />
         <option value="$PROJECT_DIR$/app/config/router.php" />
@@ -223,9 +187,12 @@
         <option value="$PROJECT_DIR$/app/frontend/views/productdetail/productdetail.phtml" />
         <option value="$PROJECT_DIR$/public/css/stylee0a9.css" />
         <option value="$PROJECT_DIR$/app/frontend/views/index/top_menu.phtml" />
-        <option value="$PROJECT_DIR$/app/backend/controllers/SalesInvoiceDetailController.php" />
-        <option value="$PROJECT_DIR$/app/backend/views/sales_invoice/index.phtml" />
         <option value="$PROJECT_DIR$/app/backend/views/sales_invoice_detail/index.phtml" />
+        <option value="$PROJECT_DIR$/app/backend/views/sales_invoice/index.phtml" />
+        <option value="$PROJECT_DIR$/app/backend/views/sales_invoice/edit.phtml" />
+        <option value="$PROJECT_DIR$/app/backend/controllers/SalesInvoiceController.php" />
+        <option value="$PROJECT_DIR$/app/backend/controllers/SalesInvoiceDetailController.php" />
+        <option value="$PROJECT_DIR$/app/backend/views/sales_invoice_detail/edit.phtml" />
       </list>
     </option>
   </component>
@@ -488,26 +455,29 @@
       <workItem from="1526421910388" duration="9317000" />
       <workItem from="1526435773729" duration="81000" />
       <workItem from="1526452382128" duration="707000" />
+      <workItem from="1526481909418" duration="2210000" />
+      <workItem from="1526508670119" duration="3007000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="525053000" />
+    <option name="totallyTimeSpent" value="530326000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.27912253" />
       <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5030257" side_tool="true" weight="0.32847896" />
-      <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Run" order="5" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.32847896" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2881997" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.3262987" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
@@ -517,7 +487,6 @@
       <window_info anchor="bottom" id="Command Line Tools Console" order="10" sideWeight="0.4969743" weight="0.32792208" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="4" weight="0.3262987" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
@@ -554,13 +523,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/frontend/views/index/top_menu.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2006">
-          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Users.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="736">
@@ -696,13 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice/new.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-619">
-          <caret line="172" column="63" selection-start-line="172" selection-start-column="63" selection-end-line="172" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/frontend/views/product/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2448">
@@ -714,13 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="16" column="21" selection-end-line="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice/edit.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="92" column="57" selection-start-line="92" selection-start-column="57" selection-end-line="92" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -848,10 +796,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice_detail/search.phtml" />
+    <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1243">
+          <caret line="110" column="32" lean-forward="true" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice_detail/new.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-996">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice/new.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="172" column="63" selection-start-line="172" selection-start-column="63" selection-end-line="172" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/backend/controllers/SalesInvoiceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="-1469">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
         </state>
       </provider>
     </entry>
@@ -862,40 +835,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/controllers/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="99" column="56" lean-forward="true" selection-start-line="99" selection-start-column="56" selection-end-line="99" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/backend/controllers/SalesInvoiceDetailController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="1180">
+          <caret line="73" column="5" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
           <folding>
             <element signature="e#46#80#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice_detail/search.phtml">
+    <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice_detail/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="41" column="60" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="60" />
+        <state relative-caret-position="622">
+          <caret line="47" column="10" lean-forward="true" selection-start-line="47" selection-start-column="10" selection-end-line="47" selection-end-column="10" />
+          <folding>
+            <element signature="e#6#56#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice_detail/index.phtml">
+    <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice/edit.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="120" column="32" lean-forward="true" selection-start-line="120" selection-start-column="32" selection-end-line="120" selection-end-column="32" />
+        <state relative-caret-position="34">
+          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/backend/views/sales_invoice_detail/edit.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="149" column="20" selection-start-line="149" selection-start-column="20" selection-end-line="149" selection-end-column="20" />
         </state>
       </provider>
     </entry>

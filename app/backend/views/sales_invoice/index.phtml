@@ -88,7 +88,8 @@
                 <th style="background-color: #0288d1;color: #ffffff;">Address</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Shipping</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Total</th>
-                <th style="background-color: #0288d1;color: #ffffff;">status</th>
+                <th style="background-color: #0288d1;color: #ffffff;">Status</th>
+                <th style="background-color: #0288d1;color: #ffffff;">Action</th>
 
             </tr>
             <?php foreach ($page->items as $billInvoice): ?>
@@ -105,6 +106,7 @@
                     <td><?php echo number_format($billInvoice->shipping ,0  , 0 , '.')  ?></td>
                     <td><?php echo number_format($billInvoice->total ,0  , 0 , '.')  ?></td>
                     <td><?php echo $billInvoice->status ?></td>
+                    <td><?php echo $this->tag->linkTo(["backend/sales_invoice_detail/index/" . $billInvoice->id, "Các sản phẩm" , "class" => "btn btn-mini"  ]); ?></td>
                   </tr>
             <?php endforeach; ?>
             </tbody></table>
