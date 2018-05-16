@@ -1,0 +1,260 @@
+<div class="product-grid">
+    <div class="products-row">
+
+        <div class="row">
+            <?php foreach ($products as $key => $product): ?>
+            <?php if (($key + 1) % 4 == 0){ ?>
+            <div class="item small-12 medium-6 large-3 columns">
+                <div class="product-image">
+                    <div class="action">
+                        <input id="btnQuickOder" type="button" data-id="<?= $product->id ?>" value="Thêm vào giỏ hàng" class="btn ct-btn" />
+                        <div data-options="disable_for_touch:true" >
+                            <a class="quick-view ct-btn" data-id="<?= $product->id ?>" id="btn_quick_view" href="#" data-reveal-id="sp<?= $product->id ?>" title="<?= $product->product_name ?>">
+                                Xem ngay
+                            </a>
+                        </div>
+                        <div id="sp<?= $product->id ?>" class="reveal-modal expand" style="position:fixed;" data-reveal>
+                                <div class="row">
+                                    <div class="large-6 columns">
+                                        <script>
+                                            $(document).ready(function(){
+                                                $('#zoom-<?= $product->description_id ?>').zoom();
+                                                $('#grab-<?= $product->description_id ?>').zoom({ on:'grab' });
+                                                $('#click-<?= $product->description_id ?>').zoom({ on:'click' });
+                                                $('#toggle-<?= $product->description_id ?>').zoom({ on:'toggle' });
+                                            });
+                                        </script>
+                                        <div id="zoom-<?= $product->description_id ?>">
+                                            <img src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
+                                        </div>
+                                    </div>
+                                    <div class="large-6 columns">
+                                        <h1 itemprop="name"><?= $product->product_name ?></h1>
+                                        <div class="review text-left">
+                                            <span itemprop="name">MSP: <?= $product->description_id?></span>
+                                            <span class="shopify-product-reviews-badge" data-id="<?= $product->id ?>"></span>
+                                        </div>
+<!--                                        <div id="product-description" class="rte" itemprop="description">-->
+<!--                                            <p>The standard Lorem Ipsum passage, used since the 1500s"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>-->
+<!--                                        </div>-->
+                                        <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                            <meta itemprop="priceCurrency" content="USD" />
+
+                                            <link itemprop="availability" href="http://schema.org/InStock" />
+
+                                            <h5>
+
+                                                <span class="price" itemprop="price"><span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span></span>
+
+                                            </h5>
+                                        </div>
+                                        <div id="product-add">
+                                            <div class="qty-adder qty-adder pull-left" data-id="<?= $product->id ?>">
+                                                <div class="quantity-number pull-left">
+                                                    <a href="javascript:void(0)" title=""><span class="add-down add-action">-</span></a>
+                                                    <input class="quantity_<?= $product->id ?>" id="quantity" type="text" name="quantity" size="2" value="1">
+                                                    <a href="javascript:void(0)" title=""><span class="add-up add-action">+</span></a>
+                                                </div>
+                                            </div>
+                                            <input class="button" type="button" data-id="<?= $product->id ?>" name="add" id="addShopcart" value="Thêm vào giỏ hàng">
+                                        </div>
+                                        <!-- Sharing is caring -->
+
+                                        <div class="large-12 columns">
+                                            <br />
+                                            <ul class="social-sharing inline-list">
+                                                <li>Share: </li>
+                                                <li><a target="_blank" href="https://twitter.com/intent/tweet?text=&amp;url=http%3A%2F%2Fap-best-store.myshopify.com&amp;via=rcinteriors"><i class="fi-social-twitter"></i></a></li>
+                                                <li><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ap-best-store.myshopify.com"><i class="fi-social-facebook"></i></a></li>
+                                                <li><a target="_blank" href="https://plus.google.com/share?url=http://ap-best-store.myshopify.com"><i class="fi-social-google-plus"></i></a></li>
+                                                <li><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://ap-best-store.myshopify.com&amp;title=&amp;summary=&amp;source=http://ap-best-store.myshopify.com"><i class="fi-social-linkedin"></i></a></li>
+                                                <li><a target="_blank" href="http://pinterest.com/pin/create/button/?url=http://ap-best-store.myshopify.com&amp;description=&amp;media="><i class="fi-social-pinterest"></i></a></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            <a class="close-reveal-modal">&#215;</a>
+                        </div>
+
+                    </div>
+
+                    <img style="height: 250px" src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name"><a href= "/san-pham/chi-tiet-san-pham/<?= $product->id ?>"><?= $product->product_name ?></a></h3>
+
+
+                    <div class="review">
+                        <span class="shopify-product-reviews-badge" data-id="<?= $product->id ?>"></span>
+                    </div>
+
+                    <span class="price">
+
+
+
+                                <span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span>
+
+                      </span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <?php } else { ?>
+                <div class="item small-12 medium-6 large-3 columns">
+                    <div class="product-image">
+                        <div class="action">
+                            <input id="btnQuickOder" type="button" data-id="<?= $product->id ?>" value="Thêm vào giỏ hàng" class="btn ct-btn" />
+                            <div data-options="disable_for_touch:true" >
+                                <a class="quick-view ct-btn" data-id="<?= $product->id ?>" id="btn_quick_view" href="#" data-reveal-id="sp<?= $product->id ?>" title="<?= $product->product_name ?>">
+                                    Xem ngay
+                                </a>
+                            </div>
+                            <div id="sp<?= $product->id ?>" class="reveal-modal expand" style="position:fixed;" data-reveal>
+                                    <div class="row">
+                                        <div class="large-6 columns">
+                                            <script>
+                                                $(document).ready(function(){
+                                                    $('#zoom-<?= $product->description_id ?>').zoom();
+                                                    $('#grab-<?= $product->description_id ?>').zoom({ on:'grab' });
+                                                    $('#click-<?= $product->description_id ?>').zoom({ on:'click' });
+                                                    $('#toggle-<?= $product->description_id ?>').zoom({ on:'toggle' });
+                                                });
+                                            </script>
+                                            <div id="zoom-<?= $product->description_id ?>">
+                                                <img src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
+                                            </div>
+                                        </div>
+                                        <div class="large-6 columns">
+                                            <h1 itemprop="name"><?= $product->product_name ?></h1>
+                                            <div class="review text-left">
+                                                <span itemprop="name">MSP: <?= $product->description_id?></span>
+                                                <span class="shopify-product-reviews-badge" data-id="<?= $product->id ?>"></span>
+                                            </div>
+<!--                                            <div id="product-description" class="rte" itemprop="description">-->
+<!--                                                <p>The standard Lorem Ipsum passage, used since the 1500s"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>-->
+<!--                                            </div>-->
+                                            <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                                <meta itemprop="priceCurrency" content="USD" />
+
+                                                <link itemprop="availability" href="http://schema.org/InStock" />
+
+                                                <h5>
+
+                                                    <span class="price" itemprop="price"><span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span></span>
+
+                                                </h5>
+                                            </div>
+
+                                            <div id="product-add">
+                                                <div class="qty-adder qty-adder pull-left" data-id="<?= $product->id ?>">
+                                                    <div class="quantity-number pull-left">
+                                                        <a href="javascript:void(0)" title=""><span class="add-down add-action">-</span></a>
+                                                        <input class="quantity_<?= $product->id ?>" id="quantity" type="text" name="quantity" size="2" value="1">
+                                                        <a href="javascript:void(0)" title=""><span class="add-up add-action">+</span></a>
+                                                    </div>
+                                                </div>
+                                                <input class="button" type="button" data-id="<?= $product->id ?>" name="add" id="addShopcart" value="Thêm vào giỏ hàng">
+                                            </div>
+                                            <!-- Sharing is caring -->
+
+                                            <div class="large-12 columns">
+                                                <br />
+                                                <ul class="social-sharing inline-list">
+                                                    <li>Share: </li>
+                                                    <li><a target="_blank" href="https://twitter.com/intent/tweet?text=&amp;url=http%3A%2F%2Fap-best-store.myshopify.com&amp;via=rcinteriors"><i class="fi-social-twitter"></i></a></li>
+                                                    <li><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ap-best-store.myshopify.com"><i class="fi-social-facebook"></i></a></li>
+                                                    <li><a target="_blank" href="https://plus.google.com/share?url=http://ap-best-store.myshopify.com"><i class="fi-social-google-plus"></i></a></li>
+                                                    <li><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://ap-best-store.myshopify.com&amp;title=&amp;summary=&amp;source=http://ap-best-store.myshopify.com"><i class="fi-social-linkedin"></i></a></li>
+                                                    <li><a target="_blank" href="http://pinterest.com/pin/create/button/?url=http://ap-best-store.myshopify.com&amp;description=&amp;media="><i class="fi-social-pinterest"></i></a></li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                <a class="close-reveal-modal">&#215;</a>
+                            </div>
+
+                        </div>
+
+                        <img style="height: 250px" src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name"><a href= "/san-pham/chi-tiet-san-pham/<?= $product->id ?>"><?= $product->product_name ?></a></h3>
+
+
+                        <div class="review">
+                            <span class="shopify-product-reviews-badge" data-id="<?= $product->id ?>"></span>
+                        </div>
+
+                        <span class="price">
+
+
+
+                                <span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span>
+
+                      </span>
+                    </div>
+                </div>
+            <?php } endforeach; ?>
+
+
+
+        </div>
+
+        <script>
+            jQuery(function($) {
+
+                $(".qty-adder .add-action").click( function(){
+                    var id = $(this).closest('.qty-adder').data('id');
+                    console.log(id);
+                    if( $(this).hasClass('add-up') ) {
+                        var countInput  = $(this).parent().prev();
+                        var count = countInput.val();
+                        console.log(count);
+                        var  value = parseInt( count ) + 1;
+                        countInput.val(value );
+                    }else {
+                        var countInput  = $(this).parent().next();
+                        var count = countInput.val();
+                        console.log(count);
+                        if( parseInt(countInput.val())  > 1 ) {
+                            countInput.val( count - 1 );
+                        }
+                    }
+                });
+            });
+        </script>
+    </div>
+
+    <div class="toolbar-bottom">
+        <div class="toolbar">
+            <div class="pagination-centered">
+                <ul class="pagination">
+                    <li class="arrow">
+
+                    </li>
+
+
+                    <li class="current"><a href>1</a></li>
+
+
+
+                    <li><a href="all4658.html?page=2" title="">2</a></li>
+
+
+                    <li class="arrow">
+
+                        <a href="all4658.html?page=2" title="">Next &raquo;</a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

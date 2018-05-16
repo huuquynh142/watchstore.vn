@@ -13,6 +13,43 @@ $(document).ready(function () {
         }
     }
 
+    // $("#search").keyup(function(){
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "/Search/index",
+    //         data:'keyword='+$(this).val(),
+    //         beforeSend: function(){
+    //             $("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+    //         },
+    //         success: function(data){
+    //             $("#suggesstion-box").show();
+    //             $("#suggesstion-box").html(data);
+    //             $("#search-box").css("background","#FFF");
+    //         }
+    //     });
+    // });
+
+
+    $("#search-form").validate({
+        ignore: [],
+        rules: {
+            keyword: {
+                required: true
+            }
+        },
+        messages: {
+            keyword: {
+                required: "Vui lòng nhập sản phẩm tìm kiếm"
+            }
+        },
+        submitHandler: function(form) {
+            $("#btn_submit").attr("disabled", true);
+            window.location.href =  'http://dev.huuquynh.com:1030/san-pham-tim-kiem/'+ $("#search").val();
+            return false;
+        }
+    });
+
+
     $(document).on('click','#btnQuickOder',function () {
 
         $.ajax({

@@ -122,3 +122,114 @@
 </div>
 
 <?php echo $this->tag->endForm(); ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="row" style="margin-left: 2%;">
+    <nav>
+        <ul class="pager">
+            <li class="previous"><?php echo $this->tag->linkTo(["backend/sales_invoice/index", "Go Back"]) ?></li>
+        </ul>
+    </nav>
+</div>
+<?php echo $this->getContent(); ?>
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="widget-title">
+            <h3 style="text-align: center;">Thêm mới</h3>
+        </div>
+        <div class="widget-box">
+
+            <div class="widget-content nopadding">
+                <div class="form-horizontal">
+                    <?php
+                    echo $this->tag->form(
+                        [
+                            "backend/sales_invoice/create",
+                            "autocomplete" => "off",
+                            "class" => "form-horizontal",
+                            "enctype" => "multipart/form-data"
+                        ]
+                    );
+                    ?>
+                    <div id="form-wizard-1" class="step">
+                        <div class="control-group">
+                            <label class="control-label">member :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->textField(["member_id", "type" => "number", "class" => "form-control", "id" => "fieldMemberId"]) ?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" style="margin-top: -5px">Sex :</label>
+                            <div class="controls">Nam
+                                <?php echo $this->tag->radioField(["sex", "class" => "form-control" , "value " => "1" , "id" => "fieldSex" , "style" => "margin-top: 0px;"]) ?>
+                                Nữ
+                                <?php echo $this->tag->radioField(["sex", "class" => "form-control"  , "value " => "0" , "id" => "fieldSex" , "style" => "margin-top: 0px;"]) ?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Phone Number :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->textField(["phone_number", "size" => 30, "class" => "form-control", "id" => "fieldPhoneNumber"]) ?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Email :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->EmailField(["email", "size" => 30, "class" => "form-control", "id" => "fieldEmail"]) ?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Password :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->PasswordField(["password", "size" => 30, "class" => "form-control", "id" => "fieldPassword"]) ?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Address :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->textField(["address", "size" => 30, "class" => "form-control", "id" => "fieldAddress"]) ?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Avatar :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->image(["avatar", "alt" => " alt member " , "style" => "width: 100px;height: 100px;" , "id" => "fieldAvatar" ]) ?>
+                                <?php echo $this->tag->fileField(["avatar", "size" => 30, "class" => "form-control" , "onChange" => "img_pathUrl(this);"]); ?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="span12">
+                                <?php echo $this->tag->submitButton(["Save", "class" => "btn btn-default" ,  "style" => "float: right ;margin: 1%;"]) ?>
+                            </div>
+                        </div>
+
+                    </div>
+                    <?php echo $this->tag->endForm(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
