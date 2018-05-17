@@ -19,6 +19,8 @@ class ProductController extends ControllerBase
 
     public function indexAction($type_id = '' , $brand = '' , $price = '' , $sortBy = '')
     {
+        $numberPage = 1;
+        $numberPage = $this->request->getQuery("page", "int");
         $productType = ProductType::findFirst("id = '".$type_id."'");
         if (!$productType)
             $productType = ProductType::findFirst("redirect = '".$type_id."'");
@@ -44,12 +46,19 @@ class ProductController extends ControllerBase
                             ProductImage::class.".image"
                         ])
             ->execute();
-        $this->view->products = $robots;
+        $paginator = new Paginator([
+            'data' => $robots,
+            'limit'=> 12,
+            'page' => $numberPage
+        ]);
+        $this->view->products = $paginator->getPaginate();
         $this->view->currentType = $productType ? $productType->getRedirect() : 'tat-ca-san-pham';
         $this->view->producttype = ProductType::find();
         $this->view->producer = Producer::find();
     }
     public function searchProductAction($type_id = '' , $brand = '' , $price = '' , $sortBy = ''){
+        $numberPage = 1;
+        $numberPage = $this->request->getQuery("page", "int");
         $productType = ProductType::findFirst("id = '".$type_id."'");
         if (!$productType)
             $productType = ProductType::findFirst("redirect = '".$type_id."'");
@@ -75,7 +84,12 @@ class ProductController extends ControllerBase
                             ProductImage::class.".image"
                         ])
                         ->execute();
-        $this->view->products = $robots;
+        $paginator = new Paginator([
+            'data' => $robots,
+            'limit'=> 12,
+            'page' => $numberPage
+        ]);
+        $this->view->products = $paginator->getPaginate();
         $this->view->setRenderLevel(View::LEVEL_LAYOUT);
         $this->view->setRenderLevel(View::LEVEL_BEFORE_TEMPLATE);
     }

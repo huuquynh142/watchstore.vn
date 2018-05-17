@@ -2,9 +2,9 @@
 namespace Multiple\Backend\Controllers;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
-use App\Models\Department;
+use App\Models\Credential;
 
-class DepartmentController extends ControllerBase
+class CredentialController extends ControllerBase
 {
     /**
      * Index action
@@ -13,7 +13,7 @@ class DepartmentController extends ControllerBase
     {
         $numberPage = 1;
         if ($this->request->isPost()) {
-            $query = Criteria::fromInput($this->di, Department::class, $_POST);
+            $query = Criteria::fromInput($this->di, Credential::class, $_POST);
             $this->persistent->parameters = $query->getParams();
         } else {
             $numberPage = $this->request->getQuery("page", "int");
@@ -25,10 +25,10 @@ class DepartmentController extends ControllerBase
         }
         $parameters["order"] = "id";
 
-        $department = Department::find($parameters);
+        $credential = Credential::find($parameters);
 
         $paginator = new Paginator([
-            'data' => $department,
+            'data' => $credential,
             'limit'=> 10,
             'page' => $numberPage
         ]);
@@ -46,7 +46,7 @@ class DepartmentController extends ControllerBase
     }
 
     /**
-     * Edits a department
+     * Edits a Credentail
      *
      * @param string $id
      */
@@ -54,67 +54,67 @@ class DepartmentController extends ControllerBase
     {
         if (!$this->request->isPost()) {
 
-            $department = Department::findFirstByid($id);
-            if (!$department) {
-                $this->flash->error("department was not found");
+            $credential = Credential::findFirstByid($id);
+            if (!$credential) {
+                $this->flash->error("credential was not found");
 
                 $this->dispatcher->forward([
-                    'controller' => "backend/department",
+                    'controller' => "backend/credential",
                     'action' => 'index'
                 ]);
 
                 return;
             }
 
-            $this->view->id = $department->id;
+            $this->view->id = $credential->id;
 
-            $this->tag->setDefault("id", $department->id);
-            $this->tag->setDefault("department_name", $department->department_name);
+            $this->tag->setDefault("id", $credential->id);
+            $this->tag->setDefault("name", $credential->name);
             
         }
     }
 
     /**
-     * Creates a new department
+     * Creates a new Credential
      */
     public function createAction()
     {
         if (!$this->request->isPost()) {
             $this->dispatcher->forward([
-                'controller' => "backend/department",
+                'controller' => "backend/credential",
                 'action' => 'index'
             ]);
 
             return;
         }
 
-        $department = new Department;
-        $department->departmentName = $this->request->getPost("department_name");
+        $credential = new Credential();
+        $credential->name = $this->request->getPost("name");
         
 
-        if (!$department->save()) {
-            foreach ($department->getMessages() as $message) {
+        if (!$credential->save()) {
+            foreach ($credential->getMessages() as $message) {
                 $this->flash->error($message);
             }
 
             $this->dispatcher->forward([
-                'controller' => "backend/department",
+                'controller' => "backend/credential",
                 'action' => 'new'
             ]);
 
             return;
         }
 
-        $this->flash->success("department was created successfully");
+        $this->flash->success("credential was created successfully");
 
         $this->dispatcher->forward([
-            'controller' => "department",
+            'controller' => "credential",
             'action' => 'index'
         ]);
     }
 
     /**
-     * Saves a department edited
+     * Saves a credential edited
      *
      */
     public function saveAction()
@@ -122,7 +122,7 @@ class DepartmentController extends ControllerBase
 
         if (!$this->request->isPost()) {
             $this->dispatcher->forward([
-                'controller' => "backend/department",
+                'controller' => "backend/credential",
                 'action' => 'index'
             ]);
 
@@ -130,58 +130,58 @@ class DepartmentController extends ControllerBase
         }
 
         $id = $this->request->getPost("id");
-        $department = Department::findFirstByid($id);
+        $credential = Credential::findFirstByid($id);
 
-        if (!$department) {
-            $this->flash->error("department does not exist " . $id);
+        if (!$credential) {
+            $this->flash->error("credential does not exist " . $id);
 
             $this->dispatcher->forward([
-                'controller' => "backend/department",
+                'controller' => "backend/credential",
                 'action' => 'index'
             ]);
 
             return;
         }
 
-        $department->departmentName = $this->request->getPost("department_name");
+        $credential->name = $this->request->getPost("name");
         
 
-        if (!$department->save()) {
+        if (!$credential->save()) {
 
-            foreach ($department->getMessages() as $message) {
+            foreach ($credential->getMessages() as $message) {
                 $this->flash->error($message);
             }
 
             $this->dispatcher->forward([
-                'controller' => "backend/department",
+                'controller' => "backend/credential",
                 'action' => 'edit',
-                'params' => [$department->id]
+                'params' => [$credential->id]
             ]);
 
             return;
         }
 
-        $this->flash->success("department was updated successfully");
+        $this->flash->success("credential was updated successfully");
 
         $this->dispatcher->forward([
-            'controller' => "department",
+            'controller' => "credential",
             'action' => 'index'
         ]);
     }
 
     /**
-     * Deletes a department
+     * Deletes a credential
      *
      * @param string $id
      */
     public function deleteAction($id)
     {
-        $department = Department::findFirstByid($id);
+        $department = Credential::findFirstByid($id);
         if (!$department) {
-            $this->flash->error("department was not found");
+            $this->flash->error("credential was not found");
 
             $this->dispatcher->forward([
-                'controller' => "backend/department",
+                'controller' => "backend/credential",
                 'action' => 'index'
             ]);
 
@@ -195,17 +195,17 @@ class DepartmentController extends ControllerBase
             }
 
             $this->dispatcher->forward([
-                'controller' => "backend/department",
+                'controller' => "backend/credential",
                 'action' => 'index'
             ]);
 
             return;
         }
 
-        $this->flash->success("department was deleted successfully");
+        $this->flash->success("credential was deleted successfully");
 
         $this->dispatcher->forward([
-            'controller' => "department",
+            'controller' => "credential",
             'action' => "index"
         ]);
     }
