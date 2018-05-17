@@ -43,9 +43,12 @@
                                             <link itemprop="availability" href="http://schema.org/InStock" />
 
                                             <h5>
-
-                                                <span class="price" itemprop="price"><span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span></span>
-
+                                                <?php if($product->discount){ ?>
+                                                    <span class="price" itemprop="price"><span ><?= number_format((int)$product->sale_price - ((int)$product->discount/100 * (int)$product->sale_price) ,0  , 0 , '.')?></span></span>
+                                                    &nbsp;<s class="sale-price"><span class="money" ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span></s>
+                                                <?php }else{ ?>
+                                                    <span class="price" itemprop="price"><span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span></span>
+                                                <?php } ?>
                                             </h5>
                                         </div>
                                         <div id="product-add">
@@ -78,7 +81,9 @@
                         </div>
 
                     </div>
-
+                    <?php if($product->discount){ ?>
+                        <span class="sale-tag"></span>
+                    <?php } ?>
                     <img style="height: 250px" src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
                 </div>
                 <div class="product-info">
@@ -90,12 +95,18 @@
                     </div>
 
                     <span class="price">
+                        <?php if($product->discount){ ?>
+                            <del>
+                            <span class="sale-price">
+                                <span class="money" data-currency-usd="$40.00"><?= number_format($product->sale_price ,0  , 0 , '.')  ?></span>
+                            </span>
+                            </del>
+                            <span ><?= number_format((int)$product->sale_price - ((int)$product->discount/100 * (int)$product->sale_price) ,0  , 0 , '.')?> VND</span>
+                        <?php }else{ ?>
+                            <span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span>
+                        <?php } ?>
 
-
-
-                                <span ><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span>
-
-                      </span>
+                    </span>
                 </div>
             </div>
         </div>
