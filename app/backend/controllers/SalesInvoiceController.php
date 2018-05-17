@@ -1,9 +1,13 @@
 <?php
 namespace Multiple\Backend\Controllers;
+use App\Library\PHPExcel;
 use App\Models\District;
 use App\Models\Member;
+use App\Models\Product;
+use App\Models\ProductDetail;
 use App\Models\Province;
 use App\Models\SalesInvoice;
+use App\Models\SalesInvoiceDetail;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 
@@ -175,5 +179,35 @@ class SalesInvoiceController extends ControllerBase
         ]);
     }
 
+    public function exportDataAction($id){
+        $excel = new PHPExcel();
+        $excel->setActiveSheetIndex(0);
+        $excel->getActiveSheet()->setTitle('Hóa đơn bán hàng');
+
+        $excel->getActiveSheet()->setCellValue('A1', 'ID');
+        $excel->getActiveSheet()->setCellValue('B1', "Tên sản phẩm");
+        $excel->getActiveSheet()->setCellValue('C1', "Số lượng");
+        $excel->getActiveSheet()->setCellValue('D1', "Đơn giá");
+        $excel->getActiveSheet()->setCellValue('E1', "Thành tiền");
+
+        $sales_invoice_detail = SalesInvoiceDetail::find("sales_invoice_id = " . $id."");
+        foreach ($sales_invoice_detail as $key => $row){
+            $key = $key + 2;
+            $product = Product::findFirst("id = ".$row->getProductId()."");
+            $product = ProductDetail::findFirst("id = ".$product->getProductDetailId()."");
+            $excel->getActiveSheet()->setCellValue('A'.$key , $row->getId());
+            $excel->getActiveSheet()->setCellValue('B'.$key , $product->getProductName());
+            $excel->getActiveSheet()->setCellValue('C'.$key , $row->getQuantity());
+            $excel->getActiveSheet()->setCellValue('D'.$key , $row->getPrice());
+            $excel->getActiveSheet()->setCellValue('D'.$key , $row->getTotal());
+        }
+//        $temp_file = tempnam(sys_get_temp_dir(), 'phpexcel');
+        $obwiter = new \PHPExcel_Writer_Excel2007($excel);
+        $filename='Hoa_Don_'.date("Ymd_his").'.xlsx';
+        $obwiter->save(BASE_PATH. '/public/uploads/excel/'. $filename);
+        header('location:/public/uploads/excel/' . $filename);
+        die();
+
+    }
 
 }
