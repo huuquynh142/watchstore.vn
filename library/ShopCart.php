@@ -46,7 +46,7 @@ class ShopCart
         $this->discount = $product->getDiscount();
         $this->quatity = $quatitys;
         if ($this->discount)
-            $this->total = ($this->price * $this->quatity) - ($this->price * $this->quatity * $this->discount);
+            $this->total = ($this->price * $this->quatity) - ($this->price * $this->quatity * ($this->discount/100));
         else
             $this->total = ($this->price * $this->quatity);
     }

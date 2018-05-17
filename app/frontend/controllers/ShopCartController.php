@@ -29,7 +29,7 @@ class ShopCartController extends ControllerBase
                     $quatity = (int)$cart[$id]->quatity + 1;
                 $cart[$id]->quatity = $quatity;
                 if ($cart[$id]->discount)
-                    $cart[$id]->total = ($cart[$id]->price * $cart[$id]->quatity) - ($cart[$id]->price * $cart[$id]->quatity * $cart[$id]->discount);
+                    $cart[$id]->total = ($cart[$id]->price * $cart[$id]->quatity) - (($cart[$id]->discount/100)* $cart[$id]->price * $cart[$id]->quatity);
                 else
                     $cart[$id]->total = ($cart[$id]->price * $cart[$id]->quatity);
 
@@ -61,7 +61,7 @@ class ShopCartController extends ControllerBase
             if (isset($cart[$id])) {
                 $cart[$id]->quatity = $quatity;
                 if ($cart[$id]->discount)
-                    $cart[$id]->total = ($cart[$id]->price * $cart[$id]->quatity) - ($cart[$id]->price * $cart[$id]->quatity * $cart[$id]->discount);
+                    $cart[$id]->total = ($cart[$id]->price * $cart[$id]->quatity) - ($cart[$id]->price * $cart[$id]->quatity * ($cart[$id]->discount/100));
                 else
                     $cart[$id]->total = ($cart[$id]->price * $cart[$id]->quatity);
                 $this->session->set('cart',$cart);
