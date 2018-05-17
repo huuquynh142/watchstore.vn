@@ -1,8 +1,7 @@
 <div class="product-grid">
     <div class="products-row">
-
         <div class="row">
-            <?php foreach ($products as $key => $product): ?>
+            <?php foreach ($products->items as $key => $product):   ?>
             <?php if (($key + 1) % 4 == 0){ ?>
             <div class="item small-12 medium-6 large-3 columns">
                 <div class="product-image">
@@ -238,7 +237,7 @@
             <div class="pagination-centered">
                 <ul class="pagination">
                     <li class="arrow">
-
+                        <a href="all4658.html?page=2" title="">« Previous</a>
                     </li>
 
 

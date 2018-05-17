@@ -17,7 +17,7 @@ DROP DATABASE IF EXISTS `b4_22077174_huuquynh`;
 CREATE DATABASE IF NOT EXISTS `b4_22077174_huuquynh` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `b4_22077174_huuquynh`;
 
--- Dumping structure for table b4_22077174_huuquynh.department
+-- Dumping structure for table b4_22077174_huuquynh.credential
 DROP TABLE IF EXISTS `department`;
 CREATE TABLE IF NOT EXISTS `department` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -25,14 +25,14 @@ CREATE TABLE IF NOT EXISTS `department` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.department: ~2 rows (approximately)
+-- Dumping data for table b4_22077174_huuquynh.credential: ~2 rows (approximately)
 DELETE FROM `department`;
-/*!40000 ALTER TABLE `department` DISABLE KEYS */;
+/*!40000 ALTER TABLE `credential` DISABLE KEYS */;
 INSERT INTO `department` (`id`, `department_name`) VALUES
 	(100, 'Product'),
 	(101, 'Sale'),
 	(102, 'CRM');
-/*!40000 ALTER TABLE `department` ENABLE KEYS */;
+/*!40000 ALTER TABLE `credential` ENABLE KEYS */;
 
 -- Dumping structure for table b4_22077174_huuquynh.district
 DROP TABLE IF EXISTS `district`;
