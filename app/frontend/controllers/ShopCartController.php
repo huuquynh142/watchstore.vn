@@ -153,7 +153,7 @@ class ShopCartController extends ControllerBase
                                 <div class="row">
                                     <div class="small-4 columns">
                                         <a href="/products/jabra-revo-wireless-bluetooth-stereo-headphones">
-                                            <img src="/public/img/product/'.$product->image.'" alt="Jabra REVO Wireless Bluetooth Stereo Headphones - X / Red">
+                                            <img src="/public/uploads/product/'.$product->image.'" alt="Jabra REVO Wireless Bluetooth Stereo Headphones - X / Red">
                                         </a>
                                     </div>
                                     <div class="small-8 columns">
