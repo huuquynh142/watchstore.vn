@@ -20,7 +20,7 @@
                                     });
                                 </script>
                                 <div id="zoom-<?= $product->description_id ?>">
-                                    <img src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
+                                    <img src="/public/uploads/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
                                 </div>
                             </div>
                             <div class="large-6 columns">
@@ -80,7 +80,7 @@
             <?php if($product->discount){ ?>
                 <span class="sale-tag"></span>
             <?php } ?>
-            <img style="height: 250px" src="/public/img/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
+            <img style="height: 250px" src="/public/uploads/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
         </div>
         <div class="product-info">
             <h3 class="product-name"><a href= "/frontend/productDetail/productDetail/<?= $product->id ?>""><?= $product->product_name ?></a></h3>
