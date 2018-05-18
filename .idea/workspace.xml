@@ -2,14 +2,96 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76506301-fa0a-444c-bfc1-01059bb188f9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/products/10596f0d6099469.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/controllers/SearchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/layouts/product.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/layouts/product.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/product/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/product/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/product/searchproduct.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/product/searchproduct.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/search/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/search/index.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/10_06764e5f-be71-43cc-8a3b-4a6237d1d74b_grande1669.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/10_09d336a3-4984-426d-9823-56a45efae0da_granded129.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/10_602b66f5-c67e-4a7a-a87c-2f82851fe374_grande4080.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/10_99b23d8b-96db-416e-8810-2372119426cc_granded370.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/10_99b23d8b-96db-416e-8810-2372119426ccd370.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/10_ae9bc0eb-5f4b-4ed8-b70b-f027c072a318_grandea606.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/10_eb0531f5-2e74-41ce-aed4-15a7aaeed10e_grandeba65.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/10_f29cce14-fcaf-48f9-ad3d-e7ec694932ca_grandeae22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/10_granded5c9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/11_0177e5d9-1f3a-47d7-a04c-d16231fb95b9_granded370.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/11_0bf1fd69-2147-46e2-a6ff-ee1afe742f82_grandeba65.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/11_4517bfa5-6396-458b-b30a-1ebc107baba7_granded129.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/11_79efb806-4f99-4a63-b006-f001f14fe9cd_grandeae22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/11_83da057c-b878-4257-ad67-e8cf310b69d9_grande1669.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/11_87fd7155-959d-4e04-8f9e-a8a6b5c64d39_grande4080.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/11_ff1727cc-7195-41aa-bb88-2a459993bfac2417.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/11_ff1727cc-7195-41aa-bb88-2a459993bfac_grande2417.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/11_grandea606.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/12_35d9ac49-87b6-409e-89d3-6132eae3992d_grandeba65.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/12_51f790fe-5cec-41a1-919e-ea16cd03c6bd_grandefaab.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/12_51f790fe-5cec-41a1-919e-ea16cd03c6bdfaab.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/12_82eb9be9-0501-4f4b-91f4-a7ccd367ef55_grande2417.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/12_b6b94aa2-b52a-41d6-ad6e-6460af4dfdfd_granded370.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/12_c3be23f0-2fd0-42da-9ea6-9370e2498c49_grande9425.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/12_d26ff4e3-0e5a-4bb7-b7b4-d1fc832e7543_grande4080.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/12_grandea606.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/13_2c9a29f6-54a8-479c-9081-101c3cf01cd1_grande2417.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/13_72e2a244-77c2-48fb-949e-f4edc3c3d7d6_grandefaab.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/13_9eaf4d3c-8c51-4efa-9b7f-bd3ddc07cc98_granded370.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/13_grandea606.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/14_92153cbe-fa10-4371-871b-a78b43ef5810_granded370.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/14_95c463ca-c86a-4dc1-bdfd-63bc67e27ebb_grandefaab.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/14_grande2417.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/1_52c97cb9-cbb3-427b-ad75-0e6e81da48e8_grandeae22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/1_52c97cb9-cbb3-427b-ad75-0e6e81da48e8ae22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/2_005b1a98-d217-4be0-ae4b-aebee00eb3724080.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/2_005b1a98-d217-4be0-ae4b-aebee00eb372_grande4080.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/2_0f1e30b2-47e4-47a2-80f1-ba71628f8d25_grandeef1f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/2_0f1e30b2-47e4-47a2-80f1-ba71628f8d25_smallef1f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/2_0f1e30b2-47e4-47a2-80f1-ba71628f8d25ef1f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/2_4fc33cbc-bbd0-4580-878a-b40b77e45b789425.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/2_4fc33cbc-bbd0-4580-878a-b40b77e45b78_grande9425.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/3_3be729e6-56b5-435b-8093-4549887ddaea_grandeef1f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/3_78982015-315a-487a-9aca-64cba5e3ce11_grandedb8b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/3_78982015-315a-487a-9aca-64cba5e3ce11_smalldb8b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/3_78982015-315a-487a-9aca-64cba5e3ce11db8b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/3_c0b15568-94cc-4c7b-94be-fc48e1784c77_grande9425.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/4_707a8150-f5c6-4770-8284-b83798d30da0_grandeef1f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/4_7f7d1c10-03ea-4820-af3e-d60b75cc5942_grandedb8b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/4_8beaa147-6d1f-49c8-8a27-941ea024b6c0_grande9425.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/4_9fe2a9e8-3c8f-49cf-9896-71d95298f2b3_grandea437.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/4_9fe2a9e8-3c8f-49cf-9896-71d95298f2b3_smalla437.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/4_9fe2a9e8-3c8f-49cf-9896-71d95298f2b3a437.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/5_2f0effb3-31ab-47fa-bcb7-15664aeba7ef_grandee807.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/5_2f0effb3-31ab-47fa-bcb7-15664aeba7ef_smalle807.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/5_2f0effb3-31ab-47fa-bcb7-15664aeba7efe807.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/5_3b287a1a-6a4a-4fa7-bb6e-1631af2683a2_grandea437.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/5_67469dd3-71a9-46cf-9ae4-7c08335ac920_grande9425.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/5_8d7148a4-2a9f-4827-92e0-144772200f0c_grandeef1f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/5_ae25c097-8e89-439d-96f3-e1402aa79cd3_grandedb8b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/6_18384311-dace-4602-85d5-f18080685294_grandea437.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/6_4bf17bcf-614a-4897-9f92-85b7904690a9_grandee807.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/6_5cffda65-eac5-4043-aa3c-a66a0db8bf41_granded129.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/6_5cffda65-eac5-4043-aa3c-a66a0db8bf41d129.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/6_b16b092d-fb74-4563-a3ca-22d86d2d07e1_granded5c9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/6_b16b092d-fb74-4563-a3ca-22d86d2d07e1d5c9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/6_d02d8acc-6931-4d84-8a10-c7895f5ac0c7_grandedb8b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/6_grandeef1f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/7_431d72e9-8441-48e0-afe0-4df0a2eeca6e1669.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/7_431d72e9-8441-48e0-afe0-4df0a2eeca6e_grande1669.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/7_5b584670-4516-4d07-90b4-8d9e9b8e5f30_grandee807.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/7_5e4aeca7-506f-4466-909c-8737f8c1023a_grandea437.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/7_c9e0bc7f-cdba-4090-a571-c02528ea7c46_granded5c9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/8_04b47545-6bc9-4872-939f-f1108e3cc7c5_grandea1de.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/8_04b47545-6bc9-4872-939f-f1108e3cc7c5a1de.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/8_5533bf94-f6b9-4ceb-848a-d4110974e781_grandeae22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/8_656a2213-b9ec-441f-a8ef-bc36a07acc73_granded5c9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/8_8d8dd9cc-ee0a-47d8-bdc3-2d856a081f3a_grandee807.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/8_953f6608-44b7-4c69-bee1-2cc2ce3890d9_grandeba65.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/8_953f6608-44b7-4c69-bee1-2cc2ce3890d9ba65.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/8_a549de9c-959c-443f-9216-ea4b7b5d91c5_granded129.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/8_b6411e26-0814-411a-acf1-8dc149cea311_grande1669.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/9_45c1e3f3-0cf4-47e7-bc1f-c3a4baada37e_granded5c9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/9_91f90911-6af2-4459-98f4-143e3ec1f21a_grandea606.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/9_91f90911-6af2-4459-98f4-143e3ec1f21aa606.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/9_990c0230-18d2-4d68-a909-1ccd6bf71956_grande1669.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/9_9e511a09-20a6-41ee-bc13-a7fe81020b05_granded129.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/9_f3a7a103-0f73-4e40-92a8-2c052e97948a_grandeba65.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/9_f4bf950f-2cb7-4997-bf93-997407033265_grandeae22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/products/9_grandee807.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,47 +107,7 @@
     <favorites_list name="watchstore.vn" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/backend/views/member/index.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="121" column="17" lean-forward="true" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/frontend/views/product/index.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="257" column="10" lean-forward="true" selection-start-line="257" selection-start-column="10" selection-end-line="257" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/frontend/controllers/ProductController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/frontend/controllers/SearchController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-211">
-              <caret line="6" column="49" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
-              <folding>
-                <element signature="e#47#70#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -214,88 +256,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
               <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="member" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="product" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="search" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="library" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
@@ -312,12 +278,20 @@
               <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
               <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="img" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="products" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="uploads" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -490,16 +464,17 @@
       <workItem from="1526603367319" duration="635000" />
       <workItem from="1526611209489" duration="885000" />
       <workItem from="1526625464841" duration="1425000" />
+      <workItem from="1526628341559" duration="624000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="558422000" />
+    <option name="totallyTimeSpent" value="559046000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49837664" visible="true" weight="0.32526475" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49837664" visible="true" weight="0.33055976" />
       <window_info anchor="bottom" id="TODO" order="9" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5030257" side_tool="true" weight="0.32847896" />
@@ -523,21 +498,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="5" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49837664" visible="true" weight="0.32526475" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="1" />
+      <window_info anchor="bottom" id="Run" order="5" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.3262987" />
-      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="11" sideWeight="0.4969743" weight="0.32792208" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.32847896" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="1" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5030257" side_tool="true" weight="0.32847896" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info id="Favorites" order="0" sideWeight="0.5016234" side_tool="true" weight="0.30635402" />
@@ -555,139 +530,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/frontend/views/layouts/product.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="105" column="27" lean-forward="true" selection-start-line="105" selection-start-column="27" selection-end-line="105" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/router.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/loader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="2" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_9.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="1150" column="9" selection-start-line="1150" selection-start-column="9" selection-end-line="1150" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/PHPExcel/IOFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="128" column="61" selection-start-line="128" selection-start-column="61" selection-end-line="128" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/PHPExcel/Writer/Excel5.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="97" column="53" selection-start-line="97" selection-start-column="53" selection-end-line="97" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/PHPExcel/Writer/Excel5/Workbook.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-833">
-          <caret line="194" column="53" selection-start-line="194" selection-start-column="53" selection-end-line="194" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/basic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="144" column="14" selection-start-line="144" selection-start-column="14" selection-end-line="144" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/controllers/SalesInvoiceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="186" column="55" selection-start-line="186" selection-start-column="55" selection-end-line="186" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/controllers/ControllerBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/controllers/MemberController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/controllers/ProductController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/ProductAbstract.php" />
-    <entry file="file://$PROJECT_DIR$/app/backend/controllers/CredentialController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/views/credential/new.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="39" column="47" lean-forward="true" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/views/credential/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="75" column="10" lean-forward="true" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/views/credential/edit.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/UserInformation.php" />
-    <entry file="file://$PROJECT_DIR$/app/backend/controllers/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Users.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -828,20 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/views/member/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="121" column="17" lean-forward="true" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/frontend/views/product/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="257" column="10" lean-forward="true" selection-start-line="257" selection-start-column="10" selection-end-line="257" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/frontend/views/product/searchproduct.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -860,9 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="670">
           <caret line="67" column="33" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
-          <folding>
-            <element signature="e#43#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -873,22 +698,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/frontend/controllers/ProductController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/frontend/controllers/SearchController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-211">
-          <caret line="6" column="49" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+        <state relative-caret-position="255">
+          <caret line="33" column="14" lean-forward="true" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
           <folding>
             <element signature="e#47#70#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/frontend/controllers/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#47#71#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/frontend/views/product/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="257" column="10" selection-start-line="257" selection-start-column="10" selection-end-line="257" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/backend/views/member/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="121" column="17" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/brand2e0a9.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/brand4e0a9.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/2_grandead3c.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/3_78982015-315a-487a-9aca-64cba5e3ce11db8b.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/5_2f0effb3-31ab-47fa-bcb7-15664aeba7efe807.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/4_grandead3c.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/1_52c97cb9-cbb3-427b-ad75-0e6e81da48e8ae22.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/2_0f1e30b2-47e4-47a2-80f1-ba71628f8d25_smallef1f.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/5_3b287a1a-6a4a-4fa7-bb6e-1631af2683a2_grandea437.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/7_431d72e9-8441-48e0-afe0-4df0a2eeca6e1669.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/9_9e511a09-20a6-41ee-bc13-a7fe81020b05_granded129.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/11_87fd7155-959d-4e04-8f9e-a8a6b5c64d39_grande4080.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/icon2_grandefaab.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/10596f0d6099469.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/12_51f790fe-5cec-41a1-919e-ea16cd03c6bdfaab.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/12_82eb9be9-0501-4f4b-91f4-a7ccd367ef55_grande2417.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/9_grandee807.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/10_granded5c9.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/14_grande2417.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/brand3e0a9.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/products/6_grandeef1f.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
 </project>
