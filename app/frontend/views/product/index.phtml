@@ -258,29 +258,12 @@
     </div>
 
     <div class="toolbar-bottom">
-        <div class="toolbar">
-            <div class="pagination-centered">
-                <ul class="pagination">
-                    <li class="arrow">
-                        <a href="all4658.html?page=2" title="">« Previous</a>
-                    </li>
-
-
-                    <li class="current"><a href>1</a></li>
-
-
-
-                    <li><a href="all4658.html?page=2" title="">2</a></li>
-
-
-                    <li class="arrow">
-
-                        <a href="all4658.html?page=2" title="">Next &raquo;</a>
-
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <?php echo \App\Library\PaginationFrontEnd::showPagination($products->total_pages ,
+            $products->current ,
+            $products->before ,
+            $products->next ,
+            $products->last
+        ) ?>
     </div>
 
 </div>

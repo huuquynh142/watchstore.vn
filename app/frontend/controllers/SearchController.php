@@ -4,6 +4,7 @@ use App\Models\Product;
 use App\Models\ProductCredential;
 use App\Models\ProductDetail;
 use App\Models\ProductImage;
+use Phalcon\Paginator\Adapter\Model as Paginator;
 
 class SearchController extends ControllerBase
 {
@@ -13,6 +14,8 @@ class SearchController extends ControllerBase
     }
 
     public function indexAction($keyword = '' ){
+        $numberPage = 1;
+        $numberPage = $this->request->getQuery("page", "int");
         $robots = null;
         $this->session->set('search-product', $keyword);
         $robots = Product::query()
@@ -30,7 +33,12 @@ class SearchController extends ControllerBase
                 ProductImage::class.".image"
             ])
             ->execute();
-        $this->view->products = $robots;
+        $paginator = new Paginator([
+            'data' => $robots,
+            'limit'=> 12,
+            'page' => $numberPage
+        ]);
+        $this->view->products = $paginator->getPaginate();
     }
 
 
