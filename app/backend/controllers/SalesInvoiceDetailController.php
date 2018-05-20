@@ -16,17 +16,7 @@ class SalesInvoiceDetailController extends ControllerBase
         $numberPage = 1;
         $numberPage = $this->request->getQuery("page", "int");
         $sales_invoice_detail = SalesInvoiceDetail::find("sales_invoice_id = " . $id."");
-//        if (count($sales_invoice_detail) == 0) {
-//            $this->flash->notice("The search did not find any sales_invoice_detail");
-//
-//            $this->dispatcher->forward([
-//                "controller" => "sales_invoice_detail",
-//                "action" => "index"
-//            ]);
-//
-//            return;
-//        }
-
+        $this->session->set("invoice_id",$id);
         $paginator = new Paginator([
             'data' => $sales_invoice_detail,
             'limit'=> 10,
@@ -60,7 +50,7 @@ class SalesInvoiceDetailController extends ControllerBase
             }
 
             $this->view->id = $sales_invoice_detail->id;
-
+            $this->view->invoice_id = $this->session->get('invoice_id');
             $this->tag->setDefault("id", $sales_invoice_detail->id);
             $this->tag->setDefault("sales_invoice_id", $sales_invoice_detail->sales_invoice_id);
             $this->tag->setDefault("product_id", $sales_invoice_detail->product_id);
@@ -73,10 +63,6 @@ class SalesInvoiceDetailController extends ControllerBase
         }
     }
 
-    /**
-     * Saves a sales_invoice_detail edited
-     *
-     */
     public function saveAction()
     {
 
@@ -103,12 +89,8 @@ class SalesInvoiceDetailController extends ControllerBase
             return;
         }
 
-        $sales_invoice_detail->salesInvoiceId = $this->request->getPost("sales_invoice_id");
         $sales_invoice_detail->productId = $this->request->getPost("product_id");
         $sales_invoice_detail->quantity = $this->request->getPost("quantity");
-        $sales_invoice_detail->discount = $this->request->getPost("discount");
-        $sales_invoice_detail->price = $this->request->getPost("price");
-        $sales_invoice_detail->total = $this->request->getPost("total");
         $sales_invoice_detail->comment = $this->request->getPost("comment");
         
 
@@ -130,8 +112,9 @@ class SalesInvoiceDetailController extends ControllerBase
         $this->flash->success("sales_invoice_detail was updated successfully");
 
         $this->dispatcher->forward([
-            'controller' => "sales_invoice",
-            'action' => 'index'
+            'controller' => "sales_invoice_detail",
+            'action' => 'index',
+            'params' => [$this->session->get('invoice_id')]
         ]);
     }
 

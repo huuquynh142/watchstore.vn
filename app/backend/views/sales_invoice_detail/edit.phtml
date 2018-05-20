@@ -60,7 +60,7 @@
                     <label class="control-label"></label>
                     <div class="controls" style="float: right; margin-top: -5%;">
                         <button form="invoice_detail_edit" class="btn btn-success icon-ok"><span class="glyphicon glyphicon-remove-circle"></span> Save and List</button>
-                        <?php echo $this->tag->linkTo(["backend/sales_invoice_detail/index", '<button class="btn btn-info icon-list "><span class="glyphicon glyphicon-remove-circle"></span> List</button>']); ?>
+                        <?php echo $this->tag->linkTo(["backend/sales_invoice_detail/index/".$invoice_id, '<button class="btn btn-info icon-list "><span class="glyphicon glyphicon-remove-circle"></span> List</button>']); ?>
                     </div>
                 </div>
             </div>
