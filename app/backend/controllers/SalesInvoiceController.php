@@ -17,9 +17,16 @@ class SalesInvoiceController extends ControllerBase
     public function indexAction()
     {
         $numberPage = 1;
+        $sales_invoice = SalesInvoice::query()
+            ->join(Province::class , Province::class.".provinceid = ".SalesInvoice::class.".province_id")
+            ->join(District::class , District::class.".districtid = ".SalesInvoice::class.".district_id");
         if ($this->request->isPost()) {
             $query = Criteria::fromInput($this->di, SalesInvoice::class, $_POST);
             $this->persistent->parameters = $query->getParams();
+            foreach ($query->getParams()['bind'] as $key => $item)
+            {
+                $sales_invoice = $sales_invoice->where(SalesInvoice::class . ".". $key." = '". str_replace("%","",$item)."'");
+            }
         } else {
             $numberPage = $this->request->getQuery("page", "int");
         }
@@ -29,22 +36,8 @@ class SalesInvoiceController extends ControllerBase
             $parameters = [];
         }
         $parameters["order"] = "id";
-
-        $sales_invoice = SalesInvoice::find($parameters);
-//        if (count($sales_invoice) == 0) {
-//            $this->flash->notice("The search did not find any sales_invoice");
-//
-//            $this->dispatcher->forward([
-//                "controller" => "sales_invoice",
-//                "action" => "index"
-//            ]);
-//
-//            return;
-//        }
-        $sales_invoice = SalesInvoice::query()
-            ->join(Province::class , Province::class.".provinceid = ".SalesInvoice::class.".province_id")
-            ->join(District::class , District::class.".districtid = ".SalesInvoice::class.".district_id")
-            ->columns([
+        
+         $sales_invoice = $sales_invoice->columns([
                 SalesInvoice::class.".status" ,
                 SalesInvoice::class.".id" ,
                 SalesInvoice::class.".phone" ,
