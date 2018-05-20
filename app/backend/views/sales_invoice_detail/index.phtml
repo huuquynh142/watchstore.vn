@@ -23,7 +23,7 @@
                 <tr>
 
                     <td><?php echo $this->tag->linkTo(["backend/sales_invoice_detail/edit/" . $sales_invoice_detail->id, $sales_invoice_detail->id ]); ?></td>
-                    <td><?php echo $sales_invoice_detail->product_id ?></td>
+                    <td><?php echo $sales_invoice_detail->product_name ?></td>
                     <td><?php echo $sales_invoice_detail->quantity ?></td>
                     <td><?php echo $sales_invoice_detail->discount ?></td>
                     <td><?php echo number_format($sales_invoice_detail->price ,0  , 0 , '.')  ?></td>
