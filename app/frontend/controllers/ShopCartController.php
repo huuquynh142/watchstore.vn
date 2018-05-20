@@ -1,6 +1,7 @@
 <?php
 namespace Multiple\Frontend\Controllers;
 use App\Library\ShopCart;
+use App\Models\Product;
 use Phalcon\Mvc\View;
 
 class ShopCartController extends ControllerBase
@@ -20,6 +21,9 @@ class ShopCartController extends ControllerBase
         if ($this->session->has('cart')) {
             $cart = $this->session->get('cart');
             if (isset($cart[$id])) {
+                $product = Product::findFirstByid($id);
+                if ($cart[$id]->quatity > ($product->quantity -1))
+                    return json_encode(array('code' => "fail" , 'message' => "Số lượng sản phâm trong kho hàng tối đa có ".$product->quantity." sản phẩm")) ;
                 if ($cart[$id]->quatity > 9)
                     return json_encode(array('code' => "fail" , 'message' => "Số lượng mua tối đa trên một sản phẩm là 10 \n Vui lòng kiểm tra lại")) ;
 
@@ -82,6 +86,8 @@ class ShopCartController extends ControllerBase
             unset($cart[$id]);
             $this->session->set('cart',$cart);
             $this->totalCart();
+            if (!$this->session->get('countCart'))
+                return json_encode(array('code'=>'empty'));
             return json_encode(array(
                 'code' => "success" ,
                 'countCart' => $this->session->get('countCart')  ,
@@ -148,6 +154,7 @@ class ShopCartController extends ControllerBase
     public function listData(){
         $row = null;
         foreach ($this->session->get('cart') as $product) {
+            $products = Product::findFirstByid($product->id);
             $row .=   '<div class="cart-item row">
                             <div class="small-12 large-6 columns">
                                 <div class="row">
@@ -169,7 +176,7 @@ class ShopCartController extends ControllerBase
                                 <div class="row product-detail">
                                     <div class="small-6 large-6 columns">
         
-        
+                                        <input type="hidden" id="js-qty___quantity_'.$product->id.'" data-id="'.$products->quantity.'">
                                         <div class="js-qty" data-id="'.$product->id.'">
                                             <button type="button" class="js-qty__adjust js-qty__adjust--minus"  data-qty="0">−</button>
                                             <input type="text" class="js-qty__num" value="'.$product->quatity.'" min="1" aria-label="quantity" pattern="[0-9]*" name="updates[]">

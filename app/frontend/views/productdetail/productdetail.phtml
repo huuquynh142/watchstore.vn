@@ -18,7 +18,7 @@
     </div>
     <!-- End Breadcrumbs -->
 
-
+    <input type="hidden" id="product_quantity_<?= $productDetail[0]->id ?>" data-id="<?= $productDetail[0]->quantity ?>">
     <div id="product-details" itemscope itemtype="http://schema.org/Product">
         <meta itemprop="url" content="https://ap-best-store.myshopify.com/products/jessica-simpson-womens-allest-boot" />
         <meta itemprop="image" content="//cdn.shopify.com/s/files/1/0750/3913/products/5_2f0effb3-31ab-47fa-bcb7-15664aeba7ef_grande.jpeg?v=1421825327" />
@@ -268,7 +268,16 @@
 
             $(".qty-adder408538376 .add-action").click( function(){
                 if( $(this).hasClass('add-up') ) {
-                    $("[name=quantity]",'.qty-adder408538376').val( parseInt($("[name=quantity]",'.qty-adder408538376').val()) + 1 );
+                    var max = 0;
+                    var maxquantity = $("#product_quantity_" + id).data('id');
+                    if (maxquantity > 10)
+                        max = 10;
+                    else
+                        max = maxquantity;
+                    if( parseInt($("[name=quantity]",'.qty-adder408538376').val())  < max ) {
+                        $("[name=quantity]",'.qty-adder408538376').val( parseInt($("[name=quantity]",'.qty-adder408538376').val()) + 1 );
+                    }
+
                 }else {
                     if( parseInt($("[name=quantity]",'.qty-adder408538376').val())  > 1 ) {
                         $("input",'.qty-adder408538376').val( parseInt($("[name=quantity]",'.qty-adder408538376').val()) - 1 );

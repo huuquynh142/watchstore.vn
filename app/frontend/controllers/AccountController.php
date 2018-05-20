@@ -21,6 +21,9 @@ class AccountController extends ControllerBase
         if ($this->request->isPost()) {
           $phone_number =  $this->request->getPost("customer_phone");
           $password = md5($this->request->getPost("customer_password"));
+          $member = Member::findFirst("phone_number ='".$phone_number."'");
+          if ($member && !$member->getPassword())
+              return json_encode(array('code'=>'fail','message' => 'Tài khoản không tồn tại . Vui lòng đăng ký để tiếp tục!'));
           $robots = Member::query()
               ->where(Member::class.'.phone_number =' . $phone_number)
               ->andWhere(Member::class.".password ='" . $password . "'")
@@ -32,7 +35,7 @@ class AccountController extends ControllerBase
               $this->session->set('user_phone',$robots[0]->phone_number);
               return json_encode(array('code'=>'success'));
           }
-            return json_encode(array('code'=>'fail'));
+            return json_encode(array('code'=>'fail','message' => 'Đăng nhập không thành công . Vui lòng kiểm tra lại!'));
 
         }
 
@@ -51,29 +54,27 @@ class AccountController extends ControllerBase
         $this->tag->prependTitle("Đăng ký ");
         if ($this->request->isPost()) {
             $arr = [];
-            $robots = Member::query()
-                ->where(Member::class.'.phone_number =' . $this->request->getPost("customer_phone_number"))
-                ->execute();
-            if (count($robots))
+            $phone = $this->request->getPost("customer_phone_number");
+            $member = Member::findFirst("phone_number ='".$phone."'");
+            if ($member && $member->getPassword()) {
                 return json_encode(array(
-                    'code'=>'fail',
-                    'message' =>'Số điện thoại đã được sử dụng . vui lòng sử dụng số điện thoại khác !'));
-            else{
-                $member = new Member();
-                $member->setFullname($this->request->getPost("customer_full_name"));
-                $member->setPhoneNumber($this->request->getPost("customer_phone_number"));
-                if ($this->request->getPost("customer_email"))
-                    $member->setEmail($this->request->getPost("customer_email"));
-                $member->setPassword(md5($this->request->getPost("customer_password"))) ;
-                $member->save();
-                $user_names = $member->getFullname() ? $member->getFullname() : $member->getPhoneNumber();
-                $this->session->set('user_name',$user_names);
-                $this->session->set('user_phone',$member->getPhoneNumber());
-                return json_encode( array_merge($arr , array('code'=>'success')));
+                    'code' => 'fail',
+                    'message' => 'Tài khoản đã tồn tại . Vui lòng đăng nhập để tiếp tục !'));
             }
-
+            if (!$member) {
+                $member = new Member();
+                $member->setPhoneNumber($this->request->getPost("customer_phone_number"));
+            }
+            $member->setFullname($this->request->getPost("customer_full_name"));
+            if ($this->request->getPost("customer_email"))
+                $member->setEmail($this->request->getPost("customer_email"));
+            $member->setPassword(md5($this->request->getPost("customer_password"))) ;
+            $member->save();
+            $user_names = $member->getFullname() ? $member->getFullname() : $member->getPhoneNumber();
+            $this->session->set('user_name',$user_names);
+            $this->session->set('user_phone',$member->getPhoneNumber());
+            return json_encode( array_merge($arr , array('code'=>'success')));
         }
-
     }
 
 }

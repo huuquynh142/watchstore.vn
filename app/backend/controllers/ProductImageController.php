@@ -64,9 +64,10 @@ class ProductImageController extends ControllerBase
             }
 
             $this->view->id = $product_image->id;
+            $this->view->image = $product_image->image;
 
             $this->tag->setDefault("id", $product_image->id);
-            $this->tag->setDefault("productId", $product_image->productId);
+            $this->tag->setDefault("product_id", $product_image->productId);
             $this->tag->setDefault("member", $product_image->image);
             
         }
@@ -87,9 +88,14 @@ class ProductImageController extends ControllerBase
         }
 
         $product_image = new ProductImage();
-        $product_image->setProductId($this->request->getPost("productId"));
-        $product_image->setImage($this->request->getPost("member"));
-        
+        $product_image->setProductId($this->request->getPost("product_id"));
+        if ($this->request->hasFiles()) {
+            $baseLocation = BASE_PATH . '/public/uploads/product/';
+            $file = $this->request->getUploadedFiles()[0];
+            $fileName = md5(strtok($file->getName(),'.')) . rand() . "." . $file->getExtension();
+            $product_image->image = $fileName;
+            $file->moveTo($baseLocation . $fileName);
+        }
 
         if (!$product_image->save()) {
             foreach ($product_image->getMessages() as $message) {
@@ -98,7 +104,7 @@ class ProductImageController extends ControllerBase
 
             $this->dispatcher->forward([
                 'controller' => "product_image",
-                'action' => 'new'
+                'action' => 'index'
             ]);
 
             return;
@@ -141,8 +147,18 @@ class ProductImageController extends ControllerBase
 
             return;
         }
-        $product_image->productId = $this->request->getPost("productId");
-        $product_image->image = $this->request->getPost("member");
+        $product_image->productId = $this->request->getPost("product_id");
+        if ($this->request->hasFiles() == true) {
+            $baseLocation = BASE_PATH . '/public/uploads/product/';
+            $file = $this->request->getUploadedFiles()[0];
+            if($product_image->image && $file->getName()){
+                unlink($baseLocation. $product_image->image);
+                $fileName = md5(strtok($file->getName(),'.')) . rand() . "." . $file->getExtension();
+                $product_image->image = $fileName;
+                $file->moveTo($baseLocation . $fileName);
+            }
+
+        }
         
 
         if (!$product_image->save()) {
@@ -176,6 +192,9 @@ class ProductImageController extends ControllerBase
     public function deleteAction($id)
     {
         $product_image = ProductImage::findFirstByid($id);
+        $baseLocation = BASE_PATH . '/public/uploads/product/';
+        if($product_image->image)
+            unlink($baseLocation. $product_image->image);
         if (!$product_image) {
             $this->flash->error("product_image was not found");
 
