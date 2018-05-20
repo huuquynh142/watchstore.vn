@@ -2,6 +2,7 @@
     <div class="item">
         <div class="product-image">
             <div class="action">
+                <input type="hidden" id="product_quantity_<?= $product->id ?>" data-id="<?= $product->quantity ?>">
                 <?php if ($product->quantity == 0){ ?>
                     <input type="button" data-id="<?= $product->id ?>" value="Tạm hết hàng" class="btn ct-btn" />
                 <?php }else{ ?>
@@ -122,11 +123,19 @@
             var id = $(this).closest('.qty-adder').data('id');
             console.log(id);
             if( $(this).hasClass('add-up') ) {
+                var max = 0;
+                var maxquantity = $("#product_quantity_" + id).data('id');
                 var countInput  = $(this).parent().prev();
                 var count = countInput.val();
-                console.log(count);
-                var  value = parseInt( count ) + 1;
-                countInput.val(value );
+                console.log(maxquantity);
+                if (maxquantity > 10)
+                    max = 10;
+                else
+                    max = maxquantity;
+                if( parseInt(countInput.val())  < max ) {
+                    var  value = parseInt( count ) + 1;
+                    countInput.val(value );
+                }
             }else {
                 var countInput  = $(this).parent().next();
                 var count = countInput.val();

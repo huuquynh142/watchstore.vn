@@ -26,7 +26,8 @@
                         [
                             "backend/product_image/create",
                             "autocomplete" => "off",
-                            "class" => "form-horizontal"
+                            "class" => "form-horizontal",
+                            "enctype" => "multipart/form-data"
                         ]
                     );
                     ?>
@@ -34,15 +35,15 @@
                         <div class="control-group">
                             <label class="control-label">Product Id :</label>
                             <div class="controls">
-                                <?php echo $this->tag->textField(["productId", "type" => "number", "size" => 30, "class" => "form-control", "id" => "fieldProductId"]) ?>
+                                <?php echo $this->tag->textField(["product_id", "type" => "number", "size" => 30, "class" => "form-control", "id" => "fieldProductId"]) ?>
                             </div>
                         </div>
 
                         <div class="control-group">
                             <label class="control-label">Image :</label>
                             <div class="controls">
-                                <?php echo $this->tag->image(['public/img/logo.png' , "alt" => " alt member " , "style" => "width: 100px;height: 100px;" ]) ?>
-                                <?php echo $this->tag->fileField("member"); ?>
+                                <?php echo $this->tag->image(["image", "alt" => " alt image " , "style" => "width: 100px;height: 100px;" , "id" => "fieldImage" ]) ?>
+                                <?php echo $this->tag->fileField(["image", "size" => 30, "class" => "form-control" , "onChange" => "img_pathUrl(this);"]); ?>
                             </div>
                         </div>
 
@@ -58,4 +59,8 @@
             </div>
         </div>
     </div>
-
+    <script>
+        function img_pathUrl(input){
+            $('#fieldImage')[0].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
+        }
+    </script>
