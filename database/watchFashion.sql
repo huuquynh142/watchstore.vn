@@ -12,12 +12,12 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Dumping database structure for b4_22077174_huuquynh
-DROP DATABASE IF EXISTS `b4_22077174_huuquynh`;
-CREATE DATABASE IF NOT EXISTS `b4_22077174_huuquynh` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `b4_22077174_huuquynh`;
+-- Dumping database structure for watches_online
+DROP DATABASE IF EXISTS `watches_online`;
+CREATE DATABASE IF NOT EXISTS `watches_online` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `watches_online`;
 
--- Dumping structure for table b4_22077174_huuquynh.credential
+-- Dumping structure for table watches_online.credential
 DROP TABLE IF EXISTS `department`;
 CREATE TABLE IF NOT EXISTS `department` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `department` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.credential: ~2 rows (approximately)
+-- Dumping data for table watches_online.credential: ~2 rows (approximately)
 DELETE FROM `department`;
 /*!40000 ALTER TABLE `credential` DISABLE KEYS */;
 INSERT INTO `department` (`id`, `department_name`) VALUES
@@ -34,7 +34,7 @@ INSERT INTO `department` (`id`, `department_name`) VALUES
 	(102, 'CRM');
 /*!40000 ALTER TABLE `credential` ENABLE KEYS */;
 
--- Dumping structure for table b4_22077174_huuquynh.district
+-- Dumping structure for table watches_online.district
 DROP TABLE IF EXISTS `district`;
 CREATE TABLE IF NOT EXISTS `district` (
   `districtid` varchar(5) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `district` (
   KEY `provinceid` (`provinceid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.district: 697 rows
+-- Dumping data for table watches_online.district: 697 rows
 DELETE FROM `district`;
 /*!40000 ALTER TABLE `district` DISABLE KEYS */;
 INSERT INTO `district` (`districtid`, `name`, `type`, `location`, `provinceid`) VALUES
@@ -749,7 +749,7 @@ INSERT INTO `district` (`districtid`, `name`, `type`, `location`, `provinceid`) 
 	('973', 'Ngọc Hiển', 'Huyện', '8 40 47N, 104 57 58E', '96');
 /*!40000 ALTER TABLE `district` ENABLE KEYS */;
 
--- Dumping structure for table b4_22077174_huuquynh.member
+-- Dumping structure for table watches_online.member
 DROP TABLE IF EXISTS `member`;
 CREATE TABLE IF NOT EXISTS `member` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -765,7 +765,7 @@ CREATE TABLE IF NOT EXISTS `member` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.member: ~9 rows (approximately)
+-- Dumping data for table watches_online.member: ~9 rows (approximately)
 DELETE FROM `member`;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
 INSERT INTO `member` (`id`, `fullname`, `phone_number`, `email`, `password`, `number_hits`, `province_id`, `district_id`, `address`, `created_at`) VALUES
@@ -781,7 +781,7 @@ INSERT INTO `member` (`id`, `fullname`, `phone_number`, `email`, `password`, `nu
 	(112, 'tesst', '0159824156', '', NULL, 0, 70, 689, 'tesst', '2018-05-11 07:07:25');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 
--- Dumping structure for table b4_22077174_huuquynh.producer
+-- Dumping structure for table watches_online.producer
 DROP TABLE IF EXISTS `producer`;
 CREATE TABLE IF NOT EXISTS `producer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -796,7 +796,7 @@ CREATE TABLE IF NOT EXISTS `producer` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.producer: ~4 rows (approximately)
+-- Dumping data for table watches_online.producer: ~4 rows (approximately)
 DELETE FROM `producer`;
 /*!40000 ALTER TABLE `producer` DISABLE KEYS */;
 INSERT INTO `producer` (`id`, `company_name`, `trademark`, `country_of_origin`, `address`, `phone_number`, `email`, `website`, `created_at`) VALUES
@@ -806,7 +806,7 @@ INSERT INTO `producer` (`id`, `company_name`, `trademark`, `country_of_origin`, 
 	(103, 'Atlantic Watch Production Ltd.', 'ATLANTIC SWISS', 'Thụy Sỹ', 'Solothurnstrasse 44 CH - 2543 Lengnau', '', 'info@atlantic-watch.ch', 'https://www.atlantic-watches.ch/', '2018-01-28 05:47:28');
 /*!40000 ALTER TABLE `producer` ENABLE KEYS */;
 
--- Dumping structure for table b4_22077174_huuquynh.product
+-- Dumping structure for table watches_online.product
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -823,7 +823,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.product: ~14 rows (approximately)
+-- Dumping data for table watches_online.product: ~14 rows (approximately)
 DELETE FROM `product`;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
 INSERT INTO `product` (`id`, `producer_id`, `description_id`, `product_detail_id`, `quantity`, `import_price`, `sale_price`, `discount`, `image_id`, `view`, `created_at`) VALUES
@@ -843,7 +843,7 @@ INSERT INTO `product` (`id`, `producer_id`, `description_id`, `product_detail_id
 	(113, 100, 'E-8000.700.22.65.15', 113, 100, '13000000', '15000000', 0, 0, 61, '2018-01-28 06:55:59');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 
--- Dumping structure for table b4_22077174_huuquynh.product_credential
+-- Dumping structure for table watches_online.product_credential
 DROP TABLE IF EXISTS `product_credential`;
 CREATE TABLE IF NOT EXISTS `product_credential` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -852,7 +852,7 @@ CREATE TABLE IF NOT EXISTS `product_credential` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.product_credential: ~49 rows (approximately)
+-- Dumping data for table watches_online.product_credential: ~49 rows (approximately)
 DELETE FROM `product_credential`;
 /*!40000 ALTER TABLE `product_credential` DISABLE KEYS */;
 INSERT INTO `product_credential` (`id`, `product_id`, `product_type_id`) VALUES
@@ -910,7 +910,7 @@ INSERT INTO `product_credential` (`id`, `product_id`, `product_type_id`) VALUES
 	(86, 113, 5);
 /*!40000 ALTER TABLE `product_credential` ENABLE KEYS */;
 
--- Dumping structure for table b4_22077174_huuquynh.product_detail
+-- Dumping structure for table watches_online.product_detail
 DROP TABLE IF EXISTS `product_detail`;
 CREATE TABLE IF NOT EXISTS `product_detail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -928,7 +928,7 @@ CREATE TABLE IF NOT EXISTS `product_detail` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.product_detail: ~14 rows (approximately)
+-- Dumping data for table watches_online.product_detail: ~14 rows (approximately)
 DELETE FROM `product_detail`;
 /*!40000 ALTER TABLE `product_detail` DISABLE KEYS */;
 INSERT INTO `product_detail` (`id`, `product_name`, `shell_material`, `wire_material`, `guarantee`, `glasses`, `shell_diameter`, `shell_thickness`, `water_resistant`, `is_electronic`, `motor`, `comment`) VALUES
@@ -948,7 +948,7 @@ INSERT INTO `product_detail` (`id`, `product_name`, `shell_material`, `wire_mate
 	(113, ' EPOS 8000.700.22.65.15', 'Mạ vàng PVD', '', '10 năm', 'Sapphire', '34 mm', '7 mm', '3 ATM', 1, '', '');
 /*!40000 ALTER TABLE `product_detail` ENABLE KEYS */;
 
--- Dumping structure for table b4_22077174_huuquynh.product_image
+-- Dumping structure for table watches_online.product_image
 DROP TABLE IF EXISTS `product_image`;
 CREATE TABLE IF NOT EXISTS `product_image` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -957,7 +957,7 @@ CREATE TABLE IF NOT EXISTS `product_image` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.product_image: ~17 rows (approximately)
+-- Dumping data for table watches_online.product_image: ~17 rows (approximately)
 DELETE FROM `product_image`;
 /*!40000 ALTER TABLE `product_image` DISABLE KEYS */;
 INSERT INTO `product_image` (`id`, `product_id`, `image`) VALUES
@@ -981,7 +981,7 @@ INSERT INTO `product_image` (`id`, `product_id`, `image`) VALUES
 	(117, 113, '1762863812_12430547746846.jpg');
 /*!40000 ALTER TABLE `product_image` ENABLE KEYS */;
 
--- Dumping structure for table b4_22077174_huuquynh.product_type
+-- Dumping structure for table watches_online.product_type
 DROP TABLE IF EXISTS `product_type`;
 CREATE TABLE IF NOT EXISTS `product_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -991,7 +991,7 @@ CREATE TABLE IF NOT EXISTS `product_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.product_type: ~5 rows (approximately)
+-- Dumping data for table watches_online.product_type: ~5 rows (approximately)
 DELETE FROM `product_type`;
 /*!40000 ALTER TABLE `product_type` DISABLE KEYS */;
 INSERT INTO `product_type` (`id`, `name`, `redirect`, `image`) VALUES
@@ -1002,7 +1002,7 @@ INSERT INTO `product_type` (`id`, `name`, `redirect`, `image`) VALUES
 	(5, 'Giáo dục', 'san-pham-giao-duc', 'icon6e0a9.png?4621688722820174607');
 /*!40000 ALTER TABLE `product_type` ENABLE KEYS */;
 
--- Dumping structure for table b4_22077174_huuquynh.province
+-- Dumping structure for table watches_online.province
 DROP TABLE IF EXISTS `province`;
 CREATE TABLE IF NOT EXISTS `province` (
   `provinceid` varchar(5) NOT NULL,
@@ -1011,7 +1011,7 @@ CREATE TABLE IF NOT EXISTS `province` (
   PRIMARY KEY (`provinceid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.province: ~63 rows (approximately)
+-- Dumping data for table watches_online.province: ~63 rows (approximately)
 DELETE FROM `province`;
 /*!40000 ALTER TABLE `province` DISABLE KEYS */;
 INSERT INTO `province` (`provinceid`, `name`, `type`) VALUES
@@ -1080,7 +1080,7 @@ INSERT INTO `province` (`provinceid`, `name`, `type`) VALUES
 	('96', 'Cà Mau', 'Tỉnh');
 /*!40000 ALTER TABLE `province` ENABLE KEYS */;
 
--- Dumping structure for table b4_22077174_huuquynh.sales_invoice
+-- Dumping structure for table watches_online.sales_invoice
 DROP TABLE IF EXISTS `sales_invoice`;
 CREATE TABLE IF NOT EXISTS `sales_invoice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1101,7 +1101,7 @@ CREATE TABLE IF NOT EXISTS `sales_invoice` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.sales_invoice: ~6 rows (approximately)
+-- Dumping data for table watches_online.sales_invoice: ~6 rows (approximately)
 DELETE FROM `sales_invoice`;
 /*!40000 ALTER TABLE `sales_invoice` DISABLE KEYS */;
 INSERT INTO `sales_invoice` (`id`, `member_id`, `user_id`, `province_id`, `district_id`, `pay_method_id`, `phone`, `email`, `fullname`, `address`, `shipping`, `total`, `status`, `created_at`, `updated_at`) VALUES
@@ -1113,7 +1113,7 @@ INSERT INTO `sales_invoice` (`id`, `member_id`, `user_id`, `province_id`, `distr
 	(26, 112, 0, 70, 689, 1, '0159824156', '', 'tesst', 'tesst', '20000', '18962000', 'NEW', '2018-05-11 07:07:25', '2018-05-16 22:46:16');
 /*!40000 ALTER TABLE `sales_invoice` ENABLE KEYS */;
 
--- Dumping structure for table b4_22077174_huuquynh.sales_invoice_detail
+-- Dumping structure for table watches_online.sales_invoice_detail
 DROP TABLE IF EXISTS `sales_invoice_detail`;
 CREATE TABLE IF NOT EXISTS `sales_invoice_detail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1127,7 +1127,7 @@ CREATE TABLE IF NOT EXISTS `sales_invoice_detail` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.sales_invoice_detail: ~9 rows (approximately)
+-- Dumping data for table watches_online.sales_invoice_detail: ~9 rows (approximately)
 DELETE FROM `sales_invoice_detail`;
 /*!40000 ALTER TABLE `sales_invoice_detail` DISABLE KEYS */;
 INSERT INTO `sales_invoice_detail` (`id`, `sales_invoice_id`, `product_id`, `quantity`, `discount`, `price`, `total`, `comment`) VALUES
@@ -1142,7 +1142,7 @@ INSERT INTO `sales_invoice_detail` (`id`, `sales_invoice_id`, `product_id`, `qua
 	(66, 26, 102, 1, 0, '13980000', '13980000', NULL);
 /*!40000 ALTER TABLE `sales_invoice_detail` ENABLE KEYS */;
 
--- Dumping structure for table b4_22077174_huuquynh.slider
+-- Dumping structure for table watches_online.slider
 DROP TABLE IF EXISTS `slider`;
 CREATE TABLE IF NOT EXISTS `slider` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1155,7 +1155,7 @@ CREATE TABLE IF NOT EXISTS `slider` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.slider: ~2 rows (approximately)
+-- Dumping data for table watches_online.slider: ~2 rows (approximately)
 DELETE FROM `slider`;
 /*!40000 ALTER TABLE `slider` DISABLE KEYS */;
 INSERT INTO `slider` (`id`, `title`, `image`, `description`, `priority`, `hide`, `created_at`) VALUES
@@ -1163,7 +1163,7 @@ INSERT INTO `slider` (`id`, `title`, `image`, `description`, `priority`, `hide`,
 	(3, 'Đồng hồ Sturhling Tourbillon', 'ca9e7c24c1a4dcb56f89d119e61ccddc3956.png', 'Sturhling Tourbillon biểu tượng cho độ chính xác tuyệt vời của cỗ máy đo thời gian <br> Sturhling Tourbillon là thương hiệu của những mẫu đồng hồ đẳng cấp,phong cách và sành điệu trong vài thập kỷ qua …', 2, 0, '2018-04-14 18:33:39');
 /*!40000 ALTER TABLE `slider` ENABLE KEYS */;
 
--- Dumping structure for table b4_22077174_huuquynh.users
+-- Dumping structure for table watches_online.users
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1176,7 +1176,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `NewIndex1` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.users: ~1 rows (approximately)
+-- Dumping data for table watches_online.users: ~1 rows (approximately)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `username`, `password`, `active`, `is_admin`, `created_at`) VALUES
@@ -1184,7 +1184,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `active`, `is_admin`, `create
 	(101, 'quynh', '202cb962ac59075b964b07152d234b70', 1, 1, '2018-01-27 14:51:31');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
--- Dumping structure for table b4_22077174_huuquynh.user_information
+-- Dumping structure for table watches_online.user_information
 DROP TABLE IF EXISTS `user_information`;
 CREATE TABLE IF NOT EXISTS `user_information` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1200,7 +1200,7 @@ CREATE TABLE IF NOT EXISTS `user_information` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table b4_22077174_huuquynh.user_information: ~0 rows (approximately)
+-- Dumping data for table watches_online.user_information: ~0 rows (approximately)
 DELETE FROM `user_information`;
 /*!40000 ALTER TABLE `user_information` DISABLE KEYS */;
 /*!40000 ALTER TABLE `user_information` ENABLE KEYS */;

@@ -28,6 +28,7 @@ class SearchController extends ControllerBase
                 ProductDetail::class.".product_name" ,
                 Product::class.".id" ,
                 Product::class.".description_id",
+                Product::class.".quantity",
                 Product::class.".sale_price" ,
                 Product::class.".discount" ,
                 ProductImage::class.".image"

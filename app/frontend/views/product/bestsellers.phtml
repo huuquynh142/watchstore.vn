@@ -4,6 +4,9 @@
     <div class="product-image">
 
         <a class="thumb" href="/san-pham/chi-tiet-san-pham/<?= $product->id ?>">
+            <?php if($product->discount){ ?>
+                <span class="sale-tag"></span>
+            <?php } ?>
             <img src="/public/uploads/product/<?= $product->image ?>" alt="<?= $product->product_name ?>" />
         </a>
     </div>
@@ -15,7 +18,13 @@
 
         <span class="price">
 
-        <span class='money'><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span>
+            <?php if($product->discount){ ?>
+                <span class='money'><?= number_format((int)$product->sale_price - ((int)$product->discount/100 * (int)$product->sale_price) ,0  , 0 , '.')?> VND</span>
+            <?php }else{ ?>
+                <span class='money'><?= number_format($product->sale_price ,0  , 0 , '.')?> VND</span>
+            <?php } ?>
+
+
 
       </span>
 

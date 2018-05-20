@@ -59,6 +59,7 @@ class IndexController extends ControllerBase
             ->columns([
                 ProductDetail::class.".product_name" ,
                 Product::class.".id" ,
+                Product::class.".quantity",
                 Product::class.".description_id",
                 Product::class.".sale_price" ,
                 Product::class.".discount" ,
