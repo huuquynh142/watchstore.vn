@@ -32,6 +32,13 @@ class SalesInvoice extends \Phalcon\Mvc\Model
      * @var integer
      * @Column(type="integer", length=11, nullable=true)
      */
+    protected $user_id;
+
+    /**
+     *
+     * @var integer
+     * @Column(type="integer", length=11, nullable=true)
+     */
     protected $district_id;
 
     /**
@@ -98,6 +105,13 @@ class SalesInvoice extends \Phalcon\Mvc\Model
     protected $created_at;
 
     /**
+     *
+     * @var string
+     * @Column(type="string", nullable=true)
+     */
+    protected $updated_at;
+
+    /**
      * Method to set the value of field id
      *
      * @param integer $id
@@ -132,6 +146,19 @@ class SalesInvoice extends \Phalcon\Mvc\Model
     public function setProvinceId($province_id)
     {
         $this->province_id = $province_id;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field user_id
+     *
+     * @param integer $user_id
+     * @return $this
+     */
+    public function setUserId($user_id)
+    {
+        $this->user_id = $user_id;
 
         return $this;
     }
@@ -267,6 +294,19 @@ class SalesInvoice extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Method to set the value of field updated_at
+     *
+     * @param string $updated_at
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
      * Returns the value of field id
      *
      * @return integer
@@ -294,6 +334,16 @@ class SalesInvoice extends \Phalcon\Mvc\Model
     public function getProvinceId()
     {
         return $this->province_id;
+    }
+
+    /**
+     * Returns the value of field user_id
+     *
+     * @return integer
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
     }
 
     /**
@@ -396,6 +446,15 @@ class SalesInvoice extends \Phalcon\Mvc\Model
         return $this->created_at;
     }
 
+    /**
+     * Returns the value of field updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
 
     /**
      * Initialize method for model.
@@ -450,6 +509,7 @@ class SalesInvoice extends \Phalcon\Mvc\Model
             'id' => 'id',
             'member_id' => 'member_id',
             'province_id' => 'province_id',
+            'user_id' => 'user_id',
             'district_id' => 'district_id',
             'pay_method_id' => 'pay_method_id',
             'phone' => 'phone',
@@ -459,7 +519,8 @@ class SalesInvoice extends \Phalcon\Mvc\Model
             'shipping' => 'shipping',
             'total' => 'total',
             'status' => 'status',
-            'created_at' => 'created_at'
+            'created_at' => 'created_at',
+            'updated_at' => 'updated_at'
         ];
     }
 

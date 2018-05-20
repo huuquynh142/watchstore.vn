@@ -17,12 +17,12 @@ class PaginationFrontEnd
             $start = '';
             $prev = '';
             if ($current > 1) {
-                $prev = "<li class=\"arrow\"><a href='?page=" . $before . "'>« Previous</a></li>";
+                $prev = "<li class=\"arrow\"><a href='?page=" . $before . "'>« Trước</a></li>";
             }
             $nexts = '';
             $end = '';
             if ($current < $total_pages) {
-                $nexts = "<li class=\"arrow\"><a href='?page=" . $next . "'>Next &raquo;</a></li>";
+                $nexts = "<li class=\"arrow\"><a href='?page=" . $next . "'>Kế tiếp &raquo;</a></li>";
             }
             if (3 < $total_pages) {
                 if ($current == 1) {

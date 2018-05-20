@@ -60,7 +60,6 @@ class MemberController extends ControllerBase
             }
 
             $this->view->id = $member->id;
-            $this->view->sex = $member->sex;
 
             $this->tag->setDefault("id", $member->id);
             $this->tag->setDefault("fullname", $member->fullname);
@@ -70,8 +69,8 @@ class MemberController extends ControllerBase
             $this->tag->setDefault("password", $member->password);
             $this->tag->setDefault("number_hits", $member->number_hits);
             $this->tag->setDefault("address", $member->address);
-            $this->tag->setDefault("avatar", $member->avatar);
-            $this->tag->setDefault("imghine", $member->avatar);
+//            $this->tag->setDefault("avatar", $member->avatar);
+//            $this->tag->setDefault("imghine", $member->avatar);
         }
     }
 
@@ -151,7 +150,7 @@ class MemberController extends ControllerBase
         }
         $img =  $this->request->getPost("imghine") ? $this->request->getPost("imghine") : '';
         $member->fullname = $this->request->getPost("fullname");
-        $member->sex = $this->request->getPost("sex");
+//        $member->sex = $this->request->getPost("sex");
         $member->phoneNumber = $this->request->getPost("phone_number");
         $member->email = $this->request->getPost("email", "email");
         $member->password = $this->request->getPost("password");
