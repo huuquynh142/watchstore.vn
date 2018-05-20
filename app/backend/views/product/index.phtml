@@ -131,7 +131,7 @@
                 <th style="background-color: #0288d1;color: #ffffff;">Quantity</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Import Price</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Sale Price</th>
-                <th style="background-color: #0288d1;color: #ffffff;">Discount</th>
+                <th style="background-color: #0288d1;color: #ffffff;">Discount(%)</th>
                 <th style="background-color: #0288d1;color: #ffffff;">View</th>
 
             </tr>
@@ -143,8 +143,8 @@
                     <td><?php echo $product->description_id ?></td>
                     <td><?php echo $product->product_name ?></td>
                     <td><?php echo $product->quantity ?></td>
-                    <td><?php echo $product->import_price ?></td>
-                    <td><?php echo $product->sale_price ?></td>
+                    <td><?php echo number_format($product->import_price ,0  , 0 , '.') ?></td>
+                    <td><?php echo number_format($product->sale_price ,0  , 0 , '.') ?></td>
                     <td><?php echo $product->discount ?></td>
                     <td><?php echo $product->view ?></td>
 

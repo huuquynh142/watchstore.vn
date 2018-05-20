@@ -40,15 +40,6 @@
                         </div>
 
                         <div class="control-group">
-                            <label class="control-label" style="margin-top: -5px">Sex :</label>
-                            <div class="controls">Nam
-                                <?php echo $this->tag->radioField(["sex", "class" => "form-control" , "value " => "1" , "id" => "fieldSex" , "style" => "margin-top: 0px;"]) ?>
-                                Nữ
-                                <?php echo $this->tag->radioField(["sex", "class" => "form-control"  , "value " => "0" , "id" => "fieldSex" , "style" => "margin-top: 0px;"]) ?>
-                            </div>
-                        </div>
-
-                        <div class="control-group">
                             <label class="control-label">Phone Number :</label>
                             <div class="controls">
                                 <?php echo $this->tag->textField(["phone_number", "size" => 30, "class" => "form-control", "id" => "fieldPhoneNumber"]) ?>
@@ -76,13 +67,13 @@
                             </div>
                         </div>
 
-                        <div class="control-group">
-                            <label class="control-label">Avatar :</label>
-                            <div class="controls">
-                                <?php echo $this->tag->image(["avatar", "alt" => " alt member " , "style" => "width: 100px;height: 100px;" , "id" => "fieldAvatar" ]) ?>
-                                <?php echo $this->tag->fileField(["avatar", "size" => 30, "class" => "form-control" , "onChange" => "img_pathUrl(this);"]); ?>
-                            </div>
-                        </div>
+<!--                        <div class="control-group">-->
+<!--                            <label class="control-label">Avatar :</label>-->
+<!--                            <div class="controls">-->
+<!--                                --><?php //echo $this->tag->image(["avatar", "alt" => " alt member " , "style" => "width: 100px;height: 100px;" , "id" => "fieldAvatar" ]) ?>
+<!--                                --><?php //echo $this->tag->fileField(["avatar", "size" => 30, "class" => "form-control" , "onChange" => "img_pathUrl(this);"]); ?>
+<!--                            </div>-->
+<!--                        </div>-->
 
                         <div class="control-group">
                             <div class="span12">
