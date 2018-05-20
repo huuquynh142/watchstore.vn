@@ -1,5 +1,7 @@
 <?php
 namespace Multiple\Backend\Controllers;
+use App\Models\Product;
+use App\Models\ProductDetail;
 use App\Models\SalesInvoiceDetail;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
@@ -15,7 +17,19 @@ class SalesInvoiceDetailController extends ControllerBase
     {
         $numberPage = 1;
         $numberPage = $this->request->getQuery("page", "int");
-        $sales_invoice_detail = SalesInvoiceDetail::find("sales_invoice_id = " . $id."");
+        $sales_invoice_detail = SalesInvoiceDetail::query()
+            ->join(Product::class , SalesInvoiceDetail::class.".product_id = ".Product::class.".id")
+            ->join(ProductDetail::class , Product::class.".product_detail_id = ".ProductDetail::class.".id")
+            ->where(SalesInvoiceDetail::class.".sales_invoice_id = " . $id."")
+            ->columns([SalesInvoiceDetail::class.".quantity" ,
+                SalesInvoiceDetail::class.".discount" ,
+                SalesInvoiceDetail::class.".price" ,
+                SalesInvoiceDetail::class.".total",
+                SalesInvoiceDetail::class.".comment",
+                SalesInvoiceDetail::class.".id" ,
+                ProductDetail::class.".product_name" ,
+                    ])
+        ->execute();
         $this->session->set("invoice_id",$id);
         $paginator = new Paginator([
             'data' => $sales_invoice_detail,
@@ -49,6 +63,15 @@ class SalesInvoiceDetailController extends ControllerBase
                 return;
             }
 
+            $product = Product::query()
+                ->join(ProductDetail::class , Product::class.".product_detail_id = ".ProductDetail::class.".id")
+//                ->where(Product::class.".id = " . $sales_invoice_detail->product_id."")
+                ->columns([
+                    Product::class.".id",
+                    ProductDetail::class.".product_name"])
+                ->execute();
+            $this->view->product = $product;
+            $this->view->id = $sales_invoice_detail->id;
             $this->view->id = $sales_invoice_detail->id;
             $this->view->invoice_id = $this->session->get('invoice_id');
             $this->tag->setDefault("id", $sales_invoice_detail->id);
