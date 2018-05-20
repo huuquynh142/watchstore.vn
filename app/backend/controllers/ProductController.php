@@ -16,30 +16,17 @@ class ProductController extends ControllerBase
     public function indexAction()
     {
         $numberPage = 1;
+        $robots = Product::query()
+            ->innerJoin(ProductDetail::class,Product::class.".product_detail_id =".ProductDetail::class.".id")
+            ->innerJoin(Producer::class,Product::class.".producer_id =".Producer::class.".id");
+
         if ($this->request->isPost()) {
             $query = Criteria::fromInput($this->di, Product::class , $_POST);
             $this->persistent->parameters = $query->getParams();
-//            print_r($query->getParams());
-//            die();
-//            $query = Criteria::fromInput($this->di, Product::class , $_POST);
-////            $query->join(ProductDetail::class,Product::class.".product_detail_id =".ProductDetail::class.".id");
-////            $query->join(Producer::class ,Product::class.".producer_id =".Producer::class.".id" );
-//            $params = $query->getParams();
-//
-//            $queryPart = Criteria::fromInput($this->di, Producer::class, $_POST);
-//            $paramsPart = is_null($queryPart->getParams()) ? null : $queryPart->getParams();
-//            if(!is_null($paramsPart)){
-//                $params['conditions'] .= ' and '.$paramsPart['conditions'];
-//            }
-//
-//            $queryPart = Criteria::fromInput($this->di, ProductDetail::class, $_POST);
-//            $paramsPart = is_null($queryPart->getParams()) ? null : $queryPart->getParams();
-//            if(!is_null($paramsPart)){
-//                $params['conditions'] .= ' and '.$paramsPart['conditions'];
-//            }
-
-
-//            $this->persistent->parameters = $params;
+            foreach ($query->getParams()['bind'] as $key => $item)
+            {
+                $robots = $robots->where(Product::class . ".". $key." = '". str_replace("%","",$item)."'" );
+            }
         } else {
             $numberPage = $this->request->getQuery("page", "int");
         }
@@ -52,11 +39,11 @@ class ProductController extends ControllerBase
         $this->view->producer = Producer::find();
         $this->view->product = Product::find();
         $this->view->productDetail = ProductDetail::find();
-        $robots = Product::query()
-            ->innerJoin(ProductDetail::class,Product::class.".product_detail_id =".ProductDetail::class.".id")
-            ->innerJoin(Producer::class,Product::class.".producer_id =".Producer::class.".id")
-            ->bind($parameters)
-            ->columns([ProductDetail::class.".product_name" ,
+
+
+
+
+        $robots = $robots->columns([ProductDetail::class.".product_name" ,
                 Product::class.".id" ,
                 Producer::class.".company_name" ,
                 Product::class.".description_id",

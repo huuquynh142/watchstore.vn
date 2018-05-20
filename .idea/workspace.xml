@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="76506301-fa0a-444c-bfc1-01059bb188f9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backend/controllers/MemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/controllers/MemberController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backend/views/member/edit.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/views/member/edit.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backend/views/product_image/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/views/product_image/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/account/login.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/account/login.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/account/register.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/account/register.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/checkouts/confirm.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/checkouts/confirm.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/checkouts/payment.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/checkouts/payment.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/SalesInvoice.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/PaginationFrontEnd.php" beforeDir="false" afterPath="$PROJECT_DIR$/library/PaginationFrontEnd.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backend/controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backend/controllers/SalesInvoiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/controllers/SalesInvoiceController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -73,29 +66,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Province.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Province.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SalesInvoice.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/SalesInvoice.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="456" column="5" selection-start-line="456" selection-start-column="5" selection-end-line="456" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProductController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/backend/controllers/ProductController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="306">
+              <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="28" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SalesInvoiceController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/backend/controllers/SalesInvoiceController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="33" column="52" lean-forward="true" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -182,9 +166,7 @@
         <option value="$PROJECT_DIR$/library/PHPExcel/Writer/Excel5.php" />
         <option value="$PROJECT_DIR$/library/PHPExcel/Writer/Excel5/Workbook.php" />
         <option value="$PROJECT_DIR$/app/config/config.php" />
-        <option value="$PROJECT_DIR$/app/backend/controllers/SalesInvoiceController.php" />
         <option value="$PROJECT_DIR$/app/frontend/controllers/ProductController.php" />
-        <option value="$PROJECT_DIR$/app/backend/controllers/ProductController.php" />
         <option value="$PROJECT_DIR$/app/models/Product.php" />
         <option value="$PROJECT_DIR$/app/backend/controllers/DepartmentController.php" />
         <option value="$PROJECT_DIR$/app/backend/controllers/CredentialController.php" />
@@ -218,6 +200,8 @@
         <option value="$PROJECT_DIR$/app/backend/controllers/MemberController.php" />
         <option value="$PROJECT_DIR$/app/backend/views/member/edit.phtml" />
         <option value="$PROJECT_DIR$/app/models/SalesInvoice.php" />
+        <option value="$PROJECT_DIR$/app/backend/controllers/ProductController.php" />
+        <option value="$PROJECT_DIR$/app/backend/controllers/SalesInvoiceController.php" />
       </list>
     </option>
   </component>
@@ -283,19 +267,6 @@
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="models" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -483,12 +454,12 @@
       <workItem from="1526712546609" duration="437000" />
       <workItem from="1526713726442" duration="792000" />
       <workItem from="1526716649332" duration="43000" />
-      <workItem from="1526798086855" duration="1452000" />
+      <workItem from="1526798086855" duration="4257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="564666000" />
+    <option name="totallyTimeSpent" value="567471000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -550,13 +521,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/frontend/views/checkouts/confirm.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/backend/views/product_image/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1411">
@@ -775,13 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/frontend/controllers/ProductController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/frontend/views/product/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
@@ -890,10 +847,24 @@
     <entry file="file://$PROJECT_DIR$/app/models/District.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/frontend/controllers/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="157" column="5" lean-forward="true" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/backend/controllers/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="306">
+          <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/backend/controllers/SalesInvoiceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="33" column="52" lean-forward="true" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
         </state>
       </provider>
     </entry>
