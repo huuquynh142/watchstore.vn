@@ -12,7 +12,7 @@ return new \Phalcon\Config([
         'host'        => 'localhost',
         'username'    => 'root',
         'password'    => '123456',
-        'dbname'      => 'b4_22077174_huuquynh',
+        'dbname'      => 'watches_online',
         'charset'     => 'utf8',
     ],
 //    'database' => [
@@ -20,7 +20,7 @@ return new \Phalcon\Config([
 //        'host'        => 'sql212.byethost.com',
 //        'username'    => 'b4_22077174',
 //        'password'    => '14121996',
-//        'dbname'      => 'b4_22077174_huuquynh',
+//        'dbname'      => 'watches_online',
 //        'charset'     => 'utf8',
 //    ],
     'application' => [
