@@ -85,7 +85,16 @@ class SalesInvoiceController extends ControllerBase
                 return;
             }
 
+            $district = District::query()
+                ->where(District::class.".provinceid = ".$sales_invoice->province_id)
+                ->orderBy(District::class.".name DESC")
+                ->execute();
+            $this->view->district = $district;
+            $this->view->province = Province::find();
+            $this->view->province_id = $sales_invoice->province_id;
+            $this->view->district_id = $sales_invoice->district_id;
             $this->view->id = $sales_invoice->id;
+            $this->view->status = $sales_invoice->status;
 
             $this->tag->setDefault("id", $sales_invoice->id);
             $this->tag->setDefault("member_id", $sales_invoice->member_id);
@@ -135,18 +144,13 @@ class SalesInvoiceController extends ControllerBase
             return;
         }
 
-        $sales_invoice->memberId = $this->request->getPost("member_id");
         $sales_invoice->provinceId = $this->request->getPost("province_id");
         $sales_invoice->districtId = $this->request->getPost("district_id");
-        $sales_invoice->payMethodId = $this->request->getPost("pay_method_id");
         $sales_invoice->phone = $this->request->getPost("phone");
         $sales_invoice->email = $this->request->getPost("email", "email");
         $sales_invoice->fullname = $this->request->getPost("fullname");
         $sales_invoice->address = $this->request->getPost("address");
-        $sales_invoice->shipping = $this->request->getPost("shipping");
-        $sales_invoice->total = $this->request->getPost("total");
         $sales_invoice->status = $this->request->getPost("status");
-        $sales_invoice->createdAt = $this->request->getPost("created_at");
         
 
         if (!$sales_invoice->save()) {

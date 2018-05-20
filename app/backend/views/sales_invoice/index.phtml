@@ -85,7 +85,7 @@
                 <th style="background-color: #0288d1;color: #ffffff;">Phone</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Email</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Fullname</th>
-                <th style="background-color: #0288d1;color: #ffffff;">Address</th>
+                <th style="background-color: #0288d1;color: #ffffff;">Address detail</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Shipping</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Total</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Status</th>
@@ -98,7 +98,7 @@
                     <td><?php echo $this->tag->linkTo(["backend/sales_invoice/edit/" . $billInvoice->id, $billInvoice->id ]); ?></td>
                     <td><?php echo $billInvoice->province?></td>
                     <td><?php echo $billInvoice->district ?></td>
-                    <td><?php echo $billInvoice->pay_method_id ?></td>
+                    <td><?php echo $billInvoice->pay_method_id == 1 ? 'Trả sau' : 'Thanh toán Online' ?></td>
                     <td><?php echo $billInvoice->phone ?></td>
                     <td><?php echo $billInvoice->email ?></td>
                     <td><?php echo $billInvoice->fullname ?></td>
