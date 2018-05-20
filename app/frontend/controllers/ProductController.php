@@ -40,6 +40,7 @@ class ProductController extends ControllerBase
                         ->columns([
                             ProductDetail::class.".product_name" ,
                             Product::class.".id" ,
+                            Product::class.".quantity",
                             Product::class.".description_id",
                             Product::class.".sale_price" ,
                             Product::class.".discount" ,
@@ -79,6 +80,7 @@ class ProductController extends ControllerBase
                             ProductDetail::class.".product_name" ,
                             Product::class.".id" ,
                             Product::class.".description_id",
+                            Product::class.".quantity",
                             Product::class.".sale_price" ,
                             Product::class.".discount" ,
                             ProductImage::class.".image"
@@ -111,6 +113,7 @@ class ProductController extends ControllerBase
             ->columns([
                 ProductDetail::class.".product_name" ,
                 Product::class.".id" ,
+                Product::class.".quantity",
                 Product::class.".description_id",
                 Product::class.".sale_price" ,
                 Product::class.".discount" ,
@@ -172,9 +175,9 @@ class ProductController extends ControllerBase
                 case 'manual':
                     $robots = $robots->orderBy(Product::class . ".view");
                     break;
-                case 'best-selling':
-                    $robots = $robots->orderBy(Product::class . ".view");
-                    break;
+//                case 'best-selling':
+//                    $robots = $robots->orderBy(Product::class . ".view");
+//                    break;
                 case 'title-ascending':
                     $robots = $robots->orderBy(ProductDetail::class . ".product_name ASC");
                     break;

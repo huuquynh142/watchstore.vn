@@ -7,7 +7,11 @@
             <div class="item small-12 medium-6 large-3 columns">
                 <div class="product-image">
                     <div class="action">
-                        <input id="btnQuickOder" type="button" data-id="<?= $product->id ?>" value="Thêm vào giỏ hàng" class="btn ct-btn" />
+                        <?php if ($product->quantity == 0){ ?>
+                            <input type="button" data-id="<?= $product->id ?>" value="Tạm hết hàng" class="btn ct-btn" />
+                        <?php }else{ ?>
+                            <input id="btnQuickOder" type="button" data-id="<?= $product->id ?>" value="Thêm vào giỏ hàng" class="btn ct-btn" />
+                        <?php } ?>
                         <div data-options="disable_for_touch:true" >
                             <a class="quick-view ct-btn" data-id="<?= $product->id ?>" id="btn_quick_view" href="#" data-reveal-id="sp<?= $product->id ?>" title="<?= $product->product_name ?>">
                                 Xem ngay
@@ -59,7 +63,11 @@
                                                     <a href="javascript:void(0)" title=""><span class="add-up add-action">+</span></a>
                                                 </div>
                                             </div>
-                                            <input class="button" type="button" data-id="<?= $product->id ?>" name="add" id="addShopcart" value="Thêm vào giỏ hàng">
+                                            <?php if ($product->quantity == 0){ ?>
+                                                <input type="button" data-id="<?= $product->id ?>" value="Tạm hết hàng" class="btn ct-btn" />
+                                            <?php }else{ ?>
+                                                <input class="button" type="button" data-id="<?= $product->id ?>" name="add" id="addShopcart" value="Thêm vào giỏ hàng">
+                                            <?php } ?>
                                         </div>
                                         <!-- Sharing is caring -->
 
@@ -120,7 +128,11 @@
                 <div class="item small-12 medium-6 large-3 columns">
                     <div class="product-image">
                         <div class="action">
-                            <input id="btnQuickOder" type="button" data-id="<?= $product->id ?>" value="Thêm vào giỏ hàng" class="btn ct-btn" />
+                            <?php if ($product->quantity == 0){ ?>
+                                <input type="button" data-id="<?= $product->id ?>" value="Tạm hết hàng" class="btn ct-btn" />
+                            <?php }else{ ?>
+                                <input id="btnQuickOder" type="button" data-id="<?= $product->id ?>" value="Thêm vào giỏ hàng" class="btn ct-btn" />
+                            <?php } ?>
                             <div data-options="disable_for_touch:true" >
                                 <a class="quick-view ct-btn" data-id="<?= $product->id ?>" id="btn_quick_view" href="#" data-reveal-id="sp<?= $product->id ?>" title="<?= $product->product_name ?>">
                                     Xem ngay
@@ -173,7 +185,11 @@
                                                         <a href="javascript:void(0)" title=""><span class="add-up add-action">+</span></a>
                                                     </div>
                                                 </div>
-                                                <input class="button" type="button" data-id="<?= $product->id ?>" name="add" id="addShopcart" value="Thêm vào giỏ hàng">
+                                                <?php if ($product->quantity == 0){ ?>
+                                                    <input type="button" data-id="<?= $product->id ?>" value="Tạm hết hàng" class="btn ct-btn" />
+                                                <?php }else{ ?>
+                                                    <input class="button" type="button" data-id="<?= $product->id ?>" name="add" id="addShopcart" value="Thêm vào giỏ hàng">
+                                                <?php } ?>
                                             </div>
                                             <!-- Sharing is caring -->
 

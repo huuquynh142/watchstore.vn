@@ -88,10 +88,18 @@
                                     <a href="javascript:void(0)" title=""><span class="add-up add-action">+</span></a>
                                 </div>
                             </div>
-                            <button type="submit" data-id="<?= $productDetail[0]->id ?>" name="add" id="addToCart" class="btn">
-                                <span class="fa fa-shopping-cart"></span>
-                                <span id="addToCartText">Thêm vào giỏ hàng</span>
-                            </button>
+
+                            <?php if ($productDetail[0]->quantity == 0){ ?>
+                                <button data-id="<?= $productDetail[0]->id ?>" name="add"  class="btn">
+                                    <span class="fa fa-shopping-cart"></span>
+                                    <span>Tạm hết hàng</span>
+                                </button>
+                            <?php }else{ ?>
+                                <button type="submit" data-id="<?= $productDetail[0]->id ?>" name="add" id="addToCart" class="btn">
+                                    <span class="fa fa-shopping-cart"></span>
+                                    <span id="addToCartText">Thêm vào giỏ hàng</span>
+                                </button>
+                            <?php } ?>
                         </div>
                         <span id="variantQuantity" class="variant-quantity"></span>
 

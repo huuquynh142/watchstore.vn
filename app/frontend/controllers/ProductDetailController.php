@@ -32,6 +32,7 @@ class ProductDetailController extends ControllerBase
                     Product::class.".discount" ,
                     Producer::class.".company_name" ,
                     ProductImage::class.".image",
+                    Product::class.".quantity",
                     ProductDetail::class.".shell_material" ,
                     ProductDetail::class.".wire_material" ,
                     ProductDetail::class.".guarantee" ,
@@ -64,6 +65,7 @@ class ProductDetailController extends ControllerBase
                 ProductDetail::class.".product_name" ,
                 Product::class.".id" ,
                 Product::class.".description_id",
+                Product::class.".quantity",
                 Product::class.".sale_price" ,
                 Product::class.".discount" ,
                 ProductImage::class.".image"

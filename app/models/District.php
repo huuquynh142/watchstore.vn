@@ -159,7 +159,7 @@ class District extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->setSchema("b4_22077174_huuquynh");
+        $this->setSchema("watches_online");
         $this->setSource("district");
     }
 
