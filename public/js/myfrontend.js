@@ -200,15 +200,21 @@ $(document).ready(function () {
     $(document).on('click','.js-qty .js-qty__adjust',function (){
         var id = $(this).closest('.js-qty').data('id');
         if( $(this).hasClass('js-qty__adjust--plus') ) {
+            var max = 0;
+            var maxquantity = $("#js-qty___quantity_" + id).data('id');
             var countInput  = $(this).parent().find(".js-qty__num");
             var count = countInput.val();
-            if(count < 10)
+            if (maxquantity > 10)
+                max = 10;
+            else
+                max = maxquantity;
+            if(count < max)
             {
                 var  value = parseInt( count ) + 1;
                 countInput.val(value );
                 updateCart(id , value);
             }else
-                alert('Mỗi sản phẩm chỉ được mua số lượng tối đa là 10 \n Vui lòng kiểm tra lại !')
+                alert('Số sản phẩm có thể mua tối đa là ' +max +' sản phẩm !')
 
         }else {
             var countInput  = $(this).parent().find(".js-qty__num");
@@ -250,7 +256,14 @@ $(document).ready(function () {
                 $('.cart-subtotal .money').text(data.totalCart);
                 window.location.reload();
             }else
-                alert('Xóa không thành công!');
+            {
+                if (data.code == 'empty')
+                    window.location.href =  'http://dev.huuquynh.com:1030/trang-chu';
+                else
+                    alert('Xóa không thành công!');
+
+            }
+
         });
     });
 
@@ -289,7 +302,7 @@ $(document).ready(function () {
                         window.location.href =  'http://dev.huuquynh.com:1030/trang-chu';
                     }
                     else
-                        jAlert('Đăng nhập không thành công . Vui lòng kiểm tra lại!');
+                        jAlert(data.message);
                 }});
             return false;
         }
