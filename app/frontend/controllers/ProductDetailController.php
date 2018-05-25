@@ -9,9 +9,11 @@ class ProductDetailController extends ControllerBase
     public function initialize()
     {
         $this->tag->setTitle("Chi tiết sản phẩm");
+        $this->session->set('action','product');
     }
 
     public function productDetailAction($id){
+        $this->id = $id;
         $product = Product::findFirst($id);
         $view = (int)$product->getView();
         $product->setView($view + 1);
@@ -57,8 +59,9 @@ class ProductDetailController extends ControllerBase
     public function relatedProductsAction(){
         $robots = Product::query()
             ->innerJoin(ProductDetail::class,Product::class.".product_detail_id =".ProductDetail::class.".id")
-            ->innerJoin(ProductImage::class,Product::class.".id =".ProductImage::class.".product_id")
-            ->orderBy(Product::class.".created_at DESC")
+            ->innerJoin(ProductImage::class,Product::class.".id =".ProductImage::class.".product_id");
+        $robots = $this->priceQuery($robots);
+        $robots = $robots->orderBy(Product::class.".view DESC")
             ->groupBy(Product::class.".id")
             ->limit(10)
             ->columns([
@@ -72,6 +75,32 @@ class ProductDetailController extends ControllerBase
             ])
             ->execute();
         $this->view->products = $robots;
+    }
+
+    protected function priceQuery($robots)
+    {
+        $product = Product::findFirst($this->id);
+        $price = $product->getSalePrice();
+        if ($price <= 5000000){
+            $robots = $robots->andWhere(Product::class . ".sale_price >= 0")
+                ->andWhere(Product::class . ".sale_price <= 5000000");
+        }
+        if($price > 5000000 && $price <= 10000000)
+        {
+            $robots = $robots->andWhere(Product::class . ".sale_price >= 5000000 ")
+                ->andWhere(Product::class . ".sale_price <= 10000000");
+        }
+        if($price > 10000000 && $price <= 20000000)
+        {
+            $robots = $robots->andWhere(Product::class . ".sale_price >= 10000000")
+                ->andWhere(Product::class . ".sale_price <= 20000000");
+        }
+        if($price > 20000000 && $price <= 1000000000)
+        {
+            $robots = $robots->andWhere(Product::class . ".sale_price >= 20000000")
+                ->andWhere(Product::class . ".sale_price <= 1000000000");
+        }
+        return $robots;
     }
 
 }
