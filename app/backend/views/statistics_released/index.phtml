@@ -1,0 +1,90 @@
+
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="widget-box ">
+
+            <div class="widget-content nopadding">
+                <div class="form-horizontal">
+                    <?php
+                    echo $this->tag->form(
+                        [
+                            "backend/statistics_released/index",
+                            "autocomplete" => "off",
+                            "class" => "form-horizontal"
+                        ]
+                    );
+                    ?>
+
+                    <div id="form-wizard-1" style="margin-top: 10px;padding-top: 10px" class="step">
+                        <div class="control-group span12">
+                            <div class="span5 m-wrap">
+                                <label style="padding-top: 14px;" class="span4 m-wrap" >Thống kê theo :</label>
+                                <div class="span2" style="padding: 10px 0">
+                                    <select name="type" class="form-select" >
+                                        <option value="1" <?= $currentType == 1 ? 'selected' : null ?> >Số lượng bán</option>
+                                        <option value="2" <?= $currentType == 2 ? 'selected' : null ?> >Doanh thu</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="span5 m-wrap">
+                                <label style="padding-top: 14px;" class="span2 m-wrap">Năm :</label>
+                                <div style="padding: 10px 0">
+                                    <select name="year" class="form-select">
+                                        <?php foreach ($year as $item){ ?>
+                                            <?php if ($item == $currentYear){ ?>
+                                                    <option value="<?= $item ?>" selected><?= $item ?></option>
+                                                <?php }else{ ?>
+                                                    <option value="<?= $item ?>"><?= $item ?></option>
+                                                <?php } ?>
+                                        <?php }?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="span2 m-wrap">
+                                <?php echo $this->tag->submitButton(["Xem", "class" => "btn btn-info" ,  "style" => "margin: 8%;float: right;padding: 5px 20px;border-radius: 4px;"]) ?>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="span12">
+
+                            </div>
+                        </div>
+                    </div>
+                    <?php echo $this->tag->endForm(); ?>
+                </div>
+            </div>
+        </div>
+        <div class="span12" style="text-align: center; margin-left: 0">
+            <div class="widget-title" style="margin-bottom: 20px;padding-bottom: 5px">
+                <h3 style="text-align: center;"><?= $title ?></h3>
+            </div>
+            <?php
+            //setup graph
+            $graph = new stdclass;
+            $graph->width = 800;
+            $graph->height = 500;
+            $graph->data= $statics;
+            $graph->setGradient = array('red', 'maroon');
+            $graph->setLegend = 'true';
+            $graph->setLegendTitle = $legendTitle;
+            //$graph->setTitle = 'Biểu đồ số lượng bán ra';
+            $graph->setTitleLocation = 'left';
+
+            //JSON encode graph object
+            $encoded = urlencode(json_encode($graph));
+
+            //retrieve XML
+            $target = 'http://www.ebrueggeman.com/phpgraphlib/api/?g=' . $encoded . '&type=xml';
+            $xml_object =  new SimpleXMLElement($target, NULL, TRUE);
+
+            //if there are no errors, display graph
+            if (empty($xml_object->error)) {
+                echo $xml_object->imageTag;
+            }
+            else {
+                echo 'There was an error generating the graph: '. $xml_object->error;
+            }
+            ?>
+        </div>
+    </div>
+
