@@ -1,4 +1,12 @@
 $(document).ready(function () {
+    updateShipper();
+    function updateShipper(){
+        $shipper = $("#updateshipper").val();
+        if ($shipper == 'updateShipper')
+            updateInfo();
+    }
+
+
     $(document).on('change', '#checkout_shipping_address_province', function () {
         $.getJSON('/frontend/CheckOuts/district/' + this.value, function (data) {
             if (data.code == 'success') {
