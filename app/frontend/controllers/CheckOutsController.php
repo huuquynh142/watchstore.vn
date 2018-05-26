@@ -16,25 +16,28 @@ class CheckOutsController extends ControllerBase
     public function customerInfoAction()
     {
         $member = '';
+        $updatePrice = '';
         if ($this->session->get('user_phone')){
             $phone = $this->session->get('user_phone');
             $member =  Member::findFirst("phone_number = '".$phone."'");
         }
-        $provinces_id = $member->getProvinceId();
         $this->session->set('checkProcess','customer');
         $this->view->member = $member;
         $this->view->setRenderLevel(View::LEVEL_LAYOUT);
         $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
-        $this->view->provinces = Province::find(array('order'=>'name ASC'));
-        $this->view->provinces_id = $provinces_id;
-        $this->view->district_id = $member->getDistrictId();
-        $district = District::query()
-            ->where(District::class.".provinceid =" . $provinces_id)
-            ->orderBy(District::class.".name ASC")
-            ->execute();
-        $this->view->districts = $district;
-        if ($member)
-            $this->view->updatePrice = "updateShipper";
+        if ($member){
+            $provinces_id = $member->getProvinceId();
+            $this->view->provinces = Province::find(array('order'=>'name ASC'));
+            $this->view->provinces_id = $provinces_id;
+            $this->view->district_id = $member->getDistrictId();
+            $district = District::query()
+                ->where(District::class.".provinceid =" . $provinces_id)
+                ->orderBy(District::class.".name ASC")
+                ->execute();
+            $this->view->districts = $district;
+            $updatePrice = "updateShipper";
+        }
+        $this->view->updatePrice = $updatePrice;
         $this->view->showCart =  $this->session->get('cart');
     }
 

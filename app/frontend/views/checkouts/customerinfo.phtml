@@ -21,7 +21,7 @@
                         <div class="fieldset">
                             <div class="field field--required field--show-floating-label">
 
-                                <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_phone">Phone number</label>
+                                <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_phone">Số điện thoại</label>
                                     <input placeholder="Số điện thoại" autocomplete="shipping tel" data-backup="phone" data-autofocus="true"  data-phone-formatter="true" class="field__input field__input--numeric" size="30" type="tel" value="<?= $member ? $member->phone_number : "" ?>" name="checkout_phone" id="checkout_shipping_address_phone">
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
 
-                <input value="<?= $updatePrice ? $updatePrice : "" ?>" style="display: none; visibility: hidden" id="updateshipper">
+                <input value="<?= $updatePrice ? $updatePrice : '' ?>" style="display: none; visibility: hidden" id="updateshipper">
                 <div class="section section--shipping-address" data-shipping-address="" data-update-order-summary="">
 
                     <div class="section__header">
