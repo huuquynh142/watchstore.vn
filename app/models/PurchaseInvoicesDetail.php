@@ -1,6 +1,6 @@
 <?php
 namespace App\Models;
-class SalesInvoiceDetail extends \Phalcon\Mvc\Model
+class PurchaseInvoicesDetail extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -17,28 +17,21 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
      * @var integer
      * @Column(type="integer", length=11, nullable=true)
      */
-    protected $sales_invoice_id;
-
-    /**
-     *
-     * @var integer
-     * @Column(type="integer", length=11, nullable=false)
-     */
-    protected $product_id;
+    protected $purchase_invoices_id;
 
     /**
      *
      * @var integer
      * @Column(type="integer", length=11, nullable=true)
      */
-    protected $quantity;
+    protected $product_id;
 
     /**
      *
-     * @var string
-     * @Column(type="string", nullable=true)
+     * @var integer
+     * @Column(type="integer", length=50, nullable=true)
      */
-    protected $discount;
+    protected $quantity;
 
     /**
      *
@@ -53,13 +46,6 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
      * @Column(type="string", length=100, nullable=true)
      */
     protected $total;
-
-    /**
-     *
-     * @var string
-     * @Column(type="string", length=500, nullable=true)
-     */
-    protected $comment;
 
     /**
      *
@@ -82,14 +68,14 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Method to set the value of field sales_invoice_id
+     * Method to set the value of field purchase_invoices_id
      *
-     * @param integer $sales_invoice_id
+     * @param integer $purchase_invoices_id
      * @return $this
      */
-    public function setSalesInvoiceId($sales_invoice_id)
+    public function setPurchaseInvoicesId($purchase_invoices_id)
     {
-        $this->sales_invoice_id = $sales_invoice_id;
+        $this->purchase_invoices_id = $purchase_invoices_id;
 
         return $this;
     }
@@ -121,19 +107,6 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Method to set the value of field discount
-     *
-     * @param string $discount
-     * @return $this
-     */
-    public function setDiscount($discount)
-    {
-        $this->discount = $discount;
-
-        return $this;
-    }
-
-    /**
      * Method to set the value of field price
      *
      * @param string $price
@@ -155,19 +128,6 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
     public function setTotal($total)
     {
         $this->total = $total;
-
-        return $this;
-    }
-
-    /**
-     * Method to set the value of field comment
-     *
-     * @param string $comment
-     * @return $this
-     */
-    public function setComment($comment)
-    {
-        $this->comment = $comment;
 
         return $this;
     }
@@ -196,13 +156,13 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field sales_invoice_id
+     * Returns the value of field purchase_invoices_id
      *
      * @return integer
      */
-    public function getSalesInvoiceId()
+    public function getPurchaseInvoicesId()
     {
-        return $this->sales_invoice_id;
+        return $this->purchase_invoices_id;
     }
 
     /**
@@ -226,16 +186,6 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field discount
-     *
-     * @return string
-     */
-    public function getDiscount()
-    {
-        return $this->discount;
-    }
-
-    /**
      * Returns the value of field price
      *
      * @return string
@@ -256,16 +206,6 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field comment
-     *
-     * @return string
-     */
-    public function getComment()
-    {
-        return $this->comment;
-    }
-
-    /**
      * Returns the value of field created_at
      *
      * @return string
@@ -281,7 +221,7 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
     public function initialize()
     {
         $this->setSchema("watches_online");
-        $this->setSource("sales_invoice_detail");
+        $this->setSource("purchase_invoices_detail");
     }
 
     /**
@@ -291,14 +231,14 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'sales_invoice_detail';
+        return 'purchase_invoices_detail';
     }
 
     /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return SalesInvoiceDetail[]|SalesInvoiceDetail|\Phalcon\Mvc\Model\ResultSetInterface
+     * @return PurchaseInvoicesDetail[]|PurchaseInvoicesDetail|\Phalcon\Mvc\Model\ResultSetInterface
      */
     public static function find($parameters = null)
     {
@@ -309,7 +249,7 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return SalesInvoiceDetail|\Phalcon\Mvc\Model\ResultInterface
+     * @return PurchaseInvoicesDetail|\Phalcon\Mvc\Model\ResultInterface
      */
     public static function findFirst($parameters = null)
     {
@@ -326,13 +266,11 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
     {
         return [
             'id' => 'id',
-            'sales_invoice_id' => 'sales_invoice_id',
+            'purchase_invoices_id' => 'purchase_invoices_id',
             'product_id' => 'product_id',
             'quantity' => 'quantity',
-            'discount' => 'discount',
             'price' => 'price',
             'total' => 'total',
-            'comment' => 'comment',
             'created_at' => 'created_at'
         ];
     }

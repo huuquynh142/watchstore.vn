@@ -1,0 +1,79 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="row" style="margin-left: 2%;">
+    <nav>
+        <ul class="pager">
+            <li class="previous"><?php echo $this->tag->linkTo(["backend/purchase_invoices/index", "Go Back"]) ?></li>
+        </ul>
+    </nav>
+</div>
+<?php echo $this->getContent(); ?>
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="widget-title">
+            <h3 style="text-align: center;">Thêm mới</h3>
+        </div>
+        <div class="widget-box">
+
+            <div class="widget-content nopadding">
+                <div class="form-horizontal">
+                    <?php
+                    echo $this->tag->form(
+                        [
+                            "backend/purchase_invoices/create",
+                            "autocomplete" => "off",
+                            "class" => "form-horizontal",
+                            "enctype" => "multipart/form-data"
+                        ]
+                    );
+                    ?>
+                    <div id="form-wizard-1" class="step">
+
+                        <div class="control-group">
+                            <label class="control-label">Producer :</label>
+                            <div class="controls">
+                                <select name="producer_id" id="producer_id" style="border-radius: 4px">
+                                    <?php foreach ($producer as $producers): ?>
+                                        <option value="<?php echo $producers->id ?>"><?php echo $producers->company_name ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Name Seller :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->textField(["name_seller", "size" => 30, "class" => "form-control", "id" => "fieldNameSeller"]) ?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Comment :</label>
+                            <div class="controls">
+                                <?php echo $this->tag->textField(["comment", "size" => 30, "class" => "form-control", "id" => "fieldComment"]) ?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="span12">
+                                <?php echo $this->tag->submitButton(["Save", "class" => "btn btn-default" ,  "style" => "float: right ;margin: 1%;"]) ?>
+                            </div>
+                        </div>
+
+                    </div>
+                    <?php echo $this->tag->endForm(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
