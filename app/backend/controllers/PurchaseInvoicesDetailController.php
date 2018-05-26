@@ -1,5 +1,7 @@
 <?php
 namespace Multiple\Backend\Controllers;
+use App\Models\Product;
+use App\Models\PurchaseInvoices;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 use App\Models\PurchaseInvoicesDetail;
@@ -10,42 +12,18 @@ class PurchaseInvoicesDetailController extends ControllerBase
     /**
      * Index action
      */
-    public function indexAction()
-    {
-        $this->persistent->parameters = null;
-    }
-
-    /**
-     * Searches for purchase_invoices_detail
-     */
-    public function searchAction()
+    public function indexAction($id)
     {
         $numberPage = 1;
-        if ($this->request->isPost()) {
-            $query = Criteria::fromInput($this->di, PurchaseInvoicesDetail::class, $_POST);
-            $this->persistent->parameters = $query->getParams();
-        } else {
-            $numberPage = $this->request->getQuery("page", "int");
-        }
-
-        $parameters = $this->persistent->parameters;
-        if (!is_array($parameters)) {
-            $parameters = [];
-        }
-        $parameters["order"] = "id";
-
-        $purchase_invoices_detail = PurchaseInvoicesDetail::find($parameters);
-        if (count($purchase_invoices_detail) == 0) {
-            $this->flash->notice("The search did not find any purchase_invoices_detail");
-
-            $this->dispatcher->forward([
-                "controller" => "purchase_invoices_detail",
-                "action" => "index"
-            ]);
-
-            return;
-        }
-
+        $numberPage = $this->request->getQuery("page", "int");
+        $purchase_invoices_detail = PurchaseInvoicesDetail::query()
+            ->where(PurchaseInvoicesDetail::class.".purchase_invoices_id = " . $id."")
+            ->columns([PurchaseInvoicesDetail::class.".quantity" ,
+                PurchaseInvoicesDetail::class.".price" ,
+                PurchaseInvoicesDetail::class.".id" ,
+                PurchaseInvoicesDetail::class.".total",
+            ])
+            ->execute();
         $paginator = new Paginator([
             'data' => $purchase_invoices_detail,
             'limit'=> 10,
@@ -58,9 +36,9 @@ class PurchaseInvoicesDetailController extends ControllerBase
     /**
      * Displays the creation form
      */
-    public function newAction()
+    public function newAction($id)
     {
-
+        $this->view->id = $id;
     }
 
     /**
@@ -85,14 +63,11 @@ class PurchaseInvoicesDetailController extends ControllerBase
             }
 
             $this->view->id = $purchase_invoices_detail->id;
-
+            $this->view->purchase_invoices_id = $purchase_invoices_detail->purchase_invoices_id;
             $this->tag->setDefault("id", $purchase_invoices_detail->id);
-            $this->tag->setDefault("purchase_invoices_id", $purchase_invoices_detail->purchase_invoices_id);
             $this->tag->setDefault("product_id", $purchase_invoices_detail->product_id);
             $this->tag->setDefault("quantity", $purchase_invoices_detail->quantity);
             $this->tag->setDefault("price", $purchase_invoices_detail->price);
-            $this->tag->setDefault("total", $purchase_invoices_detail->total);
-            $this->tag->setDefault("created_at", $purchase_invoices_detail->created_at);
             
         }
     }
@@ -110,16 +85,20 @@ class PurchaseInvoicesDetailController extends ControllerBase
 
             return;
         }
-
+        $quantity = $this->request->getPost("quantity");
+        $price = $this->request->getPost("price");
+        $total = $quantity * $price;
+        $purchaseInvoicesId = $this->request->getPost("purchase_invoices_id");
         $purchase_invoices_detail = new PurchaseInvoicesDetail();
-        $purchase_invoices_detail->purchaseInvoicesId = $this->request->getPost("purchase_invoices_id");
+        $purchase_invoices_detail->purchaseInvoicesId = $purchaseInvoicesId;
         $purchase_invoices_detail->productId = $this->request->getPost("product_id");
-        $purchase_invoices_detail->quantity = $this->request->getPost("quantity");
-        $purchase_invoices_detail->price = $this->request->getPost("price");
-        $purchase_invoices_detail->total = $this->request->getPost("total");
-        $purchase_invoices_detail->createdAt = $this->request->getPost("created_at");
-        
+        $purchase_invoices_detail->quantity = $quantity;
+        $purchase_invoices_detail->price = $price;
+        $purchase_invoices_detail->total = $total;
 
+        $purchase_invoice = PurchaseInvoices::findFirstByid($purchaseInvoicesId);
+        $purchase_invoice->total = $purchase_invoice->total + $total;
+        $purchase_invoice->save();
         if (!$purchase_invoices_detail->save()) {
             foreach ($purchase_invoices_detail->getMessages() as $message) {
                 $this->flash->error($message);
@@ -136,7 +115,7 @@ class PurchaseInvoicesDetailController extends ControllerBase
         $this->flash->success("purchase_invoices_detail was created successfully");
 
         $this->dispatcher->forward([
-            'controller' => "purchase_invoices_detail",
+            'controller' => "purchase_invoices",
             'action' => 'index'
         ]);
     }
@@ -170,15 +149,25 @@ class PurchaseInvoicesDetailController extends ControllerBase
 
             return;
         }
+        $quantity = $this->request->getPost("quantity");
+        $price = $this->request->getPost("price");
+        $total = $quantity * $price;
+        $total_old = $purchase_invoices_detail->quantity * $purchase_invoices_detail->price;
+        $purchaseInvoicesId = $this->request->getPost("purchase_invoices_id");
+        $purchase_invoice = PurchaseInvoices::findFirstByid($purchaseInvoicesId);
+        $purchase_invoice->total = $purchase_invoice->total - $total_old;
+        $purchase_invoice->save();
 
-        $purchase_invoices_detail->purchaseInvoicesId = $this->request->getPost("purchase_invoices_id");
+
+        $purchase_invoices_detail->purchaseInvoicesId = $purchaseInvoicesId;
         $purchase_invoices_detail->productId = $this->request->getPost("product_id");
-        $purchase_invoices_detail->quantity = $this->request->getPost("quantity");
-        $purchase_invoices_detail->price = $this->request->getPost("price");
-        $purchase_invoices_detail->total = $this->request->getPost("total");
-        $purchase_invoices_detail->createdAt = $this->request->getPost("created_at");
-        
+        $purchase_invoices_detail->quantity = $quantity;
+        $purchase_invoices_detail->price = $price;
+        $purchase_invoices_detail->total = $total;
 
+
+        $purchase_invoice->total = $purchase_invoice->total + $total;
+        $purchase_invoice->save();
         if (!$purchase_invoices_detail->save()) {
 
             foreach ($purchase_invoices_detail->getMessages() as $message) {
@@ -198,7 +187,8 @@ class PurchaseInvoicesDetailController extends ControllerBase
 
         $this->dispatcher->forward([
             'controller' => "purchase_invoices_detail",
-            'action' => 'index'
+            'action' => 'index',
+            'params' => [$purchaseInvoicesId]
         ]);
     }
 
@@ -210,6 +200,11 @@ class PurchaseInvoicesDetailController extends ControllerBase
     public function deleteAction($id)
     {
         $purchase_invoices_detail = PurchaseInvoicesDetail::findFirstByid($id);
+        $total_old = $purchase_invoices_detail->quantity * $purchase_invoices_detail->price;
+        $purchaseInvoicesId = $purchase_invoices_detail->purchaseInvoicesId;
+        $purchase_invoice = PurchaseInvoices::findFirstByid($purchaseInvoicesId);
+        $purchase_invoice->total = $purchase_invoice->total - $total_old;
+        $purchase_invoice->save();
         if (!$purchase_invoices_detail) {
             $this->flash->error("purchase_invoices_detail was not found");
 
@@ -239,7 +234,8 @@ class PurchaseInvoicesDetailController extends ControllerBase
 
         $this->dispatcher->forward([
             'controller' => "purchase_invoices_detail",
-            'action' => "index"
+            'action' => "index",
+            'params' => [$purchaseInvoicesId]
         ]);
     }
 
