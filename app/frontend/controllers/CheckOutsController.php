@@ -7,6 +7,9 @@ use App\Models\Province;
 use App\Models\SalesInvoice;
 use App\Models\SalesInvoiceDetail;
 use Phalcon\Mvc\View;
+use App\Library\PHPMailer as PHPMailer;
+use App\Library\SMTP;
+use App\Library\POP3;
 
 class CheckOutsController extends ControllerBase
 {
@@ -127,6 +130,19 @@ class CheckOutsController extends ControllerBase
             $this->view->setRenderLevel(View::LEVEL_LAYOUT);
             $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
             $this->view->showCart =  $this->session->get('cart');
+            if ($invoice->getEmail()){
+                $title = 'Thông tin đặt hàng';
+                $content = '<h3>Bạn đã đặt hàng thành công . Cảm ơn đã sử dụng dịch vụ của bestWatches </h3>';
+                //test gui mail
+                $mail = $this->sendMail($content , $title);
+                if($mail==1){
+                    print_r("Mail đã được gửi vào hộp thư của bạn . Vui lòng kiểm tra hộp thư mail");
+                    die();
+                }else{
+                    print_r("thất bại");
+                    die();
+            }
+            }
         }
     }
 
@@ -171,4 +187,31 @@ class CheckOutsController extends ControllerBase
         ));
     }
 
+
+    function sendMail($content, $nTo){
+        $nFrom = 'BestWatches';
+        $mFrom = 'huuquynh142@gmail.com';
+        $mPass = 'hq14121996';
+        $mail             = new PHPMailer();
+        $body             = $content;
+        $mail->IsSMTP();
+        $mail->CharSet   = "utf-8";
+        $mail->SMTPDebug  = 0;
+        $mail->SMTPAuth   = true;
+        $mail->SMTPSecure = "tls";
+        $mail->Host       = "smtp.gmail.com";
+    $mail->Port       = 587;
+    $mail->Username   = $mFrom;
+    $mail->Password   = $mPass;
+    $mail->SetFrom($mFrom, $nFrom);
+    $mail->Subject    = 'Thông báo đặt hàng';
+    $mail->MsgHTML($body);
+    $mail->AddAddress($nTo);
+    $mail->AddReplyTo('huuquynh142@gmail.com', 'bestWatches');
+    if(!$mail->Send()) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
 }

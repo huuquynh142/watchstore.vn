@@ -1,0 +1,77 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+<?php echo $this->getContent(); ?>
+<div class="row-fluid" style="margin-left: 10%">
+    <div class="span9">
+        <div class="widget-title">
+            <h3 style="text-align: center;">Thông tin chi tiết</h3>
+        </div>
+        <div class="widget-box">
+
+            <div class="widget-content nopadding">
+                <?php
+                echo $this->tag->form(
+                    [
+                        "backend/purchase_invoices/save",
+                        "autocomplete" => "off",
+                        "class" => "form-horizontal",
+                        "id" => 'purchase_invoices_edit',
+                        "enctype" => "multipart/form-data"
+                    ]
+                );
+                ?>
+                <div id="form-wizard-1" class="step">
+
+                    <div class="control-group">
+                        <label class="control-label">Id :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["id" , 'readonly' => 'true' , "size" => 30, "class" => "form-control"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Producer Name :</label>
+                        <div class="controls">
+                            <select name="producer_id" id="producer_id" style="border-radius: 4px">
+                                <?php foreach ($producer as $producers): ?>
+                                    <?php if ($producers->id == $producer_id){ ?>
+                                        <option value="<?php echo $producers->id ?>" selected><?php echo $producers->company_name ?></option>
+                                    <?php }else{ ?>
+                                        <option value="<?php echo $producers->id ?>"><?php echo $producers->company_name ?></option>
+                                    <?php } ?>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Name Seller :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["name_seller", "size" => 30, "class" => "form-control", "id" => "fieldNameSeller"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Comment :</label>
+                        <div class="controls">
+                            <?php echo $this->tag->textField(["comment", "size" => 30, "class" => "form-control", "id" => "fieldComment"]) ?>
+                        </div>
+                    </div>
+                </div>
+                <?php echo $this->tag->endForm(); ?>
+                <div class="control-group" style="margin-top: 6% ; margin-right: 2%">
+                    <label class="control-label"></label>
+                    <div class="controls" style="float: right; margin-top: -5%;">
+                        <button form="purchase_invoices_edit" class="btn btn-success icon-ok"><span class="glyphicon glyphicon-remove-circle"></span> Save and List</button>
+                        <?php echo $this->tag->linkTo(["backend/purchase_invoices/index", '<button class="btn btn-info icon-list "><span class="glyphicon glyphicon-remove-circle"></span> List</button>']); ?>
+                        <?php echo $this->tag->linkTo(["backend/purchase_invoices/delete/" . $id, '<button class="btn btn-danger icon-remove "><span class="glyphicon glyphicon-remove-circle"></span> Delete</button>']); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
