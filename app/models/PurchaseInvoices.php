@@ -1,6 +1,6 @@
 <?php
 namespace App\Models;
-class SalesInvoiceDetail extends \Phalcon\Mvc\Model
+class PurchaseInvoices extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -17,35 +17,21 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
      * @var integer
      * @Column(type="integer", length=11, nullable=true)
      */
-    protected $sales_invoice_id;
-
-    /**
-     *
-     * @var integer
-     * @Column(type="integer", length=11, nullable=false)
-     */
-    protected $product_id;
+    protected $producer_id;
 
     /**
      *
      * @var integer
      * @Column(type="integer", length=11, nullable=true)
      */
-    protected $quantity;
-
-    /**
-     *
-     * @var string
-     * @Column(type="string", nullable=true)
-     */
-    protected $discount;
+    protected $user_id;
 
     /**
      *
      * @var string
      * @Column(type="string", length=100, nullable=true)
      */
-    protected $price;
+    protected $name_seller;
 
     /**
      *
@@ -69,6 +55,13 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
     protected $created_at;
 
     /**
+     *
+     * @var string
+     * @Column(type="string", nullable=true)
+     */
+    protected $updated_at;
+
+    /**
      * Method to set the value of field id
      *
      * @param integer $id
@@ -82,66 +75,40 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Method to set the value of field sales_invoice_id
+     * Method to set the value of field producer_id
      *
-     * @param integer $sales_invoice_id
+     * @param integer $producer_id
      * @return $this
      */
-    public function setSalesInvoiceId($sales_invoice_id)
+    public function setProducerId($producer_id)
     {
-        $this->sales_invoice_id = $sales_invoice_id;
+        $this->producer_id = $producer_id;
 
         return $this;
     }
 
     /**
-     * Method to set the value of field product_id
+     * Method to set the value of field user_id
      *
-     * @param integer $product_id
+     * @param integer $user_id
      * @return $this
      */
-    public function setProductId($product_id)
+    public function setUserId($user_id)
     {
-        $this->product_id = $product_id;
+        $this->user_id = $user_id;
 
         return $this;
     }
 
     /**
-     * Method to set the value of field quantity
+     * Method to set the value of field name_seller
      *
-     * @param integer $quantity
+     * @param string $name_seller
      * @return $this
      */
-    public function setQuantity($quantity)
+    public function setNameSeller($name_seller)
     {
-        $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    /**
-     * Method to set the value of field discount
-     *
-     * @param string $discount
-     * @return $this
-     */
-    public function setDiscount($discount)
-    {
-        $this->discount = $discount;
-
-        return $this;
-    }
-
-    /**
-     * Method to set the value of field price
-     *
-     * @param string $price
-     * @return $this
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
+        $this->name_seller = $name_seller;
 
         return $this;
     }
@@ -186,6 +153,19 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Method to set the value of field updated_at
+     *
+     * @param string $updated_at
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
      * Returns the value of field id
      *
      * @return integer
@@ -196,53 +176,33 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field sales_invoice_id
+     * Returns the value of field producer_id
      *
      * @return integer
      */
-    public function getSalesInvoiceId()
+    public function getProducerId()
     {
-        return $this->sales_invoice_id;
+        return $this->producer_id;
     }
 
     /**
-     * Returns the value of field product_id
+     * Returns the value of field user_id
      *
      * @return integer
      */
-    public function getProductId()
+    public function getUserId()
     {
-        return $this->product_id;
+        return $this->user_id;
     }
 
     /**
-     * Returns the value of field quantity
-     *
-     * @return integer
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
-
-    /**
-     * Returns the value of field discount
+     * Returns the value of field name_seller
      *
      * @return string
      */
-    public function getDiscount()
+    public function getNameSeller()
     {
-        return $this->discount;
-    }
-
-    /**
-     * Returns the value of field price
-     *
-     * @return string
-     */
-    public function getPrice()
-    {
-        return $this->price;
+        return $this->name_seller;
     }
 
     /**
@@ -276,12 +236,22 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Returns the value of field updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
      * Initialize method for model.
      */
     public function initialize()
     {
         $this->setSchema("watches_online");
-        $this->setSource("sales_invoice_detail");
+        $this->setSource("purchase_invoices");
     }
 
     /**
@@ -291,14 +261,14 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'sales_invoice_detail';
+        return 'purchase_invoices';
     }
 
     /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return SalesInvoiceDetail[]|SalesInvoiceDetail|\Phalcon\Mvc\Model\ResultSetInterface
+     * @return PurchaseInvoices[]|PurchaseInvoices|\Phalcon\Mvc\Model\ResultSetInterface
      */
     public static function find($parameters = null)
     {
@@ -309,7 +279,7 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return SalesInvoiceDetail|\Phalcon\Mvc\Model\ResultInterface
+     * @return PurchaseInvoices|\Phalcon\Mvc\Model\ResultInterface
      */
     public static function findFirst($parameters = null)
     {
@@ -326,14 +296,13 @@ class SalesInvoiceDetail extends \Phalcon\Mvc\Model
     {
         return [
             'id' => 'id',
-            'sales_invoice_id' => 'sales_invoice_id',
-            'product_id' => 'product_id',
-            'quantity' => 'quantity',
-            'discount' => 'discount',
-            'price' => 'price',
+            'producer_id' => 'producer_id',
+            'user_id' => 'user_id',
+            'name_seller' => 'name_seller',
             'total' => 'total',
             'comment' => 'comment',
-            'created_at' => 'created_at'
+            'created_at' => 'created_at',
+            'updated_at' => 'updated_at'
         ];
     }
 
