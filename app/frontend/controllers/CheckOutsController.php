@@ -20,11 +20,21 @@ class CheckOutsController extends ControllerBase
             $phone = $this->session->get('user_phone');
             $member =  Member::findFirst("phone_number = '".$phone."'");
         }
+        $provinces_id = $member->getProvinceId();
         $this->session->set('checkProcess','customer');
         $this->view->member = $member;
         $this->view->setRenderLevel(View::LEVEL_LAYOUT);
         $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
         $this->view->provinces = Province::find(array('order'=>'name ASC'));
+        $this->view->provinces_id = $provinces_id;
+        $this->view->district_id = $member->getDistrictId();
+        $district = District::query()
+            ->where(District::class.".provinceid =" . $provinces_id)
+            ->orderBy(District::class.".name ASC")
+            ->execute();
+        $this->view->districts = $district;
+        if ($member)
+            $this->view->updatePrice = "updateShipper";
         $this->view->showCart =  $this->session->get('cart');
     }
 
@@ -130,19 +140,19 @@ class CheckOutsController extends ControllerBase
             $this->view->setRenderLevel(View::LEVEL_LAYOUT);
             $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
             $this->view->showCart =  $this->session->get('cart');
-            if ($invoice->getEmail()){
-                $title = 'Thông tin đặt hàng';
-                $content = '<h3>Bạn đã đặt hàng thành công . Cảm ơn đã sử dụng dịch vụ của bestWatches </h3>';
-                //test gui mail
-                $mail = $this->sendMail($content , $title);
-                if($mail==1){
-                    print_r("Mail đã được gửi vào hộp thư của bạn . Vui lòng kiểm tra hộp thư mail");
-                    die();
-                }else{
-                    print_r("thất bại");
-                    die();
-            }
-            }
+//            if ($invoice->getEmail()){
+//                $title = 'Thông tin đặt hàng';
+//                $content = '<h3>Bạn đã đặt hàng thành công . Cảm ơn đã sử dụng dịch vụ của bestWatches </h3>';
+//                //test gui mail
+//                $mail = $this->sendMail($content , $title);
+//                if($mail==1){
+//                    print_r("Mail đã được gửi vào hộp thư của bạn . Vui lòng kiểm tra hộp thư mail");
+//                    die();
+//                }else{
+//                    print_r("thất bại");
+//                    die();
+//            }
+//            }
         }
     }
 
