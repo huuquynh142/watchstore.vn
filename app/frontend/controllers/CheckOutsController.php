@@ -25,9 +25,9 @@ class CheckOutsController extends ControllerBase
         $this->view->member = $member;
         $this->view->setRenderLevel(View::LEVEL_LAYOUT);
         $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
+        $this->view->provinces = Province::find(array('order'=>'name ASC'));
         if ($member){
             $provinces_id = $member->getProvinceId();
-            $this->view->provinces = Province::find(array('order'=>'name ASC'));
             $this->view->provinces_id = $provinces_id;
             $this->view->district_id = $member->getDistrictId();
             $district = District::query()
@@ -110,18 +110,29 @@ class CheckOutsController extends ControllerBase
         $this->view->provinces = Province::find(array('order'=>'name ASC'));
         $this->view->showCart =  $this->session->get('cart');
         $this->view->id = $id;
+        $this->session->set('bill_id', $id);
         $this->view->phone =  $invoice->getPhone();
         $this->view->price =  $invoice->getTotal();
     }
 
     public function confirmAction(){
-        if($_POST["checkout"]){
+//        if($_POST["checkout"]){
+            $saleId = 0;
+            $payMethodId = 1;
             $this->session->set('checkProcess','confirm');
             $checkout = $_POST["checkout"];
            $paymethod = $checkout["different_billing_address"];
            $id = $checkout["invoice"];
-           $invoice = SalesInvoice::findFirst($id);
-           $invoice->setPayMethodId($paymethod);
+           if ($id)
+               $saleId = $id;
+           else
+               $saleId = $this->session->get('bill_id');
+           if ($paymethod)
+               $payMethodId = $paymethod;
+           else
+               $payMethodId = $this->session->get('pay_method');
+           $invoice = SalesInvoice::findFirst($saleId);
+           $invoice->setPayMethodId($payMethodId);
            $invoice->save();
 
            $robots = SalesInvoice::query()
@@ -157,12 +168,14 @@ class CheckOutsController extends ControllerBase
 //            }
 //            }
         }
-    }
+//    }
 
     public function clearnsessionAction(){
         $this->session->remove('cart');
         $this->session->remove('countCart');
         $this->session->remove('totalCart');
+        $this->session->remove('bill_id');
+        $this->session->remove('pay_method');
     }
 
     public function districtAction($provinceid){

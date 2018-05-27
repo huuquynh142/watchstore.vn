@@ -243,7 +243,13 @@ $(document).ready(function () {
                 $('#CartCost').text(data.totalCart);
                 $('.cart-subtotal .money').text(data.totalCart);
             }else
-                alert('Xóa không thành công!');
+            {
+                if (data.code == 'empty')
+                    window.location.href =  'http://dev.huuquynh.com:1030/trang-chu';
+                else
+                    alert('Xóa không thành công!');
+
+            }
         });
     });
 

@@ -81,7 +81,7 @@
                     </div>
 <!--                    <h5 class="brand" itemprop="brand"><a href="https://ap-best-store.myshopify.com/collections/vendors?q=Apple%2C%20Shopify" title="">Apple, Shopify</a></h5>-->
                         <div id="product-add">
-                            <div class="qty-adder qty-adder408538376 pull-left">
+                            <div class="qty-adder qty-adder408538376 pull-left" data-id="<?= $productDetail[0]->id ?>">
                                 <div class="quantity-number pull-left">
                                     <a href="javascript:void(0)" title=""><span class="add-down add-action">-</span></a>
                                     <input class="quantity_<?= $productDetail[0]->id ?>" id="quantity" type="text" name="quantity" size="2" value="1">
@@ -264,9 +264,9 @@
 
             $('.single-option-selector:eq(1)').val("Red").trigger('change');
 
-
-
             $(".qty-adder408538376 .add-action").click( function(){
+                var id = $(this).closest('.qty-adder').data('id');
+                console.log(id);
                 if( $(this).hasClass('add-up') ) {
                     var max = 0;
                     var maxquantity = $("#product_quantity_" + id).data('id');
@@ -274,6 +274,7 @@
                         max = 10;
                     else
                         max = maxquantity;
+
                     if( parseInt($("[name=quantity]",'.qty-adder408538376').val())  < max ) {
                         $("[name=quantity]",'.qty-adder408538376').val( parseInt($("[name=quantity]",'.qty-adder408538376').val()) + 1 );
                     }
@@ -284,6 +285,7 @@
                     }
                 }
             });
+
         });
     </script>
 
