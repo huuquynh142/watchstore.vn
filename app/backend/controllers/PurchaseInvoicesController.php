@@ -1,6 +1,7 @@
 <?php
 namespace Multiple\Backend\Controllers;
 use App\Models\Producer;
+use App\Models\PurchaseInvoicesDetail;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 use App\Models\PurchaseInvoices;
@@ -107,8 +108,8 @@ class PurchaseInvoicesController extends ControllerBase
         $purchase_invoice->producerId = $this->request->getPost("producer_id");
         $purchase_invoice->nameSeller = $this->request->getPost("name_seller");
         $purchase_invoice->comment = $this->request->getPost("comment");
-        
-
+        if ($this->session->has('useId'))
+            $purchase_invoice->userId = $this->session->get('useId');
         if (!$purchase_invoice->save()) {
             foreach ($purchase_invoice->getMessages() as $message) {
                 $this->flash->error($message);
@@ -163,6 +164,8 @@ class PurchaseInvoicesController extends ControllerBase
         $purchase_invoice->producerId = $this->request->getPost("producer_id");
         $purchase_invoice->nameSeller = $this->request->getPost("name_seller");
         $purchase_invoice->comment = $this->request->getPost("comment");
+        if ($this->session->has('useId'))
+            $purchase_invoice->userId = $this->session->get('useId');
         
 
         if (!$purchase_invoice->save()) {
@@ -206,6 +209,12 @@ class PurchaseInvoicesController extends ControllerBase
 
             return;
         }
+        $this->modelsManager->createBuilder()
+            ->from(PurchaseInvoicesDetail::class)
+            ->where(PurchaseInvoicesDetail::class.".purchase_invoices_id=".$purchase_invoice->id)
+            ->getQuery()
+            ->execute()
+            ->delete();
 
         if (!$purchase_invoice->delete()) {
 
