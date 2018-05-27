@@ -130,7 +130,7 @@ $(document).ready(function () {
         var id = $(this).data('id');
         var phone = $(this).data('phone');
         var price = $(this).data('price')
-        window.open('/frontend/payment/onePayRequest/' + id + '/' + phone + '/' + price , '_blank');
+        window.open('/frontend/payment/onePayRequest/' + id + '/' + phone + '/' + price ,'_self');
     });
 
     $(document).on('click','#btnfinit',function () {

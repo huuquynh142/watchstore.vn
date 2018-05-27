@@ -8,7 +8,7 @@ class ShopCartController extends ControllerBase
 {
 
     public function indexAction(){
-        if (!$this->session->has('cart'))
+        if (!$this->session->get('countCart'))
             return $this->response->redirect(array('for' => "trang-chu"));
         $this->session->remove('price_shipper');
        $this->view->showCart =  $this->session->get('cart');
@@ -96,6 +96,7 @@ class ShopCartController extends ControllerBase
         }
         return json_encode(array('code'=>'fail'));
     }
+
 
     public function totalCart(){
         $count = 0;
