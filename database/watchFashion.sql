@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `credential` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8;
 
--- Dumping data for table watches_online.credential: ~2 rows (approximately)
+-- Dumping data for table watches_online.credential: ~3 rows (approximately)
 DELETE FROM `credential`;
 /*!40000 ALTER TABLE `credential` DISABLE KEYS */;
 INSERT INTO `credential` (`id`, `name`) VALUES
@@ -763,13 +763,13 @@ CREATE TABLE IF NOT EXISTS `member` (
   `address` varchar(200) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=utf8;
 
--- Dumping data for table watches_online.member: ~9 rows (approximately)
+-- Dumping data for table watches_online.member: ~20 rows (approximately)
 DELETE FROM `member`;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
 INSERT INTO `member` (`id`, `fullname`, `phone_number`, `email`, `password`, `number_hits`, `province_id`, `district_id`, `address`, `created_at`) VALUES
-	(101, 'Nguyễn Hữu Quỳnh', '01672729181', 'huuquynh142@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 0, 95, 956, 'test', '2018-04-13 02:59:01'),
+	(101, 'Nguyễn Hữu Quỳnh', '01672729181', 'huuquynh142@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 6, 'test', '2018-04-13 02:59:01'),
 	(104, 'Nguyễn Hữu Quỳnh', '01672729182', NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 0, 0, 'Hà Nội', '2018-05-01 01:31:29'),
 	(105, 'Test', '01687524169', NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 0, 0, 'Hà Nội', '2018-05-01 01:34:10'),
 	(106, 'Nguyễn Hữu Quỳnh', '01576352415', '', NULL, 0, 6, 1, 'test cai ', '2018-05-10 09:46:12'),
@@ -782,7 +782,13 @@ INSERT INTO `member` (`id`, `fullname`, `phone_number`, `email`, `password`, `nu
 	(116, 'Nguyễn Hoàn Linh', '01685745219', '', NULL, 0, 52, 546, 'abc', '2018-05-20 18:35:40'),
 	(117, 'Nguyễn Hữu Quỳnh', '01634423581', 'tuansaaaaaaa@mail.com', NULL, 0, 1, 5, '95 cầu giấy', '2018-05-20 20:49:04'),
 	(118, 'tesst', '01687529683', '', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 6, 'trường chinh', '2018-05-20 20:51:36'),
-	(119, 'nhàn nguyễn', '0988315805', NULL, 'd7f6163b67079ca3c94d659d9158afe4', 0, 27, 258, 'dfsgd', '2018-05-20 21:59:15');
+	(119, 'nhàn nguyễn', '0988315805', NULL, 'd7f6163b67079ca3c94d659d9158afe4', 0, 27, 258, 'dfsgd', '2018-05-20 21:59:15'),
+	(120, 'Nguyễn Hữu Quỳnh', '01698675249', 'quynhnh@dichung.vn', NULL, 0, 1, 6, 'test', '2018-05-25 17:05:01'),
+	(121, 'Nguyễn Mai Linh', '01685375249', 'quynhnh@dichung.vn', NULL, 0, 1, 6, 'đường láng', '2018-05-25 17:15:02'),
+	(122, 'Nguyễn Hữu Quỳnh', '01685596857', 'quynhnh@dichung.vn', NULL, 0, 52, 546, 'test', '2018-05-25 19:01:11'),
+	(123, 'Phan Đức Ninh', '01685532415', '', NULL, 0, 96, 970, 'test', '2018-05-27 11:27:34'),
+	(124, 'Nguyễn Văn Lâm', '01587542519', '', NULL, 0, 2, 26, 'test', '2018-05-27 12:12:49'),
+	(125, 'Phùng Văn Quang', '01677754219', '', NULL, 0, 1, 5, 'cầu giấy', '2018-05-27 12:13:38');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 
 -- Dumping structure for table watches_online.producer
@@ -825,23 +831,23 @@ CREATE TABLE IF NOT EXISTS `product` (
   `hot` tinyint(4) DEFAULT '0',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table watches_online.product: ~14 rows (approximately)
 DELETE FROM `product`;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
 INSERT INTO `product` (`id`, `producer_id`, `description_id`, `product_detail_id`, `quantity`, `import_price`, `sale_price`, `discount`, `view`, `hot`, `created_at`) VALUES
-	(100, 103, 'AT-61756.43.61G', 100, 50, '20000000', '25750000', 10, 55, 0, '2018-01-28 12:54:09'),
-	(101, 103, 'AT-64751.45.31', 101, 98, '23000000', '26350000', 0, 15, 0, '2018-01-28 13:01:52'),
-	(102, 103, 'AT-50354.45.21', 102, 99, '10000000', '13980000', 0, 29, 0, '2018-01-28 13:07:05'),
+	(100, 103, 'AT-61756.43.61G', 100, 50, '20000000', '25750000', 10, 58, 0, '2018-01-28 12:54:09'),
+	(101, 103, 'AT-64751.45.31', 101, 98, '23000000', '26350000', 0, 30, 0, '2018-01-28 13:01:52'),
+	(102, 103, 'AT-50354.45.21', 102, 88, '10000000', '13980000', 0, 30, 0, '2018-01-28 13:07:05'),
 	(103, 103, 'AT-20347.45.21', 103, 99, '6000000', '9780000', 0, 0, 0, '2018-01-28 13:12:03'),
 	(104, 102, 'ST-213T.333X2', 104, 99, '230000000', '255000000', 0, 8, 0, '2018-01-28 13:19:19'),
-	(105, 102, 'ST-536.333X2', 105, 64, '80000000', '86000000', 0, 20, 0, '2018-01-28 13:27:06'),
-	(106, 101, 'CA-MTP-1169G-9ARDF', 106, 100, '1000000', '1328000', 10, 17, 0, '2018-01-28 13:32:45'),
-	(107, 101, 'CA- EQB-510DC-1ADR', 107, 99, '14500000', '16403000', 0, 8, 0, '2018-01-28 13:36:51'),
-	(108, 101, 'CA-SHE-4023DP-7ADR', 108, 100, '3500000', '4365000', 0, 26, 0, '2018-01-28 13:39:43'),
-	(109, 101, 'CA-LTP-1237D-7ADF', 109, 86, '950000', '1080000', 0, 61, 0, '2018-01-28 13:42:49'),
-	(110, 101, 'CA-LTP-1275D-1ADF', 110, 98, '600000', '878000', 0, 46, 0, '2018-01-28 13:45:28'),
+	(105, 102, 'ST-536.333X2', 105, 64, '80000000', '86000000', 0, 21, 0, '2018-01-28 13:27:06'),
+	(106, 101, 'CA-MTP-1169G-9ARDF', 106, 100, '1000000', '1328000', 10, 18, 0, '2018-01-28 13:32:45'),
+	(107, 101, 'CA- EQB-510DC-1ADR', 107, 99, '14500000', '16403000', 0, 9, 0, '2018-01-28 13:36:51'),
+	(108, 101, 'CA-SHE-4023DP-7ADR', 108, 99, '3500000', '4365000', 0, 30, 0, '2018-01-28 13:39:43'),
+	(109, 101, 'CA-LTP-1237D-7ADF', 109, 82, '950000', '1080000', 0, 75, 0, '2018-01-28 13:42:49'),
+	(110, 101, 'CA-LTP-1275D-1ADF', 110, 96, '600000', '878000', 0, 47, 0, '2018-01-28 13:45:28'),
 	(111, 100, 'E-3437.132.22.18.27', 111, 98, '30000000', '33300000', 0, 22, 0, '2018-01-28 13:49:24'),
 	(112, 100, 'E-3420.132.22.18.27', 112, 100, '36500000', '39700000', 10, 10, 0, '2018-01-28 13:52:25'),
 	(113, 100, 'E-8000.700.22.65.15', 113, 100, '13000000', '15000000', 0, 62, 0, '2018-01-28 13:55:59');
@@ -856,7 +862,7 @@ CREATE TABLE IF NOT EXISTS `product_credential` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8;
 
--- Dumping data for table watches_online.product_credential: ~49 rows (approximately)
+-- Dumping data for table watches_online.product_credential: ~52 rows (approximately)
 DELETE FROM `product_credential`;
 /*!40000 ALTER TABLE `product_credential` DISABLE KEYS */;
 INSERT INTO `product_credential` (`id`, `product_id`, `product_type_id`) VALUES
@@ -930,7 +936,7 @@ CREATE TABLE IF NOT EXISTS `product_detail` (
   `motor` varchar(200) DEFAULT NULL COMMENT 'động cơ',
   `comment` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table watches_online.product_detail: ~14 rows (approximately)
 DELETE FROM `product_detail`;
@@ -959,9 +965,9 @@ CREATE TABLE IF NOT EXISTS `product_image` (
   `product_id` int(11) NOT NULL DEFAULT '0',
   `image` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8;
 
--- Dumping data for table watches_online.product_image: ~17 rows (approximately)
+-- Dumping data for table watches_online.product_image: ~18 rows (approximately)
 DELETE FROM `product_image`;
 /*!40000 ALTER TABLE `product_image` DISABLE KEYS */;
 INSERT INTO `product_image` (`id`, `product_id`, `image`) VALUES
@@ -1084,6 +1090,63 @@ INSERT INTO `province` (`provinceid`, `name`, `type`) VALUES
 	('96', 'Cà Mau', 'Tỉnh');
 /*!40000 ALTER TABLE `province` ENABLE KEYS */;
 
+-- Dumping structure for table watches_online.purchase_invoices
+DROP TABLE IF EXISTS `purchase_invoices`;
+CREATE TABLE IF NOT EXISTS `purchase_invoices` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `producer_id` int(11) DEFAULT '0',
+  `user_id` int(11) DEFAULT '0',
+  `name_seller` varchar(100) DEFAULT NULL,
+  `total` varchar(100) DEFAULT '0',
+  `comment` varchar(500) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table watches_online.purchase_invoices: ~4 rows (approximately)
+DELETE FROM `purchase_invoices`;
+/*!40000 ALTER TABLE `purchase_invoices` DISABLE KEYS */;
+INSERT INTO `purchase_invoices` (`id`, `producer_id`, `user_id`, `name_seller`, `total`, `comment`, `created_at`, `updated_at`) VALUES
+	(100, 103, 100, 'Nguyễn Thị Mai', '4900000000', '', '2018-05-27 10:25:53', '2018-05-27 10:32:05'),
+	(101, 102, 100, 'Nguyễn Văn Linh', '31000000000', '', '2018-05-27 10:36:07', '2018-05-27 10:36:07'),
+	(102, 101, 100, 'Phạm Thị Vân', '3495000000', '', '2018-05-27 10:37:53', '2018-05-27 10:37:53'),
+	(103, 100, 100, 'Tạ Văn Thắng', '7950000000', '', '2018-05-27 10:41:14', '2018-05-27 10:41:14');
+/*!40000 ALTER TABLE `purchase_invoices` ENABLE KEYS */;
+
+-- Dumping structure for table watches_online.purchase_invoices_detail
+DROP TABLE IF EXISTS `purchase_invoices_detail`;
+CREATE TABLE IF NOT EXISTS `purchase_invoices_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `purchase_invoices_id` int(11) DEFAULT '0' COMMENT 'mã hóa đơn',
+  `product_id` varchar(100) DEFAULT NULL,
+  `quantity` int(50) DEFAULT '0',
+  `price` varchar(100) DEFAULT '0',
+  `total` varchar(100) DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table watches_online.purchase_invoices_detail: ~14 rows (approximately)
+DELETE FROM `purchase_invoices_detail`;
+/*!40000 ALTER TABLE `purchase_invoices_detail` DISABLE KEYS */;
+INSERT INTO `purchase_invoices_detail` (`id`, `purchase_invoices_id`, `product_id`, `quantity`, `price`, `total`, `created_at`) VALUES
+	(100, 100, 'AT-61756.43.61G', 50, '20000000', '1000000000', '2018-05-27 10:26:16'),
+	(101, 100, 'AT-64751.45.31', 100, '23000000', '2300000000', '2018-05-27 10:26:43'),
+	(102, 100, 'AT-50354.45.21', 100, '10000000', '1000000000', '2018-05-27 10:27:11'),
+	(103, 100, 'AT-20347.45.21', 100, '6000000', '600000000', '2018-05-27 10:27:43'),
+	(104, 101, 'ST-213T.333X2', 100, '230000000', '23000000000', '2018-05-27 10:36:56'),
+	(105, 101, 'ST-536.333X2', 100, '80000000', '8000000000', '2018-05-27 10:37:22'),
+	(106, 102, 'CA-MTP-1169G-9ARDF', 100, '10000000', '1000000000', '2018-05-27 10:38:42'),
+	(107, 102, 'CA- EQB-510DC-1ADR', 100, '14500000', '1450000000', '2018-05-27 10:39:07'),
+	(108, 102, 'CA-SHE-4023DP-7ADR', 100, '3500000', '350000000', '2018-05-27 10:39:32'),
+	(109, 102, 'CA-LTP-1237D-7ADF', 100, '950000', '95000000', '2018-05-27 10:40:17'),
+	(110, 102, 'CA-LTP-1275D-1ADF', 100, '6000000', '600000000', '2018-05-27 10:40:36'),
+	(111, 103, 'E-3437.132.22.18.27', 100, '30000000', '3000000000', '2018-05-27 10:41:55'),
+	(112, 103, 'E-3420.132.22.18.27', 100, '36500000', '3650000000', '2018-05-27 10:42:28'),
+	(113, 103, 'E-8000.700.22.65.15', 100, '13000000', '1300000000', '2018-05-27 10:42:48');
+/*!40000 ALTER TABLE `purchase_invoices_detail` ENABLE KEYS */;
+
 -- Dumping structure for table watches_online.sales_invoice
 DROP TABLE IF EXISTS `sales_invoice`;
 CREATE TABLE IF NOT EXISTS `sales_invoice` (
@@ -1103,14 +1166,14 @@ CREATE TABLE IF NOT EXISTS `sales_invoice` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
--- Dumping data for table watches_online.sales_invoice: ~8 rows (approximately)
+-- Dumping data for table watches_online.sales_invoice: ~21 rows (approximately)
 DELETE FROM `sales_invoice`;
 /*!40000 ALTER TABLE `sales_invoice` DISABLE KEYS */;
 INSERT INTO `sales_invoice` (`id`, `member_id`, `province_id`, `user_id`, `district_id`, `pay_method_id`, `phone`, `email`, `fullname`, `address`, `shipping`, `total`, `status`, `created_at`, `updated_at`) VALUES
-	(21, 107, 83, 0, 837, 1, '01672845126', 'huuquynh142@gmail.com', 'Nguyễn Hữu Quỳnh', 'test', '35000', '33821500', 'NEW', '2018-05-10 10:38:53', '2018-05-20 08:09:10'),
-	(22, 108, 24, 0, 215, 1, '01672729185', '', 'Nguyễn Hữu Quỳnh', 'test', '20000', '4821500', 'NEW', '2018-05-10 11:23:44', '2018-05-20 08:09:10'),
+	(21, 107, 83, 0, 837, NULL, '01672845126', 'huuquynh142@gmail.com', 'Nguyễn Hữu Quỳnh', 'test', '35000', '33821500', 'NEW', '2018-05-10 10:38:53', '2018-05-20 08:09:10'),
+	(22, 108, 24, 100, 215, 1, '01672729185', '', 'Nguyễn Hữu Quỳnh', 'test', '20000', '4821500', 'NEW', '2018-05-10 11:23:44', '2018-05-20 08:09:10'),
 	(23, 109, 52, 0, 550, 1, '01685522213', '', 'Nguyễn Hữu Quỳnh', 'test', '35000', '22879800', 'NEW', '2018-05-10 11:25:13', '2018-05-20 08:09:10'),
 	(24, 110, 6, 0, 60, 1, '01687754412', '', 'Nguyễn hữu Quỳnh', 'test', '10000', '10768000', 'PENDING', '2018-05-10 11:28:47', '2018-05-20 08:09:10'),
 	(25, 111, 52, 0, 540, 1, '01685321245', '', 'huu quynh', 'test', '25000', '18068300', 'NEW', '2018-05-10 11:33:11', '2018-05-20 08:09:10'),
@@ -1118,7 +1181,18 @@ INSERT INTO `sales_invoice` (`id`, `member_id`, `province_id`, `user_id`, `distr
 	(32, 101, 95, 0, 956, 2, '01672729181', '', 'Nguyễn Hữu Quỳnh', 'test', '15000', '1203000', 'NEW', '2018-05-20 16:08:01', '2018-05-20 16:08:01'),
 	(33, 115, 89, 0, 888, 1, '01687541268', '', 'Nguyễn Minh Long', 'Phú tân', '40000', '19049100', 'NEW', '2018-05-20 16:09:18', '2018-05-20 16:09:18'),
 	(34, 116, 52, 0, 546, 1, '01685745219', '', 'Nguyễn Hoàn Linh', 'abc', '10000', '73270000', 'NEW', '2018-05-20 18:35:40', '2018-05-20 18:35:40'),
-	(35, 117, 1, 0, 5, 1, '01634423581', 'tuansaaaaaaa@mail.com', 'Nguyễn Hữu Quỳnh', '95 cầu giấy', '15000', '307195500', 'NEW', '2018-05-20 20:49:05', '2018-05-20 20:49:05');
+	(35, 117, 1, 100, 5, 1, '01634423581', 'tuansa@mail.com', 'Nguyễn Hữu Quỳnh', '95 cầu giấy', '15000', '307195500', 'NEW', '2018-05-20 20:49:05', '2018-05-20 20:49:05'),
+	(36, 101, 1, 0, 6, 2, '01672729181', 'huuquynh142@gmail.com', 'Nguyễn Hữu Quỳnh', 'test', '10000', '62710000', 'NEW', '2018-05-25 16:06:47', '2018-05-25 16:06:47'),
+	(37, 101, 1, 0, 6, 1, '01672729181', 'huuquynh142@gmail.com', 'Nguyễn Hữu Quỳnh', 'test', '40000', '15418000', 'NEW', '2018-05-25 16:16:45', '2018-05-25 16:16:45'),
+	(38, 101, 1, 0, 6, 1, '01672729181', 'huuquynh142@gmail.com', 'Nguyễn Hữu Quỳnh', 'test', '30000', '15408000', 'NEW', '2018-05-25 16:45:41', '2018-05-25 16:45:41'),
+	(39, 101, 1, 0, 6, 1, '01672729181', 'quynhnh@dichung.vn', 'Nguyễn Hữu Quỳnh', 'test', '40000', '15418000', 'NEW', '2018-05-25 17:02:23', '2018-05-25 17:02:23'),
+	(40, 120, 1, 0, 6, 1, '01698675249', 'quynhnh@dichung.vn', 'Nguyễn Hữu Quỳnh', 'test', '10000', '15388000', 'NEW', '2018-05-25 17:05:02', '2018-05-25 17:05:02'),
+	(41, 121, 60, 0, 600, 1, '01685375249', 'quynhnh@dichung.vn', 'test', 'test', '20000', '30776000', 'NEW', '2018-05-25 17:15:02', '2018-05-25 17:15:02'),
+	(42, 122, 52, 0, 546, 1, '01685596857', 'quynhnh@dichung.vn', 'Nguyễn Hữu Quỳnh', 'test', '35000', '2411000', 'NEW', '2018-05-25 19:01:11', '2018-05-25 19:01:11'),
+	(43, 123, 96, 0, 970, 2, '01685532415', '', 'Phan Đức Ninh', 'test', '30000', '20209500', 'NEW', '2018-05-27 11:27:34', '2018-05-27 11:27:34'),
+	(44, 121, 1, 0, 6, 0, '01685375249', '', 'Nguyễn Mai Linh', 'đường láng', '20000', '985800', 'NEW', '2018-05-27 12:01:43', '2018-05-27 12:01:43'),
+	(45, 124, 2, 0, 26, 1, '01587542519', '', 'Nguyễn Văn Lâm', 'test', '30000', '1218000', 'NEW', '2018-05-27 12:12:49', '2018-05-27 12:12:49'),
+	(46, 125, 1, 0, 5, 2, '01677754219', '', 'Phùng Văn Quang', 'cầu giấy', '35000', '1000800', 'NEW', '2018-05-27 12:13:38', '2018-05-27 12:13:38');
 /*!40000 ALTER TABLE `sales_invoice` ENABLE KEYS */;
 
 -- Dumping structure for table watches_online.sales_invoice_detail
@@ -1132,29 +1206,43 @@ CREATE TABLE IF NOT EXISTS `sales_invoice_detail` (
   `price` varchar(100) DEFAULT NULL,
   `total` varchar(100) DEFAULT NULL,
   `comment` varchar(500) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
 
--- Dumping data for table watches_online.sales_invoice_detail: ~13 rows (approximately)
+-- Dumping data for table watches_online.sales_invoice_detail: ~29 rows (approximately)
 DELETE FROM `sales_invoice_detail`;
 /*!40000 ALTER TABLE `sales_invoice_detail` DISABLE KEYS */;
-INSERT INTO `sales_invoice_detail` (`id`, `sales_invoice_id`, `product_id`, `quantity`, `discount`, `price`, `total`, `comment`) VALUES
-	(58, 21, 101, 1, 0, '26350000', '26350000', NULL),
-	(59, 21, 108, 1, 0, '4365000', '4365000', NULL),
-	(60, 22, 108, 1, 0, '4365000', '4365000', ''),
-	(61, 23, 108, 1, 0, '4365000', '4365000', NULL),
-	(62, 23, 107, 1, 0, '16403000', '16403000', NULL),
-	(64, 25, 107, 1, 0, '16403000', '16403000', NULL),
-	(65, 25, 109, 3, 0, '1080000', '3240000', ''),
-	(66, 24, 102, 1, 0, '13980000', '13980000', NULL),
-	(71, 30, 109, 2, 0, '1080000', '2160000', NULL),
-	(73, 32, 109, 1, 0, '1080000', '1080000', NULL),
-	(74, 33, 110, 1, 0, '878000', '878000', NULL),
-	(75, 33, 107, 1, 0, '16403000', '16403000', NULL),
-	(76, 34, 111, 2, 0, '33300000', '66600000', NULL),
-	(77, 35, 109, 1, 0, '1080000', '1080000', NULL),
-	(78, 35, 100, 1, 10, '25750000', '23175000', NULL),
-	(79, 35, 104, 1, 0, '255000000', '255000000', NULL);
+INSERT INTO `sales_invoice_detail` (`id`, `sales_invoice_id`, `product_id`, `quantity`, `discount`, `price`, `total`, `comment`, `created_at`) VALUES
+	(58, 21, 101, 1, 0, '26350000', '26350000', NULL, '2018-05-26 15:42:22'),
+	(59, 21, 108, 1, 0, '4365000', '4365000', NULL, '2018-01-26 15:42:22'),
+	(60, 22, 100, 1, 0, '4365000', '4365000', 'chưa thanh toán', '2018-05-26 15:42:22'),
+	(61, 23, 108, 1, 0, '4365000', '4365000', NULL, '2018-01-26 15:42:22'),
+	(62, 23, 107, 1, 0, '16403000', '16403000', NULL, '2018-05-26 15:42:22'),
+	(64, 25, 107, 1, 0, '16403000', '16403000', NULL, '2018-04-26 15:42:22'),
+	(65, 25, 109, 3, 0, '1080000', '3240000', '', '2018-05-26 15:42:22'),
+	(66, 24, 102, 1, 0, '13980000', '13980000', NULL, '2018-05-26 15:42:22'),
+	(71, 30, 109, 2, 0, '1080000', '2160000', NULL, '2018-02-26 15:42:22'),
+	(73, 32, 109, 1, 0, '1080000', '1080000', NULL, '2018-05-26 15:42:22'),
+	(74, 33, 110, 1, 0, '878000', '878000', NULL, '2018-05-26 15:42:22'),
+	(75, 33, 107, 1, 0, '16403000', '16403000', NULL, '2018-02-26 15:42:22'),
+	(76, 34, 111, 2, 0, '33300000', '66600000', NULL, '2018-05-26 15:42:22'),
+	(77, 35, 109, 1, 0, '1080000', '1080000', NULL, '2018-04-26 15:42:22'),
+	(78, 35, 100, 1, 10, '25750000', '23175000', NULL, '2018-05-26 15:42:22'),
+	(79, 35, 104, 1, 0, '255000000', '255000000', NULL, '2018-05-26 15:42:22'),
+	(80, 36, 109, 1, 0, '1080000', '1080000', NULL, '2018-05-26 15:42:22'),
+	(81, 36, 102, 4, 0, '13980000', '55920000', NULL, '2018-04-26 15:42:22'),
+	(82, 37, 102, 1, 0, '13980000', '13980000', NULL, '2018-05-26 15:42:22'),
+	(83, 38, 102, 1, 0, '13980000', '13980000', NULL, '2018-03-26 15:42:22'),
+	(84, 39, 102, 1, 0, '13980000', '13980000', NULL, '2018-05-26 15:42:22'),
+	(85, 40, 102, 1, 0, '13980000', '13980000', NULL, '2018-04-26 15:42:22'),
+	(86, 41, 102, 2, 0, '13980000', '27960000', NULL, '2018-05-26 15:42:22'),
+	(87, 42, 109, 2, 0, '1080000', '2160000', NULL, '2018-05-26 15:42:22'),
+	(88, 43, 108, 1, 0, '4365000', '4365000', NULL, '2018-05-27 11:27:34'),
+	(89, 43, 102, 1, 0, '13980000', '13980000', NULL, '2018-05-27 11:27:34'),
+	(90, 44, 110, 1, 0, '878000', '878000', NULL, '2018-05-27 12:01:43'),
+	(91, 45, 109, 1, 0, '1080000', '1080000', NULL, '2018-05-27 12:12:50'),
+	(92, 46, 110, 1, 0, '878000', '878000', NULL, '2018-05-27 12:13:39');
 /*!40000 ALTER TABLE `sales_invoice_detail` ENABLE KEYS */;
 
 -- Dumping structure for table watches_online.slider
