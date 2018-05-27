@@ -23,8 +23,11 @@ class SecurityController extends ControllerBase
           ->where(Users::class.".username = '" .$userName."'")
           ->andWhere(Users::class.".password = '" .$password."'")
           ->execute();
-      if (count($c) > 0)
+      if (count($c) > 0){
+          $this->session->set('useId' , $c[0]->id);
           $this->session->set('security',$userName);
+      }
+
         $this->dispatcher->forward(array(
             'controller' => 'product',
             'action' => 'index'
