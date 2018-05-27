@@ -2,6 +2,7 @@
 namespace Multiple\Backend\Controllers;
 use App\Models\Product;
 use App\Models\ProductDetail;
+use App\Models\SalesInvoice;
 use App\Models\SalesInvoiceDetail;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
@@ -115,7 +116,12 @@ class SalesInvoiceDetailController extends ControllerBase
         $sales_invoice_detail->productId = $this->request->getPost("product_id");
         $sales_invoice_detail->quantity = $this->request->getPost("quantity");
         $sales_invoice_detail->comment = $this->request->getPost("comment");
-        
+        if ($this->session->has('useId')){
+            $sales_invoice = SalesInvoice::findFirstByid($sales_invoice_detail->salesInvoiceId);
+            $sales_invoice->userId = $this->session->get('useId');
+            $sales_invoice->save();
+        }
+
 
         if (!$sales_invoice_detail->save()) {
 

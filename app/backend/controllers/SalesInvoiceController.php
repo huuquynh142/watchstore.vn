@@ -151,7 +151,8 @@ class SalesInvoiceController extends ControllerBase
         $sales_invoice->fullname = $this->request->getPost("fullname");
         $sales_invoice->address = $this->request->getPost("address");
         $sales_invoice->status = $this->request->getPost("status");
-        
+        if ($this->session->has('useId'))
+            $sales_invoice->userId = $this->session->get('useId');
 
         if (!$sales_invoice->save()) {
 
