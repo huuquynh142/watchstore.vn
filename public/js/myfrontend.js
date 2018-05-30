@@ -83,67 +83,94 @@ $(document).ready(function () {
         var id = $(this).attr('data-id');
         var quatity = $(".quantity_" + id).val();
 
-        $.ajax({
-            type: 'POST',
-            url: '/ShopCart/add',
-            dataType: 'json',
-            data: {'id':id , 'quatity': quatity},
-            success: function(data) {
-                if (data.code == 'success') {
-                    $('.reveal-modal-bg').css({"visibility": "hidden", "display": "none"});
-                    $('.reveal-modal').css({"visibility": "hidden", "display": "none"});
+        if(quatity < 0 )
+        {
+            alert('Số sản phẩm mua tối thiểu là 1 sản phẩm');
+            $(".quantity_" + id).val(1);
+        }
+        if(quatity > 10 )
+        {
+            alert('Số sản phẩm có thể mua tối đa là 10 sản phẩm');
+            $(".quantity_" + id).val(10);
 
-                    jDialog(data.data, 'popup', 'Giỏ hàng', function (data) {
+        }
+        if (quatity > 0 && quatity <= 10) {
+            $.ajax({
+                type: 'POST',
+                url: '/ShopCart/add',
+                dataType: 'json',
+                data: {'id': id, 'quatity': quatity},
+                success: function (data) {
+                    if (data.code == 'success') {
+                        $('.reveal-modal-bg').css({"visibility": "hidden", "display": "none"});
+                        $('.reveal-modal').css({"visibility": "hidden", "display": "none"});
 
-                        data = $.parseJSON(data);
+                        jDialog(data.data, 'popup', 'Giỏ hàng', function (data) {
 
-                        jAlert(data.msg);
+                            data = $.parseJSON(data);
 
-                        if (data.code == 0) {
-                            location.reload(true);
-                        }
-                    });
-                    $('#CartCount').text(data.countCart);
-                    $('#CartCost').text(data.totalCart);
-                    $('.cart-subtotal .money').text(data.totalCart);
+                            jAlert(data.msg);
+
+                            if (data.code == 0) {
+                                location.reload(true);
+                            }
+                        });
+                        $('#CartCount').text(data.countCart);
+                        $('#CartCost').text(data.totalCart);
+                        $('.cart-subtotal .money').text(data.totalCart);
+                    }
+                    else
+                        alert(data.message)
                 }
-                else
-                    alert(data.message)
-            }});
+            });
+        }
     });
 
 
     $(document).on('click','#addToCart',function () {
         var id = $(this).attr('data-id');
         var quatity = $(".quantity_" + id).val();
+        if(quatity < 0 )
+        {
+            alert('Số sản phẩm mua tối thiểu là 1 sản phẩm');
+            $(".quantity_" + id).val(1);
+        }
+        if(quatity > 10 )
+        {
+            alert('Số sản phẩm có thể mua tối đa là 10 sản phẩm');
+            $(".quantity_" + id).val(10);
 
-        $.ajax({
-            type: 'POST',
-            url: '/ShopCart/add',
-            dataType: 'json',
-            data: {'id':id , 'quatity': quatity},
-            success: function(data) {
-                if (data.code == 'success') {
-                    // $('.reveal-modal-bg').css({"visibility": "hidden", "display": "none"});
-                    // $('.reveal-modal').css({"visibility": "hidden", "display": "none"});
+        }
+        if (quatity > 0 && quatity <= 10) {
+            $.ajax({
+                type: 'POST',
+                url: '/ShopCart/add',
+                dataType: 'json',
+                data: {'id': id, 'quatity': quatity},
+                success: function (data) {
+                    if (data.code == 'success') {
+                        // $('.reveal-modal-bg').css({"visibility": "hidden", "display": "none"});
+                        // $('.reveal-modal').css({"visibility": "hidden", "display": "none"});
 
-                    jDialog(data.data, 'popup', 'Giỏ hàng', function (data) {
+                        jDialog(data.data, 'popup', 'Giỏ hàng', function (data) {
 
-                        data = $.parseJSON(data);
+                            data = $.parseJSON(data);
 
-                        jAlert(data.msg);
+                            jAlert(data.msg);
 
-                        if (data.code == 0) {
-                            location.reload(true);
-                        }
-                    });
-                    $('#CartCount').text(data.countCart);
-                    $('#CartCost').text(data.totalCart);
-                    $('.cart-subtotal .money').text(data.totalCart);
+                            if (data.code == 0) {
+                                location.reload(true);
+                            }
+                        });
+                        $('#CartCount').text(data.countCart);
+                        $('#CartCost').text(data.totalCart);
+                        $('.cart-subtotal .money').text(data.totalCart);
+                    }
+                    else
+                        alert(data.message)
                 }
-                else
-                    alert(data.message)
-            }});
+            });
+        }
     });
 
     $(document).on('click','#btn_quick_view', function () {
@@ -238,9 +265,19 @@ $(document).ready(function () {
         else
             max = maxquantity;
         if(count < max)
-            updateCart(id , value);
-        else
-            alert('Số sản phẩm có thể mua tối đa là ' +max +' sản phẩm !')
+            if (count > 0)
+                updateCart(id , count);
+            else {
+                alert('Số sản phẩm mua tối thiểu là 1 sản phẩm !');
+                $(this).val(1);
+                updateCart(id , 1);
+            }
+        else{
+            alert('Số sản phẩm có thể mua tối đa là ' +max +' sản phẩm !');
+            $(this).val(10);
+            updateCart(id , 10);
+        }
+
     });
     
     $(document).on('click','#btn-remove',function () {
