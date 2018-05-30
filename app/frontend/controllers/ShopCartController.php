@@ -180,7 +180,7 @@ class ShopCartController extends ControllerBase
                                         <input type="hidden" id="js-qty___quantity_'.$product->id.'" data-id="'.$products->quantity.'">
                                         <div class="js-qty" data-id="'.$product->id.'">
                                             <button type="button" class="js-qty__adjust js-qty__adjust--minus"  data-qty="0">−</button>
-                                            <input type="text" class="js-qty__num" value="'.$product->quatity.'" min="1" aria-label="quantity" pattern="[0-9]*" name="updates[]">
+                                            <input type="number" data-id="'.$product->id.'" id="js-qty__num_cart" class="js-qty__num" value="'.$product->quatity.'" min="1" max="10" name="updates[]">
                                             <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-qty="10">+</button>
                                         </div>
         

@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76506301-fa0a-444c-bfc1-01059bb188f9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/index/newproduct.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/index/newproduct.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/product/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/product/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/product/searchproduct.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/product/searchproduct.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/productdetail/productdetail.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/productdetail/productdetail.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/productdetail/relatedproducts.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/productdetail/relatedproducts.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/views/search/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/search/index.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/controllers/ShopCartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/controllers/ShopCartController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/frontend/views/shopcart/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/views/shopcart/index.phtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/ajaxify.scsse0a9.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/ajaxify.scsse0a9.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/stylee0a9.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/stylee0a9.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/myfrontend.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/myfrontend.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +26,8 @@
       <file leaf-file-name="myfrontend.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/myfrontend.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="235" column="29" lean-forward="true" selection-start-line="235" selection-start-column="29" selection-end-line="235" selection-end-column="29" />
+            <state relative-caret-position="435">
+              <caret line="126" lean-forward="true" selection-start-line="126" selection-end-line="126" />
             </state>
           </provider>
         </entry>
@@ -40,8 +35,11 @@
       <file leaf-file-name="index.phtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/frontend/views/shopcart/index.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="53" column="103" selection-start-line="53" selection-start-column="96" selection-end-line="53" selection-end-column="103" />
+            <state relative-caret-position="374">
+              <caret line="53" column="190" lean-forward="true" selection-start-line="53" selection-start-column="174" selection-end-line="53" selection-end-column="190" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#main#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -49,8 +47,17 @@
       <file leaf-file-name="shopcart.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/shopcart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="-1812">
               <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShopCartController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/frontend/controllers/ShopCartController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="186" column="8" lean-forward="true" selection-start-line="186" selection-start-column="8" selection-end-line="186" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -59,13 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$credentail</find>
-      <find>10596f0d6099469</find>
-      <find>215982cfe340e5c.jpg</find>
-      <find>/public/img/product/</find>
-      <find>find</find>
-      <find>watches_online</find>
-      <find>b4_22077174_huuquynh</find>
       <find>findFirst</find>
       <find>new PHPExcel</find>
       <find>header</find>
@@ -78,7 +78,6 @@
       <find>redirect</find>
       <find>paymentOnepay</find>
       <find>quantity</find>
-      <find>.ajaxcart__qty-adjust</find>
       <find>.js-qty__adjust,.ajaxcart__qty-adjust</find>
       <find>input[type=&quot;text&quot;]</find>
       <find>.ajaxcart__qty input[type=&quot;text&quot;]</find>
@@ -88,6 +87,14 @@
       <find>onchangF</find>
       <find>js-qty__num_cart</find>
       <find>js-qty___quantity_</find>
+      <find>.ajaxcart__qty--plus</find>
+      <find>.ajaxcart__qty input[type=&quot;number&quot;]</find>
+      <find>input[type=&quot;number&quot;]</find>
+      <find>.js-qty__adjust,</find>
+      <find>#666666</find>
+      <find>#form-cart .cart-item .js-qty__adjust, #form-cart .cart-item .ajaxcart__qty-adjust</find>
+      <find>.ajaxcart__qty-adjust</find>
+      <find>.ajaxcart__qty--minus</find>
       <find>js-qty_</find>
     </findStrings>
     <replaceStrings>
@@ -116,7 +123,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/backend/controllers/PurchaseInvoicesDetailController.php" />
         <option value="$PROJECT_DIR$/app/frontend/views/checkouts/customerinfo.phtml" />
         <option value="$PROJECT_DIR$/app/frontend/views/layouts/checkouts.phtml" />
         <option value="$PROJECT_DIR$/library/classes/libchart.php" />
@@ -153,12 +159,10 @@
         <option value="$PROJECT_DIR$/app/backend/controllers/PurchaseInvoicesController.php" />
         <option value="$PROJECT_DIR$/app/backend/controllers/SalesInvoiceController.php" />
         <option value="$PROJECT_DIR$/app/backend/controllers/SalesInvoiceDetailController.php" />
-        <option value="$PROJECT_DIR$/app/frontend/controllers/ShopCartController.php" />
         <option value="$PROJECT_DIR$/app/frontend/views/checkouts/payment.phtml" />
         <option value="$PROJECT_DIR$/public/js/shopcart.js" />
         <option value="$PROJECT_DIR$/app/frontend/controllers/PaymentController.php" />
         <option value="$PROJECT_DIR$/app/frontend/controllers/CheckOutsController.php" />
-        <option value="$PROJECT_DIR$/public/css/ajaxify.scsse0a9.css" />
         <option value="$PROJECT_DIR$/app/frontend/views/index/newproduct.phtml" />
         <option value="$PROJECT_DIR$/app/frontend/views/product/index.phtml" />
         <option value="$PROJECT_DIR$/app/frontend/views/product/searchproduct.phtml" />
@@ -166,6 +170,9 @@
         <option value="$PROJECT_DIR$/app/frontend/views/productdetail/relatedproducts.phtml" />
         <option value="$PROJECT_DIR$/app/frontend/views/search/index.phtml" />
         <option value="$PROJECT_DIR$/app/frontend/views/shopcart/index.phtml" />
+        <option value="$PROJECT_DIR$/public/css/stylee0a9.css" />
+        <option value="$PROJECT_DIR$/public/css/ajaxify.scsse0a9.css" />
+        <option value="$PROJECT_DIR$/app/frontend/controllers/ShopCartController.php" />
         <option value="$PROJECT_DIR$/public/js/myfrontend.js" />
       </list>
     </option>
@@ -260,6 +267,12 @@
               <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
               <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="watchstore.vn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="watchstore.vn" type="b2602c69:ProjectViewProjectNode" />
@@ -464,12 +477,12 @@
       <workItem from="1527389912445" duration="2737000" />
       <workItem from="1527449920489" duration="45000" />
       <workItem from="1527450445871" duration="239000" />
-      <workItem from="1527672648082" duration="3041000" />
+      <workItem from="1527672648082" duration="6116000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="648230000" />
+    <option name="totallyTimeSpent" value="651305000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -531,7 +544,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/library/view/chart/HorizontalBarChart.php" />
     <entry file="file://$PROJECT_DIR$/library/model/XYDataSet.php" />
     <entry file="file://$PROJECT_DIR$/library/POP3.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -747,13 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/frontend/controllers/ShopCartController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/frontend/views/checkouts/payment.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
@@ -816,17 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/ajaxify.scsse0a9.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret column="5621" lean-forward="true" selection-start-column="5621" selection-end-column="5621" />
-          <folding>
-            <element signature="e#398#2741#2" expanded="true" />
-            <element signature="e#16716#18179#2" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/frontend/views/index/newproduct.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
@@ -834,24 +828,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/stylee0a9.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="8333" column="1" lean-forward="true" selection-start-line="8333" selection-start-column="1" selection-end-line="8333" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/ajaxify.scsse0a9.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret column="6784" lean-forward="true" selection-start-column="6784" selection-end-column="6784" />
+          <folding>
+            <element signature="e#398#2741#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/shopcart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="-1812">
           <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/frontend/views/shopcart/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="53" column="103" selection-start-line="53" selection-start-column="96" selection-end-line="53" selection-end-column="103" />
+        <state relative-caret-position="374">
+          <caret line="53" column="190" lean-forward="true" selection-start-line="53" selection-start-column="174" selection-end-line="53" selection-end-column="190" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#main#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/frontend/controllers/ShopCartController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="186" column="8" lean-forward="true" selection-start-line="186" selection-start-column="8" selection-end-line="186" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/myfrontend.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="235" column="29" lean-forward="true" selection-start-line="235" selection-start-column="29" selection-end-line="235" selection-end-column="29" />
+        <state relative-caret-position="435">
+          <caret line="126" lean-forward="true" selection-start-line="126" selection-end-line="126" />
         </state>
       </provider>
     </entry>

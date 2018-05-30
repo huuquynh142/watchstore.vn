@@ -27,7 +27,7 @@
 
 
 
-                            <?php foreach ($showCart as $product): ?>
+                            <?php foreach ($showCart as $product): $products = \App\Models\Product::findFirstByid($product->id)?>
                                 <div class="cart-item row">
                                     <div class="small-12 large-6 columns">
                                         <div class="row">
@@ -48,8 +48,7 @@
                                     <div class="small-12 large-6 columns">
                                         <div class="row product-detail">
                                             <div class="small-6 large-6 columns">
-
-
+                                                <input style="display: none" data-id="<?= $products->quantity ?>" type="hidden" id="js-qty___quantity_<?= $product->id?>" >
                                                 <div class="js-qty" data-id="<?=$product->id?>">
                                                     <button type="button" class="js-qty__adjust js-qty__adjust--minus"  data-qty="0">−</button>
                                                     <input type="number" data-id="<?=$product->id?>" id="js-qty__num_cart" class="js-qty__num" value="<?=$product->quatity?>" min="1" max="10" name="updates[]">
