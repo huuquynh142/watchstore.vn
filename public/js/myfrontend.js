@@ -225,6 +225,24 @@ $(document).ready(function () {
             }
         }
     });
+
+
+    $(document).on('change', '#js-qty__num_cart', function () {
+        var id = $(this).data('id');
+        var max = 0;
+        var maxquantity = $("#js-qty___quantity_" + id).data('id');
+        console.log(maxquantity);
+        var count = $(this).val();
+        if (maxquantity > 10)
+            max = 10;
+        else
+            max = maxquantity;
+        if(count < max)
+            updateCart(id , value);
+        else
+            alert('Số sản phẩm có thể mua tối đa là ' +max +' sản phẩm !')
+    });
+    
     $(document).on('click','#btn-remove',function () {
         var id = $(this).attr('data-id');
         $.getJSON('/frontend/ShopCart/delete/' + id, function (data) {

@@ -84,7 +84,7 @@
                             <div class="qty-adder qty-adder408538376 pull-left" data-id="<?= $productDetail[0]->id ?>">
                                 <div class="quantity-number pull-left">
                                     <a href="javascript:void(0)" title=""><span class="add-down add-action">-</span></a>
-                                    <input class="quantity_<?= $productDetail[0]->id ?>" id="quantity" type="text" name="quantity" size="2" value="1">
+                                    <input class="quantity_<?= $productDetail[0]->id ?>" min="1" max="10" id="quantity" type="number" name="quantity" size="2" value="1">
                                     <a href="javascript:void(0)" title=""><span class="add-up add-action">+</span></a>
                                 </div>
                             </div>
