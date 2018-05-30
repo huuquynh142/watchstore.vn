@@ -11,6 +11,7 @@
         <table class="table table-striped table-hover table-bordered ">
             <tbody><tr >
                 <th style="background-color: #0288d1;color: #ffffff;">Id</th>
+                <th style="background-color: #0288d1;color: #ffffff;">Product ID</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Quantity</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Price</th>
                 <th style="background-color: #0288d1;color: #ffffff;">Total</th>
@@ -18,8 +19,8 @@
             </tr>
             <?php foreach ($page->items as $purchase_invoices_detail): ?>
                 <tr>
-
                     <td><?php echo $this->tag->linkTo(["backend/purchase_invoices_detail/edit/" . $purchase_invoices_detail->id, $purchase_invoices_detail->id ]); ?></td>
+                    <td><?php echo $purchase_invoices_detail->product_id ?></td>
                     <td><?php echo $purchase_invoices_detail->quantity ?></td>
                     <td><?php echo number_format($purchase_invoices_detail->price ,0  , 0 , '.')  ?></td>
                     <td><?php echo number_format($purchase_invoices_detail->total ,0  , 0 , '.')  ?></td>

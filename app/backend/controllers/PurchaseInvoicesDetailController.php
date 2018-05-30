@@ -20,6 +20,7 @@ class PurchaseInvoicesDetailController extends ControllerBase
             ->where(PurchaseInvoicesDetail::class.".purchase_invoices_id = " . $id."")
             ->columns([PurchaseInvoicesDetail::class.".quantity" ,
                 PurchaseInvoicesDetail::class.".price" ,
+                PurchaseInvoicesDetail::class.".product_id" ,
                 PurchaseInvoicesDetail::class.".id" ,
                 PurchaseInvoicesDetail::class.".total",
             ])
