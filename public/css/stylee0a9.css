@@ -8330,7 +8330,7 @@ body.header-three .sb-icon-search{
 }
 #form-cart .cart-item .js-qty__adjust, #form-cart .cart-item .ajaxcart__qty-adjust{
     color: #666666;
-    padding: 0px;
+    /*padding: 0px;*/
 }
 #form-cart .cart-item .js-qty{
     float: right;
